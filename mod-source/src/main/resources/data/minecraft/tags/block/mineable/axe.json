@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "mythicrpg:oak_vertical_slab",
+    "mythicrpg:spruce_vertical_slab",
+    "mythicrpg:birch_vertical_slab",
+    "mythicrpg:jungle_vertical_slab",
+    "mythicrpg:acacia_vertical_slab",
+    "mythicrpg:dark_oak_vertical_slab",
+    "mythicrpg:mangrove_vertical_slab",
+    "mythicrpg:cherry_vertical_slab",
+    "mythicrpg:bamboo_vertical_slab",
+    "mythicrpg:crimson_vertical_slab",
+    "mythicrpg:warped_vertical_slab",
+    "mythicrpg:building_reserve_chest",
+    "mythicrpg:fish_net",
+    "mythicrpg:fishery_table"
+  ]
+}

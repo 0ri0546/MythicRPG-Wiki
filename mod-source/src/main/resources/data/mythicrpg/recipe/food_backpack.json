@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LCL",
+    "SES",
+    "LCL"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "E": {
+      "item": "mythicrpg:enchanted_seed"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:food_backpack",
+    "count": 1
+  }
+}

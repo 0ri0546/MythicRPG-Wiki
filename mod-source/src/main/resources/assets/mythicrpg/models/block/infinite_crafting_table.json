@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "mythicrpg:block/infinite_crafting_table_side",
+    "down": "mythicrpg:block/infinite_crafting_table_bottom",
+    "up": "mythicrpg:block/infinite_crafting_table_top",
+    "north": "mythicrpg:block/infinite_crafting_table_front",
+    "south": "mythicrpg:block/infinite_crafting_table_side",
+    "west": "mythicrpg:block/infinite_crafting_table_side",
+    "east": "mythicrpg:block/infinite_crafting_table_side"
+  }
+}

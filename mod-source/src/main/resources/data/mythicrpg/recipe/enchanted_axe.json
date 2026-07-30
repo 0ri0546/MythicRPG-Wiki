@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "EDE",
+    "DAD",
+    " S "
+  ],
+  "key": {
+    "E": {
+      "item": "mythicrpg:enchanted_wood"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "A": {
+      "item": "minecraft:netherite_axe"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:enchanted_axe",
+    "count": 1
+  }
+}

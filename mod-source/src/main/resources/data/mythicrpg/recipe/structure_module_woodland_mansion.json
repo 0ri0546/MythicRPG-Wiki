@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XMX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:dark_oak_log"
+    },
+    "M": {
+      "item": "mythicrpg:structure_module"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:structure_module",
+    "count": 1,
+    "components": {
+      "minecraft:custom_data": {
+        "mythicrpg_structure_module": "woodland_mansion"
+      }
+    }
+  }
+}

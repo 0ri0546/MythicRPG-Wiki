@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "B",
+    "B"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:warped_planks"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:warped_vertical_slab",
+    "count": 6
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CGC",
+    "WBW",
+    "CCC"
+  ],
+  "key": {
+    "C": { "item": "minecraft:copper_ingot" },
+    "G": { "item": "minecraft:glass" },
+    "W": { "item": "minecraft:water_bucket" },
+    "B": { "item": "minecraft:bone_block" }
+  },
+  "result": {
+    "id": "mythicrpg:fossil_incubator",
+    "count": 1
+  }
+}

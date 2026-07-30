@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CGC",
+    "GAG",
+    "CIC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:turtle_scute"
+    },
+    "G": {
+      "item": "minecraft:seagrass"
+    },
+    "A": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:turtle_saddle",
+    "count": 1
+  }
+}

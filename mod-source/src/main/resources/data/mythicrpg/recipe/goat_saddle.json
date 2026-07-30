@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LHL",
+    "HSH",
+    "LIL"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "H": {
+      "item": "minecraft:goat_horn"
+    },
+    "S": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:goat_saddle",
+    "count": 1
+  }
+}

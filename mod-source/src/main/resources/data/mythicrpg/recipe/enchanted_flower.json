@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SES",
+    "EDE",
+    "SES"
+  ],
+  "key": {
+    "S": {
+      "item": "mythicrpg:enchanted_seed"
+    },
+    "E": {
+      "item": "minecraft:emerald"
+    },
+    "D": {
+      "item": "minecraft:spore_blossom"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:enchanted_flower",
+    "count": 1
+  }
+}

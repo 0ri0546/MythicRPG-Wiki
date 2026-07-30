@@ -1,0 +1,20 @@
+{
+  "textures": {
+    "texture": "minecraft:block/oak_trapdoor",
+    "particle": "minecraft:block/oak_trapdoor"
+  },
+  "elements": [
+    {
+      "from": [1, 0, 1],
+      "to": [15, 2, 15],
+      "faces": {
+        "down":  { "uv": [1, 1, 15, 15], "texture": "#texture", "cullface": "down" },
+        "up":    { "uv": [1, 1, 15, 15], "texture": "#texture" },
+        "north": { "uv": [1, 14, 15, 16], "texture": "#texture" },
+        "south": { "uv": [1, 14, 15, 16], "texture": "#texture" },
+        "west":  { "uv": [1, 14, 15, 16], "texture": "#texture" },
+        "east":  { "uv": [1, 14, 15, 16], "texture": "#texture" }
+      }
+    }
+  ]
+}

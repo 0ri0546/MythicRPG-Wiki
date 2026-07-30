@@ -1,0 +1,5168 @@
+[
+  {
+    "type": "skill",
+    "id": "mining",
+    "title": {
+      "fr": "Minage",
+      "en": "Mining"
+    },
+    "url": "/skills/mining/"
+  },
+  {
+    "type": "perk",
+    "id": "mining-1",
+    "title": {
+      "fr": "Filon minier",
+      "en": "Vein Mining"
+    },
+    "url": "/skills/mining/#mining-1"
+  },
+  {
+    "type": "perk",
+    "id": "mining-2",
+    "title": {
+      "fr": "Fouilles fossiles",
+      "en": "Fossil Excavation"
+    },
+    "url": "/skills/mining/#mining-2"
+  },
+  {
+    "type": "perk",
+    "id": "mining-3",
+    "title": {
+      "fr": "Incubation fossile",
+      "en": "Fossil Incubation"
+    },
+    "url": "/skills/mining/#mining-3"
+  },
+  {
+    "type": "perk",
+    "id": "mining-4",
+    "title": {
+      "fr": "Archéologue",
+      "en": "Archaeologist"
+    },
+    "url": "/skills/mining/#mining-4"
+  },
+  {
+    "type": "perk",
+    "id": "mining-5",
+    "title": {
+      "fr": "Surbrillance I",
+      "en": "Highlight 1"
+    },
+    "url": "/skills/mining/#mining-5"
+  },
+  {
+    "type": "perk",
+    "id": "mining-6",
+    "title": {
+      "fr": "Surbrillance II",
+      "en": "Highlight 2"
+    },
+    "url": "/skills/mining/#mining-6"
+  },
+  {
+    "type": "perk",
+    "id": "mining-7",
+    "title": {
+      "fr": "Surbrillance III",
+      "en": "Highlight 3"
+    },
+    "url": "/skills/mining/#mining-7"
+  },
+  {
+    "type": "perk",
+    "id": "mining-8",
+    "title": {
+      "fr": "Célérité I",
+      "en": "Haste 1"
+    },
+    "url": "/skills/mining/#mining-8"
+  },
+  {
+    "type": "perk",
+    "id": "mining-9",
+    "title": {
+      "fr": "Butin +10 %",
+      "en": "Drop +10%"
+    },
+    "url": "/skills/mining/#mining-9"
+  },
+  {
+    "type": "perk",
+    "id": "mining-10",
+    "title": {
+      "fr": "Butin +20 %",
+      "en": "Drop +20%"
+    },
+    "url": "/skills/mining/#mining-10"
+  },
+  {
+    "type": "perk",
+    "id": "mining-11",
+    "title": {
+      "fr": "Butin +30 %",
+      "en": "Drop +30%"
+    },
+    "url": "/skills/mining/#mining-11"
+  },
+  {
+    "type": "perk",
+    "id": "mining-12",
+    "title": {
+      "fr": "XP +20 %",
+      "en": "XP +20%"
+    },
+    "url": "/skills/mining/#mining-12"
+  },
+  {
+    "type": "perk",
+    "id": "mining-13",
+    "title": {
+      "fr": "XP +35 %",
+      "en": "XP +35%"
+    },
+    "url": "/skills/mining/#mining-13"
+  },
+  {
+    "type": "perk",
+    "id": "mining-14",
+    "title": {
+      "fr": "XP +45 %",
+      "en": "XP +45%"
+    },
+    "url": "/skills/mining/#mining-14"
+  },
+  {
+    "type": "perk",
+    "id": "mining-15",
+    "title": {
+      "fr": "Protection contre le feu",
+      "en": "Fire protection"
+    },
+    "url": "/skills/mining/#mining-15"
+  },
+  {
+    "type": "perk",
+    "id": "mining-16",
+    "title": {
+      "fr": "Chute sans dégâts",
+      "en": "No fall damage"
+    },
+    "url": "/skills/mining/#mining-16"
+  },
+  {
+    "type": "perk",
+    "id": "mining-17",
+    "title": {
+      "fr": "Affinité aquatique",
+      "en": "Aqua affinity"
+    },
+    "url": "/skills/mining/#mining-17"
+  },
+  {
+    "type": "perk",
+    "id": "mining-18",
+    "title": {
+      "fr": "Minage 3×3",
+      "en": "3x3 Mining"
+    },
+    "url": "/skills/mining/#mining-18"
+  },
+  {
+    "type": "perk",
+    "id": "mining-19",
+    "title": {
+      "fr": "Célérité II",
+      "en": "Haste 2"
+    },
+    "url": "/skills/mining/#mining-19"
+  },
+  {
+    "type": "perk",
+    "id": "mining-20",
+    "title": {
+      "fr": "Aucune perte de durabilité",
+      "en": "No durability loss"
+    },
+    "url": "/skills/mining/#mining-20"
+  },
+  {
+    "type": "skill",
+    "id": "fighting",
+    "title": {
+      "fr": "Combat",
+      "en": "Fighting"
+    },
+    "url": "/skills/fighting/"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-1",
+    "title": {
+      "fr": "Vision du chasseur",
+      "en": "Hunter Vision"
+    },
+    "url": "/skills/fighting/#fighting-1"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-2",
+    "title": {
+      "fr": "Poison I",
+      "en": "Poison I"
+    },
+    "url": "/skills/fighting/#fighting-2"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-3",
+    "title": {
+      "fr": "Poison I prolongé",
+      "en": "Poison I"
+    },
+    "url": "/skills/fighting/#fighting-3"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-4",
+    "title": {
+      "fr": "Poison II",
+      "en": "Poison II"
+    },
+    "url": "/skills/fighting/#fighting-4"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-5",
+    "title": {
+      "fr": "Butin ×2 +5 %",
+      "en": "Loot x2 +5%"
+    },
+    "url": "/skills/fighting/#fighting-5"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-6",
+    "title": {
+      "fr": "Butin ×2 +15 %",
+      "en": "Loot x2 +15%"
+    },
+    "url": "/skills/fighting/#fighting-6"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-7",
+    "title": {
+      "fr": "Butin ×2 +20 %",
+      "en": "Loot x2 +20%"
+    },
+    "url": "/skills/fighting/#fighting-7"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-8",
+    "title": {
+      "fr": "Force I",
+      "en": "Strength I"
+    },
+    "url": "/skills/fighting/#fighting-8"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-9",
+    "title": {
+      "fr": "Allonge +0,5",
+      "en": "Reach +0.5"
+    },
+    "url": "/skills/fighting/#fighting-9"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-10",
+    "title": {
+      "fr": "Allonge +1,0",
+      "en": "Reach +1.0"
+    },
+    "url": "/skills/fighting/#fighting-10"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-11",
+    "title": {
+      "fr": "Allonge +1,5",
+      "en": "Reach +1.5"
+    },
+    "url": "/skills/fighting/#fighting-11"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-12",
+    "title": {
+      "fr": "Recharge −50 %",
+      "en": "Cooldown -50%"
+    },
+    "url": "/skills/fighting/#fighting-12"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-13",
+    "title": {
+      "fr": "Recharge −75 %",
+      "en": "Cooldown -75%"
+    },
+    "url": "/skills/fighting/#fighting-13"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-14",
+    "title": {
+      "fr": "Aucune recharge",
+      "en": "No Cooldown"
+    },
+    "url": "/skills/fighting/#fighting-14"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-15",
+    "title": {
+      "fr": "Fléau des morts-vivants",
+      "en": "Undead Slayer"
+    },
+    "url": "/skills/fighting/#fighting-15"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-16",
+    "title": {
+      "fr": "Fléau des araignées",
+      "en": "Spider Slayer"
+    },
+    "url": "/skills/fighting/#fighting-16"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-17",
+    "title": {
+      "fr": "XP triplée",
+      "en": "Triple XP"
+    },
+    "url": "/skills/fighting/#fighting-17"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-18",
+    "title": {
+      "fr": "Résistance I",
+      "en": "Resistance I"
+    },
+    "url": "/skills/fighting/#fighting-18"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-19",
+    "title": {
+      "fr": "Résistance II",
+      "en": "Resistance II"
+    },
+    "url": "/skills/fighting/#fighting-19"
+  },
+  {
+    "type": "perk",
+    "id": "fighting-20",
+    "title": {
+      "fr": "Force II",
+      "en": "Strength II"
+    },
+    "url": "/skills/fighting/#fighting-20"
+  },
+  {
+    "type": "skill",
+    "id": "woodcutting",
+    "title": {
+      "fr": "Bûcheronnage",
+      "en": "Woodcutting"
+    },
+    "url": "/skills/woodcutting/"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-1",
+    "title": {
+      "fr": "Bois enchanté",
+      "en": "Enchanted Wood"
+    },
+    "url": "/skills/woodcutting/#woodcutting-1"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-2",
+    "title": {
+      "fr": "Butin de bois +5 %",
+      "en": "Wood Drop +5%"
+    },
+    "url": "/skills/woodcutting/#woodcutting-2"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-3",
+    "title": {
+      "fr": "Butin de bois +15 %",
+      "en": "Wood Drop +15%"
+    },
+    "url": "/skills/woodcutting/#woodcutting-3"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-4",
+    "title": {
+      "fr": "Butin de bois +20 %",
+      "en": "Wood Drop +20%"
+    },
+    "url": "/skills/woodcutting/#woodcutting-4"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-5",
+    "title": {
+      "fr": "Bois enchanté 1,5 %",
+      "en": "Enchanted Wood 1.5%"
+    },
+    "url": "/skills/woodcutting/#woodcutting-5"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-6",
+    "title": {
+      "fr": "Bois enchanté 2 %",
+      "en": "Enchanted Wood 2%"
+    },
+    "url": "/skills/woodcutting/#woodcutting-6"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-7",
+    "title": {
+      "fr": "Bois enchanté 3 %",
+      "en": "Enchanted Wood 3%"
+    },
+    "url": "/skills/woodcutting/#woodcutting-7"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-8",
+    "title": {
+      "fr": "Connaissance de Croissance",
+      "en": "Growth Knowledge"
+    },
+    "url": "/skills/woodcutting/#woodcutting-8"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-9",
+    "title": {
+      "fr": "Croissance des arbres",
+      "en": "Tree Growth"
+    },
+    "url": "/skills/woodcutting/#woodcutting-9"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-10",
+    "title": {
+      "fr": "XP du bois",
+      "en": "Wood XP"
+    },
+    "url": "/skills/woodcutting/#woodcutting-10"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-11",
+    "title": {
+      "fr": "Pousse aléatoire",
+      "en": "Random Sapling"
+    },
+    "url": "/skills/woodcutting/#woodcutting-11"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-12",
+    "title": {
+      "fr": "Abattage",
+      "en": "Timber"
+    },
+    "url": "/skills/woodcutting/#woodcutting-12"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-13",
+    "title": {
+      "fr": "Feuilles à pommes",
+      "en": "Apple Leaves"
+    },
+    "url": "/skills/woodcutting/#woodcutting-13"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-14",
+    "title": {
+      "fr": "Feuilles à pommes dorées",
+      "en": "Golden Apple Leaves"
+    },
+    "url": "/skills/woodcutting/#woodcutting-14"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-15",
+    "title": {
+      "fr": "Module de coffre I",
+      "en": "Chest Module I"
+    },
+    "url": "/skills/woodcutting/#woodcutting-15"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-16",
+    "title": {
+      "fr": "Module de coffre II",
+      "en": "Chest Module II"
+    },
+    "url": "/skills/woodcutting/#woodcutting-16"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-17",
+    "title": {
+      "fr": "Module de coffre III",
+      "en": "Chest Module III"
+    },
+    "url": "/skills/woodcutting/#woodcutting-17"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-18",
+    "title": {
+      "fr": "Fabrication de la Hache enchantée",
+      "en": "Enchanted Axe Craft"
+    },
+    "url": "/skills/woodcutting/#woodcutting-18"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-19",
+    "title": {
+      "fr": "Mangeur de bois",
+      "en": "Wood Eater"
+    },
+    "url": "/skills/woodcutting/#woodcutting-19"
+  },
+  {
+    "type": "perk",
+    "id": "woodcutting-20",
+    "title": {
+      "fr": "Haches incassables",
+      "en": "Unbreakable Axes"
+    },
+    "url": "/skills/woodcutting/#woodcutting-20"
+  },
+  {
+    "type": "skill",
+    "id": "farming",
+    "title": {
+      "fr": "Agriculture",
+      "en": "Farming"
+    },
+    "url": "/skills/farming/"
+  },
+  {
+    "type": "perk",
+    "id": "farming-1",
+    "title": {
+      "fr": "Graine enchantée",
+      "en": "Enchanted Seed"
+    },
+    "url": "/skills/farming/#farming-1"
+  },
+  {
+    "type": "perk",
+    "id": "farming-2",
+    "title": {
+      "fr": "Replantation automatique",
+      "en": "Auto Replant"
+    },
+    "url": "/skills/farming/#farming-2"
+  },
+  {
+    "type": "perk",
+    "id": "farming-3",
+    "title": {
+      "fr": "Récolte abondante I",
+      "en": "Abundant Harvest I"
+    },
+    "url": "/skills/farming/#farming-3"
+  },
+  {
+    "type": "perk",
+    "id": "farming-4",
+    "title": {
+      "fr": "Récolte abondante II",
+      "en": "Abundant Harvest II"
+    },
+    "url": "/skills/farming/#farming-4"
+  },
+  {
+    "type": "perk",
+    "id": "farming-5",
+    "title": {
+      "fr": "Trésor du compost I",
+      "en": "Compost Treasure I"
+    },
+    "url": "/skills/farming/#farming-5"
+  },
+  {
+    "type": "perk",
+    "id": "farming-6",
+    "title": {
+      "fr": "Trésor du compost II",
+      "en": "Compost Treasure II"
+    },
+    "url": "/skills/farming/#farming-6"
+  },
+  {
+    "type": "perk",
+    "id": "farming-7",
+    "title": {
+      "fr": "Trésor du compost III",
+      "en": "Compost Treasure III"
+    },
+    "url": "/skills/farming/#farming-7"
+  },
+  {
+    "type": "perk",
+    "id": "farming-8",
+    "title": {
+      "fr": "Fabrication du Food Backpack",
+      "en": "Food Backpack Craft"
+    },
+    "url": "/skills/farming/#farming-8"
+  },
+  {
+    "type": "perk",
+    "id": "farming-9",
+    "title": {
+      "fr": "Expérience verte",
+      "en": "Green Experience"
+    },
+    "url": "/skills/farming/#farming-9"
+  },
+  {
+    "type": "perk",
+    "id": "farming-10",
+    "title": {
+      "fr": "Graine enchantée II",
+      "en": "Enchanted Seed II"
+    },
+    "url": "/skills/farming/#farming-10"
+  },
+  {
+    "type": "perk",
+    "id": "farming-11",
+    "title": {
+      "fr": "Graine enchantée III",
+      "en": "Enchanted Seed III"
+    },
+    "url": "/skills/farming/#farming-11"
+  },
+  {
+    "type": "perk",
+    "id": "farming-12",
+    "title": {
+      "fr": "Engrais vivant",
+      "en": "Living Fertilizer"
+    },
+    "url": "/skills/farming/#farming-12"
+  },
+  {
+    "type": "perk",
+    "id": "farming-13",
+    "title": {
+      "fr": "Pas irrigué",
+      "en": "Irrigated Step"
+    },
+    "url": "/skills/farming/#farming-13"
+  },
+  {
+    "type": "perk",
+    "id": "farming-14",
+    "title": {
+      "fr": "Bouclier cultivé",
+      "en": "Cultivated Shield"
+    },
+    "url": "/skills/farming/#farming-14"
+  },
+  {
+    "type": "perk",
+    "id": "farming-15",
+    "title": {
+      "fr": "Portée du fermier I",
+      "en": "Farmer's Reach I"
+    },
+    "url": "/skills/farming/#farming-15"
+  },
+  {
+    "type": "perk",
+    "id": "farming-16",
+    "title": {
+      "fr": "Portée du fermier II",
+      "en": "Farmer's Reach II"
+    },
+    "url": "/skills/farming/#farming-16"
+  },
+  {
+    "type": "perk",
+    "id": "farming-17",
+    "title": {
+      "fr": "Portée du fermier III",
+      "en": "Farmer's Reach III"
+    },
+    "url": "/skills/farming/#farming-17"
+  },
+  {
+    "type": "perk",
+    "id": "farming-18",
+    "title": {
+      "fr": "Fabrication de la Fleur enchantée",
+      "en": "Enchanted Flower Craft"
+    },
+    "url": "/skills/farming/#farming-18"
+  },
+  {
+    "type": "perk",
+    "id": "farming-19",
+    "title": {
+      "fr": "Fermier préservé",
+      "en": "Preserved Farmer"
+    },
+    "url": "/skills/farming/#farming-19"
+  },
+  {
+    "type": "perk",
+    "id": "farming-20",
+    "title": {
+      "fr": "Champ vivant",
+      "en": "Living Field"
+    },
+    "url": "/skills/farming/#farming-20"
+  },
+  {
+    "type": "skill",
+    "id": "crafting",
+    "title": {
+      "fr": "Fabrication",
+      "en": "Crafting"
+    },
+    "url": "/skills/crafting/"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-1",
+    "title": {
+      "fr": "Fabrication portable",
+      "en": "Portable Crafting"
+    },
+    "url": "/skills/crafting/#crafting-1"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-2",
+    "title": {
+      "fr": "Économie de ressources I",
+      "en": "Resource Saver I"
+    },
+    "url": "/skills/crafting/#crafting-2"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-3",
+    "title": {
+      "fr": "Économie de ressources II",
+      "en": "Resource Saver II"
+    },
+    "url": "/skills/crafting/#crafting-3"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-4",
+    "title": {
+      "fr": "Économie de ressources III",
+      "en": "Resource Saver III"
+    },
+    "url": "/skills/crafting/#crafting-4"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-5",
+    "title": {
+      "fr": "Fabrication du Kit de réparation",
+      "en": "Repair Kit Craft"
+    },
+    "url": "/skills/crafting/#crafting-5"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-6",
+    "title": {
+      "fr": "Efficacité du Kit de réparation I",
+      "en": "Repair Kit Efficiency I"
+    },
+    "url": "/skills/crafting/#crafting-6"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-7",
+    "title": {
+      "fr": "Efficacité du Kit de réparation II",
+      "en": "Repair Kit Efficiency II"
+    },
+    "url": "/skills/crafting/#crafting-7"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-8",
+    "title": {
+      "fr": "Fabrication du Bloc chanceux",
+      "en": "Lucky Block Craft"
+    },
+    "url": "/skills/crafting/#crafting-8"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-9",
+    "title": {
+      "fr": "Table de fabrication infinie",
+      "en": "Infinite Crafting Table"
+    },
+    "url": "/skills/crafting/#crafting-9"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-10",
+    "title": {
+      "fr": "Charme d’expérience",
+      "en": "Exp Charm"
+    },
+    "url": "/skills/crafting/#crafting-10"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-11",
+    "title": {
+      "fr": "Charge de fabrication",
+      "en": "Craft Charge"
+    },
+    "url": "/skills/crafting/#crafting-11"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-12",
+    "title": {
+      "fr": "Fabrication écologique",
+      "en": "Green Crafting"
+    },
+    "url": "/skills/crafting/#crafting-12"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-13",
+    "title": {
+      "fr": "Inspiration mythique",
+      "en": "Mythic Inspiration"
+    },
+    "url": "/skills/crafting/#crafting-13"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-14",
+    "title": {
+      "fr": "Bonus de première fabrication",
+      "en": "First Craft Bonus"
+    },
+    "url": "/skills/crafting/#crafting-14"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-15",
+    "title": {
+      "fr": "Recyclage artisanal",
+      "en": "Recycle Crafts"
+    },
+    "url": "/skills/crafting/#crafting-15"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-16",
+    "title": {
+      "fr": "Atelier de minuit",
+      "en": "Midnight Workshop"
+    },
+    "url": "/skills/crafting/#crafting-16"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-17",
+    "title": {
+      "fr": "Fabrication renforcée",
+      "en": "Reinforced Craft"
+    },
+    "url": "/skills/crafting/#crafting-17"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-18",
+    "title": {
+      "fr": "Infusion chanceuse",
+      "en": "Lucky Infusion"
+    },
+    "url": "/skills/crafting/#crafting-18"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-19",
+    "title": {
+      "fr": "Emplacement de transformation",
+      "en": "Transformation Slot"
+    },
+    "url": "/skills/crafting/#crafting-19"
+  },
+  {
+    "type": "perk",
+    "id": "crafting-20",
+    "title": {
+      "fr": "Maîtrise artisanale",
+      "en": "Craft Mastery"
+    },
+    "url": "/skills/crafting/#crafting-20"
+  },
+  {
+    "type": "skill",
+    "id": "traveling",
+    "title": {
+      "fr": "Voyage",
+      "en": "Traveling"
+    },
+    "url": "/skills/traveling/"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-1",
+    "title": {
+      "fr": "Double saut",
+      "en": "Double Jump"
+    },
+    "url": "/skills/traveling/#traveling-1"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-2",
+    "title": {
+      "fr": "Marcheur des âmes",
+      "en": "Soul Walker"
+    },
+    "url": "/skills/traveling/#traveling-2"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-3",
+    "title": {
+      "fr": "Grâce du dauphin",
+      "en": "Dolphin's Grace"
+    },
+    "url": "/skills/traveling/#traveling-3"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-4",
+    "title": {
+      "fr": "Marcheur de poudreuse",
+      "en": "Powder Walker"
+    },
+    "url": "/skills/traveling/#traveling-4"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-5",
+    "title": {
+      "fr": "Expérience de voyage I",
+      "en": "Traveling Experience I"
+    },
+    "url": "/skills/traveling/#traveling-5"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-6",
+    "title": {
+      "fr": "Expérience de voyage II",
+      "en": "Traveling Experience II"
+    },
+    "url": "/skills/traveling/#traveling-6"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-7",
+    "title": {
+      "fr": "Expérience de découverte",
+      "en": "Discovery Experience"
+    },
+    "url": "/skills/traveling/#traveling-7"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-8",
+    "title": {
+      "fr": "Miniaturisation",
+      "en": "Miniaturization"
+    },
+    "url": "/skills/traveling/#traveling-8"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-9",
+    "title": {
+      "fr": "Boussole monumentale",
+      "en": "Monumental Compass"
+    },
+    "url": "/skills/traveling/#traveling-9"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-10",
+    "title": {
+      "fr": "Modules du monde normal",
+      "en": "Overworld Modules"
+    },
+    "url": "/skills/traveling/#traveling-10"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-11",
+    "title": {
+      "fr": "Modules dimensionnels",
+      "en": "Dimensional Modules"
+    },
+    "url": "/skills/traveling/#traveling-11"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-12",
+    "title": {
+      "fr": "Rappel mortel",
+      "en": "Death Recall"
+    },
+    "url": "/skills/traveling/#traveling-12"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-13",
+    "title": {
+      "fr": "Bottes éternelles",
+      "en": "Eternal Boots"
+    },
+    "url": "/skills/traveling/#traveling-13"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-14",
+    "title": {
+      "fr": "Élan des biomes",
+      "en": "Biome Momentum"
+    },
+    "url": "/skills/traveling/#traveling-14"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-15",
+    "title": {
+      "fr": "Wagon du voyageur",
+      "en": "Traveler's Minecart"
+    },
+    "url": "/skills/traveling/#traveling-15"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-16",
+    "title": {
+      "fr": "Bateau du voyageur",
+      "en": "Traveler's Boat"
+    },
+    "url": "/skills/traveling/#traveling-16"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-17",
+    "title": {
+      "fr": "Montures terrestres",
+      "en": "Land Mounts"
+    },
+    "url": "/skills/traveling/#traveling-17"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-18",
+    "title": {
+      "fr": "Expérience des trésors",
+      "en": "Treasure Experience"
+    },
+    "url": "/skills/traveling/#traveling-18"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-19",
+    "title": {
+      "fr": "Montures volantes",
+      "en": "Flying Mounts"
+    },
+    "url": "/skills/traveling/#traveling-19"
+  },
+  {
+    "type": "perk",
+    "id": "traveling-20",
+    "title": {
+      "fr": "Grappin",
+      "en": "Grappling Hook"
+    },
+    "url": "/skills/traveling/#traveling-20"
+  },
+  {
+    "type": "skill",
+    "id": "building",
+    "title": {
+      "fr": "Construction",
+      "en": "Building"
+    },
+    "url": "/skills/building/"
+  },
+  {
+    "type": "perk",
+    "id": "building-1",
+    "title": {
+      "fr": "Remplacement rapide",
+      "en": "Quick Replacement"
+    },
+    "url": "/skills/building/#building-1"
+  },
+  {
+    "type": "perk",
+    "id": "building-2",
+    "title": {
+      "fr": "Plan 2D I",
+      "en": "2D Plan I"
+    },
+    "url": "/skills/building/#building-2"
+  },
+  {
+    "type": "perk",
+    "id": "building-3",
+    "title": {
+      "fr": "Plan 2D II",
+      "en": "2D Plan II"
+    },
+    "url": "/skills/building/#building-3"
+  },
+  {
+    "type": "perk",
+    "id": "building-4",
+    "title": {
+      "fr": "Plan 3D",
+      "en": "3D Plan"
+    },
+    "url": "/skills/building/#building-4"
+  },
+  {
+    "type": "perk",
+    "id": "building-5",
+    "title": {
+      "fr": "Réapprovisionnement automatique",
+      "en": "Automatic Restock"
+    },
+    "url": "/skills/building/#building-5"
+  },
+  {
+    "type": "perk",
+    "id": "building-6",
+    "title": {
+      "fr": "Aimant du décorateur",
+      "en": "Decorator Magnet"
+    },
+    "url": "/skills/building/#building-6"
+  },
+  {
+    "type": "perk",
+    "id": "building-7",
+    "title": {
+      "fr": "Démolition soigneuse",
+      "en": "Careful Demolition"
+    },
+    "url": "/skills/building/#building-7"
+  },
+  {
+    "type": "perk",
+    "id": "building-8",
+    "title": {
+      "fr": "Dalles verticales",
+      "en": "Vertical Slabs"
+    },
+    "url": "/skills/building/#building-8"
+  },
+  {
+    "type": "perk",
+    "id": "building-9",
+    "title": {
+      "fr": "Portée du bâtisseur I",
+      "en": "Builder's Reach I"
+    },
+    "url": "/skills/building/#building-9"
+  },
+  {
+    "type": "perk",
+    "id": "building-10",
+    "title": {
+      "fr": "Portée du bâtisseur II",
+      "en": "Builder's Reach II"
+    },
+    "url": "/skills/building/#building-10"
+  },
+  {
+    "type": "perk",
+    "id": "building-11",
+    "title": {
+      "fr": "Portée du bâtisseur III",
+      "en": "Builder's Reach III"
+    },
+    "url": "/skills/building/#building-11"
+  },
+  {
+    "type": "perk",
+    "id": "building-12",
+    "title": {
+      "fr": "Échafaudages étendus",
+      "en": "Extended Scaffolding"
+    },
+    "url": "/skills/building/#building-12"
+  },
+  {
+    "type": "perk",
+    "id": "building-13",
+    "title": {
+      "fr": "Bloc vierge",
+      "en": "Blank Block"
+    },
+    "url": "/skills/building/#building-13"
+  },
+  {
+    "type": "perk",
+    "id": "building-14",
+    "title": {
+      "fr": "Compas d’architecte",
+      "en": "Architect's Compass"
+    },
+    "url": "/skills/building/#building-14"
+  },
+  {
+    "type": "perk",
+    "id": "building-15",
+    "title": {
+      "fr": "Réserve de chantier I",
+      "en": "Construction Reserve I"
+    },
+    "url": "/skills/building/#building-15"
+  },
+  {
+    "type": "perk",
+    "id": "building-16",
+    "title": {
+      "fr": "Réserve de chantier II",
+      "en": "Construction Reserve II"
+    },
+    "url": "/skills/building/#building-16"
+  },
+  {
+    "type": "perk",
+    "id": "building-17",
+    "title": {
+      "fr": "Réserve de chantier III",
+      "en": "Construction Reserve III"
+    },
+    "url": "/skills/building/#building-17"
+  },
+  {
+    "type": "perk",
+    "id": "building-18",
+    "title": {
+      "fr": "Chantier miniature",
+      "en": "Miniature Worksite"
+    },
+    "url": "/skills/building/#building-18"
+  },
+  {
+    "type": "perk",
+    "id": "building-19",
+    "title": {
+      "fr": "Générateur de particules statiques",
+      "en": "Static Particle Generator"
+    },
+    "url": "/skills/building/#building-19"
+  },
+  {
+    "type": "perk",
+    "id": "building-20",
+    "title": {
+      "fr": "Baguette du bâtisseur",
+      "en": "Builder's Wand"
+    },
+    "url": "/skills/building/#building-20"
+  },
+  {
+    "type": "skill",
+    "id": "fishing",
+    "title": {
+      "fr": "Pêche",
+      "en": "Fishing"
+    },
+    "url": "/skills/fishing/"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-1",
+    "title": {
+      "fr": "Canne à pêche custom",
+      "en": "Custom Fishing Rod"
+    },
+    "url": "/skills/fishing/#fishing-1"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-2",
+    "title": {
+      "fr": "Pluie locale",
+      "en": "Local Rain"
+    },
+    "url": "/skills/fishing/#fishing-2"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-3",
+    "title": {
+      "fr": "Soleil local",
+      "en": "Local Sun"
+    },
+    "url": "/skills/fishing/#fishing-3"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-4",
+    "title": {
+      "fr": "Orage local",
+      "en": "Local Storm"
+    },
+    "url": "/skills/fishing/#fishing-4"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-5",
+    "title": {
+      "fr": "Appât I",
+      "en": "Bait I"
+    },
+    "url": "/skills/fishing/#fishing-5"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-6",
+    "title": {
+      "fr": "Appât II",
+      "en": "Bait II"
+    },
+    "url": "/skills/fishing/#fishing-6"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-7",
+    "title": {
+      "fr": "Appât III",
+      "en": "Bait III"
+    },
+    "url": "/skills/fishing/#fishing-7"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-8",
+    "title": {
+      "fr": "Slots de runes",
+      "en": "Rune Slots"
+    },
+    "url": "/skills/fishing/#fishing-8"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-9",
+    "title": {
+      "fr": "Rune de rareté",
+      "en": "Rarity Rune"
+    },
+    "url": "/skills/fishing/#fishing-9"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-10",
+    "title": {
+      "fr": "Rune de célérité",
+      "en": "Speed Rune"
+    },
+    "url": "/skills/fishing/#fishing-10"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-11",
+    "title": {
+      "fr": "Rune de maîtrise",
+      "en": "Mastery Rune"
+    },
+    "url": "/skills/fishing/#fishing-11"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-12",
+    "title": {
+      "fr": "Filet à poissons",
+      "en": "Fish Net"
+    },
+    "url": "/skills/fishing/#fishing-12"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-13",
+    "title": {
+      "fr": "Filet renforcé",
+      "en": "Reinforced Net"
+    },
+    "url": "/skills/fishing/#fishing-13"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-14",
+    "title": {
+      "fr": "Filet supérieur",
+      "en": "Superior Net"
+    },
+    "url": "/skills/fishing/#fishing-14"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-15",
+    "title": {
+      "fr": "Table de poissonnerie",
+      "en": "Fishery Table"
+    },
+    "url": "/skills/fishing/#fishing-15"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-16",
+    "title": {
+      "fr": "Armure d’écailles",
+      "en": "Scale Armor"
+    },
+    "url": "/skills/fishing/#fishing-16"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-17",
+    "title": {
+      "fr": "Bateau de pêche",
+      "en": "Fishing Boat"
+    },
+    "url": "/skills/fishing/#fishing-17"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-18",
+    "title": {
+      "fr": "Appât légendaire",
+      "en": "Legendary Bait"
+    },
+    "url": "/skills/fishing/#fishing-18"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-19",
+    "title": {
+      "fr": "Canne basaltique",
+      "en": "Basalt Rod"
+    },
+    "url": "/skills/fishing/#fishing-19"
+  },
+  {
+    "type": "perk",
+    "id": "fishing-20",
+    "title": {
+      "fr": "Canne du Vide",
+      "en": "Void Rod"
+    },
+    "url": "/skills/fishing/#fishing-20"
+  },
+  {
+    "type": "skill",
+    "id": "eating",
+    "title": {
+      "fr": "Alimentation",
+      "en": "Eating"
+    },
+    "url": "/skills/eating/"
+  },
+  {
+    "type": "perk",
+    "id": "eating-1",
+    "title": {
+      "fr": "Marmite",
+      "en": "Cooking Pot"
+    },
+    "url": "/skills/eating/#eating-1"
+  },
+  {
+    "type": "perk",
+    "id": "eating-2",
+    "title": {
+      "fr": "Marmite spacieuse I",
+      "en": "Roomy Pot I"
+    },
+    "url": "/skills/eating/#eating-2"
+  },
+  {
+    "type": "perk",
+    "id": "eating-3",
+    "title": {
+      "fr": "Marmite spacieuse II",
+      "en": "Roomy Pot II"
+    },
+    "url": "/skills/eating/#eating-3"
+  },
+  {
+    "type": "perk",
+    "id": "eating-4",
+    "title": {
+      "fr": "Marmite spacieuse III",
+      "en": "Roomy Pot III"
+    },
+    "url": "/skills/eating/#eating-4"
+  },
+  {
+    "type": "perk",
+    "id": "eating-5",
+    "title": {
+      "fr": "Petite assiette",
+      "en": "Small Plate"
+    },
+    "url": "/skills/eating/#eating-5"
+  },
+  {
+    "type": "perk",
+    "id": "eating-6",
+    "title": {
+      "fr": "Assiette moyenne",
+      "en": "Medium Plate"
+    },
+    "url": "/skills/eating/#eating-6"
+  },
+  {
+    "type": "perk",
+    "id": "eating-7",
+    "title": {
+      "fr": "Grande assiette",
+      "en": "Large Plate"
+    },
+    "url": "/skills/eating/#eating-7"
+  },
+  {
+    "type": "perk",
+    "id": "eating-8",
+    "title": {
+      "fr": "Frigidaire",
+      "en": "Refrigerator"
+    },
+    "url": "/skills/eating/#eating-8"
+  },
+  {
+    "type": "perk",
+    "id": "eating-9",
+    "title": {
+      "fr": "Toujours une place",
+      "en": "Always Room"
+    },
+    "url": "/skills/eating/#eating-9"
+  },
+  {
+    "type": "perk",
+    "id": "eating-10",
+    "title": {
+      "fr": "Aura de cuisinier",
+      "en": "Chef Aura"
+    },
+    "url": "/skills/eating/#eating-10"
+  },
+  {
+    "type": "perk",
+    "id": "eating-11",
+    "title": {
+      "fr": "Repas complet",
+      "en": "Complete Meal"
+    },
+    "url": "/skills/eating/#eating-11"
+  },
+  {
+    "type": "perk",
+    "id": "eating-12",
+    "title": {
+      "fr": "Goût du risque",
+      "en": "Taste for Risk"
+    },
+    "url": "/skills/eating/#eating-12"
+  },
+  {
+    "type": "perk",
+    "id": "eating-13",
+    "title": {
+      "fr": "Livraison",
+      "en": "Delivery"
+    },
+    "url": "/skills/eating/#eating-13"
+  },
+  {
+    "type": "perk",
+    "id": "eating-14",
+    "title": {
+      "fr": "Gastronomie internationale",
+      "en": "International Gastronomy"
+    },
+    "url": "/skills/eating/#eating-14"
+  },
+  {
+    "type": "perk",
+    "id": "eating-15",
+    "title": {
+      "fr": "Recyclage douteux",
+      "en": "Dubious Recycling"
+    },
+    "url": "/skills/eating/#eating-15"
+  },
+  {
+    "type": "perk",
+    "id": "eating-16",
+    "title": {
+      "fr": "Renommée de chef",
+      "en": "Chef Renown"
+    },
+    "url": "/skills/eating/#eating-16"
+  },
+  {
+    "type": "perk",
+    "id": "eating-17",
+    "title": {
+      "fr": "Cuisine d’exception",
+      "en": "Exceptional Cuisine"
+    },
+    "url": "/skills/eating/#eating-17"
+  },
+  {
+    "type": "perk",
+    "id": "eating-18",
+    "title": {
+      "fr": "Plat signature",
+      "en": "Signature Dish"
+    },
+    "url": "/skills/eating/#eating-18"
+  },
+  {
+    "type": "perk",
+    "id": "eating-19",
+    "title": {
+      "fr": "Frigidaire portatif",
+      "en": "Portable Refrigerator"
+    },
+    "url": "/skills/eating/#eating-19"
+  },
+  {
+    "type": "perk",
+    "id": "eating-20",
+    "title": {
+      "fr": "Service automatique",
+      "en": "Automatic Service"
+    },
+    "url": "/skills/eating/#eating-20"
+  },
+  {
+    "type": "item",
+    "id": "acacia_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en acacia",
+      "en": "Vertical Acacia Slab"
+    },
+    "url": "/items/acacia_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "architect_compass",
+    "title": {
+      "fr": "Compas d’architecte",
+      "en": "Architect's Compass"
+    },
+    "url": "/items/architect_compass/"
+  },
+  {
+    "type": "item",
+    "id": "bamboo_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en bambou",
+      "en": "Vertical Bamboo Slab"
+    },
+    "url": "/items/bamboo_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "barons_doll",
+    "title": {
+      "fr": "Poupée du Baron",
+      "en": "Baron's Doll"
+    },
+    "url": "/items/barons_doll/"
+  },
+  {
+    "type": "item",
+    "id": "basalt_fishing_rod",
+    "title": {
+      "fr": "Canne à pêche basaltique",
+      "en": "Basalt Fishing Rod"
+    },
+    "url": "/items/basalt_fishing_rod/"
+  },
+  {
+    "type": "item",
+    "id": "bee_saddle",
+    "title": {
+      "fr": "Selle d’abeille",
+      "en": "Bee Saddle"
+    },
+    "url": "/items/bee_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "birch_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en bouleau",
+      "en": "Vertical Birch Slab"
+    },
+    "url": "/items/birch_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "blank_block",
+    "title": {
+      "fr": "Bloc vierge",
+      "en": "Blank Block"
+    },
+    "url": "/items/blank_block/"
+  },
+  {
+    "type": "item",
+    "id": "blaze_saddle",
+    "title": {
+      "fr": "Selle de Blaze",
+      "en": "Blaze Saddle"
+    },
+    "url": "/items/blaze_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "breeze_saddle",
+    "title": {
+      "fr": "Selle de Breeze",
+      "en": "Breeze Saddle"
+    },
+    "url": "/items/breeze_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "brick_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en briques",
+      "en": "Vertical Brick Slab"
+    },
+    "url": "/items/brick_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "builder_wand",
+    "title": {
+      "fr": "Baguette du bâtisseur",
+      "en": "Builder's Wand"
+    },
+    "url": "/items/builder_wand/"
+  },
+  {
+    "type": "item",
+    "id": "building_miniature_project",
+    "title": {
+      "fr": "Projet de miniature",
+      "en": "Miniature Project"
+    },
+    "url": "/items/building_miniature_project/"
+  },
+  {
+    "type": "item",
+    "id": "building_plan_2d",
+    "title": {
+      "fr": "Plan de construction 2D",
+      "en": "2D Building Plan"
+    },
+    "url": "/items/building_plan_2d/"
+  },
+  {
+    "type": "item",
+    "id": "building_plan_3d",
+    "title": {
+      "fr": "Plan de construction 3D",
+      "en": "3D Building Plan"
+    },
+    "url": "/items/building_plan_3d/"
+  },
+  {
+    "type": "item",
+    "id": "building_reserve_chest",
+    "title": {
+      "fr": "Coffre de chantier",
+      "en": "Construction Reserve Chest"
+    },
+    "url": "/items/building_reserve_chest/"
+  },
+  {
+    "type": "item",
+    "id": "chef_notebook",
+    "title": {
+      "fr": "Carnet du chef",
+      "en": "Chef Notebook"
+    },
+    "url": "/items/chef_notebook/"
+  },
+  {
+    "type": "item",
+    "id": "cherry_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en cerisier",
+      "en": "Vertical Cherry Slab"
+    },
+    "url": "/items/cherry_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "chest_module_1",
+    "title": {
+      "fr": "Module de coffre I",
+      "en": "Chest Module I"
+    },
+    "url": "/items/chest_module_1/"
+  },
+  {
+    "type": "item",
+    "id": "chest_module_2",
+    "title": {
+      "fr": "Module de coffre II",
+      "en": "Chest Module II"
+    },
+    "url": "/items/chest_module_2/"
+  },
+  {
+    "type": "item",
+    "id": "chest_module_3",
+    "title": {
+      "fr": "Module de coffre III",
+      "en": "Chest Module III"
+    },
+    "url": "/items/chest_module_3/"
+  },
+  {
+    "type": "item",
+    "id": "chicken_saddle",
+    "title": {
+      "fr": "Selle de poule",
+      "en": "Chicken Saddle"
+    },
+    "url": "/items/chicken_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "cobblestone_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en pierres",
+      "en": "Vertical Cobblestone Slab"
+    },
+    "url": "/items/cobblestone_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "coin_toss_blessed",
+    "title": {
+      "fr": "Pile ou face",
+      "en": "Coin Toss"
+    },
+    "url": "/items/coin_toss_blessed/"
+  },
+  {
+    "type": "item",
+    "id": "coin_toss_cursed",
+    "title": {
+      "fr": "Pile ou face",
+      "en": "Coin Toss"
+    },
+    "url": "/items/coin_toss_cursed/"
+  },
+  {
+    "type": "item",
+    "id": "colossal_aegis",
+    "title": {
+      "fr": "Égide colossale",
+      "en": "Colossal Aegis"
+    },
+    "url": "/items/colossal_aegis/"
+  },
+  {
+    "type": "item",
+    "id": "colossal_aegis_blocking",
+    "title": {
+      "fr": "Colossal Aegis Blocking",
+      "en": "Colossal Aegis Blocking"
+    },
+    "url": "/items/colossal_aegis_blocking/"
+  },
+  {
+    "type": "item",
+    "id": "cooking_pot",
+    "title": {
+      "fr": "Marmite",
+      "en": "Cooking Pot"
+    },
+    "url": "/items/cooking_pot/"
+  },
+  {
+    "type": "item",
+    "id": "cow_saddle",
+    "title": {
+      "fr": "Selle de vache",
+      "en": "Cow Saddle"
+    },
+    "url": "/items/cow_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "crimson_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale carmin",
+      "en": "Vertical Crimson Slab"
+    },
+    "url": "/items/crimson_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "dark_oak_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en chêne noir",
+      "en": "Vertical Dark Oak Slab"
+    },
+    "url": "/items/dark_oak_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "death_recall_token",
+    "title": {
+      "fr": "Jeton de rappel mortel",
+      "en": "Death Recall Token"
+    },
+    "url": "/items/death_recall_token/"
+  },
+  {
+    "type": "item",
+    "id": "delivery_phone",
+    "title": {
+      "fr": "Téléphone de livraison du chef",
+      "en": "Chef Delivery Phone"
+    },
+    "url": "/items/delivery_phone/"
+  },
+  {
+    "type": "item",
+    "id": "enchanted_axe",
+    "title": {
+      "fr": "Hache enchantée",
+      "en": "Enchanted Axe"
+    },
+    "url": "/items/enchanted_axe/"
+  },
+  {
+    "type": "item",
+    "id": "enchanted_flower",
+    "title": {
+      "fr": "Fleur enchantée",
+      "en": "Enchanted Flower"
+    },
+    "url": "/items/enchanted_flower/"
+  },
+  {
+    "type": "item",
+    "id": "enchanted_seed",
+    "title": {
+      "fr": "Graine enchantée",
+      "en": "Enchanted Seed"
+    },
+    "url": "/items/enchanted_seed/"
+  },
+  {
+    "type": "item",
+    "id": "enchanted_wood",
+    "title": {
+      "fr": "Bois enchanté",
+      "en": "Enchanted Wood"
+    },
+    "url": "/items/enchanted_wood/"
+  },
+  {
+    "type": "item",
+    "id": "enderman_saddle",
+    "title": {
+      "fr": "Selle d’Enderman",
+      "en": "Enderman Saddle"
+    },
+    "url": "/items/enderman_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "exp_charm",
+    "title": {
+      "fr": "Charme d’expérience",
+      "en": "Exp Charm"
+    },
+    "url": "/items/exp_charm/"
+  },
+  {
+    "type": "item",
+    "id": "expedition_dossier",
+    "title": {
+      "fr": "Dossier d’expédition",
+      "en": "Expedition Dossier"
+    },
+    "url": "/items/expedition_dossier/"
+  },
+  {
+    "type": "item",
+    "id": "fire_wand",
+    "title": {
+      "fr": "Baguette de feu",
+      "en": "Fire Wand"
+    },
+    "url": "/items/fire_wand/"
+  },
+  {
+    "type": "item",
+    "id": "fish_net",
+    "title": {
+      "fr": "Filet à poissons",
+      "en": "Fish Net"
+    },
+    "url": "/items/fish_net/"
+  },
+  {
+    "type": "item",
+    "id": "fishery_table",
+    "title": {
+      "fr": "Table de poissonnerie",
+      "en": "Fishery Table"
+    },
+    "url": "/items/fishery_table/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_common_boots",
+    "title": {
+      "fr": "Bottes d’écailles Common",
+      "en": "Common Scale Boots"
+    },
+    "url": "/items/fishing_armor_common_boots/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_common_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Common",
+      "en": "Common Scale Chestplate"
+    },
+    "url": "/items/fishing_armor_common_chestplate/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_common_helmet",
+    "title": {
+      "fr": "Casque d’écailles Common",
+      "en": "Common Scale Helmet"
+    },
+    "url": "/items/fishing_armor_common_helmet/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_common_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Common",
+      "en": "Common Scale Leggings"
+    },
+    "url": "/items/fishing_armor_common_leggings/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_epic_boots",
+    "title": {
+      "fr": "Bottes d’écailles Epic",
+      "en": "Epic Scale Boots"
+    },
+    "url": "/items/fishing_armor_epic_boots/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_epic_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Epic",
+      "en": "Epic Scale Chestplate"
+    },
+    "url": "/items/fishing_armor_epic_chestplate/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_epic_helmet",
+    "title": {
+      "fr": "Casque d’écailles Epic",
+      "en": "Epic Scale Helmet"
+    },
+    "url": "/items/fishing_armor_epic_helmet/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_epic_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Epic",
+      "en": "Epic Scale Leggings"
+    },
+    "url": "/items/fishing_armor_epic_leggings/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_legendary_boots",
+    "title": {
+      "fr": "Bottes d’écailles Legendary",
+      "en": "Legendary Scale Boots"
+    },
+    "url": "/items/fishing_armor_legendary_boots/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_legendary_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Legendary",
+      "en": "Legendary Scale Chestplate"
+    },
+    "url": "/items/fishing_armor_legendary_chestplate/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_legendary_helmet",
+    "title": {
+      "fr": "Casque d’écailles Legendary",
+      "en": "Legendary Scale Helmet"
+    },
+    "url": "/items/fishing_armor_legendary_helmet/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_legendary_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Legendary",
+      "en": "Legendary Scale Leggings"
+    },
+    "url": "/items/fishing_armor_legendary_leggings/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_mythic_boots",
+    "title": {
+      "fr": "Bottes d’écailles Mythic",
+      "en": "Mythic Scale Boots"
+    },
+    "url": "/items/fishing_armor_mythic_boots/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_mythic_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Mythic",
+      "en": "Mythic Scale Chestplate"
+    },
+    "url": "/items/fishing_armor_mythic_chestplate/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_mythic_helmet",
+    "title": {
+      "fr": "Casque d’écailles Mythic",
+      "en": "Mythic Scale Helmet"
+    },
+    "url": "/items/fishing_armor_mythic_helmet/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_mythic_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Mythic",
+      "en": "Mythic Scale Leggings"
+    },
+    "url": "/items/fishing_armor_mythic_leggings/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_rare_boots",
+    "title": {
+      "fr": "Bottes d’écailles Rare",
+      "en": "Rare Scale Boots"
+    },
+    "url": "/items/fishing_armor_rare_boots/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_rare_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Rare",
+      "en": "Rare Scale Chestplate"
+    },
+    "url": "/items/fishing_armor_rare_chestplate/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_rare_helmet",
+    "title": {
+      "fr": "Casque d’écailles Rare",
+      "en": "Rare Scale Helmet"
+    },
+    "url": "/items/fishing_armor_rare_helmet/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_armor_rare_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Rare",
+      "en": "Rare Scale Leggings"
+    },
+    "url": "/items/fishing_armor_rare_leggings/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_bait_i",
+    "title": {
+      "fr": "Appât I",
+      "en": "Bait I"
+    },
+    "url": "/items/fishing_bait_i/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_bait_ii",
+    "title": {
+      "fr": "Appât II",
+      "en": "Bait II"
+    },
+    "url": "/items/fishing_bait_ii/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_bait_iii",
+    "title": {
+      "fr": "Appât III",
+      "en": "Bait III"
+    },
+    "url": "/items/fishing_bait_iii/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_bait_legendary",
+    "title": {
+      "fr": "Appât légendaire",
+      "en": "Legendary Bait"
+    },
+    "url": "/items/fishing_bait_legendary/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_boat",
+    "title": {
+      "fr": "Bateau de pêche",
+      "en": "Fishing Boat"
+    },
+    "url": "/items/fishing_boat/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_catch",
+    "title": {
+      "fr": "Prise de pêche",
+      "en": "Fishing Catch"
+    },
+    "url": "/items/fishing_catch/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_common_scale",
+    "title": {
+      "fr": "Écaille Common",
+      "en": "Common Scale"
+    },
+    "url": "/items/fishing_common_scale/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_common_shell",
+    "title": {
+      "fr": "Coquille Common",
+      "en": "Common Shell"
+    },
+    "url": "/items/fishing_common_shell/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_epic_scale",
+    "title": {
+      "fr": "Écaille Epic",
+      "en": "Epic Scale"
+    },
+    "url": "/items/fishing_epic_scale/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_epic_shell",
+    "title": {
+      "fr": "Coquille Epic",
+      "en": "Epic Shell"
+    },
+    "url": "/items/fishing_epic_shell/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_legendary_scale",
+    "title": {
+      "fr": "Écaille Legendary",
+      "en": "Legendary Scale"
+    },
+    "url": "/items/fishing_legendary_scale/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_legendary_shell",
+    "title": {
+      "fr": "Coquille Legendary",
+      "en": "Legendary Shell"
+    },
+    "url": "/items/fishing_legendary_shell/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_mythic_scale",
+    "title": {
+      "fr": "Écaille Mythic",
+      "en": "Mythic Scale"
+    },
+    "url": "/items/fishing_mythic_scale/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_mythic_shell",
+    "title": {
+      "fr": "Coquille Mythic",
+      "en": "Mythic Shell"
+    },
+    "url": "/items/fishing_mythic_shell/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_rare_scale",
+    "title": {
+      "fr": "Écaille Rare",
+      "en": "Rare Scale"
+    },
+    "url": "/items/fishing_rare_scale/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_rare_shell",
+    "title": {
+      "fr": "Coquille Rare",
+      "en": "Rare Shell"
+    },
+    "url": "/items/fishing_rare_shell/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_rune_mastery",
+    "title": {
+      "fr": "Rune de maîtrise",
+      "en": "Mastery Rune"
+    },
+    "url": "/items/fishing_rune_mastery/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_rune_rarity",
+    "title": {
+      "fr": "Rune de rareté",
+      "en": "Rarity Rune"
+    },
+    "url": "/items/fishing_rune_rarity/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_rune_speed",
+    "title": {
+      "fr": "Rune de célérité",
+      "en": "Speed Rune"
+    },
+    "url": "/items/fishing_rune_speed/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_weather_wand",
+    "title": {
+      "fr": "Baguette météorologique",
+      "en": "Weather Wand"
+    },
+    "url": "/items/fishing_weather_wand/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_weather_wand_storm",
+    "title": {
+      "fr": "Fishing Weather Wand Storm",
+      "en": "Fishing Weather Wand Storm"
+    },
+    "url": "/items/fishing_weather_wand_storm/"
+  },
+  {
+    "type": "item",
+    "id": "fishing_weather_wand_sun",
+    "title": {
+      "fr": "Fishing Weather Wand Sun",
+      "en": "Fishing Weather Wand Sun"
+    },
+    "url": "/items/fishing_weather_wand_sun/"
+  },
+  {
+    "type": "item",
+    "id": "flying_common_fossil",
+    "title": {
+      "fr": "Fossile volant commun",
+      "en": "Common Flying Fossil"
+    },
+    "url": "/items/flying_common_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "flying_common_skeleton",
+    "title": {
+      "fr": "Squelette volant commun",
+      "en": "Common Flying Skeleton"
+    },
+    "url": "/items/flying_common_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "flying_epic_fossil",
+    "title": {
+      "fr": "Fossile volant épique",
+      "en": "Epic Flying Fossil"
+    },
+    "url": "/items/flying_epic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "flying_epic_skeleton",
+    "title": {
+      "fr": "Squelette volant épique",
+      "en": "Epic Flying Skeleton"
+    },
+    "url": "/items/flying_epic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "flying_legendary_fossil",
+    "title": {
+      "fr": "Fossile volant légendaire",
+      "en": "Legendary Flying Fossil"
+    },
+    "url": "/items/flying_legendary_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "flying_legendary_skeleton",
+    "title": {
+      "fr": "Squelette volant légendaire",
+      "en": "Legendary Flying Skeleton"
+    },
+    "url": "/items/flying_legendary_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "flying_mythic_fossil",
+    "title": {
+      "fr": "Fossile volant mythique",
+      "en": "Mythic Flying Fossil"
+    },
+    "url": "/items/flying_mythic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "flying_mythic_skeleton",
+    "title": {
+      "fr": "Squelette volant mythique",
+      "en": "Mythic Flying Skeleton"
+    },
+    "url": "/items/flying_mythic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "flying_rare_fossil",
+    "title": {
+      "fr": "Fossile volant rare",
+      "en": "Rare Flying Fossil"
+    },
+    "url": "/items/flying_rare_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "flying_rare_skeleton",
+    "title": {
+      "fr": "Squelette volant rare",
+      "en": "Rare Flying Skeleton"
+    },
+    "url": "/items/flying_rare_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "food_backpack",
+    "title": {
+      "fr": "Food Backpack",
+      "en": "Food Backpack"
+    },
+    "url": "/items/food_backpack/"
+  },
+  {
+    "type": "item",
+    "id": "fossil_block",
+    "title": {
+      "fr": "Roche fossilifère",
+      "en": "Fossil-Bearing Rock"
+    },
+    "url": "/items/fossil_block/"
+  },
+  {
+    "type": "item",
+    "id": "fossil_drill",
+    "title": {
+      "fr": "Foreuse fossile",
+      "en": "Fossil Drill"
+    },
+    "url": "/items/fossil_drill/"
+  },
+  {
+    "type": "item",
+    "id": "fossil_incubator",
+    "title": {
+      "fr": "Incubateur fossile",
+      "en": "Fossil Incubator"
+    },
+    "url": "/items/fossil_incubator/"
+  },
+  {
+    "type": "item",
+    "id": "fossil_palette",
+    "title": {
+      "fr": "Palette fossile",
+      "en": "Fossil Palette"
+    },
+    "url": "/items/fossil_palette/"
+  },
+  {
+    "type": "item",
+    "id": "fridge",
+    "title": {
+      "fr": "Frigidaire",
+      "en": "Refrigerator"
+    },
+    "url": "/items/fridge/"
+  },
+  {
+    "type": "item",
+    "id": "ghast_saddle",
+    "title": {
+      "fr": "Selle de Ghast",
+      "en": "Ghast Saddle"
+    },
+    "url": "/items/ghast_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "goat_saddle",
+    "title": {
+      "fr": "Selle de chèvre",
+      "en": "Goat Saddle"
+    },
+    "url": "/items/goat_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "grappling_hook",
+    "title": {
+      "fr": "Grappin",
+      "en": "Grappling Hook"
+    },
+    "url": "/items/grappling_hook/"
+  },
+  {
+    "type": "item",
+    "id": "growth_totem",
+    "title": {
+      "fr": "Totem de croissance",
+      "en": "Growth Totem"
+    },
+    "url": "/items/growth_totem/"
+  },
+  {
+    "type": "item",
+    "id": "heart_of_the_beam",
+    "title": {
+      "fr": "Cœur du rayon",
+      "en": "Heart of the Beam"
+    },
+    "url": "/items/heart_of_the_beam/"
+  },
+  {
+    "type": "item",
+    "id": "hoglin_saddle",
+    "title": {
+      "fr": "Selle de Hoglin",
+      "en": "Hoglin Saddle"
+    },
+    "url": "/items/hoglin_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "infinite_crafting_table",
+    "title": {
+      "fr": "Table de fabrication infinie",
+      "en": "Infinite Crafting Table"
+    },
+    "url": "/items/infinite_crafting_table/"
+  },
+  {
+    "type": "item",
+    "id": "insect_common_fossil",
+    "title": {
+      "fr": "Fossile d’insecte commun",
+      "en": "Common Insect Fossil"
+    },
+    "url": "/items/insect_common_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "insect_common_skeleton",
+    "title": {
+      "fr": "Squelette d’insecte commun",
+      "en": "Common Insect Skeleton"
+    },
+    "url": "/items/insect_common_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "insect_epic_fossil",
+    "title": {
+      "fr": "Fossile d’insecte épique",
+      "en": "Epic Insect Fossil"
+    },
+    "url": "/items/insect_epic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "insect_epic_skeleton",
+    "title": {
+      "fr": "Squelette d’insecte épique",
+      "en": "Epic Insect Skeleton"
+    },
+    "url": "/items/insect_epic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "insect_legendary_fossil",
+    "title": {
+      "fr": "Fossile d’insecte légendaire",
+      "en": "Legendary Insect Fossil"
+    },
+    "url": "/items/insect_legendary_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "insect_legendary_skeleton",
+    "title": {
+      "fr": "Squelette d’insecte légendaire",
+      "en": "Legendary Insect Skeleton"
+    },
+    "url": "/items/insect_legendary_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "insect_mythic_fossil",
+    "title": {
+      "fr": "Fossile d’insecte mythique",
+      "en": "Mythic Insect Fossil"
+    },
+    "url": "/items/insect_mythic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "insect_mythic_skeleton",
+    "title": {
+      "fr": "Squelette d’insecte mythique",
+      "en": "Mythic Insect Skeleton"
+    },
+    "url": "/items/insect_mythic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "insect_rare_fossil",
+    "title": {
+      "fr": "Fossile d’insecte rare",
+      "en": "Rare Insect Fossil"
+    },
+    "url": "/items/insect_rare_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "insect_rare_skeleton",
+    "title": {
+      "fr": "Squelette d’insecte rare",
+      "en": "Rare Insect Skeleton"
+    },
+    "url": "/items/insect_rare_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "jungle_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en acajou",
+      "en": "Vertical Jungle Slab"
+    },
+    "url": "/items/jungle_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_common_fossil",
+    "title": {
+      "fr": "Fossile de grande créature terrestre commun",
+      "en": "Common Large Land Fossil"
+    },
+    "url": "/items/large_land_common_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_common_skeleton",
+    "title": {
+      "fr": "Squelette de grande créature terrestre commun",
+      "en": "Common Large Land Skeleton"
+    },
+    "url": "/items/large_land_common_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_epic_fossil",
+    "title": {
+      "fr": "Fossile de grande créature terrestre épique",
+      "en": "Epic Large Land Fossil"
+    },
+    "url": "/items/large_land_epic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_epic_skeleton",
+    "title": {
+      "fr": "Squelette de grande créature terrestre épique",
+      "en": "Epic Large Land Skeleton"
+    },
+    "url": "/items/large_land_epic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_legendary_fossil",
+    "title": {
+      "fr": "Fossile de grande créature terrestre légendaire",
+      "en": "Legendary Large Land Fossil"
+    },
+    "url": "/items/large_land_legendary_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_legendary_skeleton",
+    "title": {
+      "fr": "Squelette de grande créature terrestre légendaire",
+      "en": "Legendary Large Land Skeleton"
+    },
+    "url": "/items/large_land_legendary_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_mythic_fossil",
+    "title": {
+      "fr": "Fossile de grande créature terrestre mythique",
+      "en": "Mythic Large Land Fossil"
+    },
+    "url": "/items/large_land_mythic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_mythic_skeleton",
+    "title": {
+      "fr": "Squelette de grande créature terrestre mythique",
+      "en": "Mythic Large Land Skeleton"
+    },
+    "url": "/items/large_land_mythic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_rare_fossil",
+    "title": {
+      "fr": "Fossile de grande créature terrestre rare",
+      "en": "Rare Large Land Fossil"
+    },
+    "url": "/items/large_land_rare_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "large_land_rare_skeleton",
+    "title": {
+      "fr": "Squelette de grande créature terrestre rare",
+      "en": "Rare Large Land Skeleton"
+    },
+    "url": "/items/large_land_rare_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "large_plate",
+    "title": {
+      "fr": "Grande assiette",
+      "en": "Large Plate"
+    },
+    "url": "/items/large_plate/"
+  },
+  {
+    "type": "item",
+    "id": "llama_saddle",
+    "title": {
+      "fr": "Selle de lama",
+      "en": "Llama Saddle"
+    },
+    "url": "/items/llama_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "lucky_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/items/lucky_block/"
+  },
+  {
+    "type": "item",
+    "id": "mangrove_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en palétuvier",
+      "en": "Vertical Mangrove Slab"
+    },
+    "url": "/items/mangrove_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "marine_common_fossil",
+    "title": {
+      "fr": "Fossile marin commun",
+      "en": "Common Marine Fossil"
+    },
+    "url": "/items/marine_common_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "marine_common_skeleton",
+    "title": {
+      "fr": "Squelette marin commun",
+      "en": "Common Marine Skeleton"
+    },
+    "url": "/items/marine_common_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "marine_epic_fossil",
+    "title": {
+      "fr": "Fossile marin épique",
+      "en": "Epic Marine Fossil"
+    },
+    "url": "/items/marine_epic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "marine_epic_skeleton",
+    "title": {
+      "fr": "Squelette marin épique",
+      "en": "Epic Marine Skeleton"
+    },
+    "url": "/items/marine_epic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "marine_legendary_fossil",
+    "title": {
+      "fr": "Fossile marin légendaire",
+      "en": "Legendary Marine Fossil"
+    },
+    "url": "/items/marine_legendary_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "marine_legendary_skeleton",
+    "title": {
+      "fr": "Squelette marin légendaire",
+      "en": "Legendary Marine Skeleton"
+    },
+    "url": "/items/marine_legendary_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "marine_mythic_fossil",
+    "title": {
+      "fr": "Fossile marin mythique",
+      "en": "Mythic Marine Fossil"
+    },
+    "url": "/items/marine_mythic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "marine_mythic_skeleton",
+    "title": {
+      "fr": "Squelette marin mythique",
+      "en": "Mythic Marine Skeleton"
+    },
+    "url": "/items/marine_mythic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "marine_rare_fossil",
+    "title": {
+      "fr": "Fossile marin rare",
+      "en": "Rare Marine Fossil"
+    },
+    "url": "/items/marine_rare_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "marine_rare_skeleton",
+    "title": {
+      "fr": "Squelette marin rare",
+      "en": "Rare Marine Skeleton"
+    },
+    "url": "/items/marine_rare_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "medium_plate",
+    "title": {
+      "fr": "Assiette moyenne",
+      "en": "Medium Plate"
+    },
+    "url": "/items/medium_plate/"
+  },
+  {
+    "type": "item",
+    "id": "megalodon_charm",
+    "title": {
+      "fr": "Charm de Mégalodon",
+      "en": "Megalodon Charm"
+    },
+    "url": "/items/megalodon_charm/"
+  },
+  {
+    "type": "item",
+    "id": "megalodon_tooth",
+    "title": {
+      "fr": "Dent de Mégalodon",
+      "en": "Megalodon Tooth"
+    },
+    "url": "/items/megalodon_tooth/"
+  },
+  {
+    "type": "item",
+    "id": "miniaturization_charm",
+    "title": {
+      "fr": "Charme de miniaturisation",
+      "en": "Miniaturization Charm"
+    },
+    "url": "/items/miniaturization_charm/"
+  },
+  {
+    "type": "item",
+    "id": "mooshroom_saddle",
+    "title": {
+      "fr": "Selle de Champimeuh",
+      "en": "Mooshroom Saddle"
+    },
+    "url": "/items/mooshroom_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "mythic_fishing_rod",
+    "title": {
+      "fr": "Canne à pêche Mythic",
+      "en": "Mythic Fishing Rod"
+    },
+    "url": "/items/mythic_fishing_rod/"
+  },
+  {
+    "type": "item",
+    "id": "nessie_charm",
+    "title": {
+      "fr": "Charm de Nessie",
+      "en": "Nessie Charm"
+    },
+    "url": "/items/nessie_charm/"
+  },
+  {
+    "type": "item",
+    "id": "nessie_scale",
+    "title": {
+      "fr": "Écaille de Nessie",
+      "en": "Nessie Scale"
+    },
+    "url": "/items/nessie_scale/"
+  },
+  {
+    "type": "item",
+    "id": "nether_brick_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en briques du Nether",
+      "en": "Vertical Nether Brick Slab"
+    },
+    "url": "/items/nether_brick_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "oak_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en chêne",
+      "en": "Vertical Oak Slab"
+    },
+    "url": "/items/oak_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "panda_saddle",
+    "title": {
+      "fr": "Selle de Panda",
+      "en": "Panda Saddle"
+    },
+    "url": "/items/panda_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "phantom_saddle",
+    "title": {
+      "fr": "Selle de Phantom",
+      "en": "Phantom Saddle"
+    },
+    "url": "/items/phantom_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "pig_saddle",
+    "title": {
+      "fr": "Selle de cochon",
+      "en": "Pig Saddle"
+    },
+    "url": "/items/pig_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "polar_bear_saddle",
+    "title": {
+      "fr": "Selle d’ours blanc",
+      "en": "Polar Bear Saddle"
+    },
+    "url": "/items/polar_bear_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "polished_deepslate_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en ardoise des abîmes polie",
+      "en": "Vertical Polished Deepslate Slab"
+    },
+    "url": "/items/polished_deepslate_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "prepared_dish",
+    "title": {
+      "fr": "Plat préparé",
+      "en": "Prepared Dish"
+    },
+    "url": "/items/prepared_dish/"
+  },
+  {
+    "type": "item",
+    "id": "quartz_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en quartz",
+      "en": "Vertical Quartz Slab"
+    },
+    "url": "/items/quartz_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "ravager_saddle",
+    "title": {
+      "fr": "Selle de Ravageur",
+      "en": "Ravager Saddle"
+    },
+    "url": "/items/ravager_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "red_sandstone_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en grès rouge",
+      "en": "Vertical Red Sandstone Slab"
+    },
+    "url": "/items/red_sandstone_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "repair_kit",
+    "title": {
+      "fr": "Kit de réparation",
+      "en": "Repair Kit"
+    },
+    "url": "/items/repair_kit/"
+  },
+  {
+    "type": "item",
+    "id": "sandstone_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en grès",
+      "en": "Vertical Sandstone Slab"
+    },
+    "url": "/items/sandstone_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "sheep_saddle",
+    "title": {
+      "fr": "Selle de mouton",
+      "en": "Sheep Saddle"
+    },
+    "url": "/items/sheep_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "signature_dish",
+    "title": {
+      "fr": "Plat signature",
+      "en": "Signature Dish"
+    },
+    "url": "/items/signature_dish/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_common_fossil",
+    "title": {
+      "fr": "Fossile de petite créature terrestre commun",
+      "en": "Common Small Land Fossil"
+    },
+    "url": "/items/small_land_common_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_common_skeleton",
+    "title": {
+      "fr": "Squelette de petite créature terrestre commun",
+      "en": "Common Small Land Skeleton"
+    },
+    "url": "/items/small_land_common_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_epic_fossil",
+    "title": {
+      "fr": "Fossile de petite créature terrestre épique",
+      "en": "Epic Small Land Fossil"
+    },
+    "url": "/items/small_land_epic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_epic_skeleton",
+    "title": {
+      "fr": "Squelette de petite créature terrestre épique",
+      "en": "Epic Small Land Skeleton"
+    },
+    "url": "/items/small_land_epic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_legendary_fossil",
+    "title": {
+      "fr": "Fossile de petite créature terrestre légendaire",
+      "en": "Legendary Small Land Fossil"
+    },
+    "url": "/items/small_land_legendary_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_legendary_skeleton",
+    "title": {
+      "fr": "Squelette de petite créature terrestre légendaire",
+      "en": "Legendary Small Land Skeleton"
+    },
+    "url": "/items/small_land_legendary_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_mythic_fossil",
+    "title": {
+      "fr": "Fossile de petite créature terrestre mythique",
+      "en": "Mythic Small Land Fossil"
+    },
+    "url": "/items/small_land_mythic_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_mythic_skeleton",
+    "title": {
+      "fr": "Squelette de petite créature terrestre mythique",
+      "en": "Mythic Small Land Skeleton"
+    },
+    "url": "/items/small_land_mythic_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_rare_fossil",
+    "title": {
+      "fr": "Fossile de petite créature terrestre rare",
+      "en": "Rare Small Land Fossil"
+    },
+    "url": "/items/small_land_rare_fossil/"
+  },
+  {
+    "type": "item",
+    "id": "small_land_rare_skeleton",
+    "title": {
+      "fr": "Squelette de petite créature terrestre rare",
+      "en": "Rare Small Land Skeleton"
+    },
+    "url": "/items/small_land_rare_skeleton/"
+  },
+  {
+    "type": "item",
+    "id": "small_plate",
+    "title": {
+      "fr": "Petite assiette",
+      "en": "Small Plate"
+    },
+    "url": "/items/small_plate/"
+  },
+  {
+    "type": "item",
+    "id": "snow_golem_saddle",
+    "title": {
+      "fr": "Selle de golem de neige",
+      "en": "Snow Golem Saddle"
+    },
+    "url": "/items/snow_golem_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "spider_saddle",
+    "title": {
+      "fr": "Selle d’araignée",
+      "en": "Spider Saddle"
+    },
+    "url": "/items/spider_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "spider_wand",
+    "title": {
+      "fr": "Baguette araignée",
+      "en": "Spider Wand"
+    },
+    "url": "/items/spider_wand/"
+  },
+  {
+    "type": "item",
+    "id": "spruce_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en sapin",
+      "en": "Vertical Spruce Slab"
+    },
+    "url": "/items/spruce_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "static_decoration_generator",
+    "title": {
+      "fr": "Générateur de décoration statique",
+      "en": "Static Decoration Generator"
+    },
+    "url": "/items/static_decoration_generator/"
+  },
+  {
+    "type": "item",
+    "id": "stone_brick_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en briques de pierre",
+      "en": "Vertical Stone Brick Slab"
+    },
+    "url": "/items/stone_brick_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "stone_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en pierre",
+      "en": "Vertical Stone Slab"
+    },
+    "url": "/items/stone_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "structure_module",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/items/structure_module/"
+  },
+  {
+    "type": "item",
+    "id": "temporal_machine",
+    "title": {
+      "fr": "Machine à voyager dans le temps",
+      "en": "Time Machine"
+    },
+    "url": "/items/temporal_machine/"
+  },
+  {
+    "type": "item",
+    "id": "traveler_boat",
+    "title": {
+      "fr": "Bateau du voyageur",
+      "en": "Traveler's Boat"
+    },
+    "url": "/items/traveler_boat/"
+  },
+  {
+    "type": "item",
+    "id": "traveler_minecart",
+    "title": {
+      "fr": "Wagon du voyageur",
+      "en": "Traveler's Minecart"
+    },
+    "url": "/items/traveler_minecart/"
+  },
+  {
+    "type": "item",
+    "id": "turtle_saddle",
+    "title": {
+      "fr": "Selle de Tortue",
+      "en": "Turtle Saddle"
+    },
+    "url": "/items/turtle_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "villager_saddle",
+    "title": {
+      "fr": "Selle de villageois",
+      "en": "Villager Saddle"
+    },
+    "url": "/items/villager_saddle/"
+  },
+  {
+    "type": "item",
+    "id": "void_fishing_rod",
+    "title": {
+      "fr": "Canne à pêche du Vide",
+      "en": "Void Fishing Rod"
+    },
+    "url": "/items/void_fishing_rod/"
+  },
+  {
+    "type": "item",
+    "id": "warped_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale biscornue",
+      "en": "Vertical Warped Slab"
+    },
+    "url": "/items/warped_vertical_slab/"
+  },
+  {
+    "type": "item",
+    "id": "whale_ambergris",
+    "title": {
+      "fr": "Ambre gris légendaire",
+      "en": "Legendary Ambergris"
+    },
+    "url": "/items/whale_ambergris/"
+  },
+  {
+    "type": "item",
+    "id": "whale_charm",
+    "title": {
+      "fr": "Charm de la Baleine",
+      "en": "Whale Charm"
+    },
+    "url": "/items/whale_charm/"
+  },
+  {
+    "type": "item",
+    "id": "wither_shield",
+    "title": {
+      "fr": "Bouclier du Wither",
+      "en": "Wither Shield"
+    },
+    "url": "/items/wither_shield/"
+  },
+  {
+    "type": "item",
+    "id": "zoglin_saddle",
+    "title": {
+      "fr": "Selle de Zoglin",
+      "en": "Zoglin Saddle"
+    },
+    "url": "/items/zoglin_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "acacia_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en acacia",
+      "en": "Vertical Acacia Slab"
+    },
+    "url": "/recipes/acacia_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "architect_compass",
+    "title": {
+      "fr": "Compas d’architecte",
+      "en": "Architect's Compass"
+    },
+    "url": "/recipes/architect_compass/"
+  },
+  {
+    "type": "recipe",
+    "id": "bamboo_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en bambou",
+      "en": "Vertical Bamboo Slab"
+    },
+    "url": "/recipes/bamboo_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "basalt_fishing_rod",
+    "title": {
+      "fr": "Canne à pêche basaltique",
+      "en": "Basalt Fishing Rod"
+    },
+    "url": "/recipes/basalt_fishing_rod/"
+  },
+  {
+    "type": "recipe",
+    "id": "bee_saddle",
+    "title": {
+      "fr": "Selle d’abeille",
+      "en": "Bee Saddle"
+    },
+    "url": "/recipes/bee_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "birch_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en bouleau",
+      "en": "Vertical Birch Slab"
+    },
+    "url": "/recipes/birch_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "blank_block",
+    "title": {
+      "fr": "Bloc vierge",
+      "en": "Blank Block"
+    },
+    "url": "/recipes/blank_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "blaze_saddle",
+    "title": {
+      "fr": "Selle de Blaze",
+      "en": "Blaze Saddle"
+    },
+    "url": "/recipes/blaze_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "breeze_saddle",
+    "title": {
+      "fr": "Selle de Breeze",
+      "en": "Breeze Saddle"
+    },
+    "url": "/recipes/breeze_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "brick_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en briques",
+      "en": "Vertical Brick Slab"
+    },
+    "url": "/recipes/brick_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "builder_wand",
+    "title": {
+      "fr": "Baguette du bâtisseur",
+      "en": "Builder's Wand"
+    },
+    "url": "/recipes/builder_wand/"
+  },
+  {
+    "type": "recipe",
+    "id": "building_miniature_project",
+    "title": {
+      "fr": "Projet de miniature",
+      "en": "Miniature Project"
+    },
+    "url": "/recipes/building_miniature_project/"
+  },
+  {
+    "type": "recipe",
+    "id": "building_plan_2d",
+    "title": {
+      "fr": "Plan de construction 2D",
+      "en": "2D Building Plan"
+    },
+    "url": "/recipes/building_plan_2d/"
+  },
+  {
+    "type": "recipe",
+    "id": "building_plan_3d",
+    "title": {
+      "fr": "Plan de construction 3D",
+      "en": "3D Building Plan"
+    },
+    "url": "/recipes/building_plan_3d/"
+  },
+  {
+    "type": "recipe",
+    "id": "building_reserve_chest",
+    "title": {
+      "fr": "Coffre de chantier",
+      "en": "Construction Reserve Chest"
+    },
+    "url": "/recipes/building_reserve_chest/"
+  },
+  {
+    "type": "recipe",
+    "id": "chef_notebook",
+    "title": {
+      "fr": "Carnet du chef",
+      "en": "Chef Notebook"
+    },
+    "url": "/recipes/chef_notebook/"
+  },
+  {
+    "type": "recipe",
+    "id": "cherry_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en cerisier",
+      "en": "Vertical Cherry Slab"
+    },
+    "url": "/recipes/cherry_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "chest_module_1",
+    "title": {
+      "fr": "Module de coffre I",
+      "en": "Chest Module I"
+    },
+    "url": "/recipes/chest_module_1/"
+  },
+  {
+    "type": "recipe",
+    "id": "chest_module_2",
+    "title": {
+      "fr": "Module de coffre II",
+      "en": "Chest Module II"
+    },
+    "url": "/recipes/chest_module_2/"
+  },
+  {
+    "type": "recipe",
+    "id": "chest_module_3",
+    "title": {
+      "fr": "Module de coffre III",
+      "en": "Chest Module III"
+    },
+    "url": "/recipes/chest_module_3/"
+  },
+  {
+    "type": "recipe",
+    "id": "chicken_saddle",
+    "title": {
+      "fr": "Selle de poule",
+      "en": "Chicken Saddle"
+    },
+    "url": "/recipes/chicken_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "cobblestone_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en pierres",
+      "en": "Vertical Cobblestone Slab"
+    },
+    "url": "/recipes/cobblestone_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "cooking_pot",
+    "title": {
+      "fr": "Marmite",
+      "en": "Cooking Pot"
+    },
+    "url": "/recipes/cooking_pot/"
+  },
+  {
+    "type": "recipe",
+    "id": "cow_saddle",
+    "title": {
+      "fr": "Selle de vache",
+      "en": "Cow Saddle"
+    },
+    "url": "/recipes/cow_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "crimson_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale carmin",
+      "en": "Vertical Crimson Slab"
+    },
+    "url": "/recipes/crimson_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "dark_oak_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en chêne noir",
+      "en": "Vertical Dark Oak Slab"
+    },
+    "url": "/recipes/dark_oak_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "delivery_phone",
+    "title": {
+      "fr": "Téléphone de livraison du chef",
+      "en": "Chef Delivery Phone"
+    },
+    "url": "/recipes/delivery_phone/"
+  },
+  {
+    "type": "recipe",
+    "id": "enchanted_axe",
+    "title": {
+      "fr": "Hache enchantée",
+      "en": "Enchanted Axe"
+    },
+    "url": "/recipes/enchanted_axe/"
+  },
+  {
+    "type": "recipe",
+    "id": "enchanted_flower",
+    "title": {
+      "fr": "Fleur enchantée",
+      "en": "Enchanted Flower"
+    },
+    "url": "/recipes/enchanted_flower/"
+  },
+  {
+    "type": "recipe",
+    "id": "enderman_saddle",
+    "title": {
+      "fr": "Selle d’Enderman",
+      "en": "Enderman Saddle"
+    },
+    "url": "/recipes/enderman_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "exp_charm",
+    "title": {
+      "fr": "Charme d’expérience",
+      "en": "Exp Charm"
+    },
+    "url": "/recipes/exp_charm/"
+  },
+  {
+    "type": "recipe",
+    "id": "fish_net",
+    "title": {
+      "fr": "Filet à poissons",
+      "en": "Fish Net"
+    },
+    "url": "/recipes/fish_net/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishery_table",
+    "title": {
+      "fr": "Table de poissonnerie",
+      "en": "Fishery Table"
+    },
+    "url": "/recipes/fishery_table/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_common_boots",
+    "title": {
+      "fr": "Bottes d’écailles Common",
+      "en": "Common Scale Boots"
+    },
+    "url": "/recipes/fishing_armor_common_boots/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_common_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Common",
+      "en": "Common Scale Chestplate"
+    },
+    "url": "/recipes/fishing_armor_common_chestplate/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_common_helmet",
+    "title": {
+      "fr": "Casque d’écailles Common",
+      "en": "Common Scale Helmet"
+    },
+    "url": "/recipes/fishing_armor_common_helmet/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_common_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Common",
+      "en": "Common Scale Leggings"
+    },
+    "url": "/recipes/fishing_armor_common_leggings/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_epic_boots",
+    "title": {
+      "fr": "Bottes d’écailles Epic",
+      "en": "Epic Scale Boots"
+    },
+    "url": "/recipes/fishing_armor_epic_boots/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_epic_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Epic",
+      "en": "Epic Scale Chestplate"
+    },
+    "url": "/recipes/fishing_armor_epic_chestplate/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_epic_helmet",
+    "title": {
+      "fr": "Casque d’écailles Epic",
+      "en": "Epic Scale Helmet"
+    },
+    "url": "/recipes/fishing_armor_epic_helmet/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_epic_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Epic",
+      "en": "Epic Scale Leggings"
+    },
+    "url": "/recipes/fishing_armor_epic_leggings/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_legendary_boots",
+    "title": {
+      "fr": "Bottes d’écailles Legendary",
+      "en": "Legendary Scale Boots"
+    },
+    "url": "/recipes/fishing_armor_legendary_boots/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_legendary_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Legendary",
+      "en": "Legendary Scale Chestplate"
+    },
+    "url": "/recipes/fishing_armor_legendary_chestplate/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_legendary_helmet",
+    "title": {
+      "fr": "Casque d’écailles Legendary",
+      "en": "Legendary Scale Helmet"
+    },
+    "url": "/recipes/fishing_armor_legendary_helmet/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_legendary_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Legendary",
+      "en": "Legendary Scale Leggings"
+    },
+    "url": "/recipes/fishing_armor_legendary_leggings/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_mythic_boots",
+    "title": {
+      "fr": "Bottes d’écailles Mythic",
+      "en": "Mythic Scale Boots"
+    },
+    "url": "/recipes/fishing_armor_mythic_boots/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_mythic_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Mythic",
+      "en": "Mythic Scale Chestplate"
+    },
+    "url": "/recipes/fishing_armor_mythic_chestplate/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_mythic_helmet",
+    "title": {
+      "fr": "Casque d’écailles Mythic",
+      "en": "Mythic Scale Helmet"
+    },
+    "url": "/recipes/fishing_armor_mythic_helmet/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_mythic_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Mythic",
+      "en": "Mythic Scale Leggings"
+    },
+    "url": "/recipes/fishing_armor_mythic_leggings/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_rare_boots",
+    "title": {
+      "fr": "Bottes d’écailles Rare",
+      "en": "Rare Scale Boots"
+    },
+    "url": "/recipes/fishing_armor_rare_boots/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_rare_chestplate",
+    "title": {
+      "fr": "Plastron d’écailles Rare",
+      "en": "Rare Scale Chestplate"
+    },
+    "url": "/recipes/fishing_armor_rare_chestplate/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_rare_helmet",
+    "title": {
+      "fr": "Casque d’écailles Rare",
+      "en": "Rare Scale Helmet"
+    },
+    "url": "/recipes/fishing_armor_rare_helmet/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_armor_rare_leggings",
+    "title": {
+      "fr": "Jambières d’écailles Rare",
+      "en": "Rare Scale Leggings"
+    },
+    "url": "/recipes/fishing_armor_rare_leggings/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_bait_i",
+    "title": {
+      "fr": "Appât I",
+      "en": "Bait I"
+    },
+    "url": "/recipes/fishing_bait_i/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_bait_ii",
+    "title": {
+      "fr": "Appât II",
+      "en": "Bait II"
+    },
+    "url": "/recipes/fishing_bait_ii/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_bait_iii",
+    "title": {
+      "fr": "Appât III",
+      "en": "Bait III"
+    },
+    "url": "/recipes/fishing_bait_iii/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_bait_legendary",
+    "title": {
+      "fr": "Appât légendaire",
+      "en": "Legendary Bait"
+    },
+    "url": "/recipes/fishing_bait_legendary/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_boat",
+    "title": {
+      "fr": "Bateau de pêche",
+      "en": "Fishing Boat"
+    },
+    "url": "/recipes/fishing_boat/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_rune_mastery",
+    "title": {
+      "fr": "Rune de maîtrise",
+      "en": "Mastery Rune"
+    },
+    "url": "/recipes/fishing_rune_mastery/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_rune_rarity",
+    "title": {
+      "fr": "Rune de rareté",
+      "en": "Rarity Rune"
+    },
+    "url": "/recipes/fishing_rune_rarity/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_rune_speed",
+    "title": {
+      "fr": "Rune de célérité",
+      "en": "Speed Rune"
+    },
+    "url": "/recipes/fishing_rune_speed/"
+  },
+  {
+    "type": "recipe",
+    "id": "fishing_weather_wand",
+    "title": {
+      "fr": "Baguette météorologique",
+      "en": "Weather Wand"
+    },
+    "url": "/recipes/fishing_weather_wand/"
+  },
+  {
+    "type": "recipe",
+    "id": "food_backpack",
+    "title": {
+      "fr": "Food Backpack",
+      "en": "Food Backpack"
+    },
+    "url": "/recipes/food_backpack/"
+  },
+  {
+    "type": "recipe",
+    "id": "fossil_incubator",
+    "title": {
+      "fr": "Incubateur fossile",
+      "en": "Fossil Incubator"
+    },
+    "url": "/recipes/fossil_incubator/"
+  },
+  {
+    "type": "recipe",
+    "id": "fridge",
+    "title": {
+      "fr": "Frigidaire",
+      "en": "Refrigerator"
+    },
+    "url": "/recipes/fridge/"
+  },
+  {
+    "type": "recipe",
+    "id": "ghast_saddle",
+    "title": {
+      "fr": "Selle de Ghast",
+      "en": "Ghast Saddle"
+    },
+    "url": "/recipes/ghast_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "goat_saddle",
+    "title": {
+      "fr": "Selle de chèvre",
+      "en": "Goat Saddle"
+    },
+    "url": "/recipes/goat_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "grappling_hook",
+    "title": {
+      "fr": "Grappin",
+      "en": "Grappling Hook"
+    },
+    "url": "/recipes/grappling_hook/"
+  },
+  {
+    "type": "recipe",
+    "id": "growth_1_book",
+    "title": {
+      "fr": "Enchanted Book",
+      "en": "Enchanted Book"
+    },
+    "url": "/recipes/growth_1_book/"
+  },
+  {
+    "type": "recipe",
+    "id": "growth_2_book",
+    "title": {
+      "fr": "Enchanted Book",
+      "en": "Enchanted Book"
+    },
+    "url": "/recipes/growth_2_book/"
+  },
+  {
+    "type": "recipe",
+    "id": "growth_3_book",
+    "title": {
+      "fr": "Enchanted Book",
+      "en": "Enchanted Book"
+    },
+    "url": "/recipes/growth_3_book/"
+  },
+  {
+    "type": "recipe",
+    "id": "hoglin_saddle",
+    "title": {
+      "fr": "Selle de Hoglin",
+      "en": "Hoglin Saddle"
+    },
+    "url": "/recipes/hoglin_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "infinite_crafting_table",
+    "title": {
+      "fr": "Table de fabrication infinie",
+      "en": "Infinite Crafting Table"
+    },
+    "url": "/recipes/infinite_crafting_table/"
+  },
+  {
+    "type": "recipe",
+    "id": "jungle_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en acajou",
+      "en": "Vertical Jungle Slab"
+    },
+    "url": "/recipes/jungle_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "large_plate",
+    "title": {
+      "fr": "Grande assiette",
+      "en": "Large Plate"
+    },
+    "url": "/recipes/large_plate/"
+  },
+  {
+    "type": "recipe",
+    "id": "llama_saddle",
+    "title": {
+      "fr": "Selle de lama",
+      "en": "Llama Saddle"
+    },
+    "url": "/recipes/llama_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_coal_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_coal_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_cobblestone",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_cobblestone/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_copper_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_copper_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_diamond_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_diamond_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_dirt",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_dirt/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_emerald_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_emerald_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_fermented_spider_eye",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_fermented_spider_eye/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_gold_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_gold_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_gravel",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_gravel/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_gunpowder",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_gunpowder/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_iron_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_iron_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_lapis_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_lapis_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_magma_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_magma_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_netherrack",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_netherrack/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_phantom_membrane",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_phantom_membrane/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_poisonous_potato",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_poisonous_potato/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_redstone_block",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_redstone_block/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_rotten_flesh",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_rotten_flesh/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_sand",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_sand/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_soul_sand",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_soul_sand/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_soul_soil",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_soul_soil/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_spider_eye",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_spider_eye/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_wither_rose",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_wither_rose/"
+  },
+  {
+    "type": "recipe",
+    "id": "lucky_infusion_wither_skeleton_skull",
+    "title": {
+      "fr": "Bloc chanceux",
+      "en": "Lucky Block"
+    },
+    "url": "/recipes/lucky_infusion_wither_skeleton_skull/"
+  },
+  {
+    "type": "recipe",
+    "id": "mangrove_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en palétuvier",
+      "en": "Vertical Mangrove Slab"
+    },
+    "url": "/recipes/mangrove_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "medium_plate",
+    "title": {
+      "fr": "Assiette moyenne",
+      "en": "Medium Plate"
+    },
+    "url": "/recipes/medium_plate/"
+  },
+  {
+    "type": "recipe",
+    "id": "megalodon_charm",
+    "title": {
+      "fr": "Charm de Mégalodon",
+      "en": "Megalodon Charm"
+    },
+    "url": "/recipes/megalodon_charm/"
+  },
+  {
+    "type": "recipe",
+    "id": "miniaturization_charm",
+    "title": {
+      "fr": "Charme de miniaturisation",
+      "en": "Miniaturization Charm"
+    },
+    "url": "/recipes/miniaturization_charm/"
+  },
+  {
+    "type": "recipe",
+    "id": "mooshroom_saddle",
+    "title": {
+      "fr": "Selle de Champimeuh",
+      "en": "Mooshroom Saddle"
+    },
+    "url": "/recipes/mooshroom_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "mythic_fishing_rod",
+    "title": {
+      "fr": "Canne à pêche Mythic",
+      "en": "Mythic Fishing Rod"
+    },
+    "url": "/recipes/mythic_fishing_rod/"
+  },
+  {
+    "type": "recipe",
+    "id": "nessie_charm",
+    "title": {
+      "fr": "Charm de Nessie",
+      "en": "Nessie Charm"
+    },
+    "url": "/recipes/nessie_charm/"
+  },
+  {
+    "type": "recipe",
+    "id": "nether_brick_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en briques du Nether",
+      "en": "Vertical Nether Brick Slab"
+    },
+    "url": "/recipes/nether_brick_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "oak_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en chêne",
+      "en": "Vertical Oak Slab"
+    },
+    "url": "/recipes/oak_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "panda_saddle",
+    "title": {
+      "fr": "Selle de Panda",
+      "en": "Panda Saddle"
+    },
+    "url": "/recipes/panda_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "phantom_saddle",
+    "title": {
+      "fr": "Selle de Phantom",
+      "en": "Phantom Saddle"
+    },
+    "url": "/recipes/phantom_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "pig_saddle",
+    "title": {
+      "fr": "Selle de cochon",
+      "en": "Pig Saddle"
+    },
+    "url": "/recipes/pig_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "polar_bear_saddle",
+    "title": {
+      "fr": "Selle d’ours blanc",
+      "en": "Polar Bear Saddle"
+    },
+    "url": "/recipes/polar_bear_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "polished_deepslate_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en ardoise des abîmes polie",
+      "en": "Vertical Polished Deepslate Slab"
+    },
+    "url": "/recipes/polished_deepslate_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "portable_fridge_book",
+    "title": {
+      "fr": "Enchanted Book",
+      "en": "Enchanted Book"
+    },
+    "url": "/recipes/portable_fridge_book/"
+  },
+  {
+    "type": "recipe",
+    "id": "quartz_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en quartz",
+      "en": "Vertical Quartz Slab"
+    },
+    "url": "/recipes/quartz_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "ravager_saddle",
+    "title": {
+      "fr": "Selle de Ravageur",
+      "en": "Ravager Saddle"
+    },
+    "url": "/recipes/ravager_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_golden_axe",
+    "title": {
+      "fr": "Gold Nugget",
+      "en": "Gold Nugget"
+    },
+    "url": "/recipes/recycle_golden_axe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_golden_boots",
+    "title": {
+      "fr": "Gold Nugget",
+      "en": "Gold Nugget"
+    },
+    "url": "/recipes/recycle_golden_boots/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_golden_chestplate",
+    "title": {
+      "fr": "Gold Nugget",
+      "en": "Gold Nugget"
+    },
+    "url": "/recipes/recycle_golden_chestplate/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_golden_helmet",
+    "title": {
+      "fr": "Gold Nugget",
+      "en": "Gold Nugget"
+    },
+    "url": "/recipes/recycle_golden_helmet/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_golden_hoe",
+    "title": {
+      "fr": "Gold Nugget",
+      "en": "Gold Nugget"
+    },
+    "url": "/recipes/recycle_golden_hoe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_golden_leggings",
+    "title": {
+      "fr": "Gold Nugget",
+      "en": "Gold Nugget"
+    },
+    "url": "/recipes/recycle_golden_leggings/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_golden_pickaxe",
+    "title": {
+      "fr": "Gold Nugget",
+      "en": "Gold Nugget"
+    },
+    "url": "/recipes/recycle_golden_pickaxe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_golden_shovel",
+    "title": {
+      "fr": "Gold Nugget",
+      "en": "Gold Nugget"
+    },
+    "url": "/recipes/recycle_golden_shovel/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_golden_sword",
+    "title": {
+      "fr": "Gold Nugget",
+      "en": "Gold Nugget"
+    },
+    "url": "/recipes/recycle_golden_sword/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_iron_axe",
+    "title": {
+      "fr": "Iron Nugget",
+      "en": "Iron Nugget"
+    },
+    "url": "/recipes/recycle_iron_axe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_iron_boots",
+    "title": {
+      "fr": "Iron Nugget",
+      "en": "Iron Nugget"
+    },
+    "url": "/recipes/recycle_iron_boots/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_iron_chestplate",
+    "title": {
+      "fr": "Iron Nugget",
+      "en": "Iron Nugget"
+    },
+    "url": "/recipes/recycle_iron_chestplate/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_iron_helmet",
+    "title": {
+      "fr": "Iron Nugget",
+      "en": "Iron Nugget"
+    },
+    "url": "/recipes/recycle_iron_helmet/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_iron_hoe",
+    "title": {
+      "fr": "Iron Nugget",
+      "en": "Iron Nugget"
+    },
+    "url": "/recipes/recycle_iron_hoe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_iron_leggings",
+    "title": {
+      "fr": "Iron Nugget",
+      "en": "Iron Nugget"
+    },
+    "url": "/recipes/recycle_iron_leggings/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_iron_pickaxe",
+    "title": {
+      "fr": "Iron Nugget",
+      "en": "Iron Nugget"
+    },
+    "url": "/recipes/recycle_iron_pickaxe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_iron_shovel",
+    "title": {
+      "fr": "Iron Nugget",
+      "en": "Iron Nugget"
+    },
+    "url": "/recipes/recycle_iron_shovel/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_iron_sword",
+    "title": {
+      "fr": "Iron Nugget",
+      "en": "Iron Nugget"
+    },
+    "url": "/recipes/recycle_iron_sword/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_stone_axe",
+    "title": {
+      "fr": "Cobblestone",
+      "en": "Cobblestone"
+    },
+    "url": "/recipes/recycle_stone_axe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_stone_hoe",
+    "title": {
+      "fr": "Cobblestone",
+      "en": "Cobblestone"
+    },
+    "url": "/recipes/recycle_stone_hoe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_stone_pickaxe",
+    "title": {
+      "fr": "Cobblestone",
+      "en": "Cobblestone"
+    },
+    "url": "/recipes/recycle_stone_pickaxe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_stone_shovel",
+    "title": {
+      "fr": "Cobblestone",
+      "en": "Cobblestone"
+    },
+    "url": "/recipes/recycle_stone_shovel/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_stone_sword",
+    "title": {
+      "fr": "Cobblestone",
+      "en": "Cobblestone"
+    },
+    "url": "/recipes/recycle_stone_sword/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_wooden_axe",
+    "title": {
+      "fr": "Stick",
+      "en": "Stick"
+    },
+    "url": "/recipes/recycle_wooden_axe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_wooden_hoe",
+    "title": {
+      "fr": "Stick",
+      "en": "Stick"
+    },
+    "url": "/recipes/recycle_wooden_hoe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_wooden_pickaxe",
+    "title": {
+      "fr": "Stick",
+      "en": "Stick"
+    },
+    "url": "/recipes/recycle_wooden_pickaxe/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_wooden_shovel",
+    "title": {
+      "fr": "Stick",
+      "en": "Stick"
+    },
+    "url": "/recipes/recycle_wooden_shovel/"
+  },
+  {
+    "type": "recipe",
+    "id": "recycle_wooden_sword",
+    "title": {
+      "fr": "Stick",
+      "en": "Stick"
+    },
+    "url": "/recipes/recycle_wooden_sword/"
+  },
+  {
+    "type": "recipe",
+    "id": "red_sandstone_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en grès rouge",
+      "en": "Vertical Red Sandstone Slab"
+    },
+    "url": "/recipes/red_sandstone_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "repair_kit",
+    "title": {
+      "fr": "Kit de réparation",
+      "en": "Repair Kit"
+    },
+    "url": "/recipes/repair_kit/"
+  },
+  {
+    "type": "recipe",
+    "id": "sandstone_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en grès",
+      "en": "Vertical Sandstone Slab"
+    },
+    "url": "/recipes/sandstone_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "sheep_saddle",
+    "title": {
+      "fr": "Selle de mouton",
+      "en": "Sheep Saddle"
+    },
+    "url": "/recipes/sheep_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "small_plate",
+    "title": {
+      "fr": "Petite assiette",
+      "en": "Small Plate"
+    },
+    "url": "/recipes/small_plate/"
+  },
+  {
+    "type": "recipe",
+    "id": "snow_golem_saddle",
+    "title": {
+      "fr": "Selle de golem de neige",
+      "en": "Snow Golem Saddle"
+    },
+    "url": "/recipes/snow_golem_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "spider_saddle",
+    "title": {
+      "fr": "Selle d’araignée",
+      "en": "Spider Saddle"
+    },
+    "url": "/recipes/spider_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "spruce_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en sapin",
+      "en": "Vertical Spruce Slab"
+    },
+    "url": "/recipes/spruce_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "static_decoration_generator",
+    "title": {
+      "fr": "Générateur de décoration statique",
+      "en": "Static Decoration Generator"
+    },
+    "url": "/recipes/static_decoration_generator/"
+  },
+  {
+    "type": "recipe",
+    "id": "stone_brick_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en briques de pierre",
+      "en": "Vertical Stone Brick Slab"
+    },
+    "url": "/recipes/stone_brick_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "stone_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale en pierre",
+      "en": "Vertical Stone Slab"
+    },
+    "url": "/recipes/stone_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_ancient_city",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_ancient_city/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_bastion_remnant",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_bastion_remnant/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_buried_treasure",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_buried_treasure/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_desert_pyramid",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_desert_pyramid/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_end_city",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_end_city/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_igloo",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_igloo/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_jungle_temple",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_jungle_temple/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_mineshaft",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_mineshaft/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_nether_fortress",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_nether_fortress/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_nether_fossil",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_nether_fossil/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_nether_ruined_portal",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_nether_ruined_portal/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_ocean_monument",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_ocean_monument/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_ocean_ruin",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_ocean_ruin/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_pillager_outpost",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_pillager_outpost/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_ruined_portal",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_ruined_portal/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_shipwreck",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_shipwreck/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_stronghold",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_stronghold/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_swamp_hut",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_swamp_hut/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_trail_ruins",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_trail_ruins/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_trial_chambers",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_trial_chambers/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_village",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_village/"
+  },
+  {
+    "type": "recipe",
+    "id": "structure_module_woodland_mansion",
+    "title": {
+      "fr": "Module de structure",
+      "en": "Structure Module"
+    },
+    "url": "/recipes/structure_module_woodland_mansion/"
+  },
+  {
+    "type": "recipe",
+    "id": "traveler_boat",
+    "title": {
+      "fr": "Bateau du voyageur",
+      "en": "Traveler's Boat"
+    },
+    "url": "/recipes/traveler_boat/"
+  },
+  {
+    "type": "recipe",
+    "id": "traveler_minecart",
+    "title": {
+      "fr": "Wagon du voyageur",
+      "en": "Traveler's Minecart"
+    },
+    "url": "/recipes/traveler_minecart/"
+  },
+  {
+    "type": "recipe",
+    "id": "turtle_saddle",
+    "title": {
+      "fr": "Selle de Tortue",
+      "en": "Turtle Saddle"
+    },
+    "url": "/recipes/turtle_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "villager_saddle",
+    "title": {
+      "fr": "Selle de villageois",
+      "en": "Villager Saddle"
+    },
+    "url": "/recipes/villager_saddle/"
+  },
+  {
+    "type": "recipe",
+    "id": "void_fishing_rod",
+    "title": {
+      "fr": "Canne à pêche du Vide",
+      "en": "Void Fishing Rod"
+    },
+    "url": "/recipes/void_fishing_rod/"
+  },
+  {
+    "type": "recipe",
+    "id": "warped_vertical_slab",
+    "title": {
+      "fr": "Dalle verticale biscornue",
+      "en": "Vertical Warped Slab"
+    },
+    "url": "/recipes/warped_vertical_slab/"
+  },
+  {
+    "type": "recipe",
+    "id": "whale_charm",
+    "title": {
+      "fr": "Charm de la Baleine",
+      "en": "Whale Charm"
+    },
+    "url": "/recipes/whale_charm/"
+  },
+  {
+    "type": "recipe",
+    "id": "zoglin_saddle",
+    "title": {
+      "fr": "Selle de Zoglin",
+      "en": "Zoglin Saddle"
+    },
+    "url": "/recipes/zoglin_saddle/"
+  },
+  {
+    "type": "system",
+    "id": "progression",
+    "title": {
+      "fr": "Progression globale",
+      "en": "Global progression"
+    },
+    "url": "/systems/progression/"
+  }
+]

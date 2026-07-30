@@ -1,0 +1,78 @@
+---
+import type { PerkNode } from '../lib/catalog';
+interface Props { nodes: PerkNode[] }
+const { nodes } = Astro.props;
+const byId = new Map(nodes.map((node) => [node.id, node]));
+---
+<section class="skill-tree-shell" data-skill-tree>
+  <div class="skill-tree" role="group" aria-label="Arbre des perks">
+    <svg class="skill-tree-lines" viewBox="0 0 280 340" aria-hidden="true">
+      {nodes.flatMap((node) => node.parent_ids.map((parentId) => {
+        const parent = byId.get(parentId);
+        return parent ? <line x1={parent.position.x + 12} y1={parent.position.y + 12} x2={node.position.x + 12} y2={node.position.y + 12} /> : null;
+      }))}
+    </svg>
+    {nodes.map((node) => (
+      <button
+        id={node.slug}
+        class="skill-node"
+        type="button"
+        style={`--node-x:${node.position.x};--node-y:${node.position.y}`}
+        data-node={JSON.stringify(node)}
+        title={node.names.fr}
+        aria-label={`${node.id}. ${node.names.fr}`}
+      >{node.id}</button>
+    ))}
+  </div>
+  <article class="perk-detail" data-perk-detail>
+    <p class="eyebrow">Sélectionnez un perk</p>
+    <h3>Arbre interactif</h3>
+    <p>Cliquez sur un nœud pour consulter sa description et ses valeurs extraites.</p>
+  </article>
+</section>
+<script>
+  const paragraph = (text, className = '') => {
+    const element = document.createElement('p');
+    if (className) element.className = className;
+    element.textContent = text;
+    return element;
+  };
+
+  document.querySelectorAll('[data-skill-tree]').forEach((root) => {
+    const detail = root.querySelector('[data-perk-detail]');
+    root.querySelectorAll('[data-node]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!(button instanceof HTMLElement) || !(detail instanceof HTMLElement)) return;
+        const rawNode = button.dataset.node;
+        if (!rawNode) return;
+        const node = JSON.parse(rawNode);
+
+        const eyebrow = paragraph(`Perk ${node.id}`, 'eyebrow');
+        const title = document.createElement('h3');
+        title.textContent = node.names.fr;
+        const description = paragraph(node.descriptions.fr);
+
+        const values = document.createElement('div');
+        if (node.bonuses?.length) {
+          const list = document.createElement('dl');
+          node.bonuses.forEach((bonus) => {
+            const row = document.createElement('div');
+            const term = document.createElement('dt');
+            term.textContent = bonus.type.replaceAll('_', ' ');
+            const definition = document.createElement('dd');
+            definition.textContent = String(bonus.value ?? 'actif');
+            row.append(term, definition);
+            list.append(row);
+          });
+          values.append(list);
+        } else {
+          values.append(paragraph('Aucune valeur de bonus simple extraite.', 'muted'));
+        }
+
+        const source = paragraph(`Source : ${node.extraction.file}`, 'source-note');
+        detail.replaceChildren(eyebrow, title, description, values, source);
+        root.querySelectorAll('[data-node]').forEach((item) => item.classList.toggle('is-selected', item === button));
+      });
+    });
+  });
+</script>

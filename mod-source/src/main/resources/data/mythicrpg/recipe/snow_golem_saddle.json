@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BCB",
+    "BAB",
+    "BIB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:snowball"
+    },
+    "C": {
+      "item": "minecraft:carved_pumpkin"
+    },
+    "A": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:snow_golem_saddle",
+    "count": 1
+  }
+}

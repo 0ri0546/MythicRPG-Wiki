@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DED",
+    "EME",
+    "DED"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "item": "mythicrpg:enchanted_wood"
+    },
+    "M": {
+      "item": "mythicrpg:chest_module_2"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:chest_module_3",
+    "count": 1
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=west": {
+      "model": "mythicrpg:block/jungle_vertical_slab"
+    },
+    "facing=north": {
+      "model": "mythicrpg:block/jungle_vertical_slab",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=east": {
+      "model": "mythicrpg:block/jungle_vertical_slab",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south": {
+      "model": "mythicrpg:block/jungle_vertical_slab",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

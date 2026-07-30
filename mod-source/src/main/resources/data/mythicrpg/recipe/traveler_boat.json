@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SPS",
+    "PBP",
+    "SNS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "P": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "B": {
+      "tag": "minecraft:boats"
+    },
+    "N": {
+      "item": "minecraft:nautilus_shell"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:traveler_boat",
+    "count": 1
+  }
+}

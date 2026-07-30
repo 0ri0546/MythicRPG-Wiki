@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LIL",
+    "IBI",
+    "LDL"
+  ],
+  "key": {
+    "L": { "item": "minecraft:lapis_lazuli" },
+    "I": { "item": "minecraft:blue_ice" },
+    "B": { "item": "minecraft:book" },
+    "D": { "item": "minecraft:diamond" }
+  },
+  "result": {
+    "id": "minecraft:enchanted_book",
+    "count": 1,
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {
+          "mythicrpg:portable_fridge": 1
+        },
+        "show_in_tooltip": true
+      }
+    }
+  }
+}

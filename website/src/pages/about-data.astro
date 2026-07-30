@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { catalog, extractionReport } from '../lib/catalog';
+---
+<BaseLayout title="Données et provenance">
+  <header class="page-header"><p class="eyebrow">Transparence</p><h1>Données et provenance</h1><p>Cette livraison a uniquement inspecté les fichiers. Aucun build Gradle et aucun lancement de Minecraft n’ont été effectués.</p></header>
+  <div class="stat-table">
+    {Object.entries(extractionReport.counts).map(([key, value]) => <div><span>{key}</span><strong>{value}</strong></div>)}
+  </div>
+  <section><h2>Source analysée</h2><dl class="detail-list">
+    <div><dt>Archive reçue</dt><dd><code>{catalog.source.received_archive}</code></dd></div>
+    <div><dt>Source canonique identifiée</dt><dd><code>{catalog.source.canonical_source}</code></dd></div>
+    <div><dt>SHA-256 de l’archive</dt><dd><code>{catalog.source.archive_sha256}</code></dd></div>
+    <div><dt>Empreinte de l’arbre source</dt><dd><code>{catalog.source.tree_sha256}</code></dd></div>
+    <div><dt>Mode</dt><dd>{catalog.source.inspection}</dd></div>
+    <div><dt>Gradle</dt><dd>{catalog.source.gradle_run ? 'Exécuté' : 'Non exécuté'}</dd></div>
+    <div><dt>Minecraft</dt><dd>{catalog.source.minecraft_run ? 'Exécuté' : 'Non exécuté'}</dd></div>
+  </dl></section>
+  <section><h2>Principe de la v0.1.1</h2><p>Les valeurs techniques viennent du Java ou des JSON. Les textes courts et les statuts viennent des fichiers Markdown/YAML. Le catalogue fusionné alimente le site et le fichier destiné à l’encyclopédie.</p></section>
+  <section><h2>Langues</h2><p>Les données françaises et anglaises sont extraites et conservées. L’interface publique de cette version reste toutefois en français et ne possède pas encore de routes <code>/fr/</code> et <code>/en/</code>.</p></section>
+</BaseLayout>

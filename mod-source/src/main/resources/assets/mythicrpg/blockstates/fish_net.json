@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "waterlogged=false": {
+      "model": "mythicrpg:block/fish_net"
+    },
+    "waterlogged=true": {
+      "model": "mythicrpg:block/fish_net"
+    }
+  }
+}

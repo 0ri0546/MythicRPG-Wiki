@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M M",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "tag": "mythicrpg:fishing_materials/rare"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:fishing_armor_rare_chestplate",
+    "count": 1
+  }
+}

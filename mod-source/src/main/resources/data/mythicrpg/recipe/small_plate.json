@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " B ",
+    "BCB",
+    " B "
+  ],
+  "key": {
+    "B": { "item": "minecraft:brick" },
+    "C": { "item": "minecraft:bowl" }
+  },
+  "result": {
+    "id": "mythicrpg:small_plate",
+    "count": 1
+  }
+}

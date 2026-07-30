@@ -1,0 +1,3 @@
+package com.mythicrpg.fishing;
+import net.minecraft.component.DataComponentTypes; import net.minecraft.component.type.NbtComponent; import net.minecraft.item.ItemStack;
+public final class FishingMaterialData { private static final String KEY="fishing_material_rarity"; private FishingMaterialData(){} public static void setRarity(ItemStack s,FishingRarity r){NbtComponent.set(DataComponentTypes.CUSTOM_DATA,s,n->n.putInt(KEY,r.rank()));} public static FishingRarity rarity(ItemStack s){return FishingRarity.byRank(s.getOrDefault(DataComponentTypes.CUSTOM_DATA,NbtComponent.DEFAULT).copyNbt().getInt(KEY));} }

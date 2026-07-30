@@ -1,0 +1,79 @@
+---
+import { basePath } from '../lib/catalog';
+---
+<dialog class="search-dialog" data-search-dialog>
+  <form method="dialog" class="search-head">
+    <label for="wiki-search">Recherche</label>
+    <button type="submit" aria-label="Fermer">×</button>
+  </form>
+  <input id="wiki-search" data-search-input type="search" placeholder="Skill, perk, objet, recette…" autocomplete="off" />
+  <div class="search-results" data-search-results aria-live="polite"></div>
+</dialog>
+<script define:vars={{ basePath }}>
+  const dialog = document.querySelector('[data-search-dialog]');
+  const openButton = document.querySelector('[data-search-open]');
+  const input = document.querySelector('[data-search-input]');
+  const results = document.querySelector('[data-search-results]');
+  let index = [];
+
+  const withBase = (path) => `${basePath}${String(path).replace(/^\/+/, '')}`;
+  const normalize = (value) => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+  const renderMessage = (message) => {
+    if (!(results instanceof HTMLElement)) return;
+    const paragraph = document.createElement('p');
+    paragraph.className = 'muted';
+    paragraph.textContent = message;
+    results.replaceChildren(paragraph);
+  };
+
+  const renderMatches = (matches) => {
+    if (!(results instanceof HTMLElement)) return;
+    if (!matches.length) {
+      renderMessage('Aucun résultat.');
+      return;
+    }
+    const fragment = document.createDocumentFragment();
+    matches.forEach((entry) => {
+      const link = document.createElement('a');
+      link.href = withBase(entry.url);
+
+      const title = document.createElement('span');
+      title.textContent = entry.title?.fr ?? entry.id;
+
+      const type = document.createElement('small');
+      type.textContent = entry.type;
+
+      link.append(title, type);
+      fragment.append(link);
+    });
+    results.replaceChildren(fragment);
+  };
+
+  openButton?.addEventListener('click', async () => {
+    if (dialog instanceof HTMLDialogElement) dialog.showModal();
+    if (input instanceof HTMLInputElement) input.focus();
+    if (!index.length) {
+      const response = await fetch(withBase('generated/search-index.json'));
+      if (!response.ok) {
+        renderMessage('L’index de recherche est indisponible.');
+        return;
+      }
+      index = await response.json();
+    }
+  });
+
+  input?.addEventListener('input', () => {
+    if (!(input instanceof HTMLInputElement)) return;
+    const query = normalize(input.value).trim();
+    if (query.length < 2) {
+      renderMessage('Saisissez au moins deux caractères.');
+      return;
+    }
+    const matches = index.filter((entry) => {
+      const haystack = `${entry.id} ${entry.title?.fr ?? ''} ${entry.title?.en ?? ''} ${entry.type}`;
+      return normalize(haystack).includes(query);
+    }).slice(0, 20);
+    renderMatches(matches);
+  });
+</script>

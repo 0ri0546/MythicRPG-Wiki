@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    "M M"
+  ],
+  "key": {
+    "M": {
+      "tag": "mythicrpg:fishing_materials/common"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:fishing_armor_common_helmet",
+    "count": 1
+  }
+}

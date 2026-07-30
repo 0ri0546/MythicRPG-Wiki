@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PCP",
+    "CAC",
+    "PIP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:porkchop"
+    },
+    "C": {
+      "item": "minecraft:crimson_fungus"
+    },
+    "A": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:hoglin_saddle",
+    "count": 1
+  }
+}

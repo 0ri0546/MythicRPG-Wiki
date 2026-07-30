@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IPI",
+    "ICI",
+    "IRI"
+  ],
+  "key": {
+    "I": { "item": "minecraft:iron_ingot" },
+    "P": { "item": "minecraft:packed_ice" },
+    "C": { "item": "minecraft:chest" },
+    "R": { "item": "minecraft:redstone_block" }
+  },
+  "result": {
+    "id": "mythicrpg:fridge",
+    "count": 1
+  }
+}

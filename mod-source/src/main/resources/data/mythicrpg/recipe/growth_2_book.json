@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "EGE",
+    "DBD",
+    "EGE"
+  ],
+  "key": {
+    "E": {
+      "item": "mythicrpg:enchanted_wood"
+    },
+    "G": {
+      "item": "minecraft:golden_apple"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "id": "minecraft:enchanted_book",
+    "count": 1,
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {
+          "mythicrpg:growth": 2
+        },
+        "show_in_tooltip": true
+      }
+    }
+  }
+}

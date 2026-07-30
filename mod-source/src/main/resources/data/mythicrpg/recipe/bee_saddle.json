@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CHC",
+    "CSC",
+    "CIC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:honeycomb"
+    },
+    "H": {
+      "item": "minecraft:honey_block"
+    },
+    "S": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:bee_saddle",
+    "count": 1
+  }
+}

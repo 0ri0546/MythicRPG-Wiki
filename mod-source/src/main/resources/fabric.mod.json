@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "mythicrpg",
+	"version": "${version}",
+	"name": "MythicRPG",
+	"description": "A progression-focused RPG mod that rewards different ways of playing Minecraft.",
+	"authors": [
+		"0ri0_"
+	],
+	"icon": "assets/mythicrpg/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.mythicrpg.MythicRPG"
+		],
+		"client": [
+			"com.mythicrpg.client.MythicRPGClient"
+		]
+	},
+	"mixins": [
+		"mythicrpg.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": ">=0.116.13"
+	}
+}

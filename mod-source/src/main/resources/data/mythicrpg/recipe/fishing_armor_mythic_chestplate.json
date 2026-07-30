@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M M",
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "tag": "mythicrpg:fishing_materials/mythic"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:fishing_armor_mythic_chestplate",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "mythicrpg:stone_vertical_slab",
+    "mythicrpg:cobblestone_vertical_slab",
+    "mythicrpg:stone_brick_vertical_slab",
+    "mythicrpg:brick_vertical_slab",
+    "mythicrpg:polished_deepslate_vertical_slab",
+    "mythicrpg:quartz_vertical_slab",
+    "mythicrpg:sandstone_vertical_slab",
+    "mythicrpg:red_sandstone_vertical_slab",
+    "mythicrpg:nether_brick_vertical_slab",
+    "mythicrpg:blank_block",
+    "mythicrpg:fridge"
+  ]
+}

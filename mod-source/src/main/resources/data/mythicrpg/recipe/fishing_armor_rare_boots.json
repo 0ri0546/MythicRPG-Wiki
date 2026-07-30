@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M M",
+    "M M"
+  ],
+  "key": {
+    "M": {
+      "tag": "mythicrpg:fishing_materials/rare"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:fishing_armor_rare_boots",
+    "count": 1
+  }
+}

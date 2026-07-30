@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "CBC",
+    " C "
+  ],
+  "key": {
+    "C": { "item": "minecraft:copper_ingot" },
+    "B": { "item": "minecraft:bowl" }
+  },
+  "result": {
+    "id": "mythicrpg:medium_plate",
+    "count": 1
+  }
+}

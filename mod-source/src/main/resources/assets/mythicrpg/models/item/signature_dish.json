@@ -1,0 +1,303 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mythicrpg:item/signature_dish",
+    "particle": "mythicrpg:item/signature_dish"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 1.0
+      },
+      "model": "minecraft:item/carrot"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 2.0
+      },
+      "model": "minecraft:item/potato"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 3.0
+      },
+      "model": "minecraft:item/baked_potato"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 4.0
+      },
+      "model": "minecraft:item/poisonous_potato"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 5.0
+      },
+      "model": "minecraft:item/beetroot"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 6.0
+      },
+      "model": "minecraft:item/pumpkin"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 7.0
+      },
+      "model": "minecraft:item/golden_carrot"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 8.0
+      },
+      "model": "minecraft:item/apple"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 9.0
+      },
+      "model": "minecraft:item/golden_apple"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 10.0
+      },
+      "model": "minecraft:item/enchanted_golden_apple"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 11.0
+      },
+      "model": "minecraft:item/melon_slice"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 12.0
+      },
+      "model": "minecraft:item/sweet_berries"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 13.0
+      },
+      "model": "minecraft:item/glow_berries"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 14.0
+      },
+      "model": "minecraft:item/chorus_fruit"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 15.0
+      },
+      "model": "minecraft:item/wheat"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 16.0
+      },
+      "model": "minecraft:item/bread"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 17.0
+      },
+      "model": "minecraft:item/cookie"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 18.0
+      },
+      "model": "minecraft:item/sugar"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 19.0
+      },
+      "model": "minecraft:item/cocoa_beans"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 20.0
+      },
+      "model": "minecraft:item/honey_bottle"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 21.0
+      },
+      "model": "minecraft:item/egg"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 22.0
+      },
+      "model": "minecraft:item/milk_bucket"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 23.0
+      },
+      "model": "minecraft:item/red_mushroom"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 24.0
+      },
+      "model": "minecraft:item/brown_mushroom"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 25.0
+      },
+      "model": "minecraft:item/warped_fungus"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 26.0
+      },
+      "model": "minecraft:item/nether_wart"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 27.0
+      },
+      "model": "minecraft:item/blaze_powder"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 28.0
+      },
+      "model": "minecraft:item/magma_cream"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 29.0
+      },
+      "model": "minecraft:item/beef"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 30.0
+      },
+      "model": "minecraft:item/cooked_beef"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 31.0
+      },
+      "model": "minecraft:item/chicken"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 32.0
+      },
+      "model": "minecraft:item/cooked_chicken"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 33.0
+      },
+      "model": "minecraft:item/porkchop"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 34.0
+      },
+      "model": "minecraft:item/cooked_porkchop"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 35.0
+      },
+      "model": "minecraft:item/rabbit"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 36.0
+      },
+      "model": "minecraft:item/cooked_rabbit"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 37.0
+      },
+      "model": "minecraft:item/mutton"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 38.0
+      },
+      "model": "minecraft:item/cooked_mutton"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 39.0
+      },
+      "model": "minecraft:item/rotten_flesh"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 40.0
+      },
+      "model": "minecraft:item/spider_eye"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 41.0
+      },
+      "model": "minecraft:item/cod"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 42.0
+      },
+      "model": "minecraft:item/cooked_cod"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 43.0
+      },
+      "model": "minecraft:item/salmon"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 44.0
+      },
+      "model": "minecraft:item/cooked_salmon"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 45.0
+      },
+      "model": "minecraft:item/tropical_fish"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 46.0
+      },
+      "model": "minecraft:item/pufferfish"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 47.0
+      },
+      "model": "minecraft:item/kelp"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 48.0
+      },
+      "model": "minecraft:item/dried_kelp"
+    },
+    {
+      "predicate": {
+        "mythicrpg:signature_icon": 49.0
+      },
+      "model": "minecraft:item/potion"
+    }
+  ]
+}

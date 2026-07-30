@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  S",
+    " ST",
+    "B T"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:blaze_rod"
+    },
+    "B": {
+      "item": "minecraft:basalt"
+    },
+    "T": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:basalt_fishing_rod",
+    "count": 1
+  }
+}

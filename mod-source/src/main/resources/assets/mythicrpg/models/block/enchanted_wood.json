@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "mythicrpg:block/enchanted_wood_top",
+    "side": "mythicrpg:block/enchanted_wood"
+  }
+}

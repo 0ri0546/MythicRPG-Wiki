@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "GCG",
+    "RMR",
+    "GCG"
+  ],
+  "key": {
+    "G": { "item": "minecraft:glass_pane" },
+    "C": { "item": "minecraft:copper_ingot" },
+    "R": { "item": "minecraft:redstone" },
+    "M": { "item": "minecraft:compass" }
+  },
+  "result": {
+    "id": "mythicrpg:architect_compass",
+    "count": 1
+  }
+}

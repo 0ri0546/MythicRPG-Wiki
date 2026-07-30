@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "M M",
+    "M M"
+  ],
+  "key": {
+    "M": {
+      "tag": "mythicrpg:fishing_materials/legendary"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:fishing_armor_legendary_boots",
+    "count": 1
+  }
+}

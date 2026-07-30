@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "B",
+    "B"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:stone"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:stone_vertical_slab",
+    "count": 6
+  }
+}

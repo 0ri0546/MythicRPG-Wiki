@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ItemIcon from '../../components/ItemIcon.astro';
+import { catalog, itemRegistrationLabel, sitePath } from '../../lib/catalog';
+
+const confirmedCount = catalog.items.filter((item) => item.registration_status === 'confirmed').length;
+const dynamicCount = catalog.items.filter((item) => item.registration_status === 'dynamic_probable').length;
+const modelOnlyCount = catalog.items.filter((item) => item.registration_status === 'model_only').length;
+---
+<BaseLayout title="Objets">
+  <header class="page-header">
+    <p class="eyebrow">Catalogue</p>
+    <h1>Objets et block-items</h1>
+    <p>{catalog.items.length} modèles détectés. Par défaut, l’index affiche uniquement les {confirmedCount} objets dont l’enregistrement est confirmé statiquement.</p>
+  </header>
+
+  <section class="evidence-summary" aria-label="Répartition des preuves d’enregistrement">
+    <div><strong>{confirmedCount}</strong><span>confirmés</span></div>
+    <div><strong>{dynamicCount}</strong><span>dynamiques probables</span></div>
+    <div><strong>{modelOnlyCount}</strong><span>modèles non confirmés</span></div>
+  </section>
+
+  <div class="filter-bar">
+    <input type="search" placeholder="Filtrer les objets…" data-item-filter />
+    <label class="select-label">
+      <span>Présence en jeu</span>
+      <select data-registration-filter>
+        <option value="confirmed">Confirmés uniquement</option>
+        <option value="confirmed,dynamic_probable">Confirmés et dynamiques probables</option>
+        <option value="all">Toutes les entrées détectées</option>
+        <option value="dynamic_probable">Dynamiques probables uniquement</option>
+        <option value="model_only">Modèles non confirmés uniquement</option>
+      </select>
+    </label>
+    <span data-item-count>{confirmedCount} résultats</span>
+  </div>
+
+  <div class="item-grid" data-item-grid>
+    {catalog.items.map((item) => (
+      <a
+        class="item-card"
+        data-filter-value={`${item.names.fr} ${item.names.en} ${item.id}`}
+        data-registration-status={item.registration_status}
+        hidden={item.registration_status !== 'confirmed'}
+        href={sitePath(`items/${item.id}/`)}
+      >
+        <ItemIcon src={item.texture ? sitePath(item.texture) : null} alt={item.names.fr} />
+        <div>
+          <strong>{item.names.fr}</strong>
+          <code>{item.identifier}</code>
+          <small class={`evidence-label evidence-${item.registration_status}`}>{itemRegistrationLabel(item.registration_status)}</small>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <script>
+    const textInput = document.querySelector('[data-item-filter]');
+    const registrationSelect = document.querySelector('[data-registration-filter]');
+    const cards = [...document.querySelectorAll('[data-filter-value]')];
+    const count = document.querySelector('[data-item-count]');
+
+    const refresh = () => {
+      const query = textInput instanceof HTMLInputElement ? textInput.value.toLowerCase().trim() : '';
+      const selected = registrationSelect instanceof HTMLSelectElement ? registrationSelect.value : 'confirmed';
+      const allowedStatuses = selected === 'all' ? null : new Set(selected.split(','));
+      let visible = 0;
+
+      cards.forEach((card) => {
+        if (!(card instanceof HTMLElement)) return;
+        const matchesText = (card.dataset.filterValue ?? '').toLowerCase().includes(query);
+        const status = card.dataset.registrationStatus ?? 'model_only';
+        const matchesStatus = allowedStatuses === null || allowedStatuses.has(status);
+        const show = matchesText && matchesStatus;
+        card.hidden = !show;
+        visible += show ? 1 : 0;
+      });
+
+      if (count) count.textContent = `${visible} résultats`;
+    };
+
+    textInput?.addEventListener('input', refresh);
+    registrationSelect?.addEventListener('change', refresh);
+    refresh();
+  </script>
+</BaseLayout>

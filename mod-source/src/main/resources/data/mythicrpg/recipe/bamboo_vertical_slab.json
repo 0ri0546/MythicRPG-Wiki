@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "B",
+    "B"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bamboo_planks"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:bamboo_vertical_slab",
+    "count": 6
+  }
+}

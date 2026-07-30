@@ -1,0 +1,3 @@
+package com.mythicrpg.mining.archaeology.relic;
+import com.mythicrpg.MythicRPG;import net.minecraft.network.RegistryByteBuf;import net.minecraft.network.codec.PacketCodec;import net.minecraft.network.packet.CustomPayload;import net.minecraft.util.Identifier;
+public record PaletteSelectionPayload(int index) implements CustomPayload {public static final Id<PaletteSelectionPayload>ID=new Id<>(Identifier.of(MythicRPG.MOD_ID,"palette_selection"));public static final PacketCodec<RegistryByteBuf,PaletteSelectionPayload>CODEC=PacketCodec.of((v,b)->b.writeVarInt(v.index()),b->new PaletteSelectionPayload(b.readVarInt()));@Override public Id<? extends CustomPayload> getId(){return ID;}}

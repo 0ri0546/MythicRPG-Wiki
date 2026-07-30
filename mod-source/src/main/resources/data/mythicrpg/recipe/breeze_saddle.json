@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RWR",
+    "RSR",
+    "RIR"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:breeze_rod"
+    },
+    "W": {
+      "item": "minecraft:wind_charge"
+    },
+    "S": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:breeze_saddle",
+    "count": 1
+  }
+}

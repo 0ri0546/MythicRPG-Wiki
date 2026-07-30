@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "luck=0": { "model": "mythicrpg:block/lucky_block" },
+    "luck=1": { "model": "mythicrpg:block/lucky_block" },
+    "luck=2": { "model": "mythicrpg:block/lucky_block" },
+    "luck=3": { "model": "mythicrpg:block/lucky_block" },
+    "luck=4": { "model": "mythicrpg:block/lucky_block" },
+    "luck=5": { "model": "mythicrpg:block/lucky_block" },
+    "luck=6": { "model": "mythicrpg:block/lucky_block" },
+    "luck=7": { "model": "mythicrpg:block/lucky_block" },
+    "luck=8": { "model": "mythicrpg:block/lucky_block" },
+    "luck=9": { "model": "mythicrpg:block/lucky_block" },
+    "luck=10": { "model": "mythicrpg:block/lucky_block" },
+    "luck=11": { "model": "mythicrpg:block/lucky_block" },
+    "luck=12": { "model": "mythicrpg:block/lucky_block" },
+    "luck=13": { "model": "mythicrpg:block/lucky_block" },
+    "luck=14": { "model": "mythicrpg:block/lucky_block" },
+    "luck=15": { "model": "mythicrpg:block/lucky_block" },
+    "luck=16": { "model": "mythicrpg:block/lucky_block" },
+    "luck=17": { "model": "mythicrpg:block/lucky_block" },
+    "luck=18": { "model": "mythicrpg:block/lucky_block" },
+    "luck=19": { "model": "mythicrpg:block/lucky_block" },
+    "luck=20": { "model": "mythicrpg:block/lucky_block" }
+  }
+}

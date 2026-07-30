@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sitePath } from '../lib/catalog';
+---
+<BaseLayout title="Page introuvable"><section class="empty-state"><p class="eyebrow">404</p><h1>Page introuvable</h1><p>Cette entrée n’existe pas dans le catalogue généré.</p><a class="button primary" href={sitePath('/')}>Retour à l’accueil</a></section></BaseLayout>

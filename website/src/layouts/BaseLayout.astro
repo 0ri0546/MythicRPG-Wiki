@@ -1,0 +1,34 @@
+---
+import Header from '../components/Header.astro';
+import SearchDialog from '../components/SearchDialog.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Wiki statique officiel de MythicRPG.' } = Astro.props;
+const fullTitle = title === 'MythicRPG Wiki' ? title : `${title} · MythicRPG Wiki`;
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <Header />
+    <main id="contenu" class="page-shell">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>MythicRPG Wiki v0.1.1 · données extraites statiquement du code et des ressources.</p>
+    </footer>
+    <SearchDialog />
+  </body>
+</html>

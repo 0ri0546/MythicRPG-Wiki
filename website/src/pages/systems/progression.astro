@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import { catalog, sitePath } from '../../lib/catalog';
+
+const progressionValues = catalog.values.filter((value) => value.id.startsWith('progression.'));
+const coefficient = progressionValues.find((value) => value.id === 'progression.xp_curve_coefficient');
+const exponent = progressionValues.find((value) => value.id === 'progression.xp_curve_exponent');
+---
+<BaseLayout title="Progression globale" description="Courbe d’expérience commune aux neuf skills de MythicRPG.">
+  <nav class="breadcrumbs"><a href={sitePath('systems/')}>Systèmes</a><span>/</span><span>Progression globale</span></nav>
+  <header class="page-header">
+    <div class="badge-row"><StatusBadge status="beta" /><span class="status-badge">9 skills</span></div>
+    <h1>Progression globale</h1>
+    <p>La courbe d’expérience est une mécanique transversale. Elle ne dépend pas de Mining et s’applique aux neuf skills.</p>
+  </header>
+
+  <section class="data-callout">
+    <div><p class="eyebrow">Formule active</p><h2>XP requise pour un niveau</h2></div>
+    <p><code>max(1, round({coefficient?.value ?? '?'} × niveau^{exponent?.value ?? '?'}))</code></p>
+  </section>
+
+  <section>
+    <div class="section-heading"><div><p class="eyebrow">Valeurs Java</p><h2>Constantes suivies</h2></div></div>
+    <div class="stat-table">
+      {progressionValues.map((value) => (
+        <div>
+          <span>{value.label.fr}</span>
+          <strong>{value.value} {value.unit}</strong>
+          <small>{value.status} · {value.source.symbol}</small>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <aside class="source-panel">
+    <h2>Portée et validation</h2>
+    <p>Ces valeurs sont extraites statiquement depuis le Java. Elles sont marquées comme temporaires pour la bêta.</p>
+    <p>Aucun build Gradle, lancement Minecraft ou test en jeu n’est déduit de cette extraction.</p>
+  </aside>
+</BaseLayout>

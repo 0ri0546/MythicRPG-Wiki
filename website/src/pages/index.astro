@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StatusBadge from '../components/StatusBadge.astro';
+import { catalog, extractionReport, sitePath } from '../lib/catalog';
+const betaValues = catalog.values.filter((value) => value.status === 'beta');
+---
+<BaseLayout title="MythicRPG Wiki" description="Wiki statique de MythicRPG, généré depuis le code et les ressources du mod.">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Minecraft Fabric 1.21.1</p>
+      <h1>Le wiki technique de MythicRPG</h1>
+      <p>Cette v0.1 prouve la chaîne complète d’extraction : code Java et JSON, catalogue commun, pages Astro et déploiement GitHub Pages.</p>
+      <div class="button-row">
+        <a class="button primary" href={sitePath('skills/')}>Explorer les 9 skills</a>
+        <a class="button" href={sitePath('systems/progression/')}>Progression globale</a>
+        <a class="button" href={sitePath('about-data/')}>Voir la provenance</a>
+      </div>
+    </div>
+    <aside class="hero-panel">
+      <strong>{extractionReport.counts.perks}</strong><span>perks extraits</span>
+      <strong>{extractionReport.counts.items}</strong><span>modèles d’objets</span>
+      <strong>{extractionReport.counts.recipes}</strong><span>recettes JSON</span>
+    </aside>
+  </section>
+
+  <section>
+    <div class="section-heading"><div><p class="eyebrow">Progression</p><h2>Les neuf compétences</h2></div></div>
+    <div class="card-grid">
+      {catalog.skills.map((skill) => (
+        <a class="skill-card" href={sitePath(`skills/${skill.id}/`)}>
+          <StatusBadge status={skill.status} />
+          <h3>{skill.names.fr}</h3>
+          <p>{skill.editorial.fr?.summary}</p>
+          <span>{skill.nodes.length} perks →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="data-callout">
+    <div><p class="eyebrow">Profil bêta</p><h2>{betaValues.length} valeurs explicitement marquées temporaires</h2></div>
+    <p>Le site n’invente pas leur statut : il est défini dans les métadonnées documentaires, tandis que leur valeur est relue dans le Java.</p>
+  </section>
+</BaseLayout>

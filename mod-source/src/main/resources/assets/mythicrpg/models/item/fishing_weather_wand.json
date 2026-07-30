@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {"layer0": "mythicrpg:item/fishing_weather_wand_rain"},
+  "overrides": [
+    {"predicate": {"mythicrpg:weather_mode": 0.5}, "model": "mythicrpg:item/fishing_weather_wand_sun"},
+    {"predicate": {"mythicrpg:weather_mode": 1.0}, "model": "mythicrpg:item/fishing_weather_wand_storm"}
+  ]
+}

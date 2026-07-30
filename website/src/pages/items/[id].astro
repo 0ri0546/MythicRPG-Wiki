@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ItemIcon from '../../components/ItemIcon.astro';
+import { catalog, itemRegistrationLabel, sitePath, type ItemEntry } from '../../lib/catalog';
+export function getStaticPaths() {
+  return catalog.items.map((item) => ({ params: { id: item.id }, props: { item } }));
+}
+const { item } = Astro.props as { item: ItemEntry };
+const recipes = catalog.recipes.filter((recipe) => recipe.result.id === item.identifier);
+const evidenceRows = [
+  ['Enregistrement littéral d’objet', item.evidence.literal_item_registration],
+  ['Enregistrement littéral de bloc', item.evidence.literal_block_registration],
+  ['Référence dans une recette', item.evidence.recipe_reference],
+  ['Traduction présente', item.evidence.translation],
+  ['Texture résolue', item.evidence.texture],
+  ['Blockstate présent', item.evidence.blockstate]
+] as const;
+---
+<BaseLayout title={item.names.fr}>
+  <nav class="breadcrumbs"><a href={sitePath('items/')}>Objets</a><span>/</span><span>{item.names.fr}</span></nav>
+  <header class="item-hero">
+    <ItemIcon src={item.texture ? sitePath(item.texture) : null} alt={item.names.fr} size="large" />
+    <div>
+      <p class="eyebrow">{item.kind}</p>
+      <h1>{item.names.fr}</h1>
+      <code>{item.identifier}</code>
+      <p class={`evidence-label evidence-${item.registration_status}`}>{itemRegistrationLabel(item.registration_status)}</p>
+    </div>
+  </header>
+  <div class="two-column">
+    <section>
+      <h2>Informations extraites</h2>
+      <dl class="detail-list">
+        <div><dt>Nom anglais</dt><dd>{item.names.en}</dd></div>
+        <div><dt>Modèle</dt><dd><code>{item.model}</code></dd></div>
+        <div><dt>Statut de présence</dt><dd>{itemRegistrationLabel(item.registration_status)}</dd></div>
+        <div><dt>Recette disponible</dt><dd>{item.recipe_available ? 'Oui' : 'Non détectée'}</dd></div>
+      </dl>
+      <h3>Indices statiques</h3>
+      <dl class="detail-list">
+        {evidenceRows.map(([label, present]) => <div><dt>{label}</dt><dd>{present ? 'Oui' : 'Non'}</dd></div>)}
+      </dl>
+      {item.registration_status !== 'confirmed' && (
+        <p class="warning-note">Cette entrée provient d’un modèle d’objet. Son existence active en jeu n’est pas affirmée comme certaine par le wiki.</p>
+      )}
+    </section>
+    <aside class="source-panel">
+      <h2>Provenance</h2>
+      <p>{item.extraction.method}</p>
+      <code>{item.extraction.file}</code>
+      <p>Inspection statique uniquement.</p>
+    </aside>
+  </div>
+  {recipes.length > 0 && <section><h2>Recettes</h2><div class="link-list">{recipes.map((recipe) => <a href={sitePath(`recipes/${recipe.id}/`)}>{recipe.id}</a>)}</div></section>}
+</BaseLayout>

@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=west": {
+      "model": "mythicrpg:block/red_sandstone_vertical_slab"
+    },
+    "facing=north": {
+      "model": "mythicrpg:block/red_sandstone_vertical_slab",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=east": {
+      "model": "mythicrpg:block/red_sandstone_vertical_slab",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south": {
+      "model": "mythicrpg:block/red_sandstone_vertical_slab",
+      "y": 270,
+      "uvlock": true
+    }
+  }
+}

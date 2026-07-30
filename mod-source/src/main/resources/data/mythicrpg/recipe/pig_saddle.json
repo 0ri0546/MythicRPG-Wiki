@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PCP",
+    "CSC",
+    "PIP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:porkchop"
+    },
+    "C": {
+      "item": "minecraft:carrot"
+    },
+    "S": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:pig_saddle",
+    "count": 1
+  }
+}

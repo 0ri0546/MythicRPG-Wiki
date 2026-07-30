@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mythicrpg:nessie_scale"
+    },
+    {
+      "item": "minecraft:string"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:turtle_scute"
+    }
+  ],
+  "result": {
+    "id": "mythicrpg:nessie_charm",
+    "count": 1
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " E ",
+    "ABA",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "mythicrpg:enchanted_wood"
+    },
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "B": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "id": "minecraft:enchanted_book",
+    "count": 1,
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {
+          "mythicrpg:growth": 1
+        },
+        "show_in_tooltip": true
+      }
+    }
+  }
+}

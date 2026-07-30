@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PQP",
+    "QCQ",
+    "PQP"
+  ],
+  "key": {
+    "P": { "item": "minecraft:paper" },
+    "Q": { "item": "minecraft:quartz" },
+    "C": { "item": "minecraft:copper_ingot" }
+  },
+  "result": {
+    "id": "mythicrpg:building_plan_3d",
+    "count": 1
+  }
+}

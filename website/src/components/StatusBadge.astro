@@ -1,0 +1,5 @@
+---
+import { statusLabel } from '../lib/catalog';
+const { status } = Astro.props;
+---
+<span class:list={['status-badge', `status-${status}`]}>{statusLabel(status)}</span>

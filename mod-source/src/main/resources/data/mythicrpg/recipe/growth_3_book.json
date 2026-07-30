@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ENE",
+    "GBG",
+    "ENE"
+  ],
+  "key": {
+    "E": {
+      "item": "mythicrpg:enchanted_wood"
+    },
+    "N": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "G": {
+      "item": "minecraft:golden_apple"
+    },
+    "B": {
+      "item": "minecraft:book"
+    }
+  },
+  "result": {
+    "id": "minecraft:enchanted_book",
+    "count": 1,
+    "components": {
+      "minecraft:stored_enchantments": {
+        "levels": {
+          "mythicrpg:growth": 3
+        },
+        "show_in_tooltip": true
+      }
+    }
+  }
+}

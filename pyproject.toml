@@ -1,0 +1,10 @@
+[project]
+name = "mythicrpg-wiki-tools"
+version = "0.1.1"
+description = "Static data extractor for the MythicRPG wiki"
+requires-python = ">=3.11"
+dependencies = ["PyYAML==6.0.3"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tools"]

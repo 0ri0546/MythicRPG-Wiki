@@ -1,0 +1,80 @@
+values:
+  - id: progression.xp_curve_coefficient
+    file: com/mythicrpg/core/SkillProgress.java
+    symbol: XP_CURVE_COEFFICIENT
+    unit: coefficient
+    status: beta
+    formula_group: progression.xp_curve
+    audiences: [website]
+    label: {fr: Coefficient de la courbe d'XP, en: XP curve coefficient}
+  - id: progression.xp_curve_exponent
+    file: com/mythicrpg/core/SkillProgress.java
+    symbol: XP_CURVE_EXPONENT
+    unit: exponent
+    status: beta
+    formula_group: progression.xp_curve
+    audiences: [website]
+    label: {fr: Exposant de la courbe d'XP, en: XP curve exponent}
+  - id: eating.vanilla_saturation_multiplier
+    file: com/mythicrpg/eating/EatingBalance.java
+    symbol: VANILLA_SATURATION_MULTIPLIER
+    unit: multiplier
+    status: beta
+    audiences: [website]
+    label: {fr: Multiplicateur de saturation vanilla, en: Vanilla saturation multiplier}
+  - id: eating.discovery_xp
+    file: com/mythicrpg/eating/EatingBalance.java
+    symbol: DISCOVERY_XP
+    unit: xp
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: XP de découverte Eating, en: Eating discovery XP}
+  - id: eating.custom_dish_xp
+    file: com/mythicrpg/eating/EatingBalance.java
+    symbol: CUSTOM_DISH_XP
+    unit: xp
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: XP d'un plat MythicRPG, en: MythicRPG dish XP}
+  - id: eating.vanilla_food_xp
+    file: com/mythicrpg/eating/EatingBalance.java
+    symbol: VANILLA_FOOD_XP
+    unit: xp
+    status: beta
+    audiences: [website, encyclopedia]
+    label: {fr: XP d'un aliment vanilla, en: Vanilla food XP}
+  - id: eating.vanilla_soup_xp
+    file: com/mythicrpg/eating/EatingBalance.java
+    symbol: VANILLA_SOUP_XP
+    unit: xp
+    status: beta
+    audiences: [website, encyclopedia]
+    label: {fr: XP d'une soupe vanilla, en: Vanilla soup XP}
+  - id: eating.cake_slice_xp
+    file: com/mythicrpg/eating/EatingBalance.java
+    symbol: CAKE_SLICE_XP
+    unit: xp
+    status: beta
+    audiences: [website, encyclopedia]
+    label: {fr: XP d'une part de gâteau, en: Cake slice XP}
+  - id: eating.cooking_base_ticks
+    file: com/mythicrpg/eating/EatingBalance.java
+    symbol: COOKING_BASE_TICKS
+    unit: ticks
+    status: stable
+    audiences: [website]
+    label: {fr: Durée de cuisson de base, en: Base cooking duration}
+  - id: eating.cooking_ticks_per_portion
+    file: com/mythicrpg/eating/EatingBalance.java
+    symbol: COOKING_TICKS_PER_PORTION
+    unit: ticks
+    status: stable
+    audiences: [website]
+    label: {fr: Ticks supplémentaires par portion, en: Extra ticks per portion}
+  - id: mining.vein_mining_max_blocks
+    file: com/mythicrpg/mining/MiningAreaEffects.java
+    symbol: VEIN_MINING_MAX_BLOCKS
+    unit: blocks
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Blocs supplémentaires maximum de Vein Mining, en: Maximum extra Vein Mining blocks}

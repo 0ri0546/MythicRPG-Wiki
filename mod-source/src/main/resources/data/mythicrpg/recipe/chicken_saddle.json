@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FWF",
+    "WSW",
+    "FIF"
+  ],
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "W": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "S": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:chicken_saddle",
+    "count": 1
+  }
+}

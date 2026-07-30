@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "B",
+    "B"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:mangrove_planks"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:mangrove_vertical_slab",
+    "count": 6
+  }
+}

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import { catalog, sitePath } from '../../lib/catalog';
+---
+<BaseLayout title="Skills">
+  <header class="page-header"><p class="eyebrow">Progression</p><h1>Les neuf skills</h1><p>Chaque arbre est extrait directement de sa classe Java et enrichi avec les traductions du mod.</p></header>
+  <div class="card-grid">
+    {catalog.skills.map((skill) => (
+      <a class="skill-card" href={sitePath(`skills/${skill.id}/`)}>
+        <StatusBadge status={skill.status} />
+        <h2>{skill.names.fr}</h2>
+        <p>{skill.editorial.fr?.summary}</p>
+        <span>{skill.nodes.length} perks · source vérifiée statiquement</span>
+      </a>
+    ))}
+  </div>
+</BaseLayout>

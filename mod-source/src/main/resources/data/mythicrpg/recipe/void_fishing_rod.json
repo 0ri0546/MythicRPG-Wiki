@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  S",
+    " ST",
+    "E T"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:end_rod"
+    },
+    "E": {
+      "item": "minecraft:elytra"
+    },
+    "T": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:void_fishing_rod",
+    "count": 1
+  }
+}

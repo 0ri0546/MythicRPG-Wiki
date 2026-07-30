@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BFB",
+    "FAF",
+    "BIB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:snow_block"
+    },
+    "F": {
+      "item": "minecraft:cod"
+    },
+    "A": {
+      "item": "minecraft:saddle"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:polar_bear_saddle",
+    "count": 1
+  }
+}

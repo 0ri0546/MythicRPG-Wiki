@@ -1,0 +1,14 @@
+---
+import { sitePath } from '../lib/catalog';
+---
+<header class="site-header">
+  <a class="brand" href={sitePath('/')}>MythicRPG <span>Wiki</span></a>
+  <nav aria-label="Navigation principale">
+    <a href={sitePath('skills/')}>Skills</a>
+    <a href={sitePath('systems/')}>Systèmes</a>
+    <a href={sitePath('items/')}>Objets</a>
+    <a href={sitePath('recipes/')}>Recettes</a>
+    <a href={sitePath('about-data/')}>Données</a>
+  </nav>
+  <button class="search-open" type="button" data-search-open aria-label="Ouvrir la recherche">Rechercher</button>
+</header>

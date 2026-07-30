@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    { "item": "minecraft:book" },
+    { "item": "minecraft:feather" },
+    { "item": "minecraft:bowl" },
+    { "item": "minecraft:golden_carrot" }
+  ],
+  "result": {
+    "id": "mythicrpg:chef_notebook",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sitePath } from '../../lib/catalog';
+---
+<BaseLayout title="Systèmes">
+  <header class="page-header">
+    <p class="eyebrow">Mécaniques transversales</p>
+    <h1>Systèmes de MythicRPG</h1>
+    <p>Ces pages regroupent les mécaniques communes à plusieurs skills.</p>
+  </header>
+  <div class="card-grid">
+    <a class="skill-card" href={sitePath('systems/progression/')}>
+      <span class="status-badge">Bêta</span>
+      <h2>Progression globale</h2>
+      <p>Courbe d’XP partagée par les neuf skills et valeurs extraites depuis SkillProgress.java.</p>
+      <span>Consulter →</span>
+    </a>
+  </div>
+</BaseLayout>

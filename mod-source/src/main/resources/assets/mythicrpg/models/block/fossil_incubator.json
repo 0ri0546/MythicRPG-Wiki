@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "mythicrpg:block/fossil_incubator_side",
+    "down": "mythicrpg:block/fossil_incubator_bottom",
+    "up": "mythicrpg:block/fossil_incubator_top",
+    "north": "mythicrpg:block/fossil_incubator_front",
+    "south": "mythicrpg:block/fossil_incubator_side",
+    "west": "mythicrpg:block/fossil_incubator_side",
+    "east": "mythicrpg:block/fossil_incubator_side"
+  }
+}

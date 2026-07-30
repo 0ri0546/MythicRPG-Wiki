@@ -1,0 +1,2234 @@
+{
+  "schema_version": "0.1.1",
+  "source": {
+    "canonical_source": "src(91).zip",
+    "received_archive": "src(92).zip",
+    "archive_sha256": "4b27706a74060dee996d9c369aa83387e6d68bda2cc69f1be9a5349d3b0c9b96",
+    "tree_sha256": "d39d740f8d5f36d37a0e24539287247e1b98c89f49c47a6a99fd6a83988b8b3f",
+    "inspection": "static_only",
+    "gradle_run": false,
+    "minecraft_run": false,
+    "source_root": "mod-source/src"
+  },
+  "skills": [
+    {
+      "id": "mining",
+      "names": {
+        "fr": "Minage",
+        "en": "Mining"
+      },
+      "summary": {
+        "en": "Progress by mining and unlock archaeology, vein mining, and quality-of-life bonuses.",
+        "fr": "Progressez en minant et débloquez l’archéologie, le minage de filons et des bonus de confort."
+      },
+      "nodes": [
+        {
+          "id": 1,
+          "names": {
+            "fr": "Filon minier",
+            "en": "Vein Mining"
+          },
+          "descriptions": {
+            "fr": "Permet de miner tout un filon de minerai avec un seul coup de pioche.",
+            "en": "Allows you to mine the entire ore vein with a single pickaxe swing"
+          }
+        },
+        {
+          "id": 2,
+          "names": {
+            "fr": "Fouilles fossiles",
+            "en": "Fossil Excavation"
+          },
+          "descriptions": {
+            "fr": "Débloque le nettoyage des fossiles au pinceau et la recette du pinceau.",
+            "en": "Unlocks fossil cleaning with a brush and the brush recipe"
+          }
+        },
+        {
+          "id": 3,
+          "names": {
+            "fr": "Incubation fossile",
+            "en": "Fossil Incubation"
+          },
+          "descriptions": {
+            "fr": "Débloque l’Incubateur fossile et la reconstruction des squelettes.",
+            "en": "Unlocks the Fossil Incubator and skeleton reconstruction"
+          }
+        },
+        {
+          "id": 4,
+          "names": {
+            "fr": "Archéologue",
+            "en": "Archaeologist"
+          },
+          "descriptions": {
+            "fr": "Permet aux Archéologues d’analyser les squelettes complets et de préparer de grandes expéditions de fouilles.",
+            "en": "Allows Archaeologists to analyze complete skeletons and prepare major excavation expeditions"
+          }
+        },
+        {
+          "id": 5,
+          "names": {
+            "fr": "Surbrillance I",
+            "en": "Highlight 1"
+          },
+          "descriptions": {
+            "fr": "Met en surbrillance les minerais proches dans un rayon de 1 bloc.",
+            "en": "Highlights nearby ores within a 1 block radius"
+          }
+        },
+        {
+          "id": 6,
+          "names": {
+            "fr": "Surbrillance II",
+            "en": "Highlight 2"
+          },
+          "descriptions": {
+            "fr": "Met en surbrillance les minerais proches dans un rayon de 2 blocs.",
+            "en": "Highlights nearby ores within a 2 block radius"
+          }
+        },
+        {
+          "id": 7,
+          "names": {
+            "fr": "Surbrillance III",
+            "en": "Highlight 3"
+          },
+          "descriptions": {
+            "fr": "Met en surbrillance les minerais proches dans un rayon de 3 blocs.",
+            "en": "Highlights nearby ores within a 3 block radius"
+          }
+        },
+        {
+          "id": 8,
+          "names": {
+            "fr": "Célérité I",
+            "en": "Haste 1"
+          },
+          "descriptions": {
+            "fr": "Accorde Célérité I pendant le minage.",
+            "en": "Grants Haste I while mining"
+          }
+        },
+        {
+          "id": 9,
+          "names": {
+            "fr": "Butin +10 %",
+            "en": "Drop +10%"
+          },
+          "descriptions": {
+            "fr": "Augmente de 10 % les ressources obtenues sur les minerais.",
+            "en": "Increases ore drops by 10%"
+          }
+        },
+        {
+          "id": 10,
+          "names": {
+            "fr": "Butin +20 %",
+            "en": "Drop +20%"
+          },
+          "descriptions": {
+            "fr": "Augmente de 20 % les ressources obtenues sur les minerais.",
+            "en": "Increases ore drops by 20%"
+          }
+        },
+        {
+          "id": 11,
+          "names": {
+            "fr": "Butin +30 %",
+            "en": "Drop +30%"
+          },
+          "descriptions": {
+            "fr": "Augmente de 30 % les ressources obtenues sur les minerais.",
+            "en": "Increases ore drops by 30%"
+          }
+        },
+        {
+          "id": 12,
+          "names": {
+            "fr": "XP +20 %",
+            "en": "XP +20%"
+          },
+          "descriptions": {
+            "fr": "Augmente de 20 % l’expérience de Minage obtenue.",
+            "en": "Increases mining experience gained by 20%"
+          }
+        },
+        {
+          "id": 13,
+          "names": {
+            "fr": "XP +35 %",
+            "en": "XP +35%"
+          },
+          "descriptions": {
+            "fr": "Augmente de 35 % l’expérience de Minage obtenue.",
+            "en": "Increases mining experience gained by 35%"
+          }
+        },
+        {
+          "id": 14,
+          "names": {
+            "fr": "XP +45 %",
+            "en": "XP +45%"
+          },
+          "descriptions": {
+            "fr": "Augmente de 45 % l’expérience de Minage obtenue.",
+            "en": "Increases mining experience gained by 45%"
+          }
+        },
+        {
+          "id": 15,
+          "names": {
+            "fr": "Protection contre le feu",
+            "en": "Fire protection"
+          },
+          "descriptions": {
+            "fr": "Accorde Résistance au feu en permanence.",
+            "en": "Grants permanent Fire Resistance"
+          }
+        },
+        {
+          "id": 16,
+          "names": {
+            "fr": "Chute sans dégâts",
+            "en": "No fall damage"
+          },
+          "descriptions": {
+            "fr": "Annule complètement les dégâts de chute.",
+            "en": "Completely negates fall damage"
+          }
+        },
+        {
+          "id": 17,
+          "names": {
+            "fr": "Affinité aquatique",
+            "en": "Aqua affinity"
+          },
+          "descriptions": {
+            "fr": "Accorde Respiration aquatique en permanence.",
+            "en": "Grants permanent Water Breathing"
+          }
+        },
+        {
+          "id": 18,
+          "names": {
+            "fr": "Minage 3×3",
+            "en": "3x3 Mining"
+          },
+          "descriptions": {
+            "fr": "Permet de miner une zone de 3×3 blocs avec un seul coup.",
+            "en": "Allows you to mine a 3x3 area with a single swing"
+          }
+        },
+        {
+          "id": 19,
+          "names": {
+            "fr": "Célérité II",
+            "en": "Haste 2"
+          },
+          "descriptions": {
+            "fr": "Accorde Célérité II pendant le minage.",
+            "en": "Grants Haste II while mining"
+          }
+        },
+        {
+          "id": 20,
+          "names": {
+            "fr": "Aucune perte de durabilité",
+            "en": "No durability loss"
+          },
+          "descriptions": {
+            "fr": "Empêche les outils de perdre de la durabilité pendant le minage.",
+            "en": "Prevents tools from losing durability while mining"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fighting",
+      "names": {
+        "fr": "Combat",
+        "en": "Fighting"
+      },
+      "summary": {
+        "en": "Improve combat, face Barons, and unlock offensive and defensive effects.",
+        "fr": "Améliorez le combat, affrontez les Barons et débloquez des effets offensifs et défensifs."
+      },
+      "nodes": [
+        {
+          "id": 1,
+          "names": {
+            "fr": "Vision du chasseur",
+            "en": "Hunter Vision"
+          },
+          "descriptions": {
+            "fr": "Met en surbrillance les ennemis après les avoir frappés.",
+            "en": "Highlights enemies after hitting them"
+          }
+        },
+        {
+          "id": 2,
+          "names": {
+            "fr": "Poison I",
+            "en": "Poison I"
+          },
+          "descriptions": {
+            "fr": "Applique Poison I pendant 3 secondes à chaque coup.",
+            "en": "Applies Poison I for 3 seconds on hit"
+          }
+        },
+        {
+          "id": 3,
+          "names": {
+            "fr": "Poison I prolongé",
+            "en": "Poison I"
+          },
+          "descriptions": {
+            "fr": "Applique Poison I pendant 5 secondes à chaque coup.",
+            "en": "Applies Poison I for 5 seconds on hit"
+          }
+        },
+        {
+          "id": 4,
+          "names": {
+            "fr": "Poison II",
+            "en": "Poison II"
+          },
+          "descriptions": {
+            "fr": "Applique Poison II pendant 5 secondes à chaque coup.",
+            "en": "Applies Poison II for 5 seconds on hit"
+          }
+        },
+        {
+          "id": 5,
+          "names": {
+            "fr": "Butin ×2 +5 %",
+            "en": "Loot x2 +5%"
+          },
+          "descriptions": {
+            "fr": "Accorde 5 % de chances que les créatures lâchent un double butin.",
+            "en": "Grants a 5% chance for mobs to drop double loot"
+          }
+        },
+        {
+          "id": 6,
+          "names": {
+            "fr": "Butin ×2 +15 %",
+            "en": "Loot x2 +15%"
+          },
+          "descriptions": {
+            "fr": "Accorde 15 % de chances que les créatures lâchent un double butin.",
+            "en": "Grants a 15% chance for mobs to drop double loot"
+          }
+        },
+        {
+          "id": 7,
+          "names": {
+            "fr": "Butin ×2 +20 %",
+            "en": "Loot x2 +20%"
+          },
+          "descriptions": {
+            "fr": "Accorde 20 % de chances que les créatures lâchent un double butin.",
+            "en": "Grants a 20% chance for mobs to drop double loot"
+          }
+        },
+        {
+          "id": 8,
+          "names": {
+            "fr": "Force I",
+            "en": "Strength I"
+          },
+          "descriptions": {
+            "fr": "Accorde Force I en permanence.",
+            "en": "Grants permanent Strength I"
+          }
+        },
+        {
+          "id": 9,
+          "names": {
+            "fr": "Allonge +0,5",
+            "en": "Reach +0.5"
+          },
+          "descriptions": {
+            "fr": "Augmente de 0,5 bloc la portée d’attaque avec une épée.",
+            "en": "Increases sword attack reach by 0.5 blocks"
+          }
+        },
+        {
+          "id": 10,
+          "names": {
+            "fr": "Allonge +1,0",
+            "en": "Reach +1.0"
+          },
+          "descriptions": {
+            "fr": "Augmente de 1 bloc la portée d’attaque avec une épée.",
+            "en": "Increases sword attack reach by 1 block"
+          }
+        },
+        {
+          "id": 11,
+          "names": {
+            "fr": "Allonge +1,5",
+            "en": "Reach +1.5"
+          },
+          "descriptions": {
+            "fr": "Augmente de 1,5 bloc la portée d’attaque avec une épée.",
+            "en": "Increases sword attack reach by 1.5 blocks"
+          }
+        },
+        {
+          "id": 12,
+          "names": {
+            "fr": "Recharge −50 %",
+            "en": "Cooldown -50%"
+          },
+          "descriptions": {
+            "fr": "Réduit de 50 % le temps de recharge des attaques à l’épée.",
+            "en": "Reduces sword attack cooldown by 50%"
+          }
+        },
+        {
+          "id": 13,
+          "names": {
+            "fr": "Recharge −75 %",
+            "en": "Cooldown -75%"
+          },
+          "descriptions": {
+            "fr": "Réduit de 75 % le temps de recharge des attaques à l’épée.",
+            "en": "Reduces sword attack cooldown by 75%"
+          }
+        },
+        {
+          "id": 14,
+          "names": {
+            "fr": "Aucune recharge",
+            "en": "No Cooldown"
+          },
+          "descriptions": {
+            "fr": "Supprime le temps de recharge des attaques à l’épée.",
+            "en": "Removes the sword attack cooldown"
+          }
+        },
+        {
+          "id": 15,
+          "names": {
+            "fr": "Fléau des morts-vivants",
+            "en": "Undead Slayer"
+          },
+          "descriptions": {
+            "fr": "Inflige 50 % de dégâts supplémentaires aux morts-vivants.",
+            "en": "Deals 50% more damage to undead mobs"
+          }
+        },
+        {
+          "id": 16,
+          "names": {
+            "fr": "Fléau des araignées",
+            "en": "Spider Slayer"
+          },
+          "descriptions": {
+            "fr": "Inflige 50 % de dégâts supplémentaires aux araignées.",
+            "en": "Deals 50% more damage to spiders"
+          }
+        },
+        {
+          "id": 17,
+          "names": {
+            "fr": "XP triplée",
+            "en": "Triple XP"
+          },
+          "descriptions": {
+            "fr": "Triple l’expérience lâchée par les créatures hostiles.",
+            "en": "Triples experience dropped by hostile mobs"
+          }
+        },
+        {
+          "id": 18,
+          "names": {
+            "fr": "Résistance I",
+            "en": "Resistance I"
+          },
+          "descriptions": {
+            "fr": "Accorde Résistance I en permanence.",
+            "en": "Grants permanent Resistance I"
+          }
+        },
+        {
+          "id": 19,
+          "names": {
+            "fr": "Résistance II",
+            "en": "Resistance II"
+          },
+          "descriptions": {
+            "fr": "Accorde Résistance II en permanence.",
+            "en": "Grants permanent Resistance II"
+          }
+        },
+        {
+          "id": 20,
+          "names": {
+            "fr": "Force II",
+            "en": "Strength II"
+          },
+          "descriptions": {
+            "fr": "Accorde Force II en permanence.",
+            "en": "Grants permanent Strength II"
+          }
+        }
+      ]
+    },
+    {
+      "id": "woodcutting",
+      "names": {
+        "fr": "Bûcheronnage",
+        "en": "Woodcutting"
+      },
+      "summary": {
+        "en": "Develop wood harvesting and its related storage systems.",
+        "fr": "Développez la récolte du bois et les systèmes de stockage associés."
+      },
+      "nodes": [
+        {
+          "id": 1,
+          "names": {
+            "fr": "Bois enchanté",
+            "en": "Enchanted Wood"
+          },
+          "descriptions": {
+            "fr": "Faible chance d’obtenir du Bois enchanté en cassant des bûches.",
+            "en": "Small chance to obtain enchanted wood when breaking logs"
+          }
+        },
+        {
+          "id": 2,
+          "names": {
+            "fr": "Butin de bois +5 %",
+            "en": "Wood Drop +5%"
+          },
+          "descriptions": {
+            "fr": "5 % de chances de doubler les ressources en bois.",
+            "en": "5% chance to double wood drops"
+          }
+        },
+        {
+          "id": 3,
+          "names": {
+            "fr": "Butin de bois +15 %",
+            "en": "Wood Drop +15%"
+          },
+          "descriptions": {
+            "fr": "15 % de chances de doubler les ressources en bois.",
+            "en": "15% chance to double wood drops"
+          }
+        },
+        {
+          "id": 4,
+          "names": {
+            "fr": "Butin de bois +20 %",
+            "en": "Wood Drop +20%"
+          },
+          "descriptions": {
+            "fr": "20 % de chances de doubler les ressources en bois.",
+            "en": "20% chance to double wood drops"
+          }
+        },
+        {
+          "id": 5,
+          "names": {
+            "fr": "Bois enchanté 1,5 %",
+            "en": "Enchanted Wood 1.5%"
+          },
+          "descriptions": {
+            "fr": "Augmente les chances d’obtenir du Bois enchanté.",
+            "en": "Increases enchanted wood drop chance"
+          }
+        },
+        {
+          "id": 6,
+          "names": {
+            "fr": "Bois enchanté 2 %",
+            "en": "Enchanted Wood 2%"
+          },
+          "descriptions": {
+            "fr": "Augmente les chances d’obtenir du Bois enchanté.",
+            "en": "Increases enchanted wood drop chance"
+          }
+        },
+        {
+          "id": 7,
+          "names": {
+            "fr": "Bois enchanté 3 %",
+            "en": "Enchanted Wood 3%"
+          },
+          "descriptions": {
+            "fr": "Augmente les chances d’obtenir du Bois enchanté.",
+            "en": "Increases enchanted wood drop chance"
+          }
+        },
+        {
+          "id": 8,
+          "names": {
+            "fr": "Connaissance de Croissance",
+            "en": "Growth Knowledge"
+          },
+          "descriptions": {
+            "fr": "Débloque les recettes des livres enchantés Croissance I, II et III.",
+            "en": "Unlocks Growth I, II and III enchanted book recipes"
+          }
+        },
+        {
+          "id": 9,
+          "names": {
+            "fr": "Croissance des arbres",
+            "en": "Tree Growth"
+          },
+          "descriptions": {
+            "fr": "Accroupissez-vous pour faire pousser les arbres proches.",
+            "en": "Sneak to grow nearby trees"
+          }
+        },
+        {
+          "id": 10,
+          "names": {
+            "fr": "XP du bois",
+            "en": "Wood XP"
+          },
+          "descriptions": {
+            "fr": "Casser des bûches donne de l’expérience vanilla.",
+            "en": "Breaking logs gives vanilla experience"
+          }
+        },
+        {
+          "id": 11,
+          "names": {
+            "fr": "Pousse aléatoire",
+            "en": "Random Sapling"
+          },
+          "descriptions": {
+            "fr": "Casser des feuilles peut faire tomber une pousse aléatoire.",
+            "en": "Breaking leaves has a chance to drop a random sapling"
+          }
+        },
+        {
+          "id": 12,
+          "names": {
+            "fr": "Abattage",
+            "en": "Timber"
+          },
+          "descriptions": {
+            "fr": "Permet de couper un arbre entier en une fois.",
+            "en": "Allows you to cut an entire tree at once"
+          }
+        },
+        {
+          "id": 13,
+          "names": {
+            "fr": "Feuilles à pommes",
+            "en": "Apple Leaves"
+          },
+          "descriptions": {
+            "fr": "Casser des feuilles fait toujours tomber une pomme.",
+            "en": "Breaking leaves always drops an apple"
+          }
+        },
+        {
+          "id": 14,
+          "names": {
+            "fr": "Feuilles à pommes dorées",
+            "en": "Golden Apple Leaves"
+          },
+          "descriptions": {
+            "fr": "Casser des feuilles a une faible chance de faire tomber une pomme dorée.",
+            "en": "Breaking leaves has a small chance to drop a golden apple"
+          }
+        },
+        {
+          "id": 15,
+          "names": {
+            "fr": "Module de coffre I",
+            "en": "Chest Module I"
+          },
+          "descriptions": {
+            "fr": "Débloque un module qui ajoute 9 emplacements à une moitié de coffre vanilla.",
+            "en": "Unlocks a module that adds 9 slots to one vanilla chest half."
+          }
+        },
+        {
+          "id": 16,
+          "names": {
+            "fr": "Module de coffre II",
+            "en": "Chest Module II"
+          },
+          "descriptions": {
+            "fr": "Débloque un module qui ajoute 18 emplacements à une moitié de coffre vanilla.",
+            "en": "Unlocks a module that adds 18 slots to one vanilla chest half."
+          }
+        },
+        {
+          "id": 17,
+          "names": {
+            "fr": "Module de coffre III",
+            "en": "Chest Module III"
+          },
+          "descriptions": {
+            "fr": "Débloque un module qui ajoute 27 emplacements à une moitié de coffre vanilla.",
+            "en": "Unlocks a module that adds 27 slots to one vanilla chest half."
+          }
+        },
+        {
+          "id": 18,
+          "names": {
+            "fr": "Fabrication de la Hache enchantée",
+            "en": "Enchanted Axe Craft"
+          },
+          "descriptions": {
+            "fr": "Débloque la recette d’une puissante Hache enchantée.",
+            "en": "Unlocks the recipe for a powerful enchanted axe"
+          }
+        },
+        {
+          "id": 19,
+          "names": {
+            "fr": "Mangeur de bois",
+            "en": "Wood Eater"
+          },
+          "descriptions": {
+            "fr": "Permet de manger du bois.",
+            "en": "Allows you to eat wood"
+          }
+        },
+        {
+          "id": 20,
+          "names": {
+            "fr": "Haches incassables",
+            "en": "Unbreakable Axes"
+          },
+          "descriptions": {
+            "fr": "Les haches ne perdent plus de durabilité en coupant du bois.",
+            "en": "Axes no longer lose durability while cutting wood"
+          }
+        }
+      ]
+    },
+    {
+      "id": "farming",
+      "names": {
+        "fr": "Agriculture",
+        "en": "Farming"
+      },
+      "summary": {
+        "en": "Grow, harvest, and use farming-related tools and rewards.",
+        "fr": "Cultivez, récoltez et exploitez des outils et récompenses liés à l’agriculture."
+      },
+      "nodes": [
+        {
+          "id": 1,
+          "names": {
+            "fr": "Graine enchantée",
+            "en": "Enchanted Seed"
+          },
+          "descriptions": {
+            "fr": "Ajoute 0,1 % de chances d’obtenir une Graine enchantée lors des récoltes agricoles matures.",
+            "en": "Adds +0.1% Enchanted Seed drop chance from mature farming harvests"
+          }
+        },
+        {
+          "id": 2,
+          "names": {
+            "fr": "Replantation automatique",
+            "en": "Auto Replant"
+          },
+          "descriptions": {
+            "fr": "Replante automatiquement les cultures matures lorsque cela est possible.",
+            "en": "Automatically replants mature crops when possible"
+          }
+        },
+        {
+          "id": 3,
+          "names": {
+            "fr": "Récolte abondante I",
+            "en": "Abundant Harvest I"
+          },
+          "descriptions": {
+            "fr": "15 % de chances de doubler les ressources agricoles récoltées.",
+            "en": "15% chance to double farming drops"
+          }
+        },
+        {
+          "id": 4,
+          "names": {
+            "fr": "Récolte abondante II",
+            "en": "Abundant Harvest II"
+          },
+          "descriptions": {
+            "fr": "25 % de chances de doubler les ressources agricoles récoltées.",
+            "en": "25% chance to double farming drops"
+          }
+        },
+        {
+          "id": 5,
+          "names": {
+            "fr": "Trésor du compost I",
+            "en": "Compost Treasure I"
+          },
+          "descriptions": {
+            "fr": "1 % de chances d’obtenir une récompense organique rare en utilisant un composteur.",
+            "en": "1% chance to obtain a rare organic reward when using a composter"
+          }
+        },
+        {
+          "id": 6,
+          "names": {
+            "fr": "Trésor du compost II",
+            "en": "Compost Treasure II"
+          },
+          "descriptions": {
+            "fr": "Augmente les chances de Trésor du compost à 2 %.",
+            "en": "Increases Compost Treasure chance to 2%"
+          }
+        },
+        {
+          "id": 7,
+          "names": {
+            "fr": "Trésor du compost III",
+            "en": "Compost Treasure III"
+          },
+          "descriptions": {
+            "fr": "Augmente les chances de Trésor du compost à 3 %.",
+            "en": "Increases Compost Treasure chance to 3%"
+          }
+        },
+        {
+          "id": 8,
+          "names": {
+            "fr": "Fabrication du Food Backpack",
+            "en": "Food Backpack Craft"
+          },
+          "descriptions": {
+            "fr": "Débloque le Food Backpack, un sac de 54 emplacements pour nourriture, plantes et ressources agricoles.",
+            "en": "Unlocks the Food Backpack, a 54-slot bag for food, plants and farming resources"
+          }
+        },
+        {
+          "id": 9,
+          "names": {
+            "fr": "Expérience verte",
+            "en": "Green Experience"
+          },
+          "descriptions": {
+            "fr": "Les récoltes agricoles matures donnent aussi de l’expérience vanilla.",
+            "en": "Mature farming harvests also drop vanilla experience"
+          }
+        },
+        {
+          "id": 10,
+          "names": {
+            "fr": "Graine enchantée II",
+            "en": "Enchanted Seed II"
+          },
+          "descriptions": {
+            "fr": "Ajoute 0,2 % de chances d’obtenir une Graine enchantée.",
+            "en": "Adds +0.2% Enchanted Seed drop chance"
+          }
+        },
+        {
+          "id": 11,
+          "names": {
+            "fr": "Graine enchantée III",
+            "en": "Enchanted Seed III"
+          },
+          "descriptions": {
+            "fr": "Ajoute 0,3 % de chances d’obtenir une Graine enchantée.",
+            "en": "Adds +0.3% Enchanted Seed drop chance"
+          }
+        },
+        {
+          "id": 12,
+          "names": {
+            "fr": "Engrais vivant",
+            "en": "Living Fertilizer"
+          },
+          "descriptions": {
+            "fr": "Utiliser de la poudre d’os sur une plante pouvant pousser accorde Régénération I pendant 3 secondes.",
+            "en": "Using bone meal on a growable plant grants Regeneration I for 3 seconds"
+          }
+        },
+        {
+          "id": 13,
+          "names": {
+            "fr": "Pas irrigué",
+            "en": "Irrigated Step"
+          },
+          "descriptions": {
+            "fr": "Labourer le sol accorde Vitesse I pendant 3 secondes si de l’eau est proche.",
+            "en": "Tilling soil grants Speed I for 3 seconds if water is nearby"
+          }
+        },
+        {
+          "id": 14,
+          "names": {
+            "fr": "Bouclier cultivé",
+            "en": "Cultivated Shield"
+          },
+          "descriptions": {
+            "fr": "Casser des melons, citrouilles ou champignons accorde une Absorption temporaire cumulable.",
+            "en": "Breaking melons, pumpkins or mushrooms grants stacking temporary Absorption"
+          }
+        },
+        {
+          "id": 15,
+          "names": {
+            "fr": "Portée du fermier I",
+            "en": "Farmer's Reach I"
+          },
+          "descriptions": {
+            "fr": "Les houes récoltent les ressources agricoles dans un rayon de 3 blocs.",
+            "en": "Hoes harvest farming resources in a 3 block radius"
+          }
+        },
+        {
+          "id": 16,
+          "names": {
+            "fr": "Portée du fermier II",
+            "en": "Farmer's Reach II"
+          },
+          "descriptions": {
+            "fr": "Augmente le rayon de récolte des houes à 5 blocs.",
+            "en": "Increases hoe harvest radius to 5 blocks"
+          }
+        },
+        {
+          "id": 17,
+          "names": {
+            "fr": "Portée du fermier III",
+            "en": "Farmer's Reach III"
+          },
+          "descriptions": {
+            "fr": "Augmente le rayon de récolte des houes à 7 blocs.",
+            "en": "Increases hoe harvest radius to 7 blocks"
+          }
+        },
+        {
+          "id": 18,
+          "names": {
+            "fr": "Fabrication de la Fleur enchantée",
+            "en": "Enchanted Flower Craft"
+          },
+          "descriptions": {
+            "fr": "Débloque la Fleur enchantée, qui cuit automatiquement les objets compatibles entrant dans votre inventaire.",
+            "en": "Unlocks the Enchanted Flower, which auto-smelts compatible items entering your inventory"
+          }
+        },
+        {
+          "id": 19,
+          "names": {
+            "fr": "Fermier préservé",
+            "en": "Preserved Farmer"
+          },
+          "descriptions": {
+            "fr": "Conserve vos niveaux d’expérience vanilla à la mort et protège votre Food Backpack.",
+            "en": "Keep vanilla experience levels on death and preserve your Food Backpack"
+          }
+        },
+        {
+          "id": 20,
+          "names": {
+            "fr": "Champ vivant",
+            "en": "Living Field"
+          },
+          "descriptions": {
+            "fr": "Accélère fortement la croissance naturelle des plantes autour de vous.",
+            "en": "Greatly accelerates natural plant growth around you"
+          }
+        }
+      ]
+    },
+    {
+      "id": "crafting",
+      "names": {
+        "fr": "Fabrication",
+        "en": "Crafting"
+      },
+      "summary": {
+        "en": "Unlock advanced crafting mechanics and utility items.",
+        "fr": "Débloquez des mécaniques de fabrication avancées et des objets utilitaires."
+      },
+      "nodes": [
+        {
+          "id": 1,
+          "names": {
+            "fr": "Fabrication portable",
+            "en": "Portable Crafting"
+          },
+          "descriptions": {
+            "fr": "Débloque un onglet de fabrication 3×3 dans votre inventaire avec 256 charges de fabrication.",
+            "en": "Unlocks a 3x3 crafting tab in your inventory with 256 crafting charges"
+          }
+        },
+        {
+          "id": 2,
+          "names": {
+            "fr": "Économie de ressources I",
+            "en": "Resource Saver I"
+          },
+          "descriptions": {
+            "fr": "Ajoute 2 % de chances de ne pas consommer les ingrédients de fabrication.",
+            "en": "Adds +2% chance to avoid consuming crafting ingredients"
+          }
+        },
+        {
+          "id": 3,
+          "names": {
+            "fr": "Économie de ressources II",
+            "en": "Resource Saver II"
+          },
+          "descriptions": {
+            "fr": "Ajoute 2 % de chances supplémentaires de ne pas consommer les ingrédients.",
+            "en": "Adds +2% chance to avoid consuming crafting ingredients"
+          }
+        },
+        {
+          "id": 4,
+          "names": {
+            "fr": "Économie de ressources III",
+            "en": "Resource Saver III"
+          },
+          "descriptions": {
+            "fr": "Ajoute 2 % de chances supplémentaires de ne pas consommer les ingrédients.",
+            "en": "Adds +2% chance to avoid consuming crafting ingredients"
+          }
+        },
+        {
+          "id": 5,
+          "names": {
+            "fr": "Fabrication du Kit de réparation",
+            "en": "Repair Kit Craft"
+          },
+          "descriptions": {
+            "fr": "Débloque les Kits de réparation, des consommables restaurant 10 % de durabilité.",
+            "en": "Unlocks Repair Kits, consumables that restore 10% durability"
+          }
+        },
+        {
+          "id": 6,
+          "names": {
+            "fr": "Efficacité du Kit de réparation I",
+            "en": "Repair Kit Efficiency I"
+          },
+          "descriptions": {
+            "fr": "Les Kits de réparation restaurent 10 % de durabilité supplémentaire.",
+            "en": "Repair Kits restore +10% more durability"
+          }
+        },
+        {
+          "id": 7,
+          "names": {
+            "fr": "Efficacité du Kit de réparation II",
+            "en": "Repair Kit Efficiency II"
+          },
+          "descriptions": {
+            "fr": "Les Kits de réparation restaurent encore 10 % de durabilité supplémentaire.",
+            "en": "Repair Kits restore +10% more durability"
+          }
+        },
+        {
+          "id": 8,
+          "names": {
+            "fr": "Fabrication du Bloc chanceux",
+            "en": "Lucky Block Craft"
+          },
+          "descriptions": {
+            "fr": "Débloque les Blocs chanceux, des blocs instables déclenchant un événement aléatoire lorsqu’ils sont cassés.",
+            "en": "Unlocks Lucky Blocks, unstable blocks that trigger random events when broken"
+          }
+        },
+        {
+          "id": 9,
+          "names": {
+            "fr": "Table de fabrication infinie",
+            "en": "Infinite Crafting Table"
+          },
+          "descriptions": {
+            "fr": "Débloque une table de fabrication plaçable qui ne perd jamais de durabilité.",
+            "en": "Unlocks a placeable crafting table that never loses durability"
+          }
+        },
+        {
+          "id": 10,
+          "names": {
+            "fr": "Charme d’expérience",
+            "en": "Exp Charm"
+          },
+          "descriptions": {
+            "fr": "Débloque le Charme d’expérience, qui multiplie par 1,2 l’expérience vanilla en main secondaire.",
+            "en": "Unlocks the Exp Charm, granting x1.2 vanilla experience when held in offhand"
+          }
+        },
+        {
+          "id": 11,
+          "names": {
+            "fr": "Charge de fabrication",
+            "en": "Craft Charge"
+          },
+          "descriptions": {
+            "fr": "Les fabrications éligibles remplissent une jauge ; à 100 %, vous gagnez une grande quantité d’XP de Fabrication.",
+            "en": "Eligible crafts fill a charge bar; at 100%, gain a large amount of Crafting XP"
+          }
+        },
+        {
+          "id": 12,
+          "names": {
+            "fr": "Fabrication écologique",
+            "en": "Green Crafting"
+          },
+          "descriptions": {
+            "fr": "Les fabrications donnant de l’XP de Fabrication donnent aussi un peu d’expérience vanilla.",
+            "en": "Crafts that grant Crafting XP also grant a small amount of vanilla experience"
+          }
+        },
+        {
+          "id": 13,
+          "names": {
+            "fr": "Inspiration mythique",
+            "en": "Mythic Inspiration"
+          },
+          "descriptions": {
+            "fr": "Après avoir fabriqué un objet MythicRPG, votre prochaine fabrication éligible donne trois fois plus d’XP de Fabrication.",
+            "en": "After crafting a MythicRPG item, your next eligible craft grants x3 Crafting XP"
+          }
+        },
+        {
+          "id": 14,
+          "names": {
+            "fr": "Bonus de première fabrication",
+            "en": "First Craft Bonus"
+          },
+          "descriptions": {
+            "fr": "La première fabrication de chaque objet donne trois fois plus d’XP de Fabrication.",
+            "en": "The first time you craft an item, it grants x3 Crafting XP"
+          }
+        },
+        {
+          "id": 15,
+          "names": {
+            "fr": "Recyclage artisanal",
+            "en": "Recycle Crafts"
+          },
+          "descriptions": {
+            "fr": "Débloque des recettes de recyclage contrôlées pour les outils, armures et objets fabriqués simples.",
+            "en": "Unlocks controlled recycling recipes for tools, armor and simple crafted items"
+          }
+        },
+        {
+          "id": 16,
+          "names": {
+            "fr": "Atelier de minuit",
+            "en": "Midnight Workshop"
+          },
+          "descriptions": {
+            "fr": "Fabriquer la nuit multiplie l’XP de Fabrication par 1,3.",
+            "en": "Crafting at night grants x1.3 Crafting XP"
+          }
+        },
+        {
+          "id": 17,
+          "names": {
+            "fr": "Fabrication renforcée",
+            "en": "Reinforced Craft"
+          },
+          "descriptions": {
+            "fr": "Les outils, armes et armures fabriqués ont 30 % de chances d’obtenir Solidité I.",
+            "en": "Crafted tools, weapons and armor have 30% chance to gain Unbreaking I"
+          }
+        },
+        {
+          "id": 18,
+          "names": {
+            "fr": "Infusion chanceuse",
+            "en": "Lucky Infusion"
+          },
+          "descriptions": {
+            "fr": "Permet aux Blocs chanceux de gagner ou perdre de la chance grâce à des recettes spéciales.",
+            "en": "Allows Lucky Blocks to gain or lose luck through special crafting recipes"
+          }
+        },
+        {
+          "id": 19,
+          "names": {
+            "fr": "Emplacement de transformation",
+            "en": "Transformation Slot"
+          },
+          "descriptions": {
+            "fr": "Débloque un emplacement de transformation instantanée consommant la durabilité de la table.",
+            "en": "Unlocks an instant item transformation slot that consumes crafting table durability"
+          }
+        },
+        {
+          "id": 20,
+          "names": {
+            "fr": "Maîtrise artisanale",
+            "en": "Craft Mastery"
+          },
+          "descriptions": {
+            "fr": "Une partie de l’XP de Fabrication est convertie en XP du skill lié à l’objet fabriqué.",
+            "en": "A portion of Crafting XP is converted into XP for the skill related to the crafted item"
+          }
+        }
+      ]
+    },
+    {
+      "id": "traveling",
+      "names": {
+        "fr": "Voyage",
+        "en": "Traveling"
+      },
+      "summary": {
+        "en": "Explore the world with movement abilities, mounts, and structure modules.",
+        "fr": "Explorez le monde avec des capacités de déplacement, des montures et des modules de structures."
+      },
+      "nodes": [
+        {
+          "id": 1,
+          "names": {
+            "fr": "Double saut",
+            "en": "Double Jump"
+          },
+          "descriptions": {
+            "fr": "Permet d’effectuer un saut supplémentaire dans les airs.",
+            "en": "Allows one additional jump in the air"
+          }
+        },
+        {
+          "id": 2,
+          "names": {
+            "fr": "Marcheur des âmes",
+            "en": "Soul Walker"
+          },
+          "descriptions": {
+            "fr": "Accorde le bonus de déplacement de Vitesse des âmes I sur le sable et la terre des âmes.",
+            "en": "Grants the movement benefit of Soul Speed I on Soul Sand and Soul Soil"
+          }
+        },
+        {
+          "id": 3,
+          "names": {
+            "fr": "Grâce du dauphin",
+            "en": "Dolphin's Grace"
+          },
+          "descriptions": {
+            "fr": "Accorde Grâce du dauphin I pendant la nage.",
+            "en": "Grants Dolphin's Grace I while swimming"
+          }
+        },
+        {
+          "id": 4,
+          "names": {
+            "fr": "Marcheur de poudreuse",
+            "en": "Powder Walker"
+          },
+          "descriptions": {
+            "fr": "Permet de marcher sur la neige poudreuse sans bottes en cuir.",
+            "en": "Allows walking on Powder Snow without leather boots"
+          }
+        },
+        {
+          "id": 5,
+          "names": {
+            "fr": "Expérience de voyage I",
+            "en": "Traveling Experience I"
+          },
+          "descriptions": {
+            "fr": "Augmente de 10 % tous les gains d’XP de Voyage.",
+            "en": "Increases all Traveling XP gains by 10%"
+          }
+        },
+        {
+          "id": 6,
+          "names": {
+            "fr": "Expérience de voyage II",
+            "en": "Traveling Experience II"
+          },
+          "descriptions": {
+            "fr": "Augmente de 15 % supplémentaires tous les gains d’XP de Voyage.",
+            "en": "Increases all Traveling XP gains by an additional 15%"
+          }
+        },
+        {
+          "id": 7,
+          "names": {
+            "fr": "Expérience de découverte",
+            "en": "Discovery Experience"
+          },
+          "descriptions": {
+            "fr": "Augmente de 25 % l’XP de Voyage obtenue grâce aux structures, dimensions et coffres au trésor.",
+            "en": "Increases Traveling XP from structures, dimensions and treasure chests by 25%"
+          }
+        },
+        {
+          "id": 8,
+          "names": {
+            "fr": "Miniaturisation",
+            "en": "Miniaturization"
+          },
+          "descriptions": {
+            "fr": "Débloque un objet permettant d’alterner une taille réduite avec Accroupi + clic droit.",
+            "en": "Unlocks an item that toggles a smaller player size with Sneak + Right Click"
+          }
+        },
+        {
+          "id": 9,
+          "names": {
+            "fr": "Boussole monumentale",
+            "en": "Monumental Compass"
+          },
+          "descriptions": {
+            "fr": "Débloque l’interface de Boussole monumentale et les recherches de structures sans module.",
+            "en": "Unlocks the Monumental Compass player interface and unguided structure searches"
+          }
+        },
+        {
+          "id": 10,
+          "names": {
+            "fr": "Modules du monde normal",
+            "en": "Overworld Modules"
+          },
+          "descriptions": {
+            "fr": "Débloque les modules ciblés de la Boussole monumentale pour les structures du monde normal.",
+            "en": "Unlocks targeted Monumental Compass modules for Overworld structures"
+          }
+        },
+        {
+          "id": 11,
+          "names": {
+            "fr": "Modules dimensionnels",
+            "en": "Dimensional Modules"
+          },
+          "descriptions": {
+            "fr": "Débloque les modules ciblés pour les structures du Nether et de l’End.",
+            "en": "Unlocks targeted Monumental Compass modules for Nether and End structures"
+          }
+        },
+        {
+          "id": 12,
+          "names": {
+            "fr": "Rappel mortel",
+            "en": "Death Recall"
+          },
+          "descriptions": {
+            "fr": "Après votre mort, recevez un objet à usage unique permettant de revenir au lieu de votre mort pendant 5 minutes.",
+            "en": "Receive a one-use item after death that returns you to the death location for 5 minutes"
+          }
+        },
+        {
+          "id": 13,
+          "names": {
+            "fr": "Bottes éternelles",
+            "en": "Eternal Boots"
+          },
+          "descriptions": {
+            "fr": "Les bottes équipées ne perdent plus de durabilité.",
+            "en": "Equipped boots no longer lose durability"
+          }
+        },
+        {
+          "id": 14,
+          "names": {
+            "fr": "Élan des biomes",
+            "en": "Biome Momentum"
+          },
+          "descriptions": {
+            "fr": "Entrer dans un biome absent de votre historique de trois biomes accorde Vitesse I pendant 10 secondes.",
+            "en": "Entering a biome absent from your three-biome history grants Speed I for 10 seconds"
+          }
+        },
+        {
+          "id": 15,
+          "names": {
+            "fr": "Wagon du voyageur",
+            "en": "Traveler's Minecart"
+          },
+          "descriptions": {
+            "fr": "Débloque un wagon personnalisé se déplaçant 1,5 fois plus vite qu’un wagon vanilla.",
+            "en": "Unlocks a custom minecart that travels 1.5 times faster than a vanilla minecart"
+          }
+        },
+        {
+          "id": 16,
+          "names": {
+            "fr": "Bateau du voyageur",
+            "en": "Traveler's Boat"
+          },
+          "descriptions": {
+            "fr": "Débloque un bateau personnalisé se déplaçant 1,5 fois plus vite qu’un bateau vanilla.",
+            "en": "Unlocks a custom boat that travels 1.5 times faster than a vanilla boat"
+          }
+        },
+        {
+          "id": 17,
+          "names": {
+            "fr": "Montures terrestres",
+            "en": "Land Mounts"
+          },
+          "descriptions": {
+            "fr": "Débloque les selles d’adoption pour les vaches, chèvres et araignées.",
+            "en": "Unlocks adoption saddles for Cows, Goats and Spiders"
+          }
+        },
+        {
+          "id": 18,
+          "names": {
+            "fr": "Expérience des trésors",
+            "en": "Treasure Experience"
+          },
+          "descriptions": {
+            "fr": "Ouvrir un nouveau coffre de trésor enfoui accorde une grande quantité d’expérience vanilla.",
+            "en": "Opening a new buried treasure chest grants a large packet of vanilla experience"
+          }
+        },
+        {
+          "id": 19,
+          "names": {
+            "fr": "Montures volantes",
+            "en": "Flying Mounts"
+          },
+          "descriptions": {
+            "fr": "Débloque la Selle de Phantom et empêche le déblocage du Grappin.",
+            "en": "Unlocks the Phantom Saddle and prevents unlocking the Grappling Hook"
+          }
+        },
+        {
+          "id": 20,
+          "names": {
+            "fr": "Grappin",
+            "en": "Grappling Hook"
+          },
+          "descriptions": {
+            "fr": "Débloque un grappin qui vous attire vers le premier bloc solide dans un rayon de 32 blocs.",
+            "en": "Unlocks a hook that pulls you toward the first solid block within 32 blocks"
+          }
+        }
+      ]
+    },
+    {
+      "id": "building",
+      "names": {
+        "fr": "Construction",
+        "en": "Building"
+      },
+      "summary": {
+        "en": "Speed up building with MythicRPG plans, tools, and decorative blocks.",
+        "fr": "Accélérez la construction grâce aux plans, outils et blocs décoratifs de MythicRPG."
+      },
+      "nodes": [
+        {
+          "id": 1,
+          "names": {
+            "fr": "Remplacement rapide",
+            "en": "Quick Replacement"
+          },
+          "descriptions": {
+            "fr": "Remplace au clic droit un bloc éligible déjà posé par le bloc tenu en main. S’accroupir conserve le placement vanilla.",
+            "en": "Replace an eligible placed block with the block held in hand using right-click. Sneak to keep vanilla placement."
+          }
+        },
+        {
+          "id": 2,
+          "names": {
+            "fr": "Plan 2D I",
+            "en": "2D Plan I"
+          },
+          "descriptions": {
+            "fr": "Débloque le craft du Plan 2D avec une sélection maximale de 8×8 blocs.",
+            "en": "Unlocks the 2D Plan craft with a maximum selection of 8×8 blocks."
+          }
+        },
+        {
+          "id": 3,
+          "names": {
+            "fr": "Plan 2D II",
+            "en": "2D Plan II"
+          },
+          "descriptions": {
+            "fr": "Étend les sélections du Plan 2D à un maximum de 12×12 blocs.",
+            "en": "Extends 2D Plan selections to a maximum of 12×12 blocks."
+          }
+        },
+        {
+          "id": 4,
+          "names": {
+            "fr": "Plan 3D",
+            "en": "3D Plan"
+          },
+          "descriptions": {
+            "fr": "Débloque le craft du Plan 3D avec une sélection maximale de 8×8×8 blocs.",
+            "en": "Unlocks the 3D Plan craft with a maximum selection of 8×8×8 blocks."
+          }
+        },
+        {
+          "id": 5,
+          "names": {
+            "fr": "Réapprovisionnement automatique",
+            "en": "Automatic Restock"
+          },
+          "descriptions": {
+            "fr": "Réapprovisionne automatiquement un stack de construction épuisé depuis l’inventaire.",
+            "en": "Automatically restocks an exhausted building stack from your inventory."
+          }
+        },
+        {
+          "id": 6,
+          "names": {
+            "fr": "Aimant du décorateur",
+            "en": "Decorator Magnet"
+          },
+          "descriptions": {
+            "fr": "Attire les objets Building au sol dans un rayon de 5 blocs. Désactivable dans les options.",
+            "en": "Attracts nearby dropped Building items within 5 blocks. Can be disabled in the options."
+          }
+        },
+        {
+          "id": 7,
+          "names": {
+            "fr": "Démolition soigneuse",
+            "en": "Careful Demolition"
+          },
+          "descriptions": {
+            "fr": "Les outils ne perdent pas de durabilité en cassant les blocs du catalogue Building.",
+            "en": "Tools lose no durability when breaking blocks from the Building catalogue."
+          }
+        },
+        {
+          "id": 8,
+          "names": {
+            "fr": "Dalles verticales",
+            "en": "Vertical Slabs"
+          },
+          "descriptions": {
+            "fr": "Débloque le catalogue initial et fini de crafts de dalles verticales.",
+            "en": "Unlocks the initial finite catalogue of vertical slab crafts."
+          }
+        },
+        {
+          "id": 9,
+          "names": {
+            "fr": "Portée du bâtisseur I",
+            "en": "Builder's Reach I"
+          },
+          "descriptions": {
+            "fr": "Augmente de 1 la portée de placement avec un bloc Building éligible en main.",
+            "en": "Increases block placement reach by 1 while holding an eligible Building block."
+          }
+        },
+        {
+          "id": 10,
+          "names": {
+            "fr": "Portée du bâtisseur II",
+            "en": "Builder's Reach II"
+          },
+          "descriptions": {
+            "fr": "Augmente encore de 1 la portée de placement.",
+            "en": "Increases block placement reach by another 1."
+          }
+        },
+        {
+          "id": 11,
+          "names": {
+            "fr": "Portée du bâtisseur III",
+            "en": "Builder's Reach III"
+          },
+          "descriptions": {
+            "fr": "Augmente encore de 1 la portée de placement.",
+            "en": "Increases block placement reach by another 1."
+          }
+        },
+        {
+          "id": 12,
+          "names": {
+            "fr": "Échafaudages étendus",
+            "en": "Extended Scaffolding"
+          },
+          "descriptions": {
+            "fr": "Étend la limite horizontale de support des échafaudages à 32 blocs.",
+            "en": "Extends the horizontal scaffolding support limit to 32 blocks."
+          }
+        },
+        {
+          "id": 13,
+          "names": {
+            "fr": "Bloc vierge",
+            "en": "Blank Block"
+          },
+          "descriptions": {
+            "fr": "Débloque le craft du Bloc vierge et ses six faces configurables indépendamment.",
+            "en": "Unlocks the Blank Block craft and its six independently configurable faces."
+          }
+        },
+        {
+          "id": 14,
+          "names": {
+            "fr": "Compas d’architecte",
+            "en": "Architect's Compass"
+          },
+          "descriptions": {
+            "fr": "Débloque le craft du Compas d’architecte pour afficher des cercles fantômes.",
+            "en": "Unlocks the Architect's Compass craft for ghost-circle construction guides."
+          }
+        },
+        {
+          "id": 15,
+          "names": {
+            "fr": "Réserve de chantier I",
+            "en": "Construction Reserve I"
+          },
+          "descriptions": {
+            "fr": "Débloque le coffre Réserve de chantier avec un rayon de transfert de 5 blocs.",
+            "en": "Unlocks the Construction Reserve chest with a transfer radius of 5 blocks."
+          }
+        },
+        {
+          "id": 16,
+          "names": {
+            "fr": "Réserve de chantier II",
+            "en": "Construction Reserve II"
+          },
+          "descriptions": {
+            "fr": "Étend le rayon de transfert de la Réserve de chantier à 10 blocs.",
+            "en": "Extends the Construction Reserve transfer radius to 10 blocks."
+          }
+        },
+        {
+          "id": 17,
+          "names": {
+            "fr": "Réserve de chantier III",
+            "en": "Construction Reserve III"
+          },
+          "descriptions": {
+            "fr": "Étend le rayon de transfert de la Réserve de chantier à 15 blocs.",
+            "en": "Extends the Construction Reserve transfer radius to 15 blocks."
+          }
+        },
+        {
+          "id": 18,
+          "names": {
+            "fr": "Chantier miniature",
+            "en": "Miniature Worksite"
+          },
+          "descriptions": {
+            "fr": "Permet de transformer un chantier terminé de 5×5×5 en miniature décorative.",
+            "en": "Allows a completed 5×5×5 worksite to become a decorative miniature."
+          }
+        },
+        {
+          "id": 19,
+          "names": {
+            "fr": "Générateur de particules statiques",
+            "en": "Static Particle Generator"
+          },
+          "descriptions": {
+            "fr": "Débloque des générateurs décoratifs statiques rendus côté client avec quotas stricts.",
+            "en": "Unlocks static client-rendered decorative particle generators with strict quotas."
+          }
+        },
+        {
+          "id": 20,
+          "names": {
+            "fr": "Baguette du bâtisseur",
+            "en": "Builder's Wand"
+          },
+          "descriptions": {
+            "fr": "Débloque la Baguette du bâtisseur durable pour orienter les blocs posés en sécurité.",
+            "en": "Unlocks the durable Builder's Wand for safe rotation of placed blocks."
+          }
+        }
+      ]
+    },
+    {
+      "id": "fishing",
+      "names": {
+        "fr": "Pêche",
+        "en": "Fishing"
+      },
+      "summary": {
+        "en": "Discover fish families, rarities, mini-games, and sea monsters.",
+        "fr": "Découvrez les familles de poissons, les raretés, les mini-jeux et les monstres marins."
+      },
+      "nodes": [
+        {
+          "id": 1,
+          "names": {
+            "fr": "Canne à pêche custom",
+            "en": "Custom Fishing Rod"
+          },
+          "descriptions": {
+            "fr": "Débloque le craft de la canne à pêche Mythic et le Codex de pêche.",
+            "en": "Unlocks the Mythic fishing rod and Fishing Codex."
+          }
+        },
+        {
+          "id": 2,
+          "names": {
+            "fr": "Pluie locale",
+            "en": "Local Rain"
+          },
+          "descriptions": {
+            "fr": "Débloque la baguette météo et un microclimat de pluie local.",
+            "en": "Unlocks the weather wand and a local rain microclimate."
+          }
+        },
+        {
+          "id": 3,
+          "names": {
+            "fr": "Soleil local",
+            "en": "Local Sun"
+          },
+          "descriptions": {
+            "fr": "Ajoute le mode soleil à la baguette météo.",
+            "en": "Adds sun mode to the weather wand."
+          }
+        },
+        {
+          "id": 4,
+          "names": {
+            "fr": "Orage local",
+            "en": "Local Storm"
+          },
+          "descriptions": {
+            "fr": "Ajoute le mode orage à la baguette météo.",
+            "en": "Adds storm mode to the weather wand."
+          }
+        },
+        {
+          "id": 5,
+          "names": {
+            "fr": "Appât I",
+            "en": "Bait I"
+          },
+          "descriptions": {
+            "fr": "Débloque un appât retirant du poids aux prises Common et Rare.",
+            "en": "Unlocks bait that shifts weight away from Common and Rare catches."
+          }
+        },
+        {
+          "id": 6,
+          "names": {
+            "fr": "Appât II",
+            "en": "Bait II"
+          },
+          "descriptions": {
+            "fr": "Débloque un appât plus puissant.",
+            "en": "Unlocks a stronger bait."
+          }
+        },
+        {
+          "id": 7,
+          "names": {
+            "fr": "Appât III",
+            "en": "Bait III"
+          },
+          "descriptions": {
+            "fr": "Débloque l’appât avancé.",
+            "en": "Unlocks advanced bait."
+          }
+        },
+        {
+          "id": 8,
+          "names": {
+            "fr": "Slots de runes",
+            "en": "Rune Slots"
+          },
+          "descriptions": {
+            "fr": "Débloque deux slots de rune sur la canne Mythic.",
+            "en": "Unlocks two rune slots on the Mythic rod."
+          }
+        },
+        {
+          "id": 9,
+          "names": {
+            "fr": "Rune de rareté",
+            "en": "Rarity Rune"
+          },
+          "descriptions": {
+            "fr": "Débloque la rune déplaçant les probabilités vers les raretés supérieures.",
+            "en": "Unlocks the rune shifting chances toward higher rarities."
+          }
+        },
+        {
+          "id": 10,
+          "names": {
+            "fr": "Rune de célérité",
+            "en": "Speed Rune"
+          },
+          "descriptions": {
+            "fr": "Débloque la rune réduisant le temps avant une touche.",
+            "en": "Unlocks the rune reducing bite time."
+          }
+        },
+        {
+          "id": 11,
+          "names": {
+            "fr": "Rune de maîtrise",
+            "en": "Mastery Rune"
+          },
+          "descriptions": {
+            "fr": "Débloque la rune facilitant les trois mini-jeux.",
+            "en": "Unlocks the rune assisting all three minigames."
+          }
+        },
+        {
+          "id": 12,
+          "names": {
+            "fr": "Filet à poissons",
+            "en": "Fish Net"
+          },
+          "descriptions": {
+            "fr": "Débloque un filet actif par joueur, capacité 3.",
+            "en": "Unlocks one active net per player, capacity 3."
+          }
+        },
+        {
+          "id": 13,
+          "names": {
+            "fr": "Filet renforcé",
+            "en": "Reinforced Net"
+          },
+          "descriptions": {
+            "fr": "Augmente la capacité du filet à 4.",
+            "en": "Raises net capacity to 4."
+          }
+        },
+        {
+          "id": 14,
+          "names": {
+            "fr": "Filet supérieur",
+            "en": "Superior Net"
+          },
+          "descriptions": {
+            "fr": "Augmente la capacité du filet à 5.",
+            "en": "Raises net capacity to 5."
+          }
+        },
+        {
+          "id": 15,
+          "names": {
+            "fr": "Table de poissonnerie",
+            "en": "Fishery Table"
+          },
+          "descriptions": {
+            "fr": "Débloque l’extraction d’écailles et de coquilles.",
+            "en": "Unlocks scale and shell extraction."
+          }
+        },
+        {
+          "id": 16,
+          "names": {
+            "fr": "Armure d’écailles",
+            "en": "Scale Armor"
+          },
+          "descriptions": {
+            "fr": "Débloque les armures de rareté, accélérant dans l’eau et la lave.",
+            "en": "Unlocks rarity armor that accelerates in water and lava."
+          }
+        },
+        {
+          "id": 17,
+          "names": {
+            "fr": "Bateau de pêche",
+            "en": "Fishing Boat"
+          },
+          "descriptions": {
+            "fr": "Débloque un bateau capturant jusqu’à trois poissons en déplacement.",
+            "en": "Unlocks a moving boat that stores up to three fish."
+          }
+        },
+        {
+          "id": 18,
+          "names": {
+            "fr": "Appât légendaire",
+            "en": "Legendary Bait"
+          },
+          "descriptions": {
+            "fr": "Débloque un appât de fin de progression : 50 % Epic, 40 % Legendary, 10 % Mythic.",
+            "en": "Unlocks endgame bait: 50% Epic, 40% Legendary, 10% Mythic."
+          }
+        },
+        {
+          "id": 19,
+          "names": {
+            "fr": "Canne basaltique",
+            "en": "Basalt Rod"
+          },
+          "descriptions": {
+            "fr": "Débloque la pêche dans la lave du Nether et la famille Infernale.",
+            "en": "Unlocks Nether lava fishing and the Infernal family."
+          }
+        },
+        {
+          "id": 20,
+          "names": {
+            "fr": "Canne du Vide",
+            "en": "Void Rod"
+          },
+          "descriptions": {
+            "fr": "Débloque la pêche dans l’eau placée dans l’End et la famille Vide.",
+            "en": "Unlocks fishing in water placed in the End and the Void family."
+          }
+        }
+      ]
+    },
+    {
+      "id": "eating",
+      "names": {
+        "fr": "Alimentation",
+        "en": "Eating"
+      },
+      "summary": {
+        "en": "Progress by eating, cook dishes, and discover custom recipes.",
+        "fr": "Progressez en mangeant, cuisinez des plats et découvrez des recettes personnalisées."
+      },
+      "nodes": [
+        {
+          "id": 1,
+          "names": {
+            "fr": "Marmite",
+            "en": "Cooking Pot"
+          },
+          "descriptions": {
+            "fr": "Débloque le craft de la marmite, la cuisine à 2 ingrédients et le codex culinaire.",
+            "en": "Unlocks the cooking pot craft, 2-ingredient cooking and the Culinary Codex."
+          }
+        },
+        {
+          "id": 2,
+          "names": {
+            "fr": "Marmite spacieuse I",
+            "en": "Roomy Pot I"
+          },
+          "descriptions": {
+            "fr": "Ajoute un troisième emplacement d’ingrédient à la marmite.",
+            "en": "Adds a third ingredient slot to the cooking pot."
+          }
+        },
+        {
+          "id": 3,
+          "names": {
+            "fr": "Marmite spacieuse II",
+            "en": "Roomy Pot II"
+          },
+          "descriptions": {
+            "fr": "Ajoute un quatrième emplacement d’ingrédient à la marmite.",
+            "en": "Adds a fourth ingredient slot to the cooking pot."
+          }
+        },
+        {
+          "id": 4,
+          "names": {
+            "fr": "Marmite spacieuse III",
+            "en": "Roomy Pot III"
+          },
+          "descriptions": {
+            "fr": "Ajoute un cinquième emplacement d’ingrédient à la marmite.",
+            "en": "Adds a fifth ingredient slot to the cooking pot."
+          }
+        },
+        {
+          "id": 5,
+          "names": {
+            "fr": "Petite assiette",
+            "en": "Small Plate"
+          },
+          "descriptions": {
+            "fr": "Débloque une assiette pouvant contenir 3 portions différentes.",
+            "en": "Unlocks a plate that can hold 3 different portions."
+          }
+        },
+        {
+          "id": 6,
+          "names": {
+            "fr": "Assiette moyenne",
+            "en": "Medium Plate"
+          },
+          "descriptions": {
+            "fr": "Débloque une assiette pouvant contenir 4 portions différentes.",
+            "en": "Unlocks a plate that can hold 4 different portions."
+          }
+        },
+        {
+          "id": 7,
+          "names": {
+            "fr": "Grande assiette",
+            "en": "Large Plate"
+          },
+          "descriptions": {
+            "fr": "Débloque une assiette pouvant contenir 5 portions différentes.",
+            "en": "Unlocks a plate that can hold 5 different portions."
+          }
+        },
+        {
+          "id": 8,
+          "names": {
+            "fr": "Frigidaire",
+            "en": "Refrigerator"
+          },
+          "descriptions": {
+            "fr": "Débloque un frigidaire de 54 slots qui stoppe la péremption sous redstone.",
+            "en": "Unlocks a 54-slot refrigerator that pauses spoilage while powered."
+          }
+        },
+        {
+          "id": 9,
+          "names": {
+            "fr": "Toujours une place",
+            "en": "Always Room"
+          },
+          "descriptions": {
+            "fr": "Permet de consommer un plat même avec la barre de faim pleine.",
+            "en": "Allows prepared dishes to be eaten at full hunger."
+          }
+        },
+        {
+          "id": 10,
+          "names": {
+            "fr": "Aura de cuisinier",
+            "en": "Chef Aura"
+          },
+          "descriptions": {
+            "fr": "Cuisiner près d’un villageois accorde temporairement Héros du village.",
+            "en": "Cooking near a villager temporarily grants Hero of the Village."
+          }
+        },
+        {
+          "id": 11,
+          "names": {
+            "fr": "Repas complet",
+            "en": "Complete Meal"
+          },
+          "descriptions": {
+            "fr": "Manger entrée, plat puis dessert accorde Saturation pendant 10 minutes.",
+            "en": "Eating starter, main course and dessert grants Saturation for 10 minutes."
+          }
+        },
+        {
+          "id": 12,
+          "names": {
+            "fr": "Goût du risque",
+            "en": "Taste for Risk"
+          },
+          "descriptions": {
+            "fr": "Manger près d’un Baron accorde un effet positif aléatoire.",
+            "en": "Eating near a Baron grants a random positive effect."
+          }
+        },
+        {
+          "id": 13,
+          "names": {
+            "fr": "Livraison",
+            "en": "Delivery"
+          },
+          "descriptions": {
+            "fr": "Débloque un téléphone livrant 1 à 9 de vos plats préparés depuis une marmite ou un frigidaire à 32 blocs. La nourriture vanilla est exclue.",
+            "en": "Unlocks a phone that delivers 1 to 9 of your prepared dishes from a cooking pot or refrigerator within 32 blocks. Vanilla food is excluded."
+          }
+        },
+        {
+          "id": 14,
+          "names": {
+            "fr": "Gastronomie internationale",
+            "en": "International Gastronomy"
+          },
+          "descriptions": {
+            "fr": "Manger un plat préparé par un autre joueur accorde Saturation.",
+            "en": "Eating another player’s dish grants Saturation."
+          }
+        },
+        {
+          "id": 15,
+          "names": {
+            "fr": "Recyclage douteux",
+            "en": "Dubious Recycling"
+          },
+          "descriptions": {
+            "fr": "Les Plats douteux peuvent alimenter un composteur.",
+            "en": "Dubious Dishes can be used in a composter."
+          }
+        },
+        {
+          "id": 16,
+          "names": {
+            "fr": "Renommée de chef",
+            "en": "Chef Renown"
+          },
+          "descriptions": {
+            "fr": "Offrir un plat à un mob agressif peut l’étourdir brièvement.",
+            "en": "Giving a dish to a hostile mob can briefly stun it."
+          }
+        },
+        {
+          "id": 17,
+          "names": {
+            "fr": "Cuisine d’exception",
+            "en": "Exceptional Cuisine"
+          },
+          "descriptions": {
+            "fr": "Donne une chance d’améliorer la rareté d’une cuisson d’un rang.",
+            "en": "Gives a chance to improve a dish rarity by one tier."
+          }
+        },
+        {
+          "id": 18,
+          "names": {
+            "fr": "Plat signature",
+            "en": "Signature Dish"
+          },
+          "descriptions": {
+            "fr": "Débloque le Carnet du chef : choisissez 2 à 5 ingrédients, un nom, une icône et un bonus temporaire de +10 %.",
+            "en": "Unlocks the Chef Notebook: choose 2–5 ingredients, a name, an icon and a temporary +10% bonus."
+          }
+        },
+        {
+          "id": 19,
+          "names": {
+            "fr": "Frigidaire portatif",
+            "en": "Portable Refrigerator"
+          },
+          "descriptions": {
+            "fr": "Débloque un enchantement de plastron qui stoppe la péremption transportée.",
+            "en": "Unlocks a chestplate enchantment that pauses carried food spoilage."
+          }
+        },
+        {
+          "id": 20,
+          "names": {
+            "fr": "Service automatique",
+            "en": "Automatic Service"
+          },
+          "descriptions": {
+            "fr": "Consomme automatiquement un plat préparé de l’inventaire ou du Food Backpack à 10 points de faim ou moins. La nourriture vanilla est exclue.",
+            "en": "Automatically consumes a prepared dish from your inventory or Food Backpack at 10 hunger or less. Vanilla food is excluded."
+          }
+        }
+      ]
+    }
+  ],
+  "values": [
+    {
+      "id": "eating.discovery_xp",
+      "value": 45,
+      "unit": "xp",
+      "status": "stable",
+      "label": {
+        "fr": "XP de découverte Eating",
+        "en": "Eating discovery XP"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/eating/EatingBalance.java",
+        "symbol": "DISCOVERY_XP",
+        "expression": "45"
+      }
+    },
+    {
+      "id": "eating.custom_dish_xp",
+      "value": 8,
+      "unit": "xp",
+      "status": "stable",
+      "label": {
+        "fr": "XP d'un plat MythicRPG",
+        "en": "MythicRPG dish XP"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/eating/EatingBalance.java",
+        "symbol": "CUSTOM_DISH_XP",
+        "expression": "8"
+      }
+    },
+    {
+      "id": "eating.vanilla_food_xp",
+      "value": 1,
+      "unit": "xp",
+      "status": "beta",
+      "label": {
+        "fr": "XP d'un aliment vanilla",
+        "en": "Vanilla food XP"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/eating/EatingBalance.java",
+        "symbol": "VANILLA_FOOD_XP",
+        "expression": "1"
+      }
+    },
+    {
+      "id": "eating.vanilla_soup_xp",
+      "value": 5,
+      "unit": "xp",
+      "status": "beta",
+      "label": {
+        "fr": "XP d'une soupe vanilla",
+        "en": "Vanilla soup XP"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/eating/EatingBalance.java",
+        "symbol": "VANILLA_SOUP_XP",
+        "expression": "5"
+      }
+    },
+    {
+      "id": "eating.cake_slice_xp",
+      "value": 3,
+      "unit": "xp",
+      "status": "beta",
+      "label": {
+        "fr": "XP d'une part de gâteau",
+        "en": "Cake slice XP"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/eating/EatingBalance.java",
+        "symbol": "CAKE_SLICE_XP",
+        "expression": "3"
+      }
+    },
+    {
+      "id": "mining.vein_mining_max_blocks",
+      "value": 10,
+      "unit": "blocks",
+      "status": "stable",
+      "label": {
+        "fr": "Blocs supplémentaires maximum de Vein Mining",
+        "en": "Maximum extra Vein Mining blocks"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/mining/MiningAreaEffects.java",
+        "symbol": "VEIN_MINING_MAX_BLOCKS",
+        "expression": "10"
+      }
+    }
+  ]
+}

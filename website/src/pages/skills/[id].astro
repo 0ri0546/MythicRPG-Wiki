@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SkillTree from '../../components/SkillTree.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import { catalog, sitePath, type Skill } from '../../lib/catalog';
+import { markdownToHtml } from '../../lib/markdown';
+
+export function getStaticPaths() {
+  return catalog.skills.map((skill) => ({ params: { id: skill.id }, props: { skill } }));
+}
+const { skill } = Astro.props as { skill: Skill };
+const relatedValues = catalog.values.filter((value) => value.id.startsWith(`${skill.id}.`));
+---
+<BaseLayout title={skill.names.fr} description={skill.editorial.fr?.summary}>
+  <nav class="breadcrumbs"><a href={sitePath('skills/')}>Skills</a><span>/</span><span>{skill.names.fr}</span></nav>
+  <header class="page-header">
+    <div class="badge-row"><StatusBadge status={skill.status} /><span class="status-badge">{skill.nodes.length} perks</span></div>
+    <h1>{skill.names.fr}</h1>
+    <p>{skill.editorial.fr?.summary}</p>
+  </header>
+
+  <section class="prose" set:html={markdownToHtml(skill.editorial.fr?.body_markdown ?? '')}></section>
+
+  <section>
+    <div class="section-heading"><div><p class="eyebrow">Données Java</p><h2>Arbre des perks</h2></div><code>{skill.extraction.file}</code></div>
+    <SkillTree nodes={skill.nodes} />
+  </section>
+
+  {relatedValues.length > 0 && (
+    <section>
+      <div class="section-heading"><div><p class="eyebrow">Valeurs suivies</p><h2>Équilibrage extrait</h2></div></div>
+      <div class="stat-table">
+        {relatedValues.map((value) => (
+          <div><span>{value.label.fr}</span><strong>{value.value} {value.unit}</strong><small>{value.status} · {value.source.symbol}</small></div>
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

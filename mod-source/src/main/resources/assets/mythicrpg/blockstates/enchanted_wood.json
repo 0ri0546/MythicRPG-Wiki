@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "mythicrpg:block/enchanted_wood"
+    },
+    "axis=x": {
+      "model": "mythicrpg:block/enchanted_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=z": {
+      "model": "mythicrpg:block/enchanted_wood",
+      "x": 90
+    }
+  }
+}

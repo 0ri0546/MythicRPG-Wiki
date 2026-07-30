@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "B",
+    "B",
+    "B"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:acacia_planks"
+    }
+  },
+  "result": {
+    "id": "mythicrpg:acacia_vertical_slab",
+    "count": 6
+  }
+}

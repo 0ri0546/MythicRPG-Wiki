@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2.0",
+  "schema_version": "0.3.0",
   "source": {
     "canonical_source": "src(92).zip",
     "received_archive": "src(92).zip",
@@ -31,7 +31,7 @@
       "editorial": {
         "en": {
           "summary": "Mine, automate connected ore veins, and explore the fossil archaeology loop.",
-          "body_markdown": "# Mining\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Mining\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "Vein Mining et Minage 3×3",
             "Cinq familles et cinq raretés de fossiles",
@@ -875,37 +875,41 @@
         "website",
         "encyclopedia"
       ],
-      "coverage": "structured",
+      "coverage": "deep",
       "editorial": {
         "en": {
-          "summary": "Improve direct combat and prepare for the Baron system.",
-          "body_markdown": "# Fighting\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "summary": "Develop combat damage, survival, loot and experience, then face the complete Baron catalogue and their legendary rewards.",
+          "body_markdown": "# Fighting\n\nFighting improves combat without forcing a specific class. Its complete perk tree covers direct attacks, effects applied to enemies, defence, rewards and encounters with Barons.\n\n## Earning experience\n\nThe Fighting manager grants experience when a living entity dies with a player identified as its attacker. Normal gain is calculated from the entity's maximum health, using a minimum and a cap extracted from the code. A Baron uses its base health before attribute scaling, then receives a Baron-specific bonus and a reward multiplier based on its spawn level.\n\nThe calculator on this page reproduces these formulas from the generated catalogue. It does not simulate Minecraft combat and is not an in-game validation.\n\n## Perk tree\n\nAll perks, positions, parents and branch conflicts are read from the Java tree. The simulator checks a route, its total cost and missing prerequisites. Branches cover damage, attack speed, reach, poison, life steal, resistance, loot, experience and permanent effects.\n\n## Baron system\n\nAn eligible entity may be promoted when it appears. The server finds a reference player, uses that player's Fighting level for the promotion chance and stores the Baron's spawn level. A second selection decides whether the Baron remains normal or receives a special behaviour compatible with its base entity type.\n\nThe page presents shared conditions, chance tiers, health, damage and experience multipliers, and the complete type catalogue. Each entry lists compatible entities, the extracted behaviour, its constants when available and associated rewards.\n\n## Rewards and legendary items\n\nRewards are resolved server-side when the Baron dies. Some are guaranteed, while others use a probability or a special condition. MythicRPG rewards link to their item pages while retaining their registration-evidence status in the general catalogue.\n\nLegendary items are documented from their specialised classes. Technical constants are displayed when they can be extracted deterministically. A missing value does not imply that the item has no effect; it only means the mechanic is not represented by a simple exported constant.\n\n## Solo and multiplayer\n\nIn single-player, the local player naturally acts as the reference player. In multiplayer, the server selects the nearby player used for the spawn level and applies protection for less advanced Fighting players in the configured area. Special attacks, tags, bossbars, damage and rewards remain server decisions.\n\nThis documentation describes the state visible through static inspection of `src(92)`. It does not claim to validate real encounter frequency, perceived balance or every ability in game.",
           "key_systems": [
-            "Poison et effets permanents",
-            "Portée et recharge des épées",
-            "Butin et expérience des créatures",
-            "Système des Barons et récompenses légendaires"
+            "Melee damage, reach, attack cadence and on-hit effects",
+            "Resistance, regeneration and permanent protections",
+            "Loot, Fighting experience and vanilla experience",
+            "Baron promotion, scaling and behaviours",
+            "Special rewards and legendary items"
           ],
           "xp_sources": [
-            "Combats et récompenses gérés par les événements Fighting",
-            "Bonus d’expérience des créatures hostiles selon les perks"
+            "Death of a living entity credited to a player: gain calculated from maximum health",
+            "Death of a Baron: strengthened base reward multiplied by its spawn level",
+            "Additional perk rewards and bonuses are applied server-side"
           ],
-          "multiplayer": "Les dégâts, butins et promotions de Barons sont des règles serveur. Les détails de chaque Baron seront approfondis dans une livraison dédiée."
+          "multiplayer": "Baron promotion, spawn level, abilities, damage and rewards are server-authoritative. Nearby-player protection prevents an advanced player from spawning a Baron next to a player who is still below the configured threshold."
         },
         "fr": {
-          "summary": "Améliorez les combats directs, les effets offensifs et défensifs, puis affrontez les Barons.",
-          "body_markdown": "# Combat\n\nFighting regroupe les améliorations de mêlée, les effets appliqués à l’impact, les multiplicateurs de butin et les protections permanentes. Son arbre permet de choisir entre plusieurs branches avant de converger vers les perks finaux.\n\n## Barons\n\nLe code contient un catalogue important de comportements de Barons, de récompenses et d’objets légendaires. La v0.2 référence ce système et rend l’arbre complet explorable ; les fiches exhaustives des différents Barons restent prévues pour la phase de contenu suivante.\n\n## Lecture de l’arbre\n\nLe simulateur respecte les parents et les conflits de branche extraits du Java. Il sert à explorer un build, pas à recommander une manière optimale de jouer.",
+          "summary": "Développez les dégâts, la survie, le butin et l’expérience de combat, puis affrontez le catalogue complet des Barons et leurs récompenses légendaires.",
+          "body_markdown": "# Fighting\n\nFighting améliore la manière de combattre sans imposer une classe particulière. Son arbre complet couvre les attaques directes, les effets appliqués aux ennemis, la défense, les récompenses et la confrontation avec les Barons.\n\n## Gagner de l’expérience\n\nLe gestionnaire Fighting attribue l’expérience lorsqu’une créature vivante meurt avec un joueur identifié comme attaquant. Le gain normal est calculé depuis la vie maximale de la créature, avec un minimum et un plafond extraits du code. Un Baron utilise sa vie de base, avant le multiplicateur de caractéristiques, puis reçoit un bonus propre aux Barons et un multiplicateur de récompense lié à son niveau de naissance.\n\nLe calculateur de cette page reproduit ces formules depuis le catalogue généré. Il ne simule pas un combat Minecraft et ne remplace pas une validation en jeu.\n\n## Arbre des perks\n\nLes perks, leurs positions, leurs parents et leurs conflits de branches sont lus depuis l’arbre Java. Le simulateur permet de vérifier un parcours, le coût total et les prérequis manquants. Les branches couvrent notamment les dégâts, la vitesse d’attaque, la portée, le poison, le vol de vie, les résistances, le butin, l’expérience et les effets permanents.\n\n## Système des Barons\n\nUne créature éligible peut être promue lors de son apparition. Le serveur recherche le joueur de référence, utilise son niveau Fighting pour la chance de promotion et fixe le niveau de naissance du Baron. Une seconde sélection détermine si le Baron reste normal ou reçoit un comportement spécial compatible avec son type de créature.\n\nLa page présente les conditions communes, les paliers de chance, les multiplicateurs de vie, de dégâts et d’expérience, ainsi que le catalogue complet des types. Chaque fiche précise les créatures compatibles, le comportement extrait, ses constantes lorsqu’elles existent et les récompenses associées.\n\n## Récompenses et objets légendaires\n\nLes récompenses sont résolues côté serveur à la mort du Baron. Certaines sont garanties, d’autres utilisent une probabilité ou une condition particulière. Les objets MythicRPG liés aux Barons disposent de liens vers leurs fiches, tout en conservant leur statut de preuve d’enregistrement dans le catalogue général.\n\nLes objets légendaires sont documentés à partir de leurs classes spécialisées : leurs constantes techniques sont affichées lorsqu’elles peuvent être extraites de façon déterministe. Une absence de valeur dans une fiche ne doit pas être interprétée comme une absence d’effet ; elle signifie seulement que la mécanique n’est pas représentée par une constante simple exportée.\n\n## Solo et multijoueur\n\nEn solo, le joueur local est naturellement le joueur de référence. En multijoueur, le serveur choisit le joueur proche utilisé pour le niveau de naissance et applique une protection pour les joueurs Fighting moins avancés situés dans la zone prévue. Les attaques spéciales, les tags, les bossbars, les dégâts et les récompenses restent des décisions serveur.\n\nCette documentation décrit l’état visible statiquement dans `src(92)`. Elle ne prétend pas valider la fréquence réelle des rencontres, l’équilibrage ressenti ou la stabilité de chaque capacité en jeu.",
           "key_systems": [
-            "Poison et effets permanents",
-            "Portée et recharge des épées",
-            "Butin et expérience des créatures",
-            "Système des Barons et récompenses légendaires"
+            "Dégâts de mêlée, portée, cadence et effets à l’impact",
+            "Résistances, régénération et protections permanentes",
+            "Butin, expérience Fighting et expérience vanilla",
+            "Promotion, scaling et comportements des Barons",
+            "Récompenses spéciales et objets légendaires"
           ],
           "xp_sources": [
-            "Combats et récompenses gérés par les événements Fighting",
-            "Bonus d’expérience des créatures hostiles selon les perks"
+            "Mort d’une créature vivante attribuée à un joueur : gain calculé depuis sa vie maximale",
+            "Mort d’un Baron : base renforcée puis multipliée selon son niveau de naissance",
+            "Les gains et bonus supplémentaires sont appliqués côté serveur par les perks concernés"
           ],
-          "multiplayer": "Les dégâts, butins et promotions de Barons sont des règles serveur. Les détails de chaque Baron seront approfondis dans une livraison dédiée."
+          "multiplayer": "La promotion des Barons, leur niveau de naissance, leurs capacités, leurs dégâts et leurs récompenses sont autoritaires côté serveur. Une protection de proximité évite qu’un joueur avancé déclenche un Baron près d’un joueur encore sous le seuil prévu."
         }
       },
       "nodes": [
@@ -1694,7 +1698,7 @@
       "editorial": {
         "en": {
           "summary": "Expand wood gathering, tree felling, growth, and modular storage.",
-          "body_markdown": "# Woodcutting\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Woodcutting\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "Bois enchanté et bonus de butin",
             "Croissance et pousses",
@@ -2534,7 +2538,7 @@
       "editorial": {
         "en": {
           "summary": "Automate harvesting and unlock advanced agricultural rewards.",
-          "body_markdown": "# Farming\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Farming\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "Replantation et récoltes abondantes",
             "Graines et fleurs enchantées",
@@ -3351,37 +3355,41 @@
         "website",
         "encyclopedia"
       ],
-      "coverage": "structured",
+      "coverage": "deep",
       "editorial": {
         "en": {
-          "summary": "Use portable crafting, charges, recycling, and mastery systems.",
-          "body_markdown": "# Crafting\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "summary": "Turn ingredient value into Crafting XP, use portable stations, recycle, transform and manipulate Lucky Block luck.",
+          "body_markdown": "# Crafting\n\nCrafting extends vanilla recipes with ingredient-value progression, several stations, yield bonuses and conversion systems. Its complete perk tree connects portable crafting, resource saving, reinforcement, Lucky Blocks, recycling, transformations and mastery.\n\n## Craft Score and experience\n\nEach explicitly recognised ingredient has a Craft Score. MythicRPG items and other items use separate fallback values when the code has no specific score. The total craft score is converted into Crafting XP using an extracted multiplier and a per-action cap.\n\nExcluded systems are listed separately to prevent conversion loops, decorative spam and gains from mechanics that already have their own rules. The page calculator applies bonuses in the same order as the Java manager.\n\n## Perk tree\n\nAll perks, prerequisites and conflicts are extracted from the Java tree. The simulator lets readers select a route and reports missing parents or incompatible branches. Individual perk pages link to associated items, recipes and systems.\n\n## Stations and interfaces\n\nThe system distinguishes portable crafting, the crafting table and the infinite crafting table. The catalogue records each internal station identifier, finite durability where applicable and the layout of synchronised properties and slots.\n\nPortable crafting opens a complete grid from the inventory, but the result is still calculated and validated by the server. Charges, durability and persistent states are therefore not client-only data.\n\n## Crafting bonuses\n\nPerks can save resources, reinforce results, generate charges, transfer part of progression or modify earned XP. Every value shown in cards and calculators comes from the extracted catalogue rather than being written in Astro components.\n\n## Recycling\n\nRecycling converts compatible groups of tools or equipment into a base resource. Groups, inputs and outputs are extracted from the dedicated manager. This action has its own prerequisite and must not be confused with a vanilla recipe or an automatic Crafting XP source.\n\n## Transformations\n\nThe transformation system connects item pairs and consumes the extracted charge amount per transformed item. The page provides a search over every extracted pair to answer both “what does this item become?” and “how can I obtain this result?”.\n\n## Lucky Blocks\n\nA Lucky Block stores a bounded internal luck value. It first distributes the roll between positive, neutral and negative categories, then selects a weighted event inside the chosen category. The simulator displays this distribution and the catalogue lists the weighted events actually present in the code.\n\nInfusion surrounds the Lucky Block with the required identical ingredients to modify its internal value. Ingredient groups and applied changes are extracted from the infusion recipe registry.\n\n## Solo and multiplayer\n\nThe server validates craft results, consumption, XP, durability changes, charges, transformations and Lucky Block events. In multiplayer, portable interfaces synchronise this state rather than deciding the result locally.\n\nThis page describes `src(92)` through static inspection. It does not claim to have executed the interfaces, broken a Lucky Block or tested concurrent players.",
           "key_systems": [
-            "Fabrication 3×3 portable et charges",
-            "Économie de ressources et première fabrication",
-            "Bloc chanceux et infusion de chance",
-            "Recyclage, renforcement et transformation"
+            "Craft Score and Crafting XP attribution",
+            "Portable crafting, vanilla table and infinite table",
+            "Resource saving, reinforcement, charges and mastery",
+            "Recycling and instant transformations",
+            "Lucky Blocks, weighted events and luck infusion"
           ],
           "xp_sources": [
-            "Fabrications éligibles identifiées par CraftXpManager",
-            "Bonus de première fabrication, de nuit et d’inspiration"
+            "Eligible crafts: total ingredient score converted into XP",
+            "Context bonuses applied in the order defined by the Crafting manager",
+            "First-craft, Midnight Workshop and Mythic Inspiration bonuses when unlocked"
           ],
-          "multiplayer": "Les décisions de fabrication et les événements de Lucky Block sont validés côté serveur. Les interfaces portables restent des vues clientes sur un état autoritaire."
+          "multiplayer": "Result creation, ingredient consumption, Craft Score, XP, charges, persistent states and Lucky Block events are server decisions. Screens are synchronised views of that state."
         },
         "fr": {
-          "summary": "Débloquez la fabrication portable, les charges, le recyclage et les objets de maîtrise artisanale.",
-          "body_markdown": "# Fabrication\n\nCrafting ajoute plusieurs couches au système de recettes : interface portable, économie d’ingrédients, jauge de charge, bonus contextuels et transformation instantanée.\n\n## Fabrication portable\n\nLe premier perk ouvre une grille 3×3 dans l’inventaire avec un stock de charges. D’autres perks améliorent l’efficacité, la durabilité des stations ou les récompenses d’expérience.\n\n## Recettes et relations\n\nL’explorateur du wiki permet de rechercher les recettes JSON par résultat ou ingrédient. Les systèmes dont les recettes sont générées en Java sont signalés séparément.",
+          "summary": "Transformez la valeur des ingrédients en XP Crafting, utilisez les stations portables, recyclez, transformez et manipulez la chance des Lucky Blocks.",
+          "body_markdown": "# Crafting\n\nCrafting étend la fabrication vanilla avec une progression basée sur la valeur des ingrédients, plusieurs stations, des bonus de rendement et des systèmes de conversion. Son arbre complet relie fabrication portable, économie de ressources, renforcement, Lucky Blocks, recyclage, transformations et maîtrise.\n\n## Craft Score et expérience\n\nChaque ingrédient explicitement reconnu possède un Craft Score. Les objets MythicRPG et les autres objets utilisent des valeurs de repli distinctes lorsque le code ne fournit pas de score spécifique. Le score total de la fabrication est converti en XP Crafting avec un multiplicateur et un plafond par action.\n\nLes systèmes exclus du calcul sont listés séparément afin d’éviter les boucles de conversion, le spam décoratif et les gains provenant de mécaniques qui possèdent déjà leurs propres règles. Le calculateur de la page applique les bonus dans le même ordre que le gestionnaire Java.\n\n## Arbre des perks\n\nLes perks, leurs prérequis et leurs conflits sont extraits de l’arbre Java. Le simulateur permet de sélectionner un parcours et signale les parents absents ou les branches incompatibles. Les fiches individuelles relient les perks aux objets, recettes et systèmes associés.\n\n## Stations et interfaces\n\nLe système distingue la fabrication portable, la table de fabrication et la table infinie. Le catalogue précise l’identifiant interne de chaque station, sa durabilité lorsqu’elle est finie et l’organisation des propriétés ou emplacements synchronisés de l’interface.\n\nLa fabrication portable ouvre une grille complète depuis l’inventaire, mais le résultat reste calculé et validé par le serveur. Les charges, la durabilité et les états persistants ne sont donc pas de simples données clientes.\n\n## Bonus de fabrication\n\nLes perks peuvent économiser des ressources, renforcer le résultat, générer des charges, transférer une partie de la progression ou modifier l’XP obtenue. Toutes les valeurs affichées dans les cartes et calculateurs viennent du catalogue extrait ; elles ne sont pas écrites dans les composants Astro.\n\n## Recyclage\n\nLe recyclage convertit des groupes d’outils ou d’équipements compatibles en une ressource de base. Les groupes, les entrées et les résultats sont extraits du gestionnaire dédié. Cette action possède son propre prérequis et ne doit pas être confondue avec une recette vanilla classique ni avec une source automatique d’XP Crafting.\n\n## Transformations\n\nLe système de transformation relie des paires d’objets et consomme la charge définie par élément transformé. La page fournit une recherche sur toutes les paires extraites afin de répondre rapidement à « que devient cet objet ? » et « comment obtenir ce résultat ? ».\n\n## Lucky Blocks\n\nLe Bloc chanceux utilise une valeur interne bornée. Cette valeur répartit d’abord le tirage entre catégories positive, neutre et négative, puis un événement est sélectionné selon son poids dans la catégorie. Le simulateur affiche cette répartition et le catalogue liste les événements pondérés réellement présents dans le code.\n\nL’infusion utilise les ingrédients requis autour du Bloc chanceux pour modifier sa valeur interne. Les groupes d’objets et les variations appliquées sont extraits du registre des recettes d’infusion.\n\n## Solo et multijoueur\n\nLe serveur valide le résultat de craft, la consommation, l’XP, les changements de durabilité, les charges, les transformations et les événements de Lucky Block. En multijoueur, les interfaces portables synchronisent cet état ; elles ne décident pas localement du résultat.\n\nCette page décrit l’état de `src(92)` par inspection statique. Elle ne prétend pas avoir exécuté les interfaces, cassé un Lucky Block ou testé la concurrence de plusieurs joueurs.",
           "key_systems": [
-            "Fabrication 3×3 portable et charges",
-            "Économie de ressources et première fabrication",
-            "Bloc chanceux et infusion de chance",
-            "Recyclage, renforcement et transformation"
+            "Craft Score et attribution d’XP Crafting",
+            "Fabrication portable, table vanilla et table infinie",
+            "Économie de ressources, renforcement, charges et maîtrise",
+            "Recyclage et transformations instantanées",
+            "Lucky Blocks, événements pondérés et infusion de chance"
           ],
           "xp_sources": [
-            "Fabrications éligibles identifiées par CraftXpManager",
-            "Bonus de première fabrication, de nuit et d’inspiration"
+            "Fabrications éligibles : score total des ingrédients converti en XP",
+            "Bonus contextuels appliqués dans l’ordre défini par le gestionnaire Crafting",
+            "Bonus de première fabrication, atelier de minuit et inspiration mythique lorsqu’ils sont débloqués"
           ],
-          "multiplayer": "Les décisions de fabrication et les événements de Lucky Block sont validés côté serveur. Les interfaces portables restent des vues clientes sur un état autoritaire."
+          "multiplayer": "Le résultat, la consommation des ingrédients, le Craft Score, l’XP, les charges, les états persistants et les événements de Lucky Block sont décidés côté serveur. Les écrans ne sont que des vues synchronisées."
         }
       },
       "nodes": [
@@ -4240,7 +4248,7 @@
       "editorial": {
         "en": {
           "summary": "Explore with movement perks, vehicles, mounts, and structure tools.",
-          "body_markdown": "# Traveling\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Traveling\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "Double saut et bonus de déplacement",
             "Découverte de biomes, structures et trésors",
@@ -5116,7 +5124,7 @@
       "editorial": {
         "en": {
           "summary": "Plan and execute builds with optional construction tools.",
-          "body_markdown": "# Building\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Building\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "Plans 2D et 3D",
             "Réapprovisionnement, aimant et portée",
@@ -5952,7 +5960,7 @@
       "editorial": {
         "en": {
           "summary": "Explore five families, five rarities, equipment, minigames, and legendary hunts.",
-          "body_markdown": "# Fishing\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Fishing\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "Probabilités par appât et rune de rareté",
             "Mini-jeux Epic, Legendary et Mythic",
@@ -6866,7 +6874,7 @@
       "editorial": {
         "en": {
           "summary": "Progress by eating, cook structured dishes, and manage preservation.",
-          "body_markdown": "# Eating\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Eating\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "XP Eating des aliments vanilla et MythicRPG",
             "47 recettes culinaires et 50 sources d’ingrédients",
@@ -18637,6 +18645,490 @@
         "symbol": "INVENTORY_SIZE",
         "expression": "5"
       }
+    },
+    {
+      "id": "fighting.baron_min_fighting_level",
+      "value": 10,
+      "unit": "level",
+      "status": "stable",
+      "label": {
+        "fr": "Niveau de référence des Barons",
+        "en": "Baron reference level"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fighting/BaronMobManager.java",
+        "symbol": "MIN_FIGHTING_LEVEL",
+        "expression": "10"
+      }
+    },
+    {
+      "id": "fighting.baron_scale_bonus",
+      "value": 0.1,
+      "unit": "multiplier",
+      "status": "stable",
+      "label": {
+        "fr": "Bonus d'échelle générique des Barons",
+        "en": "Generic Baron scale bonus"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fighting/BaronMobManager.java",
+        "symbol": "BARON_SCALE_BONUS",
+        "expression": "0.10"
+      }
+    },
+    {
+      "id": "fighting.baron_player_search_radius",
+      "value": 96.0,
+      "unit": "blocks",
+      "status": "stable",
+      "label": {
+        "fr": "Rayon de recherche du joueur pour une promotion",
+        "en": "Player search radius for promotion"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fighting/BaronMobManager.java",
+        "symbol": "PLAYER_SEARCH_RADIUS",
+        "expression": "96.0"
+      }
+    },
+    {
+      "id": "fighting.baron_low_level_protection_radius",
+      "value": 48.0,
+      "unit": "blocks",
+      "status": "stable",
+      "label": {
+        "fr": "Rayon de protection multijoueur des bas niveaux",
+        "en": "Low-level multiplayer protection radius"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fighting/BaronMobManager.java",
+        "symbol": "LOW_LEVEL_PROTECTION_RADIUS",
+        "expression": "48.0"
+      }
+    },
+    {
+      "id": "fighting.baron_health_per_level",
+      "value": 0.03,
+      "unit": "ratio_per_level",
+      "status": "stable",
+      "label": {
+        "fr": "Vie de Baron ajoutée par niveau Fighting",
+        "en": "Baron health added per Fighting level"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fighting/barons/BaronScaling.java",
+        "symbol": "HEALTH_PER_LEVEL",
+        "expression": "0.03"
+      }
+    },
+    {
+      "id": "fighting.baron_damage_per_level",
+      "value": 0.01,
+      "unit": "ratio_per_level",
+      "status": "stable",
+      "label": {
+        "fr": "Dégâts de Baron ajoutés par niveau Fighting",
+        "en": "Baron damage added per Fighting level"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fighting/barons/BaronScaling.java",
+        "symbol": "DAMAGE_PER_LEVEL",
+        "expression": "0.01"
+      }
+    },
+    {
+      "id": "fighting.baron_xp_per_level",
+      "value": 0.01,
+      "unit": "ratio_per_level",
+      "status": "stable",
+      "label": {
+        "fr": "Récompense XP ajoutée par niveau Fighting",
+        "en": "XP reward added per Fighting level"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fighting/barons/BaronScaling.java",
+        "symbol": "XP_REWARD_PER_LEVEL",
+        "expression": "0.01"
+      }
+    },
+    {
+      "id": "crafting.max_xp_per_action",
+      "value": 80,
+      "unit": "xp",
+      "status": "stable",
+      "label": {
+        "fr": "XP Crafting maximale par action de fabrication",
+        "en": "Maximum Crafting XP per craft action"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftXpManager.java",
+        "symbol": "MAX_XP_PER_CRAFT_ACTION",
+        "expression": "80"
+      }
+    },
+    {
+      "id": "crafting.xp_multiplier",
+      "value": 0.08,
+      "unit": "multiplier",
+      "status": "stable",
+      "label": {
+        "fr": "Multiplicateur Craft Score vers XP",
+        "en": "Craft Score to XP multiplier"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftXpManager.java",
+        "symbol": "CRAFT_XP_MULTIPLIER",
+        "expression": "0.08"
+      }
+    },
+    {
+      "id": "crafting.midnight_multiplier",
+      "value": 1.3,
+      "unit": "multiplier",
+      "status": "stable",
+      "label": {
+        "fr": "Multiplicateur de l'Atelier de minuit",
+        "en": "Midnight Workshop multiplier"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftXpManager.java",
+        "symbol": "MIDNIGHT_WORKSHOP_MULTIPLIER",
+        "expression": "1.3"
+      }
+    },
+    {
+      "id": "crafting.green_vanilla_xp_ratio",
+      "value": 0.05,
+      "unit": "ratio",
+      "status": "stable",
+      "label": {
+        "fr": "Ratio d'XP vanilla de Fabrication écologique",
+        "en": "Green Crafting vanilla XP ratio"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftXpManager.java",
+        "symbol": "GREEN_CRAFTING_VANILLA_XP_RATIO",
+        "expression": "0.05"
+      }
+    },
+    {
+      "id": "crafting.green_vanilla_xp_cap",
+      "value": 5,
+      "unit": "xp",
+      "status": "stable",
+      "label": {
+        "fr": "Plafond d'XP vanilla de Fabrication écologique",
+        "en": "Green Crafting vanilla XP cap"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftXpManager.java",
+        "symbol": "MAX_GREEN_CRAFTING_VANILLA_XP",
+        "expression": "5"
+      }
+    },
+    {
+      "id": "crafting.charge_per_xp",
+      "value": 0.35,
+      "unit": "charge_per_xp",
+      "status": "stable",
+      "label": {
+        "fr": "Charge gagnée par XP Crafting",
+        "en": "Charge gained per Crafting XP"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftChargeManager.java",
+        "symbol": "CHARGE_PER_CRAFT_XP",
+        "expression": "0.35"
+      }
+    },
+    {
+      "id": "crafting.max_charge_gain",
+      "value": 20.0,
+      "unit": "charge",
+      "status": "stable",
+      "label": {
+        "fr": "Charge maximale gagnée par fabrication",
+        "en": "Maximum charge gained per craft"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftChargeManager.java",
+        "symbol": "MAX_CHARGE_GAIN_PER_CRAFT",
+        "expression": "20.0"
+      }
+    },
+    {
+      "id": "crafting.charge_bonus_next_level_ratio",
+      "value": 0.25,
+      "unit": "ratio",
+      "status": "stable",
+      "label": {
+        "fr": "Ratio du bonus de Charge sur le prochain niveau",
+        "en": "Charge bonus next-level ratio"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftChargeManager.java",
+        "symbol": "BONUS_NEXT_LEVEL_RATIO",
+        "expression": "0.25"
+      }
+    },
+    {
+      "id": "crafting.mastery_transfer_ratio",
+      "value": 0.2,
+      "unit": "ratio",
+      "status": "stable",
+      "label": {
+        "fr": "Ratio de transfert de Maîtrise artisanale",
+        "en": "Craft Mastery transfer ratio"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftMasteryManager.java",
+        "symbol": "CRAFT_XP_TRANSFER_RATIO",
+        "expression": "0.20"
+      }
+    },
+    {
+      "id": "crafting.mastery_cap_ratio",
+      "value": 0.005,
+      "unit": "ratio",
+      "status": "stable",
+      "label": {
+        "fr": "Plafond de Maîtrise selon le niveau cible",
+        "en": "Mastery cap ratio for target skill"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftMasteryManager.java",
+        "symbol": "TARGET_SKILL_LEVEL_CAP_RATIO",
+        "expression": "0.005"
+      }
+    },
+    {
+      "id": "crafting.first_craft_multiplier",
+      "value": 3,
+      "unit": "multiplier",
+      "status": "stable",
+      "label": {
+        "fr": "Multiplicateur de première fabrication",
+        "en": "First craft multiplier"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/FirstCraftBonusManager.java",
+        "symbol": "FIRST_CRAFT_MULTIPLIER",
+        "expression": "3"
+      }
+    },
+    {
+      "id": "crafting.inspiration_multiplier",
+      "value": 3,
+      "unit": "multiplier",
+      "status": "stable",
+      "label": {
+        "fr": "Multiplicateur d'Inspiration mythique",
+        "en": "Mythic Inspiration multiplier"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/MythicInspirationManager.java",
+        "symbol": "MYTHIC_INSPIRATION_MULTIPLIER",
+        "expression": "3"
+      }
+    },
+    {
+      "id": "crafting.exp_charm_bonus_ratio",
+      "value": 0.2,
+      "unit": "ratio",
+      "status": "stable",
+      "label": {
+        "fr": "Bonus du Charme d'expérience",
+        "en": "Experience Charm bonus ratio"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/ExpCharmBonusManager.java",
+        "symbol": "BONUS_RATIO",
+        "expression": "0.20"
+      }
+    },
+    {
+      "id": "crafting.portable_durability",
+      "value": 256,
+      "unit": "charges",
+      "status": "stable",
+      "label": {
+        "fr": "Durabilité maximale de la fabrication portable",
+        "en": "Portable crafting maximum durability"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/PortableCraftingState.java",
+        "symbol": "MAX_DURABILITY",
+        "expression": "256"
+      }
+    },
+    {
+      "id": "crafting.table_durability",
+      "value": 256,
+      "unit": "crafts",
+      "status": "stable",
+      "label": {
+        "fr": "Durabilité maximale d'une table vanilla suivie",
+        "en": "Tracked vanilla table maximum durability"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/station/CraftingTableDurabilityState.java",
+        "symbol": "MAX_DURABILITY",
+        "expression": "256"
+      }
+    },
+    {
+      "id": "crafting.repair_kit_base_power",
+      "value": 0.1,
+      "unit": "ratio",
+      "status": "stable",
+      "label": {
+        "fr": "Puissance de base d'un Kit de réparation",
+        "en": "Repair Kit base power"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/RepairKitItem.java",
+        "symbol": "BASE_REPAIR_POWER",
+        "expression": "0.10"
+      }
+    },
+    {
+      "id": "crafting.lucky_min",
+      "value": -10,
+      "unit": "luck",
+      "status": "stable",
+      "label": {
+        "fr": "Chance minimale d'un Bloc chanceux",
+        "en": "Minimum Lucky Block luck"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/LuckyBlockLuckManager.java",
+        "symbol": "MIN_LUCK",
+        "expression": "-10"
+      }
+    },
+    {
+      "id": "crafting.lucky_max",
+      "value": 10,
+      "unit": "luck",
+      "status": "stable",
+      "label": {
+        "fr": "Chance maximale d'un Bloc chanceux",
+        "en": "Maximum Lucky Block luck"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/LuckyBlockLuckManager.java",
+        "symbol": "MAX_LUCK",
+        "expression": "10"
+      }
     }
   ],
   "systems": {
@@ -21571,6 +22063,3271 @@
           "com/mythicrpg/fishing/FishingWeatherManager.java",
           "com/mythicrpg/fishing/SeaMonsterProgressData.java",
           "com/mythicrpg/fishing/SeaMonsterManager.java"
+        ]
+      }
+    },
+    "fighting": {
+      "xp": {
+        "normal_formula": "clamp(round(max_health / 5), 1, 20)",
+        "baron_formula": "round((round(base_xp × 1.5) + 5) × baron_xp_multiplier)",
+        "health_divisor": 5.0,
+        "normal_min": 1,
+        "normal_max": 20,
+        "baron_base_multiplier": 1.5,
+        "baron_flat_bonus": 5,
+        "vanilla_mob_xp_estimates": [
+          {
+            "group": "common_hostile",
+            "xp": 5,
+            "approximate": true
+          },
+          {
+            "group": "blaze_or_guardian",
+            "xp": 10,
+            "approximate": true
+          }
+        ],
+        "source_file": "com/mythicrpg/fighting/FightingEvents.java"
+      },
+      "barons": {
+        "promotion": {
+          "minimum_fighting_level_for_multiplayer_protection": 10,
+          "player_search_radius": 96.0,
+          "low_level_protection_radius": 48.0,
+          "generic_scale_bonus": 0.1,
+          "special_type_chance": 0.5,
+          "chance_tiers": [
+            {
+              "min_level": 0,
+              "max_level": 9,
+              "chance": 0.05
+            },
+            {
+              "min_level": 10,
+              "max_level": 24,
+              "chance": 0.2
+            },
+            {
+              "min_level": 25,
+              "max_level": 49,
+              "chance": 0.3
+            },
+            {
+              "min_level": 50,
+              "max_level": 74,
+              "chance": 0.5
+            },
+            {
+              "min_level": 75,
+              "max_level": 100,
+              "chance": 0.7
+            }
+          ],
+          "checked_once_per_entity": true,
+          "maximum_entity_age_ticks": 20,
+          "lucky_block_forced_entity_types": [
+            "zombie",
+            "skeleton",
+            "spider",
+            "slime",
+            "witch",
+            "drowned",
+            "enderman",
+            "blaze",
+            "hoglin",
+            "creeper",
+            "wither_skeleton",
+            "vex"
+          ]
+        },
+        "scaling": {
+          "min_level": 0,
+          "max_level": 100,
+          "health_per_level": 0.03,
+          "damage_per_level": 0.01,
+          "xp_reward_per_level": 0.01,
+          "samples": [
+            {
+              "level": 0,
+              "health_multiplier": 1.0,
+              "damage_multiplier": 1.0,
+              "xp_multiplier": 1.0
+            },
+            {
+              "level": 10,
+              "health_multiplier": 1.3,
+              "damage_multiplier": 1.1,
+              "xp_multiplier": 1.1
+            },
+            {
+              "level": 25,
+              "health_multiplier": 1.75,
+              "damage_multiplier": 1.25,
+              "xp_multiplier": 1.25
+            },
+            {
+              "level": 50,
+              "health_multiplier": 2.5,
+              "damage_multiplier": 1.5,
+              "xp_multiplier": 1.5
+            },
+            {
+              "level": 75,
+              "health_multiplier": 3.25,
+              "damage_multiplier": 1.75,
+              "xp_multiplier": 1.75
+            },
+            {
+              "level": 100,
+              "health_multiplier": 4.0,
+              "damage_multiplier": 2.0,
+              "xp_multiplier": 2.0
+            }
+          ]
+        },
+        "types": [
+          {
+            "id": "normal",
+            "names": {
+              "fr": "Baron",
+              "en": "Baron"
+            },
+            "tag": "mythicrpg_baron_normal",
+            "base_entities": [
+              "any_non_player_living_entity"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Version renforcée sans capacité spéciale supplémentaire.",
+                "en": "Strengthened version without an extra special ability."
+              },
+              "file": "com/mythicrpg/fighting/BaronMobManager.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "mythicrpg:barons_doll",
+                "names": {
+                  "fr": "Poupée du Baron",
+                  "en": "Baron's Doll"
+                },
+                "chance": 1e-05,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "druid",
+            "names": {
+              "fr": "Baron druide",
+              "en": "Druid Baron"
+            },
+            "tag": "mythicrpg_baron_druid",
+            "base_entities": [
+              "skeleton"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un squelette qui se soigne lorsqu’il touche directement un joueur.",
+                "en": "A skeleton that heals itself when it directly hits a player."
+              },
+              "file": "com/mythicrpg/fighting/barons/DruidBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:tipped_arrow",
+                "names": {
+                  "fr": "Tipped Arrow",
+                  "en": "Tipped Arrow"
+                },
+                "chance": 1.0,
+                "count": 1,
+                "note": {
+                  "fr": "Flèche de soin.",
+                  "en": "Healing tipped arrow."
+                }
+              }
+            ]
+          },
+          {
+            "id": "barrage",
+            "names": {
+              "fr": "Baron barrage",
+              "en": "Barrage Baron"
+            },
+            "tag": "mythicrpg_baron_barrage",
+            "base_entities": [
+              "skeleton"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un squelette qui déclenche régulièrement une attaque à distance supplémentaire.",
+                "en": "A skeleton that regularly triggers an additional ranged attack."
+              },
+              "file": "com/mythicrpg/fighting/barons/BarrageBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "SHOT_COOLDOWN_TICKS",
+                  "value": 35,
+                  "unit": "ticks",
+                  "source": "BarrageBaronBehavior.java",
+                  "seconds": 1.75
+                },
+                {
+                  "symbol": "MAX_TARGET_DISTANCE",
+                  "value": 32.0,
+                  "unit": "blocks",
+                  "source": "BarrageBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:arrow",
+                "names": {
+                  "fr": "Arrow",
+                  "en": "Arrow"
+                },
+                "chance": 1.0,
+                "count": 8,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "nuke",
+            "names": {
+              "fr": "Baron nucléaire",
+              "en": "Nuke Baron"
+            },
+            "tag": "mythicrpg_baron_nuke",
+            "base_entities": [
+              "drowned",
+              "zombie"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un zombie qui libère à sa mort un nuage d’effet négatif choisi aléatoirement.",
+                "en": "A zombie that releases a random harmful effect cloud on death."
+              },
+              "file": "com/mythicrpg/fighting/barons/NukeBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:gunpowder",
+                "names": {
+                  "fr": "Gunpowder",
+                  "en": "Gunpowder"
+                },
+                "chance": 1.0,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              },
+              {
+                "identifier": "minecraft:fermented_spider_eye",
+                "names": {
+                  "fr": "Fermented Spider Eye",
+                  "en": "Fermented Spider Eye"
+                },
+                "chance": 0.25,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "survivor",
+            "names": {
+              "fr": "Baron survivant",
+              "en": "Survivor Baron"
+            },
+            "tag": "mythicrpg_baron_survivor",
+            "base_entities": [
+              "drowned",
+              "zombie"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un zombie immunisé aux dégâts qui ne proviennent pas d’un coup de mêlée direct d’un joueur.",
+                "en": "A zombie immune to damage that is not direct player melee damage."
+              },
+              "file": "com/mythicrpg/fighting/barons/SurvivorBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:iron_ingot",
+                "names": {
+                  "fr": "Iron Ingot",
+                  "en": "Iron Ingot"
+                },
+                "chance": 0.25,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              },
+              {
+                "identifier": "minecraft:leather",
+                "names": {
+                  "fr": "Leather",
+                  "en": "Leather"
+                },
+                "chance": 0.25,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "fugitive",
+            "names": {
+              "fr": "Baron fugitif",
+              "en": "Fugitive Baron"
+            },
+            "tag": "mythicrpg_baron_fugitive",
+            "base_entities": [
+              "passive"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Une créature passive extrêmement mobile qui reçoit un bonus de vitesse permanent.",
+                "en": "A highly mobile passive creature with a permanent speed bonus."
+              },
+              "file": "com/mythicrpg/fighting/BaronMobManager.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:sugar",
+                "names": {
+                  "fr": "Sugar",
+                  "en": "Sugar"
+                },
+                "chance": 1.0,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              },
+              {
+                "identifier": "minecraft:rabbit_foot",
+                "names": {
+                  "fr": "Rabbit Foot",
+                  "en": "Rabbit Foot"
+                },
+                "chance": 0.25,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "golden",
+            "names": {
+              "fr": "Baron doré",
+              "en": "Golden Baron"
+            },
+            "tag": "mythicrpg_baron_golden",
+            "base_entities": [
+              "passive"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Une créature passive lumineuse avec une récompense garantie et une chance de seconde récompense.",
+                "en": "A glowing passive creature with one guaranteed reward and a chance for a second."
+              },
+              "file": "com/mythicrpg/fighting/BaronMobManager.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:golden_apple_or_emerald",
+                "names": {
+                  "fr": "Golden Apple Or Emerald",
+                  "en": "Golden Apple Or Emerald"
+                },
+                "chance": 1.0,
+                "count": 1,
+                "note": {
+                  "fr": "Une récompense garantie, puis une seconde selon le niveau Fighting de naissance.",
+                  "en": "One guaranteed reward, then a second based on spawn Fighting level."
+                }
+              }
+            ]
+          },
+          {
+            "id": "panic",
+            "names": {
+              "fr": "Baron panique",
+              "en": "Panic Baron"
+            },
+            "tag": "mythicrpg_baron_panic",
+            "base_entities": [
+              "passive"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Une créature passive qui accélère et saute davantage lorsqu’elle est frappée.",
+                "en": "A passive creature that gains speed and jump boost when hit."
+              },
+              "file": "com/mythicrpg/fighting/barons/PanicBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:nausea_potion",
+                "names": {
+                  "fr": "Nausea Potion",
+                  "en": "Nausea Potion"
+                },
+                "chance": 0.3,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "giant",
+            "names": {
+              "fr": "Baron géant",
+              "en": "Giant Baron"
+            },
+            "tag": "mythicrpg_baron_giant",
+            "base_entities": [
+              "slime"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Slime dont la taille est doublée à la promotion, dans la limite prévue par le code.",
+                "en": "A Slime whose size is doubled on promotion up to the coded limit."
+              },
+              "file": "com/mythicrpg/fighting/barons/GiantBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:slime_or_magma_resources",
+                "names": {
+                  "fr": "Slime Or Magma Resources",
+                  "en": "Slime Or Magma Resources"
+                },
+                "chance": 1.0,
+                "count": 1,
+                "note": {
+                  "fr": "La récompense dépend du type de Slime.",
+                  "en": "Reward depends on the Slime type."
+                }
+              }
+            ]
+          },
+          {
+            "id": "darknight",
+            "names": {
+              "fr": "Baron de la nuit",
+              "en": "Darknight Baron"
+            },
+            "tag": "mythicrpg_baron_darknight",
+            "base_entities": [
+              "spider"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Une araignée qui recherche activement le joueur valide le plus proche lorsqu’elle n’a plus de cible.",
+                "en": "A spider that actively acquires the nearest valid player when it has no target."
+              },
+              "file": "com/mythicrpg/fighting/barons/DarknightBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "SEARCH_RADIUS",
+                  "value": 32.0,
+                  "unit": "blocks",
+                  "source": "DarknightBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:night_vision_potion",
+                "names": {
+                  "fr": "Night Vision Potion",
+                  "en": "Night Vision Potion"
+                },
+                "chance": 1.0,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "alchemist",
+            "names": {
+              "fr": "Baron alchimiste",
+              "en": "Alchemist Baron"
+            },
+            "tag": "mythicrpg_baron_alchemist",
+            "base_entities": [
+              "witch"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Une sorcière qui applique périodiquement un effet négatif aléatoire à sa cible visible.",
+                "en": "A witch that periodically applies a random harmful effect to a visible target."
+              },
+              "file": "com/mythicrpg/fighting/barons/AlchemistBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "CAST_RANGE",
+                  "value": 16.0,
+                  "unit": "blocks",
+                  "source": "AlchemistBaronBehavior.java"
+                },
+                {
+                  "symbol": "CAST_COOLDOWN_TICKS",
+                  "value": 45,
+                  "unit": "ticks",
+                  "source": "AlchemistBaronBehavior.java",
+                  "seconds": 2.25
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:random_useful_potion",
+                "names": {
+                  "fr": "Random Useful Potion",
+                  "en": "Random Useful Potion"
+                },
+                "chance": 0.5,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              },
+              {
+                "identifier": "minecraft:nether_wart",
+                "names": {
+                  "fr": "Nether Wart",
+                  "en": "Nether Wart"
+                },
+                "chance": 0.25,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "hothead",
+            "names": {
+              "fr": "Baron tête brûlée",
+              "en": "Hothead Baron"
+            },
+            "tag": "mythicrpg_baron_hothead",
+            "base_entities": [
+              "blaze"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Blaze qui projette des salves circulaires de projectiles enflammés.",
+                "en": "A Blaze that fires circular bursts of flaming projectiles."
+              },
+              "file": "com/mythicrpg/fighting/barons/HotheadBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "TRIGGER_RANGE",
+                  "value": 24.0,
+                  "unit": "blocks",
+                  "source": "HotheadBaronBehavior.java"
+                },
+                {
+                  "symbol": "BURST_COOLDOWN_TICKS",
+                  "value": 80,
+                  "unit": "ticks",
+                  "source": "HotheadBaronBehavior.java",
+                  "seconds": 4.0
+                },
+                {
+                  "symbol": "PROJECTILE_COUNT",
+                  "value": 8,
+                  "unit": "count",
+                  "source": "HotheadBaronBehavior.java"
+                },
+                {
+                  "symbol": "PROJECTILE_SPEED",
+                  "value": 0.65,
+                  "unit": "speed",
+                  "source": "HotheadBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:fire_charge",
+                "names": {
+                  "fr": "Fire Charge",
+                  "en": "Fire Charge"
+                },
+                "chance": 0.5,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              },
+              {
+                "identifier": "mythicrpg:fire_wand",
+                "names": {
+                  "fr": "Baguette de feu",
+                  "en": "Fire Wand"
+                },
+                "chance": 0.05,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "swimming",
+            "names": {
+              "fr": "Baron nageur",
+              "en": "Swimming Baron"
+            },
+            "tag": "mythicrpg_baron_swimming",
+            "base_entities": [
+              "enderman"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Enderman adapté à l’eau, immunisé aux dégâts liés à l’eau et capable de poursuivre une cible immergée.",
+                "en": "A water-adapted Enderman immune to water damage and able to chase submerged targets."
+              },
+              "file": "com/mythicrpg/fighting/barons/SwimmingBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "MAX_TARGET_DISTANCE",
+                  "value": 32.0,
+                  "unit": "blocks",
+                  "source": "SwimmingBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:prismarine_shard",
+                "names": {
+                  "fr": "Prismarine Shard",
+                  "en": "Prismarine Shard"
+                },
+                "chance": 0.25,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              },
+              {
+                "identifier": "minecraft:nautilus_shell",
+                "names": {
+                  "fr": "Nautilus Shell",
+                  "en": "Nautilus Shell"
+                },
+                "chance": 0.1,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "drowned_king",
+            "names": {
+              "fr": "Roi noyé",
+              "en": "Drowned King"
+            },
+            "tag": "mythicrpg_baron_drowned_king",
+            "base_entities": [
+              "drowned"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Noyé équipé qui charge sa cible dans l’eau et inflige un impact avec recul.",
+                "en": "An equipped Drowned that charges targets in water and deals a knockback impact."
+              },
+              "file": "com/mythicrpg/fighting/barons/DrownedKingBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "CHARGE_RANGE",
+                  "value": 24.0,
+                  "unit": "blocks",
+                  "source": "DrownedKingBaronBehavior.java"
+                },
+                {
+                  "symbol": "MIN_CHARGE_DISTANCE",
+                  "value": 4.0,
+                  "unit": "blocks",
+                  "source": "DrownedKingBaronBehavior.java"
+                },
+                {
+                  "symbol": "CHARGE_SPEED",
+                  "value": 1.15,
+                  "unit": "speed",
+                  "source": "DrownedKingBaronBehavior.java"
+                },
+                {
+                  "symbol": "CHARGE_COOLDOWN_TICKS",
+                  "value": 70,
+                  "unit": "ticks",
+                  "source": "DrownedKingBaronBehavior.java",
+                  "seconds": 3.5
+                },
+                {
+                  "symbol": "HIT_RANGE",
+                  "value": 2.2,
+                  "unit": "blocks",
+                  "source": "DrownedKingBaronBehavior.java"
+                },
+                {
+                  "symbol": "HIT_COOLDOWN_TICKS",
+                  "value": 20,
+                  "unit": "ticks",
+                  "source": "DrownedKingBaronBehavior.java",
+                  "seconds": 1.0
+                },
+                {
+                  "symbol": "CHARGE_ACTIVE_TICKS",
+                  "value": 25,
+                  "unit": "ticks",
+                  "source": "DrownedKingBaronBehavior.java",
+                  "seconds": 1.25
+                },
+                {
+                  "symbol": "CHARGE_DAMAGE",
+                  "value": 6.0,
+                  "unit": "damage",
+                  "source": "DrownedKingBaronBehavior.java"
+                },
+                {
+                  "symbol": "SPIN_DEGREES_PER_TICK",
+                  "value": 35.0,
+                  "unit": "value",
+                  "source": "DrownedKingBaronBehavior.java"
+                },
+                {
+                  "symbol": "AURA_RADIUS",
+                  "value": 0.9,
+                  "unit": "blocks",
+                  "source": "DrownedKingBaronBehavior.java"
+                },
+                {
+                  "symbol": "AURA_POINTS",
+                  "value": 6,
+                  "unit": "value",
+                  "source": "DrownedKingBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:riptide_trident",
+                "names": {
+                  "fr": "Riptide Trident",
+                  "en": "Riptide Trident"
+                },
+                "chance": 0.1,
+                "count": 1,
+                "note": {
+                  "fr": "Trident très endommagé avec Riptide I.",
+                  "en": "Heavily damaged trident with Riptide I."
+                }
+              }
+            ]
+          },
+          {
+            "id": "balloon",
+            "names": {
+              "fr": "Baron ballon",
+              "en": "Balloon Baron"
+            },
+            "tag": "mythicrpg_baron_balloon",
+            "base_entities": [
+              "ghast"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Ghast dont les boules de feu créent des nuages persistants infligeant des dégâts de zone.",
+                "en": "A Ghast whose fireballs create persistent area-damage clouds."
+              },
+              "file": "com/mythicrpg/fighting/barons/BalloonBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "CLOUD_RADIUS",
+                  "value": 3.2,
+                  "unit": "blocks",
+                  "source": "BalloonBaronBehavior.java"
+                },
+                {
+                  "symbol": "CLOUD_DURATION_TICKS",
+                  "value": 120,
+                  "unit": "ratio",
+                  "source": "BalloonBaronBehavior.java"
+                },
+                {
+                  "symbol": "MAX_CLOUDS",
+                  "value": 6,
+                  "unit": "count",
+                  "source": "BalloonBaronBehavior.java"
+                },
+                {
+                  "symbol": "CLOUD_DAMAGE_INTERVAL_TICKS",
+                  "value": 10,
+                  "unit": "ticks",
+                  "source": "BalloonBaronBehavior.java",
+                  "seconds": 0.5
+                },
+                {
+                  "symbol": "CLOUD_DAMAGE",
+                  "value": 2.0,
+                  "unit": "damage",
+                  "source": "BalloonBaronBehavior.java"
+                },
+                {
+                  "symbol": "GHAST_FALLBACK_RADIUS",
+                  "value": 24.0,
+                  "unit": "blocks",
+                  "source": "BalloonBaronBehavior.java"
+                },
+                {
+                  "symbol": "CLOUD_PARTICLE_INTERVAL_TICKS",
+                  "value": 4,
+                  "unit": "ticks",
+                  "source": "BalloonBaronBehavior.java",
+                  "seconds": 0.2
+                },
+                {
+                  "symbol": "FIREBALL_OWNER_RESOLVE_GRACE_TICKS",
+                  "value": 20,
+                  "unit": "ticks",
+                  "source": "BalloonBaronBehavior.java",
+                  "seconds": 1.0
+                },
+                {
+                  "symbol": "CLOUD_RING_POINTS",
+                  "value": 16,
+                  "unit": "value",
+                  "source": "BalloonBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:dragon_breath",
+                "names": {
+                  "fr": "Dragon Breath",
+                  "en": "Dragon Breath"
+                },
+                "chance": 0.2,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "charging",
+            "names": {
+              "fr": "Baron chargeur",
+              "en": "Charging Baron"
+            },
+            "tag": "mythicrpg_baron_charging",
+            "base_entities": [
+              "hoglin",
+              "ravager"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Ravageur ou Hoglin qui prépare puis exécute une charge rapide avec dégâts d’impact.",
+                "en": "A Ravager or Hoglin that winds up and performs a fast damaging charge."
+              },
+              "file": "com/mythicrpg/fighting/barons/ChargingBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "TRIGGER_RANGE",
+                  "value": 18.0,
+                  "unit": "blocks",
+                  "source": "ChargingBaronBehavior.java"
+                },
+                {
+                  "symbol": "MIN_RANGE",
+                  "value": 4.0,
+                  "unit": "blocks",
+                  "source": "ChargingBaronBehavior.java"
+                },
+                {
+                  "symbol": "WINDUP_TICKS",
+                  "value": 24,
+                  "unit": "ticks",
+                  "source": "ChargingBaronBehavior.java",
+                  "seconds": 1.2
+                },
+                {
+                  "symbol": "DASH_TICKS",
+                  "value": 10,
+                  "unit": "ticks",
+                  "source": "ChargingBaronBehavior.java",
+                  "seconds": 0.5
+                },
+                {
+                  "symbol": "RECOVERY_TICKS",
+                  "value": 28,
+                  "unit": "ticks",
+                  "source": "ChargingBaronBehavior.java",
+                  "seconds": 1.4
+                },
+                {
+                  "symbol": "DASH_SPEED",
+                  "value": 1.05,
+                  "unit": "speed",
+                  "source": "ChargingBaronBehavior.java"
+                },
+                {
+                  "symbol": "HIT_RANGE",
+                  "value": 2.4,
+                  "unit": "blocks",
+                  "source": "ChargingBaronBehavior.java"
+                },
+                {
+                  "symbol": "DAMAGE",
+                  "value": 7.0,
+                  "unit": "damage",
+                  "source": "ChargingBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:red_carpet",
+                "names": {
+                  "fr": "Red Carpet",
+                  "en": "Red Carpet"
+                },
+                "chance": 1.0,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "diamond",
+            "names": {
+              "fr": "Baron de diamant",
+              "en": "Diamond Baron"
+            },
+            "tag": "mythicrpg_baron_diamond",
+            "base_entities": [
+              "vex"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Vex équipé d’une épée en diamant non récupérable.",
+                "en": "A Vex equipped with a non-droppable diamond sword."
+              },
+              "file": "com/mythicrpg/fighting/barons/DiamondBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:phantom_membrane",
+                "names": {
+                  "fr": "Phantom Membrane",
+                  "en": "Phantom Membrane"
+                },
+                "chance": 0.5,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              },
+              {
+                "identifier": "minecraft:diamond",
+                "names": {
+                  "fr": "Diamond",
+                  "en": "Diamond"
+                },
+                "chance": 0.03,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "stalker",
+            "names": {
+              "fr": "Baron traqueur",
+              "en": "Stalker Baron"
+            },
+            "tag": "mythicrpg_baron_stalker",
+            "base_entities": [
+              "witherskeleton"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Wither Skeleton dont la taille diminue avec le niveau Fighting ayant servi à sa création.",
+                "en": "A Wither Skeleton whose size decreases with the Fighting level used at spawn."
+              },
+              "file": "com/mythicrpg/fighting/barons/StalkerBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:wither_rose",
+                "names": {
+                  "fr": "Wither Rose",
+                  "en": "Wither Rose"
+                },
+                "chance": 0.5,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              },
+              {
+                "identifier": "mythicrpg:wither_shield",
+                "names": {
+                  "fr": "Bouclier du Wither",
+                  "en": "Wither Shield"
+                },
+                "chance": 0.1,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "heavy",
+            "names": {
+              "fr": "Baron lourd",
+              "en": "Heavy Baron"
+            },
+            "tag": "mythicrpg_baron_heavy",
+            "base_entities": [
+              "creeper"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Creeper possédant une résistance totale au recul ajoutée lors de la promotion.",
+                "en": "A Creeper granted complete knockback resistance on promotion."
+              },
+              "file": "com/mythicrpg/fighting/barons/HeavyBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:blast_protection_book",
+                "names": {
+                  "fr": "Blast Protection Book",
+                  "en": "Blast Protection Book"
+                },
+                "chance": 0.4,
+                "count": 1,
+                "note": {
+                  "fr": "Livre Solidité explosive I.",
+                  "en": "Blast Protection I book."
+                }
+              }
+            ]
+          },
+          {
+            "id": "molten",
+            "names": {
+              "fr": "Baron en fusion",
+              "en": "Molten Baron"
+            },
+            "tag": "mythicrpg_baron_molten",
+            "base_entities": [
+              "irongolem"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Golem de fer immunisé au feu, à la lave, à la noyade et à plusieurs dégâts environnementaux.",
+                "en": "An Iron Golem immune to fire, lava, drowning and several environmental damage sources."
+              },
+              "file": "com/mythicrpg/fighting/barons/MoltenBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:magma_cream",
+                "names": {
+                  "fr": "Magma Cream",
+                  "en": "Magma Cream"
+                },
+                "chance": 0.5,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "runner",
+            "names": {
+              "fr": "Baron coureur",
+              "en": "Runner Baron"
+            },
+            "tag": "mythicrpg_baron_runner",
+            "base_entities": [
+              "creeper"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Creeper doté d’un effet de vitesse permanent et d’un multiplicateur de déplacement renforcé.",
+                "en": "A Creeper with permanent speed and an increased movement multiplier."
+              },
+              "file": "com/mythicrpg/fighting/barons/RunnerBaronBehavior.java",
+              "constants": []
+            },
+            "rewards": []
+          },
+          {
+            "id": "ink",
+            "names": {
+              "fr": "Baron d’encre",
+              "en": "Ink Baron"
+            },
+            "tag": "mythicrpg_baron_ink",
+            "base_entities": [
+              "squid"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Calmar qui aveugle l’attaquant lorsqu’il subit un coup, selon son temps de recharge.",
+                "en": "A Squid that blinds its attacker when hit, subject to a cooldown."
+              },
+              "file": "com/mythicrpg/fighting/barons/InkBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "BLINDNESS_DURATION_TICKS",
+                  "value": 40,
+                  "unit": "ratio",
+                  "source": "InkBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "minecraft:ink_sac",
+                "names": {
+                  "fr": "Ink Sac",
+                  "en": "Ink Sac"
+                },
+                "chance": 1.0,
+                "count": 2,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              },
+              {
+                "identifier": "minecraft:glow_ink_sac",
+                "names": {
+                  "fr": "Glow Ink Sac",
+                  "en": "Glow Ink Sac"
+                },
+                "chance": 0.25,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "undying_wolf",
+            "names": {
+              "fr": "Baron immortel",
+              "en": "Undying Baron"
+            },
+            "tag": "mythicrpg_baron_undying_wolf",
+            "base_entities": [
+              "wolf"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un loup apprivoisable qui ne peut pas mourir une fois domestiqué et doit récupérer avant de reprendre le combat.",
+                "en": "A tameable wolf that cannot die once tamed and must recover before fighting again."
+              },
+              "file": "com/mythicrpg/fighting/barons/UndyingWolfBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "MIN_HEALTH_WHEN_TAMED",
+                  "value": 1.0,
+                  "unit": "health",
+                  "source": "UndyingWolfBaronBehavior.java"
+                },
+                {
+                  "symbol": "WOUNDED_RATIO",
+                  "value": 0.25,
+                  "unit": "ratio",
+                  "source": "UndyingWolfBaronBehavior.java"
+                },
+                {
+                  "symbol": "RECOVERED_RATIO",
+                  "value": 0.6,
+                  "unit": "ratio",
+                  "source": "UndyingWolfBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "special:taming",
+                "names": {
+                  "fr": "Taming",
+                  "en": "Taming"
+                },
+                "chance": 1.0,
+                "count": 1,
+                "note": {
+                  "fr": "La récompense est le Baron apprivoisé vivant.",
+                  "en": "The reward is the living tamed Baron."
+                }
+              }
+            ]
+          },
+          {
+            "id": "inferno",
+            "names": {
+              "fr": "Baron infernal",
+              "en": "Inferno Baron"
+            },
+            "tag": "mythicrpg_baron_inferno",
+            "base_entities": [
+              "guardian"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Un Guardian qui verrouille un rayon sur un joueur et augmente progressivement les dégâts répétés.",
+                "en": "A Guardian that locks a beam onto a player and progressively increases repeated damage."
+              },
+              "file": "com/mythicrpg/fighting/barons/InfernoBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "RANGE",
+                  "value": 20.0,
+                  "unit": "blocks",
+                  "source": "InfernoBaronBehavior.java"
+                },
+                {
+                  "symbol": "DAMAGE_INTERVAL_TICKS",
+                  "value": 5,
+                  "unit": "ticks",
+                  "source": "InfernoBaronBehavior.java",
+                  "seconds": 0.25
+                },
+                {
+                  "symbol": "RESET_GRACE_TICKS",
+                  "value": 30,
+                  "unit": "ticks",
+                  "source": "InfernoBaronBehavior.java",
+                  "seconds": 1.5
+                },
+                {
+                  "symbol": "BASE_DAMAGE",
+                  "value": 1.5,
+                  "unit": "damage",
+                  "source": "InfernoBaronBehavior.java"
+                },
+                {
+                  "symbol": "DAMAGE_PER_STACK",
+                  "value": 2.0,
+                  "unit": "damage",
+                  "source": "InfernoBaronBehavior.java"
+                },
+                {
+                  "symbol": "MAX_DAMAGE",
+                  "value": 20.0,
+                  "unit": "damage",
+                  "source": "InfernoBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "mythicrpg:heart_of_the_beam",
+                "names": {
+                  "fr": "Cœur du rayon",
+                  "en": "Heart of the Beam"
+                },
+                "chance": 0.1,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          },
+          {
+            "id": "thrower",
+            "names": {
+              "fr": "Baron lanceur",
+              "en": "Thrower Baron"
+            },
+            "tag": "mythicrpg_baron_thrower",
+            "base_entities": [
+              "spider"
+            ],
+            "behavior": {
+              "summary": {
+                "fr": "Une araignée qui recherche une autre créature, la saisit après une préparation puis la projette vers le joueur.",
+                "en": "A spider that finds another mob, winds up, then throws it toward the player."
+              },
+              "file": "com/mythicrpg/fighting/barons/ThrowerBaronBehavior.java",
+              "constants": [
+                {
+                  "symbol": "MOB_SCAN_RADIUS",
+                  "value": 32.0,
+                  "unit": "blocks",
+                  "source": "ThrowerBaronBehavior.java"
+                },
+                {
+                  "symbol": "PLAYER_TARGET_RADIUS",
+                  "value": 24.0,
+                  "unit": "blocks",
+                  "source": "ThrowerBaronBehavior.java"
+                },
+                {
+                  "symbol": "WINDUP_TICKS",
+                  "value": 12,
+                  "unit": "ticks",
+                  "source": "ThrowerBaronBehavior.java",
+                  "seconds": 0.6
+                },
+                {
+                  "symbol": "SEARCH_INTERVAL_TICKS",
+                  "value": 30,
+                  "unit": "ticks",
+                  "source": "ThrowerBaronBehavior.java",
+                  "seconds": 1.5
+                },
+                {
+                  "symbol": "THROW_SPEED",
+                  "value": 3.0,
+                  "unit": "speed",
+                  "source": "ThrowerBaronBehavior.java"
+                },
+                {
+                  "symbol": "THROW_UPWARD_SPEED",
+                  "value": 0.75,
+                  "unit": "speed",
+                  "source": "ThrowerBaronBehavior.java"
+                }
+              ]
+            },
+            "rewards": [
+              {
+                "identifier": "mythicrpg:spider_wand",
+                "names": {
+                  "fr": "Baguette araignée",
+                  "en": "Spider Wand"
+                },
+                "chance": 0.1,
+                "count": 1,
+                "note": {
+                  "fr": "",
+                  "en": ""
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "legendary_items": [
+        {
+          "id": "fire_wand",
+          "identifier": "mythicrpg:fire_wand",
+          "names": {
+            "fr": "Baguette de feu",
+            "en": "Fire Wand"
+          },
+          "summary": {
+            "fr": "Baguette ciblée qui enflamme une créature.",
+            "en": "Targeted wand that sets a creature on fire."
+          },
+          "constants": [
+            {
+              "symbol": "RANGE",
+              "value": 24.0,
+              "unit": "blocks",
+              "source": "FireWandItem.java"
+            },
+            {
+              "symbol": "FIRE_SECONDS",
+              "value": 5,
+              "unit": "value",
+              "source": "FireWandItem.java"
+            }
+          ],
+          "source_file": "com/mythicrpg/fighting/items/FireWandItem.java"
+        },
+        {
+          "id": "wither_shield",
+          "identifier": "mythicrpg:wither_shield",
+          "names": {
+            "fr": "Bouclier du Wither",
+            "en": "Wither Shield"
+          },
+          "summary": {
+            "fr": "Bouclier légendaire dont le blocage en mêlée applique Wither via les effets serveur.",
+            "en": "Legendary shield whose melee block applies Wither through server effects."
+          },
+          "constants": [
+            {
+              "symbol": "WITHER_SHIELD_PROC_COOLDOWN_TICKS",
+              "value": 40,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 2.0
+            },
+            {
+              "symbol": "WITHER_DURATION_TICKS",
+              "value": 60,
+              "unit": "ratio",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_RANGE_SQUARED",
+              "value": 144,
+              "unit": "blocks",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_DURATION_TICKS",
+              "value": 60,
+              "unit": "ratio",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_VISUAL_INTERVAL_TICKS",
+              "value": 4,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 0.2
+            },
+            {
+              "symbol": "BEAM_SLOWNESS_REFRESH_INTERVAL_TICKS",
+              "value": 5,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 0.25
+            },
+            {
+              "symbol": "BEAM_SLOWNESS_DURATION_TICKS",
+              "value": 12,
+              "unit": "ratio",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_SLOWNESS_AMPLIFIER",
+              "value": 1,
+              "unit": "value",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_DAMAGE_BY_STAGE",
+              "value": [
+                5.0,
+                7.5,
+                10.0
+              ],
+              "unit": "damage",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "DOLL_MAX_AGE_TICKS",
+              "value": 1200,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 60.0
+            },
+            {
+              "symbol": "DOLL_RETARGET_RADIUS",
+              "value": 32.0,
+              "unit": "blocks",
+              "source": "BaronLegendaryItemEffects.java"
+            }
+          ],
+          "source_file": "com/mythicrpg/fighting/items/LegendaryShieldItem.java"
+        },
+        {
+          "id": "heart_of_the_beam",
+          "identifier": "mythicrpg:heart_of_the_beam",
+          "names": {
+            "fr": "Cœur du rayon",
+            "en": "Heart of the Beam"
+          },
+          "summary": {
+            "fr": "Déclenche un rayon en trois étapes sur une cible visible.",
+            "en": "Starts a three-stage beam on a visible target."
+          },
+          "constants": [
+            {
+              "symbol": "RANGE",
+              "value": 12.0,
+              "unit": "blocks",
+              "source": "HeartOfTheBeamItem.java"
+            },
+            {
+              "symbol": "WITHER_SHIELD_PROC_COOLDOWN_TICKS",
+              "value": 40,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 2.0
+            },
+            {
+              "symbol": "WITHER_DURATION_TICKS",
+              "value": 60,
+              "unit": "ratio",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_RANGE_SQUARED",
+              "value": 144,
+              "unit": "blocks",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_DURATION_TICKS",
+              "value": 60,
+              "unit": "ratio",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_VISUAL_INTERVAL_TICKS",
+              "value": 4,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 0.2
+            },
+            {
+              "symbol": "BEAM_SLOWNESS_REFRESH_INTERVAL_TICKS",
+              "value": 5,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 0.25
+            },
+            {
+              "symbol": "BEAM_SLOWNESS_DURATION_TICKS",
+              "value": 12,
+              "unit": "ratio",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_SLOWNESS_AMPLIFIER",
+              "value": 1,
+              "unit": "value",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_DAMAGE_BY_STAGE",
+              "value": [
+                5.0,
+                7.5,
+                10.0
+              ],
+              "unit": "damage",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "DOLL_MAX_AGE_TICKS",
+              "value": 1200,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 60.0
+            },
+            {
+              "symbol": "DOLL_RETARGET_RADIUS",
+              "value": 32.0,
+              "unit": "blocks",
+              "source": "BaronLegendaryItemEffects.java"
+            }
+          ],
+          "source_file": "com/mythicrpg/fighting/items/HeartOfTheBeamItem.java"
+        },
+        {
+          "id": "spider_wand",
+          "identifier": "mythicrpg:spider_wand",
+          "names": {
+            "fr": "Baguette araignée",
+            "en": "Spider Wand"
+          },
+          "summary": {
+            "fr": "Place une toile à distance et consomme une ficelle hors mode créatif.",
+            "en": "Places a cobweb at range and consumes string outside creative mode."
+          },
+          "constants": [
+            {
+              "symbol": "RANGE",
+              "value": 20.0,
+              "unit": "blocks",
+              "source": "SpiderWandItem.java"
+            }
+          ],
+          "source_file": "com/mythicrpg/fighting/items/SpiderWandItem.java"
+        },
+        {
+          "id": "barons_doll",
+          "identifier": "mythicrpg:barons_doll",
+          "names": {
+            "fr": "Poupée du Baron",
+            "en": "Baron's Doll"
+          },
+          "summary": {
+            "fr": "Crée un leurre temporaire reprenant l’armure du joueur et attirant ses agresseurs.",
+            "en": "Creates a temporary decoy using the player's armor values and retargeting attackers."
+          },
+          "constants": [
+            {
+              "symbol": "WITHER_SHIELD_PROC_COOLDOWN_TICKS",
+              "value": 40,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 2.0
+            },
+            {
+              "symbol": "WITHER_DURATION_TICKS",
+              "value": 60,
+              "unit": "ratio",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_RANGE_SQUARED",
+              "value": 144,
+              "unit": "blocks",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_DURATION_TICKS",
+              "value": 60,
+              "unit": "ratio",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_VISUAL_INTERVAL_TICKS",
+              "value": 4,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 0.2
+            },
+            {
+              "symbol": "BEAM_SLOWNESS_REFRESH_INTERVAL_TICKS",
+              "value": 5,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 0.25
+            },
+            {
+              "symbol": "BEAM_SLOWNESS_DURATION_TICKS",
+              "value": 12,
+              "unit": "ratio",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_SLOWNESS_AMPLIFIER",
+              "value": 1,
+              "unit": "value",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "BEAM_DAMAGE_BY_STAGE",
+              "value": [
+                5.0,
+                7.5,
+                10.0
+              ],
+              "unit": "damage",
+              "source": "BaronLegendaryItemEffects.java"
+            },
+            {
+              "symbol": "DOLL_MAX_AGE_TICKS",
+              "value": 1200,
+              "unit": "ticks",
+              "source": "BaronLegendaryItemEffects.java",
+              "seconds": 60.0
+            },
+            {
+              "symbol": "DOLL_RETARGET_RADIUS",
+              "value": 32.0,
+              "unit": "blocks",
+              "source": "BaronLegendaryItemEffects.java"
+            }
+          ],
+          "source_file": "com/mythicrpg/fighting/items/BaronsDollItem.java"
+        }
+      ],
+      "multiplayer": {
+        "promotion_authority": "server",
+        "damage_authority": "server",
+        "reward_authority": "server",
+        "nearest_player_sets_spawn_level": true,
+        "low_level_nearby_player_can_block_promotion": true
+      },
+      "extraction": {
+        "method": "specialized_java_baron_and_reward_extraction",
+        "files": [
+          "com/mythicrpg/fighting/BaronType.java",
+          "com/mythicrpg/fighting/BaronMobManager.java",
+          "com/mythicrpg/fighting/FightingEvents.java",
+          "com/mythicrpg/fighting/barons/BaronScaling.java",
+          "com/mythicrpg/fighting/barons/BaronRewardRegistry.java"
+        ]
+      }
+    },
+    "crafting": {
+      "xp": {
+        "score_multiplier": 0.08,
+        "max_per_action": 80,
+        "formula": "clamp(floor(total_craft_score × multiplier), 1, max_per_action)",
+        "processing_order": [
+          "base_score",
+          "midnight_workshop",
+          "mythic_inspiration",
+          "first_craft_bonus"
+        ],
+        "night_window": {
+          "start_tick": 13000,
+          "end_tick": 23000
+        },
+        "midnight_multiplier": 1.3,
+        "green_vanilla_xp_ratio": 0.05,
+        "green_vanilla_xp_cap": 5
+      },
+      "craft_score": {
+        "item_points": [
+          {
+            "identifier": "minecraft:cobblestone",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:stone",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:deepslate",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:dirt",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:sand",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:gravel",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:glass",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:oak_log",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:spruce_log",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:birch_log",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:jungle_log",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:acacia_log",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:dark_oak_log",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:mangrove_log",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:cherry_log",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:crimson_stem",
+            "points": 3
+          },
+          {
+            "identifier": "minecraft:warped_stem",
+            "points": 3
+          },
+          {
+            "identifier": "minecraft:stick",
+            "points": 0
+          },
+          {
+            "identifier": "minecraft:oak_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:spruce_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:birch_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:jungle_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:acacia_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:dark_oak_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:mangrove_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:cherry_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:crimson_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:warped_planks",
+            "points": 1
+          },
+          {
+            "identifier": "minecraft:coal",
+            "points": 3
+          },
+          {
+            "identifier": "minecraft:charcoal",
+            "points": 2
+          },
+          {
+            "identifier": "minecraft:copper_ingot",
+            "points": 4
+          },
+          {
+            "identifier": "minecraft:iron_ingot",
+            "points": 8
+          },
+          {
+            "identifier": "minecraft:gold_ingot",
+            "points": 8
+          },
+          {
+            "identifier": "minecraft:redstone",
+            "points": 4
+          },
+          {
+            "identifier": "minecraft:lapis_lazuli",
+            "points": 5
+          },
+          {
+            "identifier": "minecraft:quartz",
+            "points": 5
+          },
+          {
+            "identifier": "minecraft:amethyst_shard",
+            "points": 8
+          },
+          {
+            "identifier": "minecraft:ender_pearl",
+            "points": 15
+          },
+          {
+            "identifier": "minecraft:blaze_rod",
+            "points": 18
+          },
+          {
+            "identifier": "minecraft:diamond",
+            "points": 35
+          },
+          {
+            "identifier": "minecraft:emerald",
+            "points": 35
+          },
+          {
+            "identifier": "minecraft:netherite_scrap",
+            "points": 80
+          },
+          {
+            "identifier": "minecraft:netherite_ingot",
+            "points": 250
+          },
+          {
+            "identifier": "minecraft:nether_star",
+            "points": 500
+          },
+          {
+            "identifier": "minecraft:dragon_breath",
+            "points": 150
+          },
+          {
+            "identifier": "minecraft:echo_shard",
+            "points": 120
+          },
+          {
+            "identifier": "minecraft:coal_block",
+            "points": 27
+          },
+          {
+            "identifier": "minecraft:copper_block",
+            "points": 36
+          },
+          {
+            "identifier": "minecraft:iron_block",
+            "points": 72
+          },
+          {
+            "identifier": "minecraft:gold_block",
+            "points": 72
+          },
+          {
+            "identifier": "minecraft:redstone_block",
+            "points": 36
+          },
+          {
+            "identifier": "minecraft:lapis_block",
+            "points": 45
+          },
+          {
+            "identifier": "minecraft:diamond_block",
+            "points": 315
+          },
+          {
+            "identifier": "minecraft:emerald_block",
+            "points": 315
+          },
+          {
+            "identifier": "minecraft:netherite_block",
+            "points": 2250
+          }
+        ],
+        "mythicrpg_item_default": 100,
+        "other_item_default": 1,
+        "excluded_systems": [
+          "recycling",
+          "lucky_infusion",
+          "blocked_conversion_loops",
+          "decorative_spam",
+          "storage_or_building_loops"
+        ]
+      },
+      "stations": [
+        {
+          "id": "portable",
+          "names": {
+            "fr": "Fabrication portable",
+            "en": "Portable crafting"
+          },
+          "numeric_id": 0,
+          "finite_durability": true,
+          "max_durability": 256
+        },
+        {
+          "id": "vanilla_table",
+          "names": {
+            "fr": "Table de fabrication",
+            "en": "Crafting table"
+          },
+          "numeric_id": 1,
+          "finite_durability": true,
+          "max_durability": 256
+        },
+        {
+          "id": "infinite_table",
+          "names": {
+            "fr": "Table de fabrication infinie",
+            "en": "Infinite crafting table"
+          },
+          "numeric_id": 2,
+          "finite_durability": false,
+          "max_durability": null
+        }
+      ],
+      "interface": {
+        "property_count": 6,
+        "craft_result_slot": 0,
+        "craft_input_start": 1,
+        "craft_input_end": 10,
+        "transformation_input_slot": 10,
+        "transformation_output_slot": 11
+      },
+      "bonuses": {
+        "portable_durability": 256,
+        "table_durability": 256,
+        "repair_kit_base_power": 0.1,
+        "resource_save": {
+          "handled_server_side": true
+        },
+        "reinforced_craft": {
+          "applies_unbreaking_level": 1,
+          "handled_server_side": true
+        },
+        "craft_charge": {
+          "charge_per_craft_xp": 0.35,
+          "max_charge_per_craft": 20.0,
+          "completion_threshold": 100,
+          "bonus_next_level_ratio": 0.25
+        },
+        "mythic_inspiration_multiplier": 3,
+        "first_craft_multiplier": 3,
+        "experience_charm_ratio": 0.2,
+        "craft_mastery": {
+          "transfer_ratio": 0.2,
+          "target_level_cap_ratio": 0.005,
+          "target_skills": [
+            "mining",
+            "woodcutting",
+            "fighting",
+            "farming",
+            "fishing",
+            "traveling",
+            "eating"
+          ]
+        }
+      },
+      "recycling": {
+        "groups": [
+          {
+            "id": "wood",
+            "result": "minecraft:stick",
+            "inputs": [
+              "minecraft:wooden_sword",
+              "minecraft:wooden_pickaxe",
+              "minecraft:wooden_axe",
+              "minecraft:wooden_shovel",
+              "minecraft:wooden_hoe"
+            ],
+            "result_names": {
+              "fr": "Stick",
+              "en": "Stick"
+            },
+            "input_names": [
+              {
+                "fr": "Wooden Sword",
+                "en": "Wooden Sword"
+              },
+              {
+                "fr": "Wooden Pickaxe",
+                "en": "Wooden Pickaxe"
+              },
+              {
+                "fr": "Wooden Axe",
+                "en": "Wooden Axe"
+              },
+              {
+                "fr": "Wooden Shovel",
+                "en": "Wooden Shovel"
+              },
+              {
+                "fr": "Wooden Hoe",
+                "en": "Wooden Hoe"
+              }
+            ]
+          },
+          {
+            "id": "stone",
+            "result": "minecraft:cobblestone",
+            "inputs": [
+              "minecraft:stone_sword",
+              "minecraft:stone_pickaxe",
+              "minecraft:stone_axe",
+              "minecraft:stone_shovel",
+              "minecraft:stone_hoe"
+            ],
+            "result_names": {
+              "fr": "Cobblestone",
+              "en": "Cobblestone"
+            },
+            "input_names": [
+              {
+                "fr": "Stone Sword",
+                "en": "Stone Sword"
+              },
+              {
+                "fr": "Stone Pickaxe",
+                "en": "Stone Pickaxe"
+              },
+              {
+                "fr": "Stone Axe",
+                "en": "Stone Axe"
+              },
+              {
+                "fr": "Stone Shovel",
+                "en": "Stone Shovel"
+              },
+              {
+                "fr": "Stone Hoe",
+                "en": "Stone Hoe"
+              }
+            ]
+          },
+          {
+            "id": "iron",
+            "result": "minecraft:iron_nugget",
+            "inputs": [
+              "minecraft:iron_sword",
+              "minecraft:iron_pickaxe",
+              "minecraft:iron_axe",
+              "minecraft:iron_shovel",
+              "minecraft:iron_hoe",
+              "minecraft:iron_helmet",
+              "minecraft:iron_chestplate",
+              "minecraft:iron_leggings",
+              "minecraft:iron_boots"
+            ],
+            "result_names": {
+              "fr": "Iron Nugget",
+              "en": "Iron Nugget"
+            },
+            "input_names": [
+              {
+                "fr": "Iron Sword",
+                "en": "Iron Sword"
+              },
+              {
+                "fr": "Iron Pickaxe",
+                "en": "Iron Pickaxe"
+              },
+              {
+                "fr": "Iron Axe",
+                "en": "Iron Axe"
+              },
+              {
+                "fr": "Iron Shovel",
+                "en": "Iron Shovel"
+              },
+              {
+                "fr": "Iron Hoe",
+                "en": "Iron Hoe"
+              },
+              {
+                "fr": "Iron Helmet",
+                "en": "Iron Helmet"
+              },
+              {
+                "fr": "Iron Chestplate",
+                "en": "Iron Chestplate"
+              },
+              {
+                "fr": "Iron Leggings",
+                "en": "Iron Leggings"
+              },
+              {
+                "fr": "Iron Boots",
+                "en": "Iron Boots"
+              }
+            ]
+          },
+          {
+            "id": "gold",
+            "result": "minecraft:gold_nugget",
+            "inputs": [
+              "minecraft:golden_sword",
+              "minecraft:golden_pickaxe",
+              "minecraft:golden_axe",
+              "minecraft:golden_shovel",
+              "minecraft:golden_hoe",
+              "minecraft:golden_helmet",
+              "minecraft:golden_chestplate",
+              "minecraft:golden_leggings",
+              "minecraft:golden_boots"
+            ],
+            "result_names": {
+              "fr": "Gold Nugget",
+              "en": "Gold Nugget"
+            },
+            "input_names": [
+              {
+                "fr": "Golden Sword",
+                "en": "Golden Sword"
+              },
+              {
+                "fr": "Golden Pickaxe",
+                "en": "Golden Pickaxe"
+              },
+              {
+                "fr": "Golden Axe",
+                "en": "Golden Axe"
+              },
+              {
+                "fr": "Golden Shovel",
+                "en": "Golden Shovel"
+              },
+              {
+                "fr": "Golden Hoe",
+                "en": "Golden Hoe"
+              },
+              {
+                "fr": "Golden Helmet",
+                "en": "Golden Helmet"
+              },
+              {
+                "fr": "Golden Chestplate",
+                "en": "Golden Chestplate"
+              },
+              {
+                "fr": "Golden Leggings",
+                "en": "Golden Leggings"
+              },
+              {
+                "fr": "Golden Boots",
+                "en": "Golden Boots"
+              }
+            ]
+          }
+        ],
+        "requires_perk": 15,
+        "grants_crafting_xp": false
+      },
+      "transformations": {
+        "pairs": [
+          {
+            "input": "minecraft:mud",
+            "output": "minecraft:clay",
+            "input_names": {
+              "fr": "Mud",
+              "en": "Mud"
+            },
+            "output_names": {
+              "fr": "Clay",
+              "en": "Clay"
+            }
+          },
+          {
+            "input": "minecraft:rotten_flesh",
+            "output": "minecraft:leather",
+            "input_names": {
+              "fr": "Rotten Flesh",
+              "en": "Rotten Flesh"
+            },
+            "output_names": {
+              "fr": "Leather",
+              "en": "Leather"
+            }
+          },
+          {
+            "input": "minecraft:sand",
+            "output": "minecraft:glass",
+            "input_names": {
+              "fr": "Sand",
+              "en": "Sand"
+            },
+            "output_names": {
+              "fr": "Glass",
+              "en": "Glass"
+            }
+          },
+          {
+            "input": "minecraft:red_sand",
+            "output": "minecraft:glass",
+            "input_names": {
+              "fr": "Red Sand",
+              "en": "Red Sand"
+            },
+            "output_names": {
+              "fr": "Glass",
+              "en": "Glass"
+            }
+          },
+          {
+            "input": "minecraft:cobblestone",
+            "output": "minecraft:stone",
+            "input_names": {
+              "fr": "Cobblestone",
+              "en": "Cobblestone"
+            },
+            "output_names": {
+              "fr": "Stone",
+              "en": "Stone"
+            }
+          },
+          {
+            "input": "minecraft:stone",
+            "output": "minecraft:smooth_stone",
+            "input_names": {
+              "fr": "Stone",
+              "en": "Stone"
+            },
+            "output_names": {
+              "fr": "Smooth Stone",
+              "en": "Smooth Stone"
+            }
+          },
+          {
+            "input": "minecraft:oak_log",
+            "output": "minecraft:stripped_oak_log",
+            "input_names": {
+              "fr": "Oak Log",
+              "en": "Oak Log"
+            },
+            "output_names": {
+              "fr": "Stripped Oak Log",
+              "en": "Stripped Oak Log"
+            }
+          },
+          {
+            "input": "minecraft:spruce_log",
+            "output": "minecraft:stripped_spruce_log",
+            "input_names": {
+              "fr": "Spruce Log",
+              "en": "Spruce Log"
+            },
+            "output_names": {
+              "fr": "Stripped Spruce Log",
+              "en": "Stripped Spruce Log"
+            }
+          },
+          {
+            "input": "minecraft:birch_log",
+            "output": "minecraft:stripped_birch_log",
+            "input_names": {
+              "fr": "Birch Log",
+              "en": "Birch Log"
+            },
+            "output_names": {
+              "fr": "Stripped Birch Log",
+              "en": "Stripped Birch Log"
+            }
+          },
+          {
+            "input": "minecraft:jungle_log",
+            "output": "minecraft:stripped_jungle_log",
+            "input_names": {
+              "fr": "Jungle Log",
+              "en": "Jungle Log"
+            },
+            "output_names": {
+              "fr": "Stripped Jungle Log",
+              "en": "Stripped Jungle Log"
+            }
+          },
+          {
+            "input": "minecraft:acacia_log",
+            "output": "minecraft:stripped_acacia_log",
+            "input_names": {
+              "fr": "Acacia Log",
+              "en": "Acacia Log"
+            },
+            "output_names": {
+              "fr": "Stripped Acacia Log",
+              "en": "Stripped Acacia Log"
+            }
+          },
+          {
+            "input": "minecraft:dark_oak_log",
+            "output": "minecraft:stripped_dark_oak_log",
+            "input_names": {
+              "fr": "Dark Oak Log",
+              "en": "Dark Oak Log"
+            },
+            "output_names": {
+              "fr": "Stripped Dark Oak Log",
+              "en": "Stripped Dark Oak Log"
+            }
+          },
+          {
+            "input": "minecraft:mangrove_log",
+            "output": "minecraft:stripped_mangrove_log",
+            "input_names": {
+              "fr": "Mangrove Log",
+              "en": "Mangrove Log"
+            },
+            "output_names": {
+              "fr": "Stripped Mangrove Log",
+              "en": "Stripped Mangrove Log"
+            }
+          },
+          {
+            "input": "minecraft:cherry_log",
+            "output": "minecraft:stripped_cherry_log",
+            "input_names": {
+              "fr": "Cherry Log",
+              "en": "Cherry Log"
+            },
+            "output_names": {
+              "fr": "Stripped Cherry Log",
+              "en": "Stripped Cherry Log"
+            }
+          },
+          {
+            "input": "minecraft:oak_wood",
+            "output": "minecraft:stripped_oak_wood",
+            "input_names": {
+              "fr": "Oak Wood",
+              "en": "Oak Wood"
+            },
+            "output_names": {
+              "fr": "Stripped Oak Wood",
+              "en": "Stripped Oak Wood"
+            }
+          },
+          {
+            "input": "minecraft:spruce_wood",
+            "output": "minecraft:stripped_spruce_wood",
+            "input_names": {
+              "fr": "Spruce Wood",
+              "en": "Spruce Wood"
+            },
+            "output_names": {
+              "fr": "Stripped Spruce Wood",
+              "en": "Stripped Spruce Wood"
+            }
+          },
+          {
+            "input": "minecraft:birch_wood",
+            "output": "minecraft:stripped_birch_wood",
+            "input_names": {
+              "fr": "Birch Wood",
+              "en": "Birch Wood"
+            },
+            "output_names": {
+              "fr": "Stripped Birch Wood",
+              "en": "Stripped Birch Wood"
+            }
+          },
+          {
+            "input": "minecraft:jungle_wood",
+            "output": "minecraft:stripped_jungle_wood",
+            "input_names": {
+              "fr": "Jungle Wood",
+              "en": "Jungle Wood"
+            },
+            "output_names": {
+              "fr": "Stripped Jungle Wood",
+              "en": "Stripped Jungle Wood"
+            }
+          },
+          {
+            "input": "minecraft:acacia_wood",
+            "output": "minecraft:stripped_acacia_wood",
+            "input_names": {
+              "fr": "Acacia Wood",
+              "en": "Acacia Wood"
+            },
+            "output_names": {
+              "fr": "Stripped Acacia Wood",
+              "en": "Stripped Acacia Wood"
+            }
+          },
+          {
+            "input": "minecraft:dark_oak_wood",
+            "output": "minecraft:stripped_dark_oak_wood",
+            "input_names": {
+              "fr": "Dark Oak Wood",
+              "en": "Dark Oak Wood"
+            },
+            "output_names": {
+              "fr": "Stripped Dark Oak Wood",
+              "en": "Stripped Dark Oak Wood"
+            }
+          },
+          {
+            "input": "minecraft:mangrove_wood",
+            "output": "minecraft:stripped_mangrove_wood",
+            "input_names": {
+              "fr": "Mangrove Wood",
+              "en": "Mangrove Wood"
+            },
+            "output_names": {
+              "fr": "Stripped Mangrove Wood",
+              "en": "Stripped Mangrove Wood"
+            }
+          },
+          {
+            "input": "minecraft:cherry_wood",
+            "output": "minecraft:stripped_cherry_wood",
+            "input_names": {
+              "fr": "Cherry Wood",
+              "en": "Cherry Wood"
+            },
+            "output_names": {
+              "fr": "Stripped Cherry Wood",
+              "en": "Stripped Cherry Wood"
+            }
+          },
+          {
+            "input": "minecraft:crimson_stem",
+            "output": "minecraft:stripped_crimson_stem",
+            "input_names": {
+              "fr": "Crimson Stem",
+              "en": "Crimson Stem"
+            },
+            "output_names": {
+              "fr": "Stripped Crimson Stem",
+              "en": "Stripped Crimson Stem"
+            }
+          },
+          {
+            "input": "minecraft:warped_stem",
+            "output": "minecraft:stripped_warped_stem",
+            "input_names": {
+              "fr": "Warped Stem",
+              "en": "Warped Stem"
+            },
+            "output_names": {
+              "fr": "Stripped Warped Stem",
+              "en": "Stripped Warped Stem"
+            }
+          },
+          {
+            "input": "minecraft:crimson_hyphae",
+            "output": "minecraft:stripped_crimson_hyphae",
+            "input_names": {
+              "fr": "Crimson Hyphae",
+              "en": "Crimson Hyphae"
+            },
+            "output_names": {
+              "fr": "Stripped Crimson Hyphae",
+              "en": "Stripped Crimson Hyphae"
+            }
+          },
+          {
+            "input": "minecraft:warped_hyphae",
+            "output": "minecraft:stripped_warped_hyphae",
+            "input_names": {
+              "fr": "Warped Hyphae",
+              "en": "Warped Hyphae"
+            },
+            "output_names": {
+              "fr": "Stripped Warped Hyphae",
+              "en": "Stripped Warped Hyphae"
+            }
+          },
+          {
+            "input": "minecraft:copper_block",
+            "output": "minecraft:exposed_copper",
+            "input_names": {
+              "fr": "Copper Block",
+              "en": "Copper Block"
+            },
+            "output_names": {
+              "fr": "Exposed Copper",
+              "en": "Exposed Copper"
+            }
+          },
+          {
+            "input": "minecraft:exposed_copper",
+            "output": "minecraft:weathered_copper",
+            "input_names": {
+              "fr": "Exposed Copper",
+              "en": "Exposed Copper"
+            },
+            "output_names": {
+              "fr": "Weathered Copper",
+              "en": "Weathered Copper"
+            }
+          },
+          {
+            "input": "minecraft:weathered_copper",
+            "output": "minecraft:oxidized_copper",
+            "input_names": {
+              "fr": "Weathered Copper",
+              "en": "Weathered Copper"
+            },
+            "output_names": {
+              "fr": "Oxidized Copper",
+              "en": "Oxidized Copper"
+            }
+          },
+          {
+            "input": "minecraft:cut_copper",
+            "output": "minecraft:exposed_cut_copper",
+            "input_names": {
+              "fr": "Cut Copper",
+              "en": "Cut Copper"
+            },
+            "output_names": {
+              "fr": "Exposed Cut Copper",
+              "en": "Exposed Cut Copper"
+            }
+          },
+          {
+            "input": "minecraft:exposed_cut_copper",
+            "output": "minecraft:weathered_cut_copper",
+            "input_names": {
+              "fr": "Exposed Cut Copper",
+              "en": "Exposed Cut Copper"
+            },
+            "output_names": {
+              "fr": "Weathered Cut Copper",
+              "en": "Weathered Cut Copper"
+            }
+          },
+          {
+            "input": "minecraft:weathered_cut_copper",
+            "output": "minecraft:oxidized_cut_copper",
+            "input_names": {
+              "fr": "Weathered Cut Copper",
+              "en": "Weathered Cut Copper"
+            },
+            "output_names": {
+              "fr": "Oxidized Cut Copper",
+              "en": "Oxidized Cut Copper"
+            }
+          },
+          {
+            "input": "minecraft:white_concrete_powder",
+            "output": "minecraft:white_concrete",
+            "input_names": {
+              "fr": "White Concrete Powder",
+              "en": "White Concrete Powder"
+            },
+            "output_names": {
+              "fr": "White Concrete",
+              "en": "White Concrete"
+            }
+          },
+          {
+            "input": "minecraft:light_gray_concrete_powder",
+            "output": "minecraft:light_gray_concrete",
+            "input_names": {
+              "fr": "Light Gray Concrete Powder",
+              "en": "Light Gray Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Light Gray Concrete",
+              "en": "Light Gray Concrete"
+            }
+          },
+          {
+            "input": "minecraft:gray_concrete_powder",
+            "output": "minecraft:gray_concrete",
+            "input_names": {
+              "fr": "Gray Concrete Powder",
+              "en": "Gray Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Gray Concrete",
+              "en": "Gray Concrete"
+            }
+          },
+          {
+            "input": "minecraft:black_concrete_powder",
+            "output": "minecraft:black_concrete",
+            "input_names": {
+              "fr": "Black Concrete Powder",
+              "en": "Black Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Black Concrete",
+              "en": "Black Concrete"
+            }
+          },
+          {
+            "input": "minecraft:brown_concrete_powder",
+            "output": "minecraft:brown_concrete",
+            "input_names": {
+              "fr": "Brown Concrete Powder",
+              "en": "Brown Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Brown Concrete",
+              "en": "Brown Concrete"
+            }
+          },
+          {
+            "input": "minecraft:red_concrete_powder",
+            "output": "minecraft:red_concrete",
+            "input_names": {
+              "fr": "Red Concrete Powder",
+              "en": "Red Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Red Concrete",
+              "en": "Red Concrete"
+            }
+          },
+          {
+            "input": "minecraft:orange_concrete_powder",
+            "output": "minecraft:orange_concrete",
+            "input_names": {
+              "fr": "Orange Concrete Powder",
+              "en": "Orange Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Orange Concrete",
+              "en": "Orange Concrete"
+            }
+          },
+          {
+            "input": "minecraft:yellow_concrete_powder",
+            "output": "minecraft:yellow_concrete",
+            "input_names": {
+              "fr": "Yellow Concrete Powder",
+              "en": "Yellow Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Yellow Concrete",
+              "en": "Yellow Concrete"
+            }
+          },
+          {
+            "input": "minecraft:lime_concrete_powder",
+            "output": "minecraft:lime_concrete",
+            "input_names": {
+              "fr": "Lime Concrete Powder",
+              "en": "Lime Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Lime Concrete",
+              "en": "Lime Concrete"
+            }
+          },
+          {
+            "input": "minecraft:green_concrete_powder",
+            "output": "minecraft:green_concrete",
+            "input_names": {
+              "fr": "Green Concrete Powder",
+              "en": "Green Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Green Concrete",
+              "en": "Green Concrete"
+            }
+          },
+          {
+            "input": "minecraft:cyan_concrete_powder",
+            "output": "minecraft:cyan_concrete",
+            "input_names": {
+              "fr": "Cyan Concrete Powder",
+              "en": "Cyan Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Cyan Concrete",
+              "en": "Cyan Concrete"
+            }
+          },
+          {
+            "input": "minecraft:light_blue_concrete_powder",
+            "output": "minecraft:light_blue_concrete",
+            "input_names": {
+              "fr": "Light Blue Concrete Powder",
+              "en": "Light Blue Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Light Blue Concrete",
+              "en": "Light Blue Concrete"
+            }
+          },
+          {
+            "input": "minecraft:blue_concrete_powder",
+            "output": "minecraft:blue_concrete",
+            "input_names": {
+              "fr": "Blue Concrete Powder",
+              "en": "Blue Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Blue Concrete",
+              "en": "Blue Concrete"
+            }
+          },
+          {
+            "input": "minecraft:purple_concrete_powder",
+            "output": "minecraft:purple_concrete",
+            "input_names": {
+              "fr": "Purple Concrete Powder",
+              "en": "Purple Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Purple Concrete",
+              "en": "Purple Concrete"
+            }
+          },
+          {
+            "input": "minecraft:magenta_concrete_powder",
+            "output": "minecraft:magenta_concrete",
+            "input_names": {
+              "fr": "Magenta Concrete Powder",
+              "en": "Magenta Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Magenta Concrete",
+              "en": "Magenta Concrete"
+            }
+          },
+          {
+            "input": "minecraft:pink_concrete_powder",
+            "output": "minecraft:pink_concrete",
+            "input_names": {
+              "fr": "Pink Concrete Powder",
+              "en": "Pink Concrete Powder"
+            },
+            "output_names": {
+              "fr": "Pink Concrete",
+              "en": "Pink Concrete"
+            }
+          }
+        ],
+        "requires_perk": 19,
+        "charge_per_item": 1,
+        "charge_source_expression": "tryConsumeCharges(player, transformAmount)"
+      },
+      "lucky_blocks": {
+        "luck_min": -10,
+        "luck_max": 10,
+        "block_state_offset": 10,
+        "category_formula": {
+          "positive": "max(0, 40 + luck × 5)",
+          "neutral": "15 if |luck| >= 9 else 20",
+          "negative": "max(0, 100 - neutral - positive)"
+        },
+        "category_parameters": {
+          "positive_base": 40,
+          "positive_step": 5,
+          "neutral_threshold": 9,
+          "neutral_extreme": 15,
+          "neutral_standard": 20
+        },
+        "chance_samples": [
+          {
+            "luck": -10,
+            "positive": 0.0,
+            "neutral": 15.0,
+            "negative": 85.0
+          },
+          {
+            "luck": -9,
+            "positive": 0.0,
+            "neutral": 15.0,
+            "negative": 85.0
+          },
+          {
+            "luck": -5,
+            "positive": 15.0,
+            "neutral": 20.0,
+            "negative": 65.0
+          },
+          {
+            "luck": 0,
+            "positive": 40.0,
+            "neutral": 20.0,
+            "negative": 40.0
+          },
+          {
+            "luck": 5,
+            "positive": 65.0,
+            "neutral": 20.0,
+            "negative": 15.0
+          },
+          {
+            "luck": 9,
+            "positive": 85.0,
+            "neutral": 15.0,
+            "negative": 0.0
+          },
+          {
+            "luck": 10,
+            "positive": 85.714,
+            "neutral": 14.286,
+            "negative": 0.0
+          }
+        ],
+        "categories": [
+          {
+            "id": "positive",
+            "events": [
+              {
+                "id": "randomOreDrop",
+                "weight": 10,
+                "names": {
+                  "fr": "Minerai aléatoire",
+                  "en": "Random ore"
+                },
+                "within_category_percent": 37.037
+              },
+              {
+                "id": "mythicResourceDrop",
+                "weight": 5,
+                "names": {
+                  "fr": "Ressource MythicRPG",
+                  "en": "MythicRPG resource"
+                },
+                "within_category_percent": 18.519
+              },
+              {
+                "id": "randomSkillSpark",
+                "weight": 2,
+                "names": {
+                  "fr": "Étincelle de skill",
+                  "en": "Skill spark"
+                },
+                "within_category_percent": 7.407
+              },
+              {
+                "id": "boundDiamondArmor",
+                "weight": 2,
+                "names": {
+                  "fr": "Armure en diamant maudite",
+                  "en": "Bound diamond armor"
+                },
+                "within_category_percent": 7.407
+              },
+              {
+                "id": "redstoneEngineerPack",
+                "weight": 2,
+                "names": {
+                  "fr": "Pack d’ingénieur redstone",
+                  "en": "Redstone engineer pack"
+                },
+                "within_category_percent": 7.407
+              },
+              {
+                "id": "coinTossBlessed",
+                "weight": 2,
+                "names": {
+                  "fr": "Pile ou face bénéfique",
+                  "en": "Blessed coin toss"
+                },
+                "within_category_percent": 7.407
+              },
+              {
+                "id": "templeVariant",
+                "weight": 4,
+                "names": {
+                  "fr": "Temple aléatoire",
+                  "en": "Random temple"
+                },
+                "within_category_percent": 14.815
+              }
+            ],
+            "total_weight": 27
+          },
+          {
+            "id": "neutral",
+            "events": [
+              {
+                "id": "nothingHappens",
+                "weight": 3,
+                "names": {
+                  "fr": "Rien ne se passe",
+                  "en": "Nothing happens"
+                },
+                "within_category_percent": 12.5
+              },
+              {
+                "id": "luckyBlockBlink",
+                "weight": 5,
+                "names": {
+                  "fr": "Téléportation du Bloc chanceux",
+                  "en": "Lucky Block blink"
+                },
+                "within_category_percent": 20.833
+              },
+              {
+                "id": "visitAFriend",
+                "weight": 5,
+                "names": {
+                  "fr": "Visite chez un joueur",
+                  "en": "Visit a friend"
+                },
+                "within_category_percent": 20.833
+              },
+              {
+                "id": "impossibleChoice",
+                "weight": 3,
+                "names": {
+                  "fr": "Choix impossible",
+                  "en": "Impossible choice"
+                },
+                "within_category_percent": 12.5
+              },
+              {
+                "id": "uselessBlastProtectionStick",
+                "weight": 4,
+                "names": {
+                  "fr": "Bâton Protection contre les explosions",
+                  "en": "Blast Protection stick"
+                },
+                "within_category_percent": 16.667
+              },
+              {
+                "id": "rainbowSheep",
+                "weight": 4,
+                "names": {
+                  "fr": "Mouton arc-en-ciel",
+                  "en": "Rainbow sheep"
+                },
+                "within_category_percent": 16.667
+              }
+            ],
+            "total_weight": 24
+          },
+          {
+            "id": "negative",
+            "events": [
+              {
+                "id": "minorCurse",
+                "weight": 10,
+                "names": {
+                  "fr": "Malédiction mineure",
+                  "en": "Minor curse"
+                },
+                "within_category_percent": 30.303
+              },
+              {
+                "id": "chickenJockeySquad",
+                "weight": 5,
+                "names": {
+                  "fr": "Escouade de jockeys",
+                  "en": "Chicken jockey squad"
+                },
+                "within_category_percent": 15.152
+              },
+              {
+                "id": "fallingAnvil",
+                "weight": 2,
+                "names": {
+                  "fr": "Enclume tombante",
+                  "en": "Falling anvil"
+                },
+                "within_category_percent": 6.061
+              },
+              {
+                "id": "safeTnt",
+                "weight": 3,
+                "names": {
+                  "fr": "TNT sécurisée",
+                  "en": "Safe TNT"
+                },
+                "within_category_percent": 9.091
+              },
+              {
+                "id": "coinTossCursed",
+                "weight": 3,
+                "names": {
+                  "fr": "Pile ou face maudit",
+                  "en": "Cursed coin toss"
+                },
+                "within_category_percent": 9.091
+              },
+              {
+                "id": "skyTrial",
+                "weight": 2,
+                "names": {
+                  "fr": "Épreuve aérienne",
+                  "en": "Sky trial"
+                },
+                "within_category_percent": 6.061
+              },
+              {
+                "id": "baronRitual",
+                "weight": 4,
+                "names": {
+                  "fr": "Rituel de Baron",
+                  "en": "Baron ritual"
+                },
+                "within_category_percent": 12.121
+              },
+              {
+                "id": "shuffleInventory",
+                "weight": 4,
+                "names": {
+                  "fr": "Inventaire mélangé",
+                  "en": "Shuffled inventory"
+                },
+                "within_category_percent": 12.121
+              }
+            ],
+            "total_weight": 33
+          }
+        ],
+        "ore_pool": [
+          {
+            "identifier": "minecraft:coal",
+            "weight": 10
+          },
+          {
+            "identifier": "minecraft:raw_copper",
+            "weight": 10
+          },
+          {
+            "identifier": "minecraft:raw_iron",
+            "weight": 10
+          },
+          {
+            "identifier": "minecraft:raw_gold",
+            "weight": 6
+          },
+          {
+            "identifier": "minecraft:redstone",
+            "weight": 6
+          },
+          {
+            "identifier": "minecraft:lapis_lazuli",
+            "weight": 6
+          },
+          {
+            "identifier": "minecraft:diamond",
+            "weight": 2
+          },
+          {
+            "identifier": "minecraft:emerald",
+            "weight": 2
+          }
+        ],
+        "infusion_rules": [
+          {
+            "delta": 1,
+            "items": [
+              "minecraft:coal_block",
+              "minecraft:copper_block"
+            ]
+          },
+          {
+            "delta": 2,
+            "items": [
+              "minecraft:iron_block",
+              "minecraft:gold_block",
+              "minecraft:redstone_block",
+              "minecraft:lapis_block"
+            ]
+          },
+          {
+            "delta": 3,
+            "items": [
+              "minecraft:diamond_block",
+              "minecraft:emerald_block"
+            ]
+          },
+          {
+            "delta": -1,
+            "items": [
+              "minecraft:dirt",
+              "minecraft:cobblestone",
+              "minecraft:gravel",
+              "minecraft:sand",
+              "minecraft:netherrack",
+              "minecraft:rotten_flesh",
+              "minecraft:poisonous_potato"
+            ]
+          },
+          {
+            "delta": -2,
+            "items": [
+              "minecraft:spider_eye",
+              "minecraft:fermented_spider_eye",
+              "minecraft:gunpowder",
+              "minecraft:magma_block",
+              "minecraft:soul_sand",
+              "minecraft:soul_soil",
+              "minecraft:phantom_membrane"
+            ]
+          },
+          {
+            "delta": -3,
+            "items": [
+              "minecraft:wither_rose",
+              "minecraft:wither_skeleton_skull"
+            ]
+          }
+        ],
+        "infusion_ingredient_count": 8,
+        "craft_perk": 8,
+        "infusion_perk": 18,
+        "break_event_authority": "server"
+      },
+      "multiplayer": {
+        "craft_result_authority": "server",
+        "persistent_player_states": [
+          "portable_durability",
+          "craft_charge",
+          "first_crafts"
+        ],
+        "lucky_block_authority": "server",
+        "portable_interface_is_client_view": true
+      },
+      "extraction": {
+        "method": "specialized_java_crafting_extraction",
+        "files": [
+          "com/mythicrpg/crafting/CraftXpManager.java",
+          "com/mythicrpg/crafting/CraftScoreManager.java",
+          "com/mythicrpg/crafting/CraftChargeManager.java",
+          "com/mythicrpg/crafting/CraftMasteryManager.java",
+          "com/mythicrpg/crafting/station/CraftingStationType.java",
+          "com/mythicrpg/crafting/RecycleCraftManager.java",
+          "com/mythicrpg/crafting/TransformationSlotManager.java",
+          "com/mythicrpg/crafting/LuckyBlockEventManager.java",
+          "com/mythicrpg/crafting/LuckyInfusionManager.java",
+          "com/mythicrpg/crafting/CraftingSkillTree.java",
+          "com/mythicrpg/crafting/ReinforcedCraftManager.java"
         ]
       }
     }

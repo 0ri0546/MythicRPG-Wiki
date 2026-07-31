@@ -18,4 +18,4 @@ multiplayer: "Les récoltes de zone et la croissance sont appliquées côté ser
 ---
 # Farming
 
-The v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.
+The v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.

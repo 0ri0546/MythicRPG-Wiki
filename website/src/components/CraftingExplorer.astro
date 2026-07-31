@@ -1,0 +1,249 @@
+---
+import { type CraftingSystem } from '../lib/catalog';
+interface Props { crafting: CraftingSystem }
+const { crafting } = Astro.props;
+const readable = (value: string) => value.replace(/^minecraft:/, '').replaceAll('_', ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+const percentage = (value: number) => `${new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(value * 100)} %`;
+const initialCraftScore = 100;
+const initialCraftCount = 1;
+const initialTotalScore = initialCraftScore * initialCraftCount;
+const initialCraftXp = Math.min(crafting.xp.max_per_action, Math.max(1, Math.floor(initialTotalScore * crafting.xp.score_multiplier)));
+const initialVanillaXp = Math.min(crafting.xp.green_vanilla_xp_cap, Math.max(1, Math.floor(initialCraftXp * crafting.xp.green_vanilla_xp_ratio)));
+const initialCharge = Math.min(crafting.bonuses.craft_charge.max_charge_per_craft, initialCraftXp * crafting.bonuses.craft_charge.charge_per_craft_xp);
+const initialMastery = Math.max(1, Math.floor(initialCraftXp * crafting.bonuses.craft_mastery.transfer_ratio));
+---
+<div class="specialized-explorer crafting-explorer">
+  <section id="crafting-xp" class="interactive-panel" data-crafting-calculator data-crafting={JSON.stringify(crafting)}>
+    <div class="interactive-heading">
+      <div><p class="eyebrow">Craft Score</p><h2>Calculateur d’XP de fabrication</h2><p>Le Craft Score additionne les points des ingrédients, puis la formule applique le plafond par action avant les bonus contextuels.</p></div>
+      <span class="status-badge">Données Java</span>
+    </div>
+    <div class="calculator-inline">
+      <label>Craft Score par fabrication
+        <input type="number" min="0" value={initialCraftScore} data-craft-score />
+      </label>
+      <label>Nombre de fabrications
+        <input type="number" min="1" value={initialCraftCount} data-craft-count />
+      </label>
+    </div>
+    <div class="option-grid">
+      <label class="form-choice"><input type="checkbox" data-craft-night /> Atelier de minuit</label>
+      <label class="form-choice"><input type="checkbox" data-craft-inspiration /> Inspiration mythique prête</label>
+      <label class="form-choice"><input type="checkbox" data-craft-first /> Première fabrication de cet objet</label>
+    </div>
+    <div class="metric-grid">
+      <div class="metric-card"><span>XP Crafting</span><strong class="viz-stat-value" data-craft-xp>{initialCraftXp}</strong><small data-craft-xp-context>Après bonus</small></div>
+      <div class="metric-card"><span>XP vanilla écologique</span><strong class="viz-stat-value" data-craft-vanilla-xp>{initialVanillaXp}</strong><small>Avec le perk correspondant</small></div>
+      <div class="metric-card"><span>Charge gagnée</span><strong class="viz-stat-value" data-craft-charge>{initialCharge}</strong><small>Avec Charge de fabrication</small></div>
+      <div class="metric-card"><span>XP transférable brute</span><strong class="viz-stat-value" data-craft-mastery>{initialMastery}</strong><small>Avant plafond du skill cible</small></div>
+    </div>
+    <p class="chart-caption">Ordre extrait : score de base → Atelier de minuit → Inspiration mythique → bonus de première fabrication. Le plafond de {crafting.xp.max_per_action} XP s’applique au score de base avant ces multiplicateurs.</p>
+  </section>
+
+  <section id="craft-score" data-score-explorer>
+    <div class="section-heading"><div><p class="eyebrow">{crafting.craft_score.item_points.length} valeurs explicites</p><h2>Table du Craft Score</h2></div></div>
+    <div class="filter-grid two">
+      <label>Rechercher un ingrédient
+        <input type="search" placeholder="Diamant, bois, netherite…" data-score-search />
+      </label>
+      <label>Score minimal
+        <input type="number" min="0" value="0" data-score-min />
+      </label>
+    </div>
+    <p class="filter-summary" data-score-summary aria-live="polite"></p>
+    <div class="responsive-table fixed-height-table">
+      <table><thead><tr><th>Ingrédient</th><th>Identifiant</th><th>Points</th></tr></thead>
+        <tbody>{crafting.craft_score.item_points.map((entry) => (
+          <tr data-score-row data-search={`${entry.identifier} ${readable(entry.identifier)}`.toLowerCase()} data-points={entry.points}><td>{readable(entry.identifier)}</td><td><code>{entry.identifier}</code></td><td>{entry.points}</td></tr>
+        ))}</tbody>
+      </table>
+    </div>
+    <div class="data-callout"><div><p class="eyebrow">Valeurs de repli</p><h3>Objets non listés</h3></div><p>Un objet MythicRPG non listé vaut <strong>{crafting.craft_score.mythicrpg_item_default}</strong> points. Un autre objet non listé vaut <strong>{crafting.craft_score.other_item_default}</strong> point. Les boucles de conversion, le recyclage et l’infusion chanceuse ne donnent aucun Craft Score.</p></div>
+  </section>
+
+  <section id="crafting-stations">
+    <div class="section-heading"><div><p class="eyebrow">Stations et interfaces</p><h2>{crafting.stations.length} contextes de fabrication</h2></div></div>
+    <div class="data-card-grid">{crafting.stations.map((station) => (
+      <article class="data-card"><div class="badge-row"><span class="status-badge">ID {station.numeric_id}</span><span class="status-badge">{station.finite_durability ? 'Durabilité finie' : 'Infinie'}</span></div><h3>{station.names.fr}</h3><p>{station.max_durability === null ? 'Cette station ne consomme pas de durabilité.' : `${station.max_durability} utilisations maximales suivies par le serveur.`}</p></article>
+    ))}</div>
+    <div class="stat-table">
+      <div><span>Entrées de craft</span><strong>{crafting.interface.craft_input_end - crafting.interface.craft_input_start}</strong><small>grille 3×3</small></div>
+      <div><span>Slot de résultat</span><strong>{crafting.interface.craft_result_slot}</strong><small>index serveur</small></div>
+      <div><span>Entrée de transformation</span><strong>{crafting.interface.transformation_input_slot}</strong><small>débloquée par le perk</small></div>
+      <div><span>Sortie de transformation</span><strong>{crafting.interface.transformation_output_slot}</strong><small>résultat instantané</small></div>
+    </div>
+  </section>
+
+  <section id="crafting-bonuses">
+    <div class="section-heading"><div><p class="eyebrow">Perks et gestionnaires</p><h2>Systèmes de maîtrise artisanale</h2></div></div>
+    <div class="stat-table">
+      <div><span>Kit de réparation</span><strong>{percentage(crafting.bonuses.repair_kit_base_power)}</strong><small>puissance de base, améliorée par les perks associés</small></div>
+      <div><span>Charme d’expérience</span><strong>+{percentage(crafting.bonuses.experience_charm_ratio)}</strong><small>XP vanilla, main secondaire</small></div>
+      <div><span>Première fabrication</span><strong>×{crafting.bonuses.first_craft_multiplier}</strong><small>une fois par identifiant d’objet et par joueur</small></div>
+      <div><span>Inspiration mythique</span><strong>×{crafting.bonuses.mythic_inspiration_multiplier}</strong><small>après un objet MythicRPG</small></div>
+      <div><span>Maîtrise artisanale</span><strong>{percentage(crafting.bonuses.craft_mastery.transfer_ratio)}</strong><small>de l’XP Crafting brute vers un skill associé</small></div>
+      <div><span>Plafond de Maîtrise</span><strong>{percentage(crafting.bonuses.craft_mastery.target_level_cap_ratio)}</strong><small>du coût du prochain niveau du skill cible</small></div>
+      <div><span>Charge par XP</span><strong>{crafting.bonuses.craft_charge.charge_per_craft_xp}</strong><small>plafond {crafting.bonuses.craft_charge.max_charge_per_craft} par fabrication</small></div>
+      <div><span>Bonus de Charge</span><strong>{percentage(crafting.bonuses.craft_charge.bonus_next_level_ratio)}</strong><small>du coût du prochain niveau Crafting</small></div>
+    </div>
+  </section>
+
+  <section id="recycling">
+    <div class="section-heading"><div><p class="eyebrow">Perk {crafting.recycling.requires_perk}</p><h2>Recyclage artisanal</h2></div></div>
+    <p>Ces recettes exigent un seul objet en entrée, ne génèrent pas de Craft Score et restent bloquées sans le perk.</p>
+    <div class="data-card-grid">{crafting.recycling.groups.map((group) => (
+      <article class="data-card"><h3>{readable(group.id)}</h3><p><strong>Résultat :</strong> {group.result_names.fr}</p><div class="chip-list">{group.input_names.map((name) => <span class="status-badge">{name.fr}</span>)}</div></article>
+    ))}</div>
+  </section>
+
+  <section id="transformations" data-transformation-explorer>
+    <div class="section-heading"><div><p class="eyebrow">Perk {crafting.transformations.requires_perk}</p><h2>{crafting.transformations.pairs.length} transformations instantanées</h2></div></div>
+    <label>Filtrer les transformations
+      <input type="search" placeholder="Bûche, cuivre, béton…" data-transformation-search />
+    </label>
+    <p class="filter-summary" data-transformation-summary aria-live="polite"></p>
+    <div class="transformation-grid">{crafting.transformations.pairs.map((pair) => (
+      <div class="transformation-row" data-transformation-row data-search={`${pair.input} ${pair.output} ${pair.input_names.fr} ${pair.output_names.fr}`.toLowerCase()}><span>{pair.input_names.fr}</span><strong>→</strong><span>{pair.output_names.fr}</span></div>
+    ))}</div>
+    <p class="chart-caption">Chaque objet transformé consomme {crafting.transformations.charge_per_item} point de durabilité de la fabrication portable ou de la station utilisée.</p>
+  </section>
+
+  <section id="lucky-blocks" class="interactive-panel" data-lucky-calculator data-lucky={JSON.stringify(crafting.lucky_blocks)}>
+    <div class="interactive-heading"><div><p class="eyebrow">Perks {crafting.lucky_blocks.craft_perk} et {crafting.lucky_blocks.infusion_perk}</p><h2>Bloc chanceux et infusion</h2><p>La chance interne va de {crafting.lucky_blocks.luck_min} à {crafting.lucky_blocks.luck_max}. Elle modifie la catégorie positive, neutre ou négative avant le tirage pondéré de l’événement.</p></div><span class="status-badge">Serveur</span></div>
+    <label>Niveau de chance
+      <input type="range" min={crafting.lucky_blocks.luck_min} max={crafting.lucky_blocks.luck_max} value="0" data-lucky-value />
+      <output data-lucky-output>0</output>
+    </label>
+    <div class="metric-grid">
+      <div class="metric-card"><span>Positif</span><strong class="viz-stat-value" data-lucky-positive>40 %</strong></div>
+      <div class="metric-card"><span>Neutre</span><strong class="viz-stat-value" data-lucky-neutral>20 %</strong></div>
+      <div class="metric-card"><span>Négatif</span><strong class="viz-stat-value" data-lucky-negative>40 %</strong></div>
+    </div>
+    <div class="stacked-distribution" aria-label="Répartition des catégories"><span data-lucky-positive-bar></span><span data-lucky-neutral-bar></span><span data-lucky-negative-bar></span></div>
+    <div class="interactive-grid">{crafting.lucky_blocks.categories.map((category) => (
+      <article class="data-card"><h3>{readable(category.id)}</h3><p>Poids total interne : {category.total_weight}</p><ul class="compact-list">{category.events.map((event) => <li><strong>{event.names.fr}</strong> — poids {event.weight}, soit {event.within_category_percent} % dans cette catégorie</li>)}</ul></article>
+    ))}</div>
+    <h3>Infusions de chance</h3>
+    <div class="comparison-table">{crafting.lucky_blocks.infusion_rules.map((rule) => (
+      <div class="comparison-row"><strong>{rule.delta > 0 ? `+${rule.delta}` : rule.delta}</strong><span>{rule.items.map(readable).join(' · ')}</span><span>{crafting.lucky_blocks.infusion_ingredient_count} ingrédients identiques autour du Bloc chanceux</span></div>
+    ))}</div>
+  </section>
+
+  <aside class="source-panel">
+    <h2>Fonctionnement multijoueur</h2>
+    <p>Le résultat de fabrication, les consommations, le Craft Score, l’XP, les états persistants et les événements de Lucky Block sont décidés côté serveur. Les écrans portables et les propriétés synchronisées ne sont que des vues clientes sur cet état autoritaire.</p>
+    <p>Les valeurs affichées proviennent de <code>src(92)</code> et ont uniquement été inspectées statiquement.</p>
+  </aside>
+</div>
+
+<script>
+  const formatCraft = (value) => new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(Math.max(0, value));
+  document.querySelectorAll('[data-crafting-calculator]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const raw = root.dataset.crafting;
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    const score = root.querySelector('[data-craft-score]');
+    const count = root.querySelector('[data-craft-count]');
+    const night = root.querySelector('[data-craft-night]');
+    const inspiration = root.querySelector('[data-craft-inspiration]');
+    const first = root.querySelector('[data-craft-first]');
+    const xpOutput = root.querySelector('[data-craft-xp]');
+    const vanillaOutput = root.querySelector('[data-craft-vanilla-xp]');
+    const chargeOutput = root.querySelector('[data-craft-charge]');
+    const masteryOutput = root.querySelector('[data-craft-mastery]');
+    const update = () => {
+      if (!(score instanceof HTMLInputElement) || !(count instanceof HTMLInputElement)) return;
+      const totalScore = Math.max(0, Number(score.value) || 0) * Math.max(1, Number(count.value) || 1);
+      let xp = totalScore <= 0 ? 0 : Math.min(data.xp.max_per_action, Math.max(1, Math.floor(totalScore * data.xp.score_multiplier)));
+      if (night instanceof HTMLInputElement && night.checked && xp > 0) xp = Math.max(1, Math.floor(xp * data.xp.midnight_multiplier));
+      if (inspiration instanceof HTMLInputElement && inspiration.checked && xp > 0) xp = Math.max(1, xp * data.bonuses.mythic_inspiration_multiplier);
+      if (first instanceof HTMLInputElement && first.checked && xp > 0) xp = Math.max(1, xp * data.bonuses.first_craft_multiplier);
+      const vanilla = xp <= 0 ? 0 : Math.min(data.xp.green_vanilla_xp_cap, Math.max(1, Math.floor(xp * data.xp.green_vanilla_xp_ratio)));
+      const charge = Math.min(data.bonuses.craft_charge.max_charge_per_craft, xp * data.bonuses.craft_charge.charge_per_craft_xp);
+      const mastery = xp <= 0 ? 0 : Math.max(1, Math.floor(xp * data.bonuses.craft_mastery.transfer_ratio));
+      if (xpOutput) xpOutput.textContent = formatCraft(xp);
+      if (vanillaOutput) vanillaOutput.textContent = formatCraft(vanilla);
+      if (chargeOutput) chargeOutput.textContent = formatCraft(charge);
+      if (masteryOutput) masteryOutput.textContent = formatCraft(mastery);
+    };
+    [score, count, night, inspiration, first].forEach((control) => control?.addEventListener('input', update));
+    update();
+  });
+
+  document.querySelectorAll('[data-score-explorer]').forEach((root) => {
+    const search = root.querySelector('[data-score-search]');
+    const minimum = root.querySelector('[data-score-min]');
+    const rows = [...root.querySelectorAll('[data-score-row]')];
+    const summary = root.querySelector('[data-score-summary]');
+    const update = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const min = minimum instanceof HTMLInputElement ? Math.max(0, Number(minimum.value) || 0) : 0;
+      let visible = 0;
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matches = (!query || (row.dataset.search ?? '').includes(query)) && Number(row.dataset.points ?? 0) >= min;
+        row.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (summary) summary.textContent = `${visible} ingrédient(s) affiché(s).`;
+    };
+    search?.addEventListener('input', update);
+    minimum?.addEventListener('input', update);
+    update();
+  });
+
+  document.querySelectorAll('[data-transformation-explorer]').forEach((root) => {
+    const search = root.querySelector('[data-transformation-search]');
+    const rows = [...root.querySelectorAll('[data-transformation-row]')];
+    const summary = root.querySelector('[data-transformation-summary]');
+    const update = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      let visible = 0;
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const matches = !query || (row.dataset.search ?? '').includes(query);
+        row.hidden = !matches;
+        if (matches) visible += 1;
+      });
+      if (summary) summary.textContent = `${visible} transformation(s) affichée(s).`;
+    };
+    search?.addEventListener('input', update);
+    update();
+  });
+
+  document.querySelectorAll('[data-lucky-calculator]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const raw = root.dataset.lucky;
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    const input = root.querySelector('[data-lucky-value]');
+    const output = root.querySelector('[data-lucky-output]');
+    const positiveOutput = root.querySelector('[data-lucky-positive]');
+    const neutralOutput = root.querySelector('[data-lucky-neutral]');
+    const negativeOutput = root.querySelector('[data-lucky-negative]');
+    const positiveBar = root.querySelector('[data-lucky-positive-bar]');
+    const neutralBar = root.querySelector('[data-lucky-neutral-bar]');
+    const negativeBar = root.querySelector('[data-lucky-negative-bar]');
+    const update = () => {
+      if (!(input instanceof HTMLInputElement)) return;
+      const luck = Math.min(data.luck_max, Math.max(data.luck_min, Number(input.value) || 0));
+      input.value = String(luck);
+      const parameters = data.category_parameters;
+      const neutral = Math.abs(luck) >= parameters.neutral_threshold ? parameters.neutral_extreme : parameters.neutral_standard;
+      const positive = Math.max(0, parameters.positive_base + luck * parameters.positive_step);
+      const negative = Math.max(0, 100 - neutral - positive);
+      const total = positive + neutral + negative;
+      const values = [positive, neutral, negative].map((value) => total ? value * 100 / total : 0);
+      if (output) output.textContent = String(luck);
+      if (positiveOutput) positiveOutput.textContent = `${formatCraft(values[0])} %`;
+      if (neutralOutput) neutralOutput.textContent = `${formatCraft(values[1])} %`;
+      if (negativeOutput) negativeOutput.textContent = `${formatCraft(values[2])} %`;
+      if (positiveBar instanceof HTMLElement) positiveBar.style.width = `${values[0]}%`;
+      if (neutralBar instanceof HTMLElement) neutralBar.style.width = `${values[1]}%`;
+      if (negativeBar instanceof HTMLElement) negativeBar.style.width = `${values[2]}%`;
+    };
+    input?.addEventListener('input', update);
+    update();
+  });
+</script>

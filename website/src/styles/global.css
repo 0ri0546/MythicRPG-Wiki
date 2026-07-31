@@ -178,7 +178,7 @@ section + section { margin-top: 5rem; }
   .select-label, .select-label select { width: 100%; min-width: 0; }
 }
 
-/* v0.2 interactive documentation */
+/* Documentation interactive */
 select, input[type="number"], input[type="search"], input[type="text"] { width: 100%; padding: .72rem .8rem; border: 1px solid var(--line); border-radius: 8px; background: #111711; color: var(--text); }
 input[type="range"] { width: 100%; accent-color: var(--accent); }
 label { display: grid; gap: .4rem; color: var(--muted); font-size: .82rem; font-weight: 700; }
@@ -272,7 +272,7 @@ table { width: 100%; border-collapse: collapse; }
 th, td { padding: .7rem; border-bottom: 1px solid var(--line); text-align: left; }
 th { color: var(--muted); }
 
-/* Skill tree v0.2 */
+/* Arbres de compétences */
 .skill-tree-explorer { display: grid; gap: 1rem; }
 .tree-toolbar { display: grid; grid-template-columns: minmax(180px,1fr) minmax(160px,.5fr) auto; gap: .75rem; align-items: end; }
 .tree-zoom-controls { display: flex; align-items: center; gap: .4rem; }
@@ -324,7 +324,7 @@ th { color: var(--muted); }
   .xp-layout { grid-template-columns: 1fr; }
 }
 
-/* XP curve v0.2.1 */
+/* Courbe XP statique */
 .static-chart-layout { align-items: start; }
 .static-xp-chart { display: block; width: 100%; height: auto; min-height: 340px; border: 1px solid var(--line); border-radius: 10px; background: linear-gradient(180deg, #121812 0%, #0f140f 100%); }
 .static-chart-frame { min-width: 0; }
@@ -340,4 +340,64 @@ th { color: var(--muted); }
 .static-xp-chart .axis-label { font-weight: 700; }
 @media (max-width: 650px) {
   .static-xp-chart { min-height: 280px; }
+}
+
+/* Fighting and Crafting deep documentation v0.3.0 */
+.specialized-explorer { display: grid; gap: 2rem; }
+.specialized-explorer > section { scroll-margin-top: 9rem; }
+.option-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; margin: 1rem 0; }
+.viz-stat-value { display: block; }
+.filter-summary { min-height: 1.4rem; color: var(--muted); font-size: .85rem; }
+.compact-list { display: grid; gap: .45rem; margin: .75rem 0 0; padding-left: 1.15rem; }
+.source-line { display: flex; flex-wrap: wrap; gap: .5rem; margin: .75rem 0; }
+.source-line code { overflow-wrap: anywhere; }
+.detail-list { display: grid; gap: .7rem; }
+.detail-panel { border: 1px solid var(--line); border-radius: 10px; background: var(--panel); overflow: hidden; }
+.detail-panel[hidden] { display: none; }
+.detail-panel > summary { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .9rem 1rem; cursor: pointer; list-style: none; }
+.detail-panel > summary::-webkit-details-marker { display: none; }
+.detail-panel > summary > span:first-child { display: flex; min-width: 0; flex-direction: column; }
+.detail-panel > summary small { color: var(--muted); overflow-wrap: anywhere; }
+.detail-panel[open] > summary { border-bottom: 1px solid var(--line); background: var(--panel-2); }
+.detail-panel-body { display: grid; gap: 1rem; padding: 1rem; }
+.compact-stat-table { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.compact-stat-table > div { min-width: 0; }
+.reward-list { display: grid; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.reward-row { display: grid; grid-template-columns: minmax(140px, 1.15fr) minmax(70px, .35fr) minmax(160px, 1.2fr); gap: .75rem; align-items: center; padding: .65rem .75rem; border-bottom: 1px solid var(--line); }
+.reward-row:last-child { border-bottom: 0; }
+.reward-row > span:last-child { color: var(--muted); }
+.reward-name { color: var(--text); font-weight: 700; }
+.fixed-height-table { max-height: 31rem; overflow: auto; border: 1px solid var(--line); border-radius: 9px; }
+.fixed-height-table thead { position: sticky; top: 0; z-index: 1; background: var(--panel-2); }
+.transformation-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; margin-top: 1rem; }
+.transformation-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: .65rem; align-items: center; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+.transformation-row[hidden] { display: none; }
+.transformation-row span:last-child { text-align: right; }
+.fighting-explorer .calculator-inline,
+.crafting-explorer .calculator-inline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fighting-explorer .calculator-inline .form-choice { align-self: end; min-height: 2.7rem; }
+.fighting-explorer .metric-grid,
+.crafting-explorer .metric-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1rem; }
+.crafting-explorer .stacked-distribution span:nth-child(1) { background: var(--accent); }
+.crafting-explorer .stacked-distribution span:nth-child(2) { background: #8d91cf; }
+.crafting-explorer .stacked-distribution span:nth-child(3) { background: #ca806f; }
+
+@media (max-width: 1000px) {
+  .fighting-explorer .metric-grid,
+  .crafting-explorer .metric-grid,
+  .compact-stat-table { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .transformation-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 650px) {
+  .option-grid,
+  .fighting-explorer .calculator-inline,
+  .crafting-explorer .calculator-inline,
+  .fighting-explorer .metric-grid,
+  .crafting-explorer .metric-grid,
+  .compact-stat-table { grid-template-columns: 1fr; }
+  .reward-row { grid-template-columns: 1fr auto; }
+  .reward-row > span:last-child { grid-column: 1 / -1; }
+  .detail-panel > summary { align-items: flex-start; }
+  .transformation-row { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); font-size: .85rem; }
 }

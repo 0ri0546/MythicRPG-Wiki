@@ -243,6 +243,202 @@ export interface FishingSystem {
   extraction: { method: string; files: string[] };
 }
 
+
+export interface ExtractedConstant {
+  symbol: string;
+  value: number | boolean | number[];
+  unit: string;
+  source: string;
+  seconds?: number;
+}
+
+export interface BaronReward {
+  identifier: string;
+  names: LocalizedText;
+  chance: number | null;
+  count: number;
+  note: LocalizedText;
+}
+
+export interface BaronTypeEntry {
+  id: string;
+  names: LocalizedText;
+  tag: string;
+  base_entities: string[];
+  behavior: {
+    summary: LocalizedText;
+    file: string;
+    constants: ExtractedConstant[];
+  };
+  rewards: BaronReward[];
+}
+
+export interface FightingSystem {
+  xp: {
+    normal_formula: string;
+    baron_formula: string;
+    health_divisor: number;
+    normal_min: number;
+    normal_max: number;
+    baron_base_multiplier: number;
+    baron_flat_bonus: number;
+    vanilla_mob_xp_estimates: Array<{ group: string; xp: number; approximate: boolean }>;
+    source_file: string;
+  };
+  barons: {
+    promotion: {
+      minimum_fighting_level_for_multiplayer_protection: number;
+      player_search_radius: number;
+      low_level_protection_radius: number;
+      generic_scale_bonus: number;
+      special_type_chance: number;
+      chance_tiers: Array<{ min_level: number; max_level: number; chance: number }>;
+      checked_once_per_entity: boolean;
+      maximum_entity_age_ticks: number;
+      lucky_block_forced_entity_types: string[];
+    };
+    scaling: {
+      min_level: number;
+      max_level: number;
+      health_per_level: number;
+      damage_per_level: number;
+      xp_reward_per_level: number;
+      samples: Array<{
+        level: number;
+        health_multiplier: number;
+        damage_multiplier: number;
+        xp_multiplier: number;
+      }>;
+    };
+    types: BaronTypeEntry[];
+  };
+  legendary_items: Array<{
+    id: string;
+    identifier: string;
+    names: LocalizedText;
+    summary: LocalizedText;
+    constants: ExtractedConstant[];
+    source_file: string;
+  }>;
+  multiplayer: {
+    promotion_authority: string;
+    damage_authority: string;
+    reward_authority: string;
+    nearest_player_sets_spawn_level: boolean;
+    low_level_nearby_player_can_block_promotion: boolean;
+  };
+  extraction: { method: string; files: string[] };
+}
+
+export interface CraftingSystem {
+  xp: {
+    score_multiplier: number;
+    max_per_action: number;
+    formula: string;
+    processing_order: string[];
+    night_window: { start_tick: number; end_tick: number };
+    midnight_multiplier: number;
+    green_vanilla_xp_ratio: number;
+    green_vanilla_xp_cap: number;
+  };
+  craft_score: {
+    item_points: Array<{ identifier: string; points: number }>;
+    mythicrpg_item_default: number;
+    other_item_default: number;
+    excluded_systems: string[];
+  };
+  stations: Array<{
+    id: string;
+    names: LocalizedText;
+    numeric_id: number;
+    finite_durability: boolean;
+    max_durability: number | null;
+  }>;
+  interface: {
+    property_count: number;
+    craft_result_slot: number;
+    craft_input_start: number;
+    craft_input_end: number;
+    transformation_input_slot: number;
+    transformation_output_slot: number;
+  };
+  bonuses: {
+    portable_durability: number;
+    table_durability: number;
+    repair_kit_base_power: number;
+    resource_save: { handled_server_side: boolean };
+    reinforced_craft: { applies_unbreaking_level: number; handled_server_side: boolean };
+    craft_charge: {
+      charge_per_craft_xp: number;
+      max_charge_per_craft: number;
+      completion_threshold: number;
+      bonus_next_level_ratio: number;
+    };
+    mythic_inspiration_multiplier: number;
+    first_craft_multiplier: number;
+    experience_charm_ratio: number;
+    craft_mastery: {
+      transfer_ratio: number;
+      target_level_cap_ratio: number;
+      target_skills: string[];
+    };
+  };
+  recycling: {
+    groups: Array<{
+      id: string;
+      result: string;
+      inputs: string[];
+      result_names: LocalizedText;
+      input_names: LocalizedText[];
+    }>;
+    requires_perk: number;
+    grants_crafting_xp: boolean;
+  };
+  transformations: {
+    pairs: Array<{
+      input: string;
+      output: string;
+      input_names: LocalizedText;
+      output_names: LocalizedText;
+    }>;
+    requires_perk: number;
+    charge_per_item: number;
+    charge_source_expression: string;
+  };
+  lucky_blocks: {
+    luck_min: number;
+    luck_max: number;
+    block_state_offset: number;
+    category_formula: { positive: string; neutral: string; negative: string };
+    category_parameters: {
+      positive_base: number;
+      positive_step: number;
+      neutral_threshold: number;
+      neutral_extreme: number;
+      neutral_standard: number;
+    };
+    chance_samples: Array<{ luck: number; positive: number; neutral: number; negative: number }>;
+    categories: Array<{
+      id: string;
+      events: Array<{ id: string; weight: number; names: LocalizedText; within_category_percent: number }>;
+      total_weight: number;
+    }>;
+    ore_pool: Array<{ identifier: string; weight: number }>;
+    infusion_rules: Array<{ delta: number; items: string[] }>;
+    infusion_ingredient_count: number;
+    craft_perk: number;
+    infusion_perk: number;
+    break_event_authority: string;
+  };
+  multiplayer: {
+    craft_result_authority: string;
+    persistent_player_states: string[];
+    lucky_block_authority: string;
+    portable_interface_is_client_view: boolean;
+  };
+  extraction: { method: string; files: string[] };
+}
+
 export interface Catalog {
   schema_version: string;
   source: {
@@ -266,6 +462,8 @@ export interface Catalog {
     mining: MiningSystem;
     eating: EatingSystem;
     fishing: FishingSystem;
+    fighting: FightingSystem;
+    crafting: CraftingSystem;
   };
 }
 

@@ -176,3 +176,178 @@ values:
     status: stable
     audiences: [website]
     label: {fr: Taille maximale d'inventaire d'un filet, en: Maximum fish net inventory size}
+  - id: fighting.baron_min_fighting_level
+    file: com/mythicrpg/fighting/BaronMobManager.java
+    symbol: MIN_FIGHTING_LEVEL
+    unit: level
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Niveau de référence des Barons, en: Baron reference level}
+  - id: fighting.baron_scale_bonus
+    file: com/mythicrpg/fighting/BaronMobManager.java
+    symbol: BARON_SCALE_BONUS
+    unit: multiplier
+    status: stable
+    audiences: [website]
+    label: {fr: Bonus d'échelle générique des Barons, en: Generic Baron scale bonus}
+  - id: fighting.baron_player_search_radius
+    file: com/mythicrpg/fighting/BaronMobManager.java
+    symbol: PLAYER_SEARCH_RADIUS
+    unit: blocks
+    status: stable
+    audiences: [website]
+    label: {fr: Rayon de recherche du joueur pour une promotion, en: Player search radius for promotion}
+  - id: fighting.baron_low_level_protection_radius
+    file: com/mythicrpg/fighting/BaronMobManager.java
+    symbol: LOW_LEVEL_PROTECTION_RADIUS
+    unit: blocks
+    status: stable
+    audiences: [website]
+    label: {fr: Rayon de protection multijoueur des bas niveaux, en: Low-level multiplayer protection radius}
+  - id: fighting.baron_health_per_level
+    file: com/mythicrpg/fighting/barons/BaronScaling.java
+    symbol: HEALTH_PER_LEVEL
+    unit: ratio_per_level
+    status: stable
+    audiences: [website]
+    label: {fr: Vie de Baron ajoutée par niveau Fighting, en: Baron health added per Fighting level}
+  - id: fighting.baron_damage_per_level
+    file: com/mythicrpg/fighting/barons/BaronScaling.java
+    symbol: DAMAGE_PER_LEVEL
+    unit: ratio_per_level
+    status: stable
+    audiences: [website]
+    label: {fr: Dégâts de Baron ajoutés par niveau Fighting, en: Baron damage added per Fighting level}
+  - id: fighting.baron_xp_per_level
+    file: com/mythicrpg/fighting/barons/BaronScaling.java
+    symbol: XP_REWARD_PER_LEVEL
+    unit: ratio_per_level
+    status: stable
+    audiences: [website]
+    label: {fr: Récompense XP ajoutée par niveau Fighting, en: XP reward added per Fighting level}
+  - id: crafting.max_xp_per_action
+    file: com/mythicrpg/crafting/CraftXpManager.java
+    symbol: MAX_XP_PER_CRAFT_ACTION
+    unit: xp
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: XP Crafting maximale par action de fabrication, en: Maximum Crafting XP per craft action}
+  - id: crafting.xp_multiplier
+    file: com/mythicrpg/crafting/CraftXpManager.java
+    symbol: CRAFT_XP_MULTIPLIER
+    unit: multiplier
+    status: stable
+    audiences: [website]
+    label: {fr: Multiplicateur Craft Score vers XP, en: Craft Score to XP multiplier}
+  - id: crafting.midnight_multiplier
+    file: com/mythicrpg/crafting/CraftXpManager.java
+    symbol: MIDNIGHT_WORKSHOP_MULTIPLIER
+    unit: multiplier
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Multiplicateur de l'Atelier de minuit, en: Midnight Workshop multiplier}
+  - id: crafting.green_vanilla_xp_ratio
+    file: com/mythicrpg/crafting/CraftXpManager.java
+    symbol: GREEN_CRAFTING_VANILLA_XP_RATIO
+    unit: ratio
+    status: stable
+    audiences: [website]
+    label: {fr: Ratio d'XP vanilla de Fabrication écologique, en: Green Crafting vanilla XP ratio}
+  - id: crafting.green_vanilla_xp_cap
+    file: com/mythicrpg/crafting/CraftXpManager.java
+    symbol: MAX_GREEN_CRAFTING_VANILLA_XP
+    unit: xp
+    status: stable
+    audiences: [website]
+    label: {fr: Plafond d'XP vanilla de Fabrication écologique, en: Green Crafting vanilla XP cap}
+  - id: crafting.charge_per_xp
+    file: com/mythicrpg/crafting/CraftChargeManager.java
+    symbol: CHARGE_PER_CRAFT_XP
+    unit: charge_per_xp
+    status: stable
+    audiences: [website]
+    label: {fr: Charge gagnée par XP Crafting, en: Charge gained per Crafting XP}
+  - id: crafting.max_charge_gain
+    file: com/mythicrpg/crafting/CraftChargeManager.java
+    symbol: MAX_CHARGE_GAIN_PER_CRAFT
+    unit: charge
+    status: stable
+    audiences: [website]
+    label: {fr: Charge maximale gagnée par fabrication, en: Maximum charge gained per craft}
+  - id: crafting.charge_bonus_next_level_ratio
+    file: com/mythicrpg/crafting/CraftChargeManager.java
+    symbol: BONUS_NEXT_LEVEL_RATIO
+    unit: ratio
+    status: stable
+    audiences: [website]
+    label: {fr: Ratio du bonus de Charge sur le prochain niveau, en: Charge bonus next-level ratio}
+  - id: crafting.mastery_transfer_ratio
+    file: com/mythicrpg/crafting/CraftMasteryManager.java
+    symbol: CRAFT_XP_TRANSFER_RATIO
+    unit: ratio
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Ratio de transfert de Maîtrise artisanale, en: Craft Mastery transfer ratio}
+  - id: crafting.mastery_cap_ratio
+    file: com/mythicrpg/crafting/CraftMasteryManager.java
+    symbol: TARGET_SKILL_LEVEL_CAP_RATIO
+    unit: ratio
+    status: stable
+    audiences: [website]
+    label: {fr: Plafond de Maîtrise selon le niveau cible, en: Mastery cap ratio for target skill}
+  - id: crafting.first_craft_multiplier
+    file: com/mythicrpg/crafting/FirstCraftBonusManager.java
+    symbol: FIRST_CRAFT_MULTIPLIER
+    unit: multiplier
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Multiplicateur de première fabrication, en: First craft multiplier}
+  - id: crafting.inspiration_multiplier
+    file: com/mythicrpg/crafting/MythicInspirationManager.java
+    symbol: MYTHIC_INSPIRATION_MULTIPLIER
+    unit: multiplier
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Multiplicateur d'Inspiration mythique, en: Mythic Inspiration multiplier}
+  - id: crafting.exp_charm_bonus_ratio
+    file: com/mythicrpg/crafting/ExpCharmBonusManager.java
+    symbol: BONUS_RATIO
+    unit: ratio
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Bonus du Charme d'expérience, en: Experience Charm bonus ratio}
+  - id: crafting.portable_durability
+    file: com/mythicrpg/crafting/PortableCraftingState.java
+    symbol: MAX_DURABILITY
+    unit: charges
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Durabilité maximale de la fabrication portable, en: Portable crafting maximum durability}
+  - id: crafting.table_durability
+    file: com/mythicrpg/crafting/station/CraftingTableDurabilityState.java
+    symbol: MAX_DURABILITY
+    unit: crafts
+    status: stable
+    audiences: [website]
+    label: {fr: Durabilité maximale d'une table vanilla suivie, en: Tracked vanilla table maximum durability}
+  - id: crafting.repair_kit_base_power
+    file: com/mythicrpg/crafting/RepairKitItem.java
+    symbol: BASE_REPAIR_POWER
+    unit: ratio
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Puissance de base d'un Kit de réparation, en: Repair Kit base power}
+  - id: crafting.lucky_min
+    file: com/mythicrpg/crafting/LuckyBlockLuckManager.java
+    symbol: MIN_LUCK
+    unit: luck
+    status: stable
+    audiences: [website]
+    label: {fr: Chance minimale d'un Bloc chanceux, en: Minimum Lucky Block luck}
+  - id: crafting.lucky_max
+    file: com/mythicrpg/crafting/LuckyBlockLuckManager.java
+    symbol: MAX_LUCK
+    unit: luck
+    status: stable
+    audiences: [website]
+    label: {fr: Chance maximale d'un Bloc chanceux, en: Maximum Lucky Block luck}

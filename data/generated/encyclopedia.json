@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.2.0",
+  "schema_version": "0.3.0",
   "source": {
     "canonical_source": "src(92).zip",
     "received_archive": "src(92).zip",
@@ -251,8 +251,8 @@
         "en": "Fighting"
       },
       "summary": {
-        "en": "Improve direct combat and prepare for the Baron system.",
-        "fr": "Améliorez les combats directs, les effets offensifs et défensifs, puis affrontez les Barons."
+        "en": "Develop combat damage, survival, loot and experience, then face the complete Baron catalogue and their legendary rewards.",
+        "fr": "Développez les dégâts, la survie, le butin et l’expérience de combat, puis affrontez le catalogue complet des Barons et leurs récompenses légendaires."
       },
       "nodes": [
         {
@@ -950,8 +950,8 @@
         "en": "Crafting"
       },
       "summary": {
-        "en": "Use portable crafting, charges, recycling, and mastery systems.",
-        "fr": "Débloquez la fabrication portable, les charges, le recyclage et les objets de maîtrise artisanale."
+        "en": "Turn ingredient value into Crafting XP, use portable stations, recycle, transform and manipulate Lucky Block luck.",
+        "fr": "Transformez la valeur des ingrédients en XP Crafting, utilisez les stations portables, recyclez, transformez et manipulez la chance des Lucky Blocks."
       },
       "nodes": [
         {
@@ -2389,6 +2389,186 @@
         "symbol": "CAPACITY",
         "expression": "3"
       }
+    },
+    {
+      "id": "fighting.baron_min_fighting_level",
+      "value": 10,
+      "unit": "level",
+      "status": "stable",
+      "label": {
+        "fr": "Niveau de référence des Barons",
+        "en": "Baron reference level"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fighting/BaronMobManager.java",
+        "symbol": "MIN_FIGHTING_LEVEL",
+        "expression": "10"
+      }
+    },
+    {
+      "id": "crafting.max_xp_per_action",
+      "value": 80,
+      "unit": "xp",
+      "status": "stable",
+      "label": {
+        "fr": "XP Crafting maximale par action de fabrication",
+        "en": "Maximum Crafting XP per craft action"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftXpManager.java",
+        "symbol": "MAX_XP_PER_CRAFT_ACTION",
+        "expression": "80"
+      }
+    },
+    {
+      "id": "crafting.midnight_multiplier",
+      "value": 1.3,
+      "unit": "multiplier",
+      "status": "stable",
+      "label": {
+        "fr": "Multiplicateur de l'Atelier de minuit",
+        "en": "Midnight Workshop multiplier"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftXpManager.java",
+        "symbol": "MIDNIGHT_WORKSHOP_MULTIPLIER",
+        "expression": "1.3"
+      }
+    },
+    {
+      "id": "crafting.mastery_transfer_ratio",
+      "value": 0.2,
+      "unit": "ratio",
+      "status": "stable",
+      "label": {
+        "fr": "Ratio de transfert de Maîtrise artisanale",
+        "en": "Craft Mastery transfer ratio"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/CraftMasteryManager.java",
+        "symbol": "CRAFT_XP_TRANSFER_RATIO",
+        "expression": "0.20"
+      }
+    },
+    {
+      "id": "crafting.first_craft_multiplier",
+      "value": 3,
+      "unit": "multiplier",
+      "status": "stable",
+      "label": {
+        "fr": "Multiplicateur de première fabrication",
+        "en": "First craft multiplier"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/FirstCraftBonusManager.java",
+        "symbol": "FIRST_CRAFT_MULTIPLIER",
+        "expression": "3"
+      }
+    },
+    {
+      "id": "crafting.inspiration_multiplier",
+      "value": 3,
+      "unit": "multiplier",
+      "status": "stable",
+      "label": {
+        "fr": "Multiplicateur d'Inspiration mythique",
+        "en": "Mythic Inspiration multiplier"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/MythicInspirationManager.java",
+        "symbol": "MYTHIC_INSPIRATION_MULTIPLIER",
+        "expression": "3"
+      }
+    },
+    {
+      "id": "crafting.exp_charm_bonus_ratio",
+      "value": 0.2,
+      "unit": "ratio",
+      "status": "stable",
+      "label": {
+        "fr": "Bonus du Charme d'expérience",
+        "en": "Experience Charm bonus ratio"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/ExpCharmBonusManager.java",
+        "symbol": "BONUS_RATIO",
+        "expression": "0.20"
+      }
+    },
+    {
+      "id": "crafting.portable_durability",
+      "value": 256,
+      "unit": "charges",
+      "status": "stable",
+      "label": {
+        "fr": "Durabilité maximale de la fabrication portable",
+        "en": "Portable crafting maximum durability"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/PortableCraftingState.java",
+        "symbol": "MAX_DURABILITY",
+        "expression": "256"
+      }
+    },
+    {
+      "id": "crafting.repair_kit_base_power",
+      "value": 0.1,
+      "unit": "ratio",
+      "status": "stable",
+      "label": {
+        "fr": "Puissance de base d'un Kit de réparation",
+        "en": "Repair Kit base power"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/crafting/RepairKitItem.java",
+        "symbol": "BASE_REPAIR_POWER",
+        "expression": "0.10"
+      }
     }
   ],
   "systems": {
@@ -2629,6 +2809,509 @@
         {
           "rarity": "mythic",
           "game": "grid"
+        }
+      ]
+    },
+    "fighting": {
+      "baron_types": [
+        {
+          "id": "normal",
+          "names": {
+            "fr": "Baron",
+            "en": "Baron"
+          },
+          "summary": {
+            "fr": "Version renforcée sans capacité spéciale supplémentaire.",
+            "en": "Strengthened version without an extra special ability."
+          }
+        },
+        {
+          "id": "druid",
+          "names": {
+            "fr": "Baron druide",
+            "en": "Druid Baron"
+          },
+          "summary": {
+            "fr": "Un squelette qui se soigne lorsqu’il touche directement un joueur.",
+            "en": "A skeleton that heals itself when it directly hits a player."
+          }
+        },
+        {
+          "id": "barrage",
+          "names": {
+            "fr": "Baron barrage",
+            "en": "Barrage Baron"
+          },
+          "summary": {
+            "fr": "Un squelette qui déclenche régulièrement une attaque à distance supplémentaire.",
+            "en": "A skeleton that regularly triggers an additional ranged attack."
+          }
+        },
+        {
+          "id": "nuke",
+          "names": {
+            "fr": "Baron nucléaire",
+            "en": "Nuke Baron"
+          },
+          "summary": {
+            "fr": "Un zombie qui libère à sa mort un nuage d’effet négatif choisi aléatoirement.",
+            "en": "A zombie that releases a random harmful effect cloud on death."
+          }
+        },
+        {
+          "id": "survivor",
+          "names": {
+            "fr": "Baron survivant",
+            "en": "Survivor Baron"
+          },
+          "summary": {
+            "fr": "Un zombie immunisé aux dégâts qui ne proviennent pas d’un coup de mêlée direct d’un joueur.",
+            "en": "A zombie immune to damage that is not direct player melee damage."
+          }
+        },
+        {
+          "id": "fugitive",
+          "names": {
+            "fr": "Baron fugitif",
+            "en": "Fugitive Baron"
+          },
+          "summary": {
+            "fr": "Une créature passive extrêmement mobile qui reçoit un bonus de vitesse permanent.",
+            "en": "A highly mobile passive creature with a permanent speed bonus."
+          }
+        },
+        {
+          "id": "golden",
+          "names": {
+            "fr": "Baron doré",
+            "en": "Golden Baron"
+          },
+          "summary": {
+            "fr": "Une créature passive lumineuse avec une récompense garantie et une chance de seconde récompense.",
+            "en": "A glowing passive creature with one guaranteed reward and a chance for a second."
+          }
+        },
+        {
+          "id": "panic",
+          "names": {
+            "fr": "Baron panique",
+            "en": "Panic Baron"
+          },
+          "summary": {
+            "fr": "Une créature passive qui accélère et saute davantage lorsqu’elle est frappée.",
+            "en": "A passive creature that gains speed and jump boost when hit."
+          }
+        },
+        {
+          "id": "giant",
+          "names": {
+            "fr": "Baron géant",
+            "en": "Giant Baron"
+          },
+          "summary": {
+            "fr": "Un Slime dont la taille est doublée à la promotion, dans la limite prévue par le code.",
+            "en": "A Slime whose size is doubled on promotion up to the coded limit."
+          }
+        },
+        {
+          "id": "darknight",
+          "names": {
+            "fr": "Baron de la nuit",
+            "en": "Darknight Baron"
+          },
+          "summary": {
+            "fr": "Une araignée qui recherche activement le joueur valide le plus proche lorsqu’elle n’a plus de cible.",
+            "en": "A spider that actively acquires the nearest valid player when it has no target."
+          }
+        },
+        {
+          "id": "alchemist",
+          "names": {
+            "fr": "Baron alchimiste",
+            "en": "Alchemist Baron"
+          },
+          "summary": {
+            "fr": "Une sorcière qui applique périodiquement un effet négatif aléatoire à sa cible visible.",
+            "en": "A witch that periodically applies a random harmful effect to a visible target."
+          }
+        },
+        {
+          "id": "hothead",
+          "names": {
+            "fr": "Baron tête brûlée",
+            "en": "Hothead Baron"
+          },
+          "summary": {
+            "fr": "Un Blaze qui projette des salves circulaires de projectiles enflammés.",
+            "en": "A Blaze that fires circular bursts of flaming projectiles."
+          }
+        },
+        {
+          "id": "swimming",
+          "names": {
+            "fr": "Baron nageur",
+            "en": "Swimming Baron"
+          },
+          "summary": {
+            "fr": "Un Enderman adapté à l’eau, immunisé aux dégâts liés à l’eau et capable de poursuivre une cible immergée.",
+            "en": "A water-adapted Enderman immune to water damage and able to chase submerged targets."
+          }
+        },
+        {
+          "id": "drowned_king",
+          "names": {
+            "fr": "Roi noyé",
+            "en": "Drowned King"
+          },
+          "summary": {
+            "fr": "Un Noyé équipé qui charge sa cible dans l’eau et inflige un impact avec recul.",
+            "en": "An equipped Drowned that charges targets in water and deals a knockback impact."
+          }
+        },
+        {
+          "id": "balloon",
+          "names": {
+            "fr": "Baron ballon",
+            "en": "Balloon Baron"
+          },
+          "summary": {
+            "fr": "Un Ghast dont les boules de feu créent des nuages persistants infligeant des dégâts de zone.",
+            "en": "A Ghast whose fireballs create persistent area-damage clouds."
+          }
+        },
+        {
+          "id": "charging",
+          "names": {
+            "fr": "Baron chargeur",
+            "en": "Charging Baron"
+          },
+          "summary": {
+            "fr": "Un Ravageur ou Hoglin qui prépare puis exécute une charge rapide avec dégâts d’impact.",
+            "en": "A Ravager or Hoglin that winds up and performs a fast damaging charge."
+          }
+        },
+        {
+          "id": "diamond",
+          "names": {
+            "fr": "Baron de diamant",
+            "en": "Diamond Baron"
+          },
+          "summary": {
+            "fr": "Un Vex équipé d’une épée en diamant non récupérable.",
+            "en": "A Vex equipped with a non-droppable diamond sword."
+          }
+        },
+        {
+          "id": "stalker",
+          "names": {
+            "fr": "Baron traqueur",
+            "en": "Stalker Baron"
+          },
+          "summary": {
+            "fr": "Un Wither Skeleton dont la taille diminue avec le niveau Fighting ayant servi à sa création.",
+            "en": "A Wither Skeleton whose size decreases with the Fighting level used at spawn."
+          }
+        },
+        {
+          "id": "heavy",
+          "names": {
+            "fr": "Baron lourd",
+            "en": "Heavy Baron"
+          },
+          "summary": {
+            "fr": "Un Creeper possédant une résistance totale au recul ajoutée lors de la promotion.",
+            "en": "A Creeper granted complete knockback resistance on promotion."
+          }
+        },
+        {
+          "id": "molten",
+          "names": {
+            "fr": "Baron en fusion",
+            "en": "Molten Baron"
+          },
+          "summary": {
+            "fr": "Un Golem de fer immunisé au feu, à la lave, à la noyade et à plusieurs dégâts environnementaux.",
+            "en": "An Iron Golem immune to fire, lava, drowning and several environmental damage sources."
+          }
+        },
+        {
+          "id": "runner",
+          "names": {
+            "fr": "Baron coureur",
+            "en": "Runner Baron"
+          },
+          "summary": {
+            "fr": "Un Creeper doté d’un effet de vitesse permanent et d’un multiplicateur de déplacement renforcé.",
+            "en": "A Creeper with permanent speed and an increased movement multiplier."
+          }
+        },
+        {
+          "id": "ink",
+          "names": {
+            "fr": "Baron d’encre",
+            "en": "Ink Baron"
+          },
+          "summary": {
+            "fr": "Un Calmar qui aveugle l’attaquant lorsqu’il subit un coup, selon son temps de recharge.",
+            "en": "A Squid that blinds its attacker when hit, subject to a cooldown."
+          }
+        },
+        {
+          "id": "undying_wolf",
+          "names": {
+            "fr": "Baron immortel",
+            "en": "Undying Baron"
+          },
+          "summary": {
+            "fr": "Un loup apprivoisable qui ne peut pas mourir une fois domestiqué et doit récupérer avant de reprendre le combat.",
+            "en": "A tameable wolf that cannot die once tamed and must recover before fighting again."
+          }
+        },
+        {
+          "id": "inferno",
+          "names": {
+            "fr": "Baron infernal",
+            "en": "Inferno Baron"
+          },
+          "summary": {
+            "fr": "Un Guardian qui verrouille un rayon sur un joueur et augmente progressivement les dégâts répétés.",
+            "en": "A Guardian that locks a beam onto a player and progressively increases repeated damage."
+          }
+        },
+        {
+          "id": "thrower",
+          "names": {
+            "fr": "Baron lanceur",
+            "en": "Thrower Baron"
+          },
+          "summary": {
+            "fr": "Une araignée qui recherche une autre créature, la saisit après une préparation puis la projette vers le joueur.",
+            "en": "A spider that finds another mob, winds up, then throws it toward the player."
+          }
+        }
+      ]
+    },
+    "crafting": {
+      "stations": [
+        {
+          "id": "portable",
+          "names": {
+            "fr": "Fabrication portable",
+            "en": "Portable crafting"
+          },
+          "numeric_id": 0,
+          "finite_durability": true,
+          "max_durability": 256
+        },
+        {
+          "id": "vanilla_table",
+          "names": {
+            "fr": "Table de fabrication",
+            "en": "Crafting table"
+          },
+          "numeric_id": 1,
+          "finite_durability": true,
+          "max_durability": 256
+        },
+        {
+          "id": "infinite_table",
+          "names": {
+            "fr": "Table de fabrication infinie",
+            "en": "Infinite crafting table"
+          },
+          "numeric_id": 2,
+          "finite_durability": false,
+          "max_durability": null
+        }
+      ],
+      "recycling_groups": [
+        {
+          "id": "wood",
+          "result": "minecraft:stick",
+          "inputs": [
+            "minecraft:wooden_sword",
+            "minecraft:wooden_pickaxe",
+            "minecraft:wooden_axe",
+            "minecraft:wooden_shovel",
+            "minecraft:wooden_hoe"
+          ],
+          "result_names": {
+            "fr": "Stick",
+            "en": "Stick"
+          },
+          "input_names": [
+            {
+              "fr": "Wooden Sword",
+              "en": "Wooden Sword"
+            },
+            {
+              "fr": "Wooden Pickaxe",
+              "en": "Wooden Pickaxe"
+            },
+            {
+              "fr": "Wooden Axe",
+              "en": "Wooden Axe"
+            },
+            {
+              "fr": "Wooden Shovel",
+              "en": "Wooden Shovel"
+            },
+            {
+              "fr": "Wooden Hoe",
+              "en": "Wooden Hoe"
+            }
+          ]
+        },
+        {
+          "id": "stone",
+          "result": "minecraft:cobblestone",
+          "inputs": [
+            "minecraft:stone_sword",
+            "minecraft:stone_pickaxe",
+            "minecraft:stone_axe",
+            "minecraft:stone_shovel",
+            "minecraft:stone_hoe"
+          ],
+          "result_names": {
+            "fr": "Cobblestone",
+            "en": "Cobblestone"
+          },
+          "input_names": [
+            {
+              "fr": "Stone Sword",
+              "en": "Stone Sword"
+            },
+            {
+              "fr": "Stone Pickaxe",
+              "en": "Stone Pickaxe"
+            },
+            {
+              "fr": "Stone Axe",
+              "en": "Stone Axe"
+            },
+            {
+              "fr": "Stone Shovel",
+              "en": "Stone Shovel"
+            },
+            {
+              "fr": "Stone Hoe",
+              "en": "Stone Hoe"
+            }
+          ]
+        },
+        {
+          "id": "iron",
+          "result": "minecraft:iron_nugget",
+          "inputs": [
+            "minecraft:iron_sword",
+            "minecraft:iron_pickaxe",
+            "minecraft:iron_axe",
+            "minecraft:iron_shovel",
+            "minecraft:iron_hoe",
+            "minecraft:iron_helmet",
+            "minecraft:iron_chestplate",
+            "minecraft:iron_leggings",
+            "minecraft:iron_boots"
+          ],
+          "result_names": {
+            "fr": "Iron Nugget",
+            "en": "Iron Nugget"
+          },
+          "input_names": [
+            {
+              "fr": "Iron Sword",
+              "en": "Iron Sword"
+            },
+            {
+              "fr": "Iron Pickaxe",
+              "en": "Iron Pickaxe"
+            },
+            {
+              "fr": "Iron Axe",
+              "en": "Iron Axe"
+            },
+            {
+              "fr": "Iron Shovel",
+              "en": "Iron Shovel"
+            },
+            {
+              "fr": "Iron Hoe",
+              "en": "Iron Hoe"
+            },
+            {
+              "fr": "Iron Helmet",
+              "en": "Iron Helmet"
+            },
+            {
+              "fr": "Iron Chestplate",
+              "en": "Iron Chestplate"
+            },
+            {
+              "fr": "Iron Leggings",
+              "en": "Iron Leggings"
+            },
+            {
+              "fr": "Iron Boots",
+              "en": "Iron Boots"
+            }
+          ]
+        },
+        {
+          "id": "gold",
+          "result": "minecraft:gold_nugget",
+          "inputs": [
+            "minecraft:golden_sword",
+            "minecraft:golden_pickaxe",
+            "minecraft:golden_axe",
+            "minecraft:golden_shovel",
+            "minecraft:golden_hoe",
+            "minecraft:golden_helmet",
+            "minecraft:golden_chestplate",
+            "minecraft:golden_leggings",
+            "minecraft:golden_boots"
+          ],
+          "result_names": {
+            "fr": "Gold Nugget",
+            "en": "Gold Nugget"
+          },
+          "input_names": [
+            {
+              "fr": "Golden Sword",
+              "en": "Golden Sword"
+            },
+            {
+              "fr": "Golden Pickaxe",
+              "en": "Golden Pickaxe"
+            },
+            {
+              "fr": "Golden Axe",
+              "en": "Golden Axe"
+            },
+            {
+              "fr": "Golden Shovel",
+              "en": "Golden Shovel"
+            },
+            {
+              "fr": "Golden Hoe",
+              "en": "Golden Hoe"
+            },
+            {
+              "fr": "Golden Helmet",
+              "en": "Golden Helmet"
+            },
+            {
+              "fr": "Golden Chestplate",
+              "en": "Golden Chestplate"
+            },
+            {
+              "fr": "Golden Leggings",
+              "en": "Golden Leggings"
+            },
+            {
+              "fr": "Golden Boots",
+              "en": "Golden Boots"
+            }
+          ]
         }
       ]
     }

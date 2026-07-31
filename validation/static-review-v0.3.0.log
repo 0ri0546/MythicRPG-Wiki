@@ -1,0 +1,59 @@
+Relecture statique v0.3.0
+Textes UTF-8 contrôlés: 597
+JSON validés: 516
+YAML validés: 2
+Frontmatters validés: 18
+Scripts navigateur contrôlés: 11
+Fichiers src(92): 1206
+Empreinte src(92): d39d740f8d5f36d37a0e24539287247e1b98c89f49c47a6a99fd6a83988b8b3f
+Erreurs: 0
+test_documented_values_are_sourced_not_hardcoded_in_pages (test_extractor.ExtractorInvariantTests.test_documented_values_are_sourced_not_hardcoded_in_pages) ... ok
+test_encyclopedia_uses_shared_editorial_and_filtered_values (test_extractor.ExtractorInvariantTests.test_encyclopedia_uses_shared_editorial_and_filtered_values) ... ok
+test_every_skill_has_twenty_unique_nodes (test_extractor.ExtractorInvariantTests.test_every_skill_has_twenty_unique_nodes) ... ok
+test_item_evidence_statuses_are_consistent (test_extractor.ExtractorInvariantTests.test_item_evidence_statuses_are_consistent) ... ok
+test_no_broken_internal_relations (test_extractor.ExtractorInvariantTests.test_no_broken_internal_relations) ... ok
+test_no_environment_path_leaks (test_extractor.ExtractorInvariantTests.test_no_environment_path_leaks) ... ok
+test_project_invariants (test_extractor.ExtractorInvariantTests.test_project_invariants) ... ok
+test_report_is_clean (test_extractor.ExtractorInvariantTests.test_report_is_clean) ... ok
+test_source_is_not_modified (test_extractor.ExtractorInvariantTests.test_source_is_not_modified) ... ok
+test_translations_are_symmetric (test_extractor.ExtractorInvariantTests.test_translations_are_symmetric) ... ok
+test_browser_scripts_do_not_assign_inner_html (test_project_structure.ProjectStructureTests.test_browser_scripts_do_not_assign_inner_html) ... ok
+test_github_pages_base_is_not_hardcoded (test_project_structure.ProjectStructureTests.test_github_pages_base_is_not_hardcoded) ... ok
+test_global_progression_is_not_attached_to_mining (test_project_structure.ProjectStructureTests.test_global_progression_is_not_attached_to_mining) ... ok
+test_no_gradle_or_minecraft_execution_in_scripts (test_project_structure.ProjectStructureTests.test_no_gradle_or_minecraft_execution_in_scripts) ... ok
+test_release_lockfile_status (test_project_structure.ProjectStructureTests.test_release_lockfile_status) ... ok
+test_reproducible_npm_install_is_required (test_project_structure.ProjectStructureTests.test_reproducible_npm_install_is_required) ... ok
+test_required_delivery_files_exist (test_project_structure.ProjectStructureTests.test_required_delivery_files_exist) ... ok
+test_search_index_urls_have_matching_sections (test_project_structure.ProjectStructureTests.test_search_index_urls_have_matching_sections) ... ok
+test_counts_match_version_snapshot (test_source_snapshot.SourceSnapshotTests.test_counts_match_version_snapshot) ... ok
+test_source_identity_matches_declared_snapshot (test_source_snapshot.SourceSnapshotTests.test_source_identity_matches_declared_snapshot) ... ok
+test_tracked_values_match_version_snapshot (test_source_snapshot.SourceSnapshotTests.test_tracked_values_match_version_snapshot) ... ok
+test_all_nine_skills_have_structured_editorial (test_v02_features.V02FeatureTests.test_all_nine_skills_have_structured_editorial) ... ok
+test_eating_specialized_data (test_v02_features.V02FeatureTests.test_eating_specialized_data) ... ok
+test_fishing_specialized_data (test_v02_features.V02FeatureTests.test_fishing_specialized_data) ... ok
+test_interactive_components_use_safe_dom_apis (test_v02_features.V02FeatureTests.test_interactive_components_use_safe_dom_apis) ... ok
+test_mining_specialized_data (test_v02_features.V02FeatureTests.test_mining_specialized_data) ... ok
+test_progression_curve_and_reference_levels (test_v02_features.V02FeatureTests.test_progression_curve_and_reference_levels) ... ok
+test_source_is_officially_src92 (test_v02_features.V02FeatureTests.test_source_is_officially_src92) ... ok
+test_baron_rewards_and_legendary_items_are_linked (test_v030_features.V030FeatureTests.test_baron_rewards_and_legendary_items_are_linked) ... ok
+test_complete_baron_catalog_and_scaling (test_v030_features.V030FeatureTests.test_complete_baron_catalog_and_scaling) ... ok
+test_craft_score_xp_and_stations (test_v030_features.V030FeatureTests.test_craft_score_xp_and_stations) ... ok
+test_crafting_is_deep_and_keeps_complete_tree (test_v030_features.V030FeatureTests.test_crafting_is_deep_and_keeps_complete_tree) ... ok
+test_fighting_and_crafting_are_server_authoritative (test_v030_features.V030FeatureTests.test_fighting_and_crafting_are_server_authoritative) ... ok
+test_fighting_is_deep_and_keeps_complete_tree (test_v030_features.V030FeatureTests.test_fighting_is_deep_and_keeps_complete_tree) ... ok
+test_fighting_xp_formulas_and_sources (test_v030_features.V030FeatureTests.test_fighting_xp_formulas_and_sources) ... ok
+test_lucky_block_events_and_probabilities (test_v030_features.V030FeatureTests.test_lucky_block_events_and_probabilities) ... ok
+test_recycling_and_transformations_are_complete (test_v030_features.V030FeatureTests.test_recycling_and_transformations_are_complete) ... ok
+test_v030_components_versions_and_release_constraints (test_v030_features.V030FeatureTests.test_v030_components_versions_and_release_constraints) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 1.100s
+
+OK
+Seconde vérification indépendante: OK pour le périmètre statique
+Pages Astro: 11
+Fichiers source du mod préservés: 1206
+Rapport: {'skills': 9, 'perks': 180, 'items': 196, 'blocks': 34, 'recipes': 188, 'documented_values': 50, 'search_entries': 685, 'items_confirmed': 93, 'items_dynamic_probable': 40, 'items_model_only': 63, 'fossil_families': 5, 'fossil_rarities': 5, 'cooking_recipes': 47, 'culinary_ingredients': 50, 'fishing_families': 5, 'fishing_rarities': 5, 'sea_monsters': 3, 'baron_types': 25, 'baron_legendary_items': 5, 'craft_score_items': 55, 'craft_transformations': 48, 'craft_recycle_groups': 4, 'lucky_block_events': 21}
+Lockfile présent: True
+Build Astro validé: False
+BUILD À REFAIRE: voir BUILD_VALIDATION.md

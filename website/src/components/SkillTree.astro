@@ -77,6 +77,32 @@ const branchOptions = [...new Set(nodes
       <p class="source-note">Le simulateur applique le coût, les parents et les conflits de branches décrits par le code.</p>
     </article>
   </div>
+
+  <details class="reference-table perk-reference-table">
+    <summary>Liste complète des perks et prérequis</summary>
+    <div class="responsive-table">
+      <table>
+        <thead><tr><th>ID</th><th>Perk</th><th>Description</th><th>Prérequis</th><th>Branche</th><th>Valeurs extraites</th></tr></thead>
+        <tbody>
+          {nodes.map((node) => (
+            <tr id={`${node.slug}-reference`}>
+              <td>{node.id}</td>
+              <td><strong>{node.names.fr}</strong></td>
+              <td>{node.descriptions.fr}</td>
+              <td>{node.parent_ids.length ? node.parent_ids.map((id) => byId.get(id)?.names.fr ?? `Perk ${id}`).join(' ou ') : 'Aucun'}</td>
+              <td>{node.fork_id === -1 ? 'Tronc commun' : `${node.fork_id} / ${node.branch_id}`}</td>
+              <td>
+                {node.bonuses.length > 0 && node.bonuses.map((bonus) => `${bonus.type.replaceAll('_', ' ')} : ${bonus.value ?? 'actif'}`).join(' · ')}
+                {node.effects.length > 0 && `${node.bonuses.length ? ' · ' : ''}${node.effects.map((effect) => `${effect.effect} ${effect.amplifier}`).join(' · ')}`}
+                {!node.bonuses.length && !node.effects.length && !node.poison_on_hit ? 'Effet géré par un système dédié' : ''}
+                {node.poison_on_hit && `${node.bonuses.length || node.effects.length ? ' · ' : ''}Poison : ${node.poison_on_hit.duration_ticks} ticks, amplificateur ${node.poison_on_hit.amplifier}`}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
 </section>
 
 <script>

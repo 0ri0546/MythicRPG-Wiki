@@ -1,18 +1,20 @@
-# MythicRPG Wiki v0.2
+# MythicRPG Wiki v0.3.0
 
-Wiki statique interactif généré depuis le code et les ressources de MythicRPG `src(92)`.
+Wiki statique généré depuis le code et les ressources de MythicRPG `src(92)`, avec une documentation approfondie de Fighting et Crafting.
 
-## Fonctionnalités v0.2
+## Fonctionnalités v0.3.0
 
 - neuf skills documentés et navigables ;
-- 180 perks extraits, avec arbres zoomables, déplaçables, filtrables et simulateur de build ;
-- explorateur graphique de la courbe d’XP et calculateurs de progression ;
-- extraction spécialisée de Mining, Eating et Fishing ;
-- comparateurs de fossiles, recettes culinaires, probabilités Fishing et monstres marins ;
-- objets et recettes filtrables ;
+- 180 perks extraits, avec arbres zoomables, filtrables, simulateur de build et tableau statique complet ;
+- documentation approfondie de Mining, Eating, Fishing, Fighting et Crafting ;
+- 25 types de Barons, comportements, conditions, scaling et récompenses extraits ;
+- cinq objets légendaires Fighting reliés à leurs fiches ;
+- Craft Score, stations, interfaces et bonus Crafting extraits ;
+- 48 transformations, quatre groupes de recyclage et 21 événements Lucky Block ;
+- objets conservant les statuts `confirmed`, `dynamic_probable` et `model_only` ;
 - recherche statique enrichie ;
 - catalogue JSON commun au site et à la future encyclopédie ;
-- déploiement GitHub Pages par GitHub Actions.
+- déploiement GitHub Pages par GitHub Actions et lanceur automatique conservés.
 
 ## Chaîne de génération
 
@@ -26,7 +28,7 @@ mod-source/src (lecture seule)
   -> export JSON filtré pour l’encyclopédie
 ```
 
-Les valeurs techniques ne sont pas recopiées dans les pages. Les constantes sélectionnées sont relues dans le Java, les recettes dans les JSON ou les registres Java, les noms dans les traductions et les arbres dans les classes `*SkillTree.java`.
+Les valeurs techniques ne sont pas recopiées dans les pages. Les constantes et formules sélectionnées sont relues dans le Java, les recettes dans les JSON ou registres Java, les noms dans les traductions et les arbres dans les classes `*SkillTree.java`.
 
 ## Prérequis
 
@@ -73,10 +75,12 @@ npm run preview
 - `documentation/content/{fr,en}/skills/*.md` ;
 - `config/documented_values.yaml` ;
 - `config/source_snapshot.json` ;
-- `website/src/`.
+- `website/src/` ;
+- les extracteurs spécialisés dans `tools/mythicwiki/`.
 
 À ne pas éditer :
 
+- `mod-source/src/` ;
 - `data/generated/` ;
 - `website/src/data/generated/` ;
 - `website/public/generated/`.

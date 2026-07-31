@@ -23,7 +23,7 @@ class V02FeatureTests(unittest.TestCase):
             self.assertIn(skill["coverage"], {"deep", "structured"})
             if skill["coverage"] == "deep":
                 deep.add(skill["id"])
-        self.assertEqual({"mining", "eating", "fishing"}, deep)
+        self.assertEqual({"mining", "eating", "fishing", "fighting", "crafting"}, deep)
 
     def test_progression_curve_and_reference_levels(self) -> None:
         progression = CATALOG["systems"]["progression"]
@@ -67,6 +67,7 @@ class V02FeatureTests(unittest.TestCase):
         components = [
             "XpExplorer.astro", "SkillTree.astro", "MiningExplorer.astro",
             "EatingExplorer.astro", "FishingExplorer.astro",
+            "FightingExplorer.astro", "CraftingExplorer.astro",
             "RelatedContentExplorer.astro", "RecipeExplorer.astro",
         ]
         for filename in components:

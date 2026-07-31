@@ -1,11 +1,15 @@
 ---
-import type { PerkNode } from '../lib/catalog';
+import { sitePath, type PerkNode } from '../lib/catalog';
 interface Props { nodes: PerkNode[]; unlockCost?: number }
 const { nodes, unlockCost = 10 } = Astro.props;
 const byId = new Map(nodes.map((node) => [node.id, node]));
 const branchOptions = [...new Set(nodes
   .filter((node) => node.fork_id !== -1)
   .map((node) => `${node.fork_id}:${node.branch_id}`))].sort();
+const skillFallback = (skillId: string) => ({
+  mining: '⛏', fighting: '⚔', woodcutting: '🪓', farming: '🌱', crafting: '⚒',
+  traveling: '➶', building: '▦', fishing: '🎣', eating: '✦',
+}[skillId] ?? '◆');
 ---
 <section class="skill-tree-explorer" data-skill-tree data-unlock-cost={unlockCost}>
   <div class="tree-toolbar" aria-label="Contrôles de l’arbre">
@@ -63,9 +67,17 @@ const branchOptions = [...new Set(nodes
             data-node-id={node.id}
             data-node-search={`${node.names.fr} ${node.names.en} ${node.descriptions.fr} ${node.bonuses.map((bonus) => bonus.type).join(' ')}`}
             data-node-branch={node.fork_id === -1 ? 'trunk' : `${node.fork_id}:${node.branch_id}`}
-            title={node.names.fr}
-            aria-label={`${node.id}. ${node.names.fr}`}
-          ><span>{node.id}</span></button>
+            title={`${node.id}. ${node.names.fr} · coût ${unlockCost}`}
+            aria-label={`${node.id}. ${node.names.fr}. Coût ${unlockCost} points.`}
+          >
+            <span class="skill-node-visual" aria-hidden="true">
+              {node.icon.texture
+                ? <img src={sitePath(node.icon.texture)} alt="" loading="lazy" />
+                : <span class="skill-node-fallback">{skillFallback(node.skill_id)}</span>}
+            </span>
+            <span class="skill-node-number" aria-hidden="true">{node.id}</span>
+            <span class="sr-only">{node.names.fr} · {unlockCost} points</span>
+          </button>
         ))}
       </div>
     </div>
@@ -311,7 +323,7 @@ const branchOptions = [...new Set(nodes
 
     if (viewport instanceof HTMLElement) {
       viewport.addEventListener('pointerdown', (event) => {
-        if (event.target instanceof HTMLButtonElement || event.button !== 0) return;
+        if ((event.target instanceof Element && event.target.closest('[data-node]')) || event.button !== 0) return;
         dragging = true;
         pointerStart = { x: event.clientX, y: event.clientY };
         translateStart = { x: translateX, y: translateY };

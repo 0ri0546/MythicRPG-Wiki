@@ -144,6 +144,7 @@ const formatConstant = (constant: { value: number | boolean | number[]; unit: st
 </div>
 
 <script>
+  import { commitNumberInput, readNumberInput } from '../scripts/number-input';
   const clampFighting = (value, minimum, maximum) => Math.min(maximum, Math.max(minimum, value));
   document.querySelectorAll('[data-fighting-xp]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
@@ -160,9 +161,16 @@ const formatConstant = (constant: { value: number | boolean | number[]; unit: st
     const xpMultiplier = root.querySelector('[data-fighting-xp-multiplier]');
     const update = () => {
       if (!(healthInput instanceof HTMLInputElement) || !(levelInput instanceof HTMLInputElement) || !(baronInput instanceof HTMLInputElement)) return;
-      const health = Math.max(1, Number(healthInput.value) || 1);
-      const level = clampFighting(Number(levelInput.value) || data.barons.scaling.min_level, data.barons.scaling.min_level, data.barons.scaling.max_level);
-      levelInput.value = String(level);
+      const health = readNumberInput(healthInput, { minimum: 1 });
+      const level = readNumberInput(levelInput, { minimum: data.barons.scaling.min_level, maximum: data.barons.scaling.max_level, integer: true });
+      if (health === null || level === null) {
+        if (result) result.textContent = '—';
+        if (context) context.textContent = 'Terminez la saisie pour calculer le gain.';
+        [healthMultiplier, damageMultiplier, xpMultiplier].forEach((output) => {
+          if (output) output.textContent = '—';
+        });
+        return;
+      }
       const isBaron = baronInput.checked;
       const base = Math.max(data.xp.normal_min, Math.min(data.xp.normal_max, Math.round(health / data.xp.health_divisor)));
       const healthScale = 1 + level * data.barons.scaling.health_per_level;
@@ -178,6 +186,14 @@ const formatConstant = (constant: { value: number | boolean | number[]; unit: st
       if (xpMultiplier) xpMultiplier.textContent = isBaron ? `×${rewardScale.toFixed(2)}` : '×1';
     };
     [healthInput, levelInput, baronInput].forEach((control) => control?.addEventListener('input', update));
+    healthInput?.addEventListener('blur', () => {
+      if (healthInput instanceof HTMLInputElement) commitNumberInput(healthInput, 1, { minimum: 1 });
+      update();
+    });
+    levelInput?.addEventListener('blur', () => {
+      if (levelInput instanceof HTMLInputElement) commitNumberInput(levelInput, data.barons.scaling.min_level, { minimum: data.barons.scaling.min_level, maximum: data.barons.scaling.max_level, integer: true });
+      update();
+    });
     update();
   });
 

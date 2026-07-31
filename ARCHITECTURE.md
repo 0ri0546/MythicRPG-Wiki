@@ -1,28 +1,45 @@
-# Architecture MythicRPG Wiki v0.4.0
+# Architecture MythicRPG Wiki v0.4.1
 
-La v0.4.0 conserve l’architecture validée : extracteur Python, catalogue JSON commun, site Astro statique et export filtré pour la future encyclopédie.
+La v0.4.1 conserve l’architecture validée : extracteur Python, catalogue JSON commun, site Astro statique et export filtré pour la future encyclopédie.
 
-## Source de vérité
+## Sources de vérité
 
-`mod-source/src` est une copie exacte de `src(92)` et ne doit jamais être modifiée par la génération. La règle `.gitattributes` `mod-source/src/** -text` protège ses octets.
+- `mod-source/src` : valeurs, registres, recettes, traductions et assets du mod ;
+- `documentation/content` : contenu éditorial ;
+- `config/documented_values.yaml` : constantes Java explicitement suivies ;
+- `config/perk_icons.yaml` : mapping maintenable des icônes de perks ;
+- `config/recipe_tag_variants.yaml` : variantes représentatives des tags externes au namespace du mod.
 
-## Flux
+## Données générées
 
-1. les arbres, constantes, enums, registres, recettes et traductions sont lus dans la source ;
-2. les contenus éditoriaux Markdown/YAML sont fusionnés ;
-3. `data/generated/catalog.json` devient la source du site ;
-4. Astro génère les pages statiques ;
-5. `encyclopedia.json` réutilise les champs adaptés au manuel en jeu.
+L’extracteur construit :
 
-Le schéma du catalogue est `0.4.0`.
+- les neuf skills et leurs 180 perks ;
+- objets, blocs et recettes ;
+- données spécialisées des systèmes ;
+- informations visuelles des 188 recettes ;
+- provenance et mapping des 180 icônes de perks ;
+- index de recherche et export encyclopédie.
 
-## Extracteurs spécialisés
+Le schéma du catalogue est `0.4.1`.
 
-- `systems_extract.py` : progression, Mining, Eating, Fishing, Fighting et Crafting ;
-- `v040_extract.py` : Traveling, Building, Farming et Woodcutting.
+## Recettes visuelles
 
-Les pages utilisent des composants spécialisés, mais conservent `SkillTree`, les relations de contenu et les layouts communs.
+Les recettes shaped conservent le motif et sont normalisées vers neuf slots. Les recettes shapeless conservent une liste sans signification positionnelle. Chaque ingrédient possède un descripteur item ou tag, une variante représentative, les variantes connues et une indication de complétude.
 
-## JavaScript navigateur
+Le composant Astro `RecipeVisual.astro` rend ces données sans bibliothèque graphique et sans JavaScript client.
 
-Le JavaScript reste ciblé sur la recherche, les filtres, les arbres et les calculateurs déjà justifiés. Les informations essentielles restent disponibles sans hover et les nouvelles pages n’ajoutent pas d’interactivité décorative.
+## Icônes des perks
+
+L’extracteur applique les règles de `perk_icons.yaml` une seule fois. Les pages consomment ensuite l’icône normalisée du catalogue. Une texture du projet est utilisée si elle existe ; sinon l’arbre affiche un glyphe de skill cohérent.
+
+## JavaScript ciblé
+
+Le JavaScript navigateur reste limité aux interactions utiles : recherche, filtres, arbres et calculateurs. La v0.4.1 ajoute deux utilitaires partagés :
+
+- `number-input.ts` pour la validation différée des champs numériques ;
+- `search-normalize.ts` pour les recherches insensibles aux accents, à la casse et aux espaces.
+
+## Déploiement
+
+Astro produit des fichiers statiques compatibles GitHub Pages. `package-lock.json`, `npm ci`, le workflow GitHub Actions et les scripts multiplateformes sont conservés.

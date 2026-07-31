@@ -1,17 +1,18 @@
-# MythicRPG Wiki v0.4.0
+# MythicRPG Wiki v0.4.1
 
-Wiki statique généré depuis le code et les ressources de MythicRPG `src(92)`. Les neuf skills disposent désormais d’une documentation approfondie : Mining, Fighting, Woodcutting, Farming, Crafting, Traveling, Building, Fishing et Eating.
+Wiki statique généré depuis le code et les ressources de MythicRPG `src(92)`. Les neuf skills disposent d’une documentation approfondie ; la v0.4.1 améliore l’ergonomie des calculateurs, les recettes visuelles, les icônes des 180 perks et les filtres Eating.
 
-## Fonctionnalités v0.4.0
+## Fonctionnalités v0.4.1
 
-- neuf skills en couverture `deep` avec leurs 180 perks ;
-- arbres conservant positions, parents, branches et choix exclusifs ;
-- documentation spécialisée de Traveling, Building, Farming et Woodcutting ;
-- 22 montures et 22 modules de structures Traveling ;
-- 156 blocs d’XP Building, plans, réserves et contenus décoratifs ;
-- récoltes, élevage, croissance et objets Farming ;
-- Timber, drops, Hache enchantée et modules de coffre Woodcutting ;
-- documentation spécialisée précédente de Mining, Eating, Fishing, Fighting et Crafting ;
+- neuf skills en couverture approfondie avec 180 perks ;
+- 188 recettes affichées visuellement : 129 shaped et 59 shapeless ;
+- motifs shaped conservés dans une grille Minecraft 3 × 3 ;
+- textures du projet et fallbacks accessibles ;
+- mapping centralisé des icônes de perks ;
+- nodes entièrement cliquables au pointeur et au clavier ;
+- calculateurs autorisant une saisie temporairement vide ;
+- checkboxes alignées par un style partagé ;
+- filtres Eating insensibles à la casse, aux accents et aux espaces ;
 - statuts d’objets `confirmed`, `dynamic_probable` et `model_only` conservés ;
 - recherche statique, liens objets/recettes et export commun pour l’encyclopédie ;
 - GitHub Pages, lockfile, workflow et déployeur automatique conservés.
@@ -73,6 +74,8 @@ npm run preview
 
 - `documentation/content/{fr,en}/skills/*.md` ;
 - `config/documented_values.yaml` ;
+- `config/perk_icons.yaml` ;
+- `config/recipe_tag_variants.yaml` ;
 - `website/src/` ;
 - `tools/mythicwiki/`.
 

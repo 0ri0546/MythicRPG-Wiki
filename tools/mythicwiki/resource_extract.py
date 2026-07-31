@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+import yaml
+
 from .utils import copy_if_exists, read_text, unique_sorted
 
 
@@ -104,11 +106,112 @@ def extract_content(resources_root: Path, public_root: Path, locales: dict[str, 
     return items, blocks
 
 
-def extract_recipes(resources_root: Path, locales: dict[str, dict[str, str]]) -> list[dict[str, Any]]:
+def _readable_identifier(identifier: str) -> str:
+    value = identifier.split(":", 1)[-1].replace("_", " ").replace("/", " ")
+    return value[:1].upper() + value[1:]
+
+
+def _load_item_tags(resources_root: Path) -> dict[str, list[str]]:
+    tags: dict[str, list[str]] = {}
+    root = resources_root / "data/mythicrpg/tags/item"
+    if not root.is_dir():
+        return tags
+    for path in sorted(root.rglob("*.json")):
+        data = json.loads(read_text(path))
+        values = [str(value) for value in data.get("values", []) if isinstance(value, str) and not value.startswith("#")]
+        tag_id = f"mythicrpg:{path.relative_to(root).with_suffix('').as_posix()}"
+        tags[tag_id] = values
+    return tags
+
+
+def _load_editorial_tag_variants(path: Path | None) -> dict[str, list[str]]:
+    if path is None or not path.is_file():
+        return {}
+    data = yaml.safe_load(read_text(path)) or {}
+    return {
+        str(tag): [str(value) for value in values]
+        for tag, values in (data.get("tags") or {}).items()
+        if isinstance(values, list)
+    }
+
+
+def _visual_item(identifier: str, item_lookup: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    local_id = identifier.split(":", 1)[-1]
+    item = item_lookup.get(identifier) or item_lookup.get(f"mythicrpg:{local_id}")
+    fallback = _readable_identifier(identifier)
+    return {
+        "id": identifier,
+        "names": item.get("names", {"fr": fallback, "en": fallback}) if item else {"fr": fallback, "en": fallback},
+        "texture": item.get("texture") if item else None,
+    }
+
+
+def _ingredient_descriptor(
+    raw: Any,
+    item_lookup: dict[str, dict[str, Any]],
+    tag_variants: dict[str, list[str]],
+) -> dict[str, Any]:
+    if isinstance(raw, str):
+        identifier = raw
+        kind = "tag" if raw.startswith("#") else "item"
+        if kind == "tag":
+            identifier = raw[1:]
+    elif isinstance(raw, dict):
+        if raw.get("item") or raw.get("id"):
+            identifier = str(raw.get("item") or raw.get("id"))
+            kind = "item"
+        elif raw.get("tag"):
+            identifier = str(raw["tag"])
+            kind = "tag"
+        else:
+            identifier, kind = "unknown", "unknown"
+    else:
+        identifier, kind = "unknown", "unknown"
+
+    if kind == "item":
+        visual = _visual_item(identifier, item_lookup)
+        return {
+            "kind": "item",
+            "id": identifier,
+            "names": visual["names"],
+            "representative": visual,
+            "variants": [visual],
+            "variant_count": 1,
+            "variants_complete": True,
+        }
+
+    variants = [_visual_item(value, item_lookup) for value in tag_variants.get(identifier, [])]
+    representative = variants[0] if variants else {
+        "id": identifier,
+        "names": {"fr": _readable_identifier(identifier), "en": _readable_identifier(identifier)},
+        "texture": None,
+    }
+    label = _readable_identifier(identifier)
+    return {
+        "kind": "tag" if kind == "tag" else "unknown",
+        "id": identifier,
+        "names": {"fr": f"Tag {label}", "en": f"Tag {label}"},
+        "representative": representative,
+        "variants": variants,
+        "variant_count": len(variants),
+        "variants_complete": bool(variants),
+    }
+
+
+def extract_recipes(
+    resources_root: Path,
+    locales: dict[str, dict[str, str]],
+    items: list[dict[str, Any]],
+    tag_variants_config: Path | None = None,
+) -> list[dict[str, Any]]:
     recipe_root = resources_root / "data/mythicrpg/recipe"
     recipes: list[dict[str, Any]] = []
     if not recipe_root.is_dir():
         recipe_root = resources_root / "data/mythicrpg/recipes"
+    item_lookup = {item["identifier"]: item for item in items}
+    tag_variants = _load_item_tags(resources_root)
+    tag_variants.update(_load_editorial_tag_variants(tag_variants_config))
+
     for path in sorted(recipe_root.rglob("*.json")):
         data = json.loads(read_text(path))
         recipe_type = str(data.get("type", "unknown"))
@@ -120,32 +223,88 @@ def extract_recipes(resources_root: Path, locales: dict[str, dict[str, str]]) ->
             count = int(result_raw.get("count", 1))
         else:
             result_id, count = "unknown", 1
-        ingredients: list[str] = []
-        if isinstance(data.get("ingredients"), list):
-            for ingredient in data["ingredients"]:
-                if isinstance(ingredient, str):
-                    ingredients.append(ingredient)
-                elif isinstance(ingredient, dict):
-                    ingredients.append(str(ingredient.get("item") or ingredient.get("tag") or ingredient.get("id") or "unknown"))
-        if isinstance(data.get("key"), dict):
-            for ingredient in data["key"].values():
-                if isinstance(ingredient, str):
-                    ingredients.append(ingredient)
-                elif isinstance(ingredient, dict):
-                    ingredients.append(str(ingredient.get("item") or ingredient.get("tag") or ingredient.get("id") or "unknown"))
-        local_id = path.relative_to(recipe_root).with_suffix("").as_posix()
+
         result_local = result_id.split(":", 1)[-1]
         key = f"item.mythicrpg.{result_local}"
         if key not in locales.get("fr_fr", {}):
             key = f"block.mythicrpg.{result_local}"
         fallback = result_local.replace("_", " ").title()
+        result_visual = _visual_item(result_id, item_lookup)
+        result = {
+            "id": result_id,
+            "count": count,
+            "names": _translated(locales, key, fallback),
+            "texture": result_visual["texture"],
+        }
+
+        ingredient_ids: list[str] = []
+        visual: dict[str, Any]
+        if recipe_type == "minecraft:crafting_shaped":
+            pattern = [str(row) for row in data.get("pattern", [])]
+            key_data = data.get("key") if isinstance(data.get("key"), dict) else {}
+            key_descriptors = {
+                symbol: _ingredient_descriptor(raw, item_lookup, tag_variants)
+                for symbol, raw in key_data.items()
+            }
+            slots: list[dict[str, Any] | None] = [None] * 9
+            for row_index, row in enumerate(pattern[:3]):
+                for column_index, symbol in enumerate(row[:3]):
+                    if symbol == " ":
+                        continue
+                    descriptor = key_descriptors.get(symbol)
+                    slots[row_index * 3 + column_index] = descriptor
+                    if descriptor:
+                        ingredient_ids.append(descriptor["id"])
+            visual = {
+                "kind": "shaped",
+                "station": "minecraft:crafting_table",
+                "slots": slots,
+                "ingredients": [],
+                "pattern_width": max((len(row) for row in pattern), default=0),
+                "pattern_height": len(pattern),
+                "shiftable": len(pattern) < 3 or max((len(row) for row in pattern), default=0) < 3,
+            }
+        elif recipe_type == "minecraft:crafting_shapeless":
+            descriptors = [
+                _ingredient_descriptor(raw, item_lookup, tag_variants)
+                for raw in data.get("ingredients", [])
+            ]
+            ingredient_ids.extend(descriptor["id"] for descriptor in descriptors)
+            visual = {
+                "kind": "shapeless",
+                "station": "minecraft:crafting_table",
+                "slots": [],
+                "ingredients": descriptors,
+                "pattern_width": None,
+                "pattern_height": None,
+                "shiftable": True,
+            }
+        else:
+            descriptors = [
+                _ingredient_descriptor(raw, item_lookup, tag_variants)
+                for raw in data.get("ingredients", [])
+            ]
+            ingredient_ids.extend(descriptor["id"] for descriptor in descriptors)
+            visual = {
+                "kind": "station",
+                "station": recipe_type,
+                "slots": [],
+                "ingredients": descriptors,
+                "pattern_width": None,
+                "pattern_height": None,
+                "shiftable": False,
+            }
+
+        local_id = path.relative_to(recipe_root).with_suffix("").as_posix()
         recipes.append({
             "id": local_id,
             "type": recipe_type,
-            "result": {"id": result_id, "count": count, "names": _translated(locales, key, fallback)},
-            "ingredients": unique_sorted(ingredients),
+            "result": result,
+            "ingredients": unique_sorted(ingredient_ids),
             "pattern": data.get("pattern"),
             "group": data.get("group"),
+            "category": data.get("category"),
+            "visual": visual,
             "extraction": {"method": "recipe_json", "file": path.relative_to(resources_root).as_posix()},
         })
     return recipes

@@ -137,6 +137,7 @@ const initialMastery = Math.max(1, Math.floor(initialCraftXp * crafting.bonuses.
 </div>
 
 <script>
+  import { commitNumberInput, readNumberInput } from '../scripts/number-input';
   const formatCraft = (value) => new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(Math.max(0, value));
   document.querySelectorAll('[data-crafting-calculator]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
@@ -154,7 +155,15 @@ const initialMastery = Math.max(1, Math.floor(initialCraftXp * crafting.bonuses.
     const masteryOutput = root.querySelector('[data-craft-mastery]');
     const update = () => {
       if (!(score instanceof HTMLInputElement) || !(count instanceof HTMLInputElement)) return;
-      const totalScore = Math.max(0, Number(score.value) || 0) * Math.max(1, Number(count.value) || 1);
+      const scoreValue = readNumberInput(score, { minimum: 0 });
+      const countValue = readNumberInput(count, { minimum: 1, integer: true });
+      if (scoreValue === null || countValue === null) {
+        [xpOutput, vanillaOutput, chargeOutput, masteryOutput].forEach((output) => {
+          if (output) output.textContent = '—';
+        });
+        return;
+      }
+      const totalScore = scoreValue * countValue;
       let xp = totalScore <= 0 ? 0 : Math.min(data.xp.max_per_action, Math.max(1, Math.floor(totalScore * data.xp.score_multiplier)));
       if (night instanceof HTMLInputElement && night.checked && xp > 0) xp = Math.max(1, Math.floor(xp * data.xp.midnight_multiplier));
       if (inspiration instanceof HTMLInputElement && inspiration.checked && xp > 0) xp = Math.max(1, xp * data.bonuses.mythic_inspiration_multiplier);
@@ -168,6 +177,14 @@ const initialMastery = Math.max(1, Math.floor(initialCraftXp * crafting.bonuses.
       if (masteryOutput) masteryOutput.textContent = formatCraft(mastery);
     };
     [score, count, night, inspiration, first].forEach((control) => control?.addEventListener('input', update));
+    score?.addEventListener('blur', () => {
+      if (score instanceof HTMLInputElement) commitNumberInput(score, 0, { minimum: 0 });
+      update();
+    });
+    count?.addEventListener('blur', () => {
+      if (count instanceof HTMLInputElement) commitNumberInput(count, 1, { minimum: 1, integer: true });
+      update();
+    });
     update();
   });
 
@@ -178,7 +195,8 @@ const initialMastery = Math.max(1, Math.floor(initialCraftXp * crafting.bonuses.
     const summary = root.querySelector('[data-score-summary]');
     const update = () => {
       const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
-      const min = minimum instanceof HTMLInputElement ? Math.max(0, Number(minimum.value) || 0) : 0;
+      const minimumValue = minimum instanceof HTMLInputElement ? readNumberInput(minimum, { minimum: 0 }) : 0;
+      const min = minimumValue ?? 0;
       let visible = 0;
       rows.forEach((row) => {
         if (!(row instanceof HTMLElement)) return;
@@ -190,6 +208,10 @@ const initialMastery = Math.max(1, Math.floor(initialCraftXp * crafting.bonuses.
     };
     search?.addEventListener('input', update);
     minimum?.addEventListener('input', update);
+    minimum?.addEventListener('blur', () => {
+      if (minimum instanceof HTMLInputElement) commitNumberInput(minimum, 0, { minimum: 0 });
+      update();
+    });
     update();
   });
 

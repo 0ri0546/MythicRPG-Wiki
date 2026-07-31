@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.4.0",
+  "schema_version": "0.4.1",
   "source": {
     "canonical_source": "src(92).zip",
     "received_archive": "src(92).zip",

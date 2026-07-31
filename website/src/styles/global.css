@@ -342,7 +342,7 @@ th { color: var(--muted); }
   .static-xp-chart { min-height: 280px; }
 }
 
-/* Fighting and Crafting deep documentation v0.4.0 */
+/* Fighting and Crafting deep documentation */
 .specialized-explorer { display: grid; gap: 2rem; }
 .specialized-explorer > section { scroll-margin-top: 9rem; }
 .option-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; margin: 1rem 0; }
@@ -400,4 +400,55 @@ th { color: var(--muted); }
   .reward-row > span:last-child { grid-column: 1 / -1; }
   .detail-panel > summary { align-items: flex-start; }
   .transformation-row { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); font-size: .85rem; }
+}
+
+/* Accessibility and shared controls v0.4.1 */
+.sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
+.form-choice { display: inline-flex; align-items: center; gap: .55rem; min-height: 2.75rem; padding: .45rem .6rem; line-height: 1.35; cursor: pointer; }
+.form-choice input[type="checkbox"], .form-choice input[type="radio"] { flex: 0 0 auto; margin: 0; align-self: center; }
+.form-choice:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 7px; }
+.filter-with-reset { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .65rem; align-items: end; }
+.filter-reset-button { margin: .7rem 0 1rem; }
+.empty-state { padding: 1rem; border: 1px dashed var(--line); border-radius: 8px; color: var(--muted); text-align: center; }
+
+/* Perk icons and complete click target v0.4.1 */
+.skill-tree-lines { pointer-events: none; z-index: 0; }
+.skill-node { z-index: 1; display: grid; place-items: center; overflow: visible; padding: 2px; touch-action: manipulation; }
+.skill-node > * { pointer-events: none; }
+.skill-node:focus-visible { outline: 3px solid var(--accent-strong); outline-offset: 3px; }
+.skill-node-visual { display: grid; place-items: center; width: 100%; height: 100%; overflow: hidden; border-radius: 4px; background: rgba(8, 12, 8, .42); }
+.skill-node-visual img { width: 82%; height: 82%; object-fit: contain; image-rendering: pixelated; }
+.skill-node-fallback { color: var(--accent-strong); font-size: 1.05rem; line-height: 1; }
+.skill-node-number { position: absolute; right: -5px; bottom: -5px; display: grid; place-items: center; min-width: 18px; height: 18px; padding: 0 3px; border: 1px solid var(--line); border-radius: 999px; background: #101610; color: var(--text); font-size: .65rem; line-height: 1; }
+
+/* Visual Minecraft recipes v0.4.1 */
+.recipe-visual { margin: 0 0 2rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+.recipe-visual figcaption { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; margin-bottom: 1rem; color: var(--muted); }
+.crafting-recipe { display: grid; grid-template-columns: auto minmax(36px, 70px) minmax(120px, 180px); align-items: center; justify-content: center; gap: 1rem; }
+.crafting-grid { display: grid; grid-template-columns: repeat(3, 64px); grid-template-rows: repeat(3, 64px); gap: 5px; padding: 8px; border: 2px solid #5f655e; border-radius: 8px; background: #c6c6c6; box-shadow: inset 0 0 0 2px #fefefe, inset 0 0 0 4px #555; }
+.recipe-slot { position: relative; display: grid; place-items: center; width: 64px; height: 64px; border: 2px solid; border-color: #373737 #fff #fff #373737; background: #8b8b8b; color: #111; }
+.recipe-slot.is-empty { opacity: .7; }
+.recipe-slot img { width: 46px; height: 46px; object-fit: contain; image-rendering: pixelated; }
+.recipe-icon-fallback { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 6px; background: #606760; color: #f4f4f4; font-weight: 900; font-size: .78rem; letter-spacing: .03em; }
+.recipe-slot-variant-count { position: absolute; top: 2px; left: 3px; min-width: 18px; padding: 1px 4px; border-radius: 999px; background: #213321; color: #dff7c8; font-size: .65rem; text-align: center; }
+.recipe-quantity { position: absolute; right: 4px; bottom: 1px; color: #fff; font-size: 1rem; font-weight: 900; text-shadow: 2px 2px #222; }
+.recipe-arrow { color: var(--accent-strong); font-size: 2.5rem; font-weight: 900; text-align: center; }
+.recipe-result { display: grid; justify-items: center; gap: .55rem; min-width: 0; text-align: center; }
+.recipe-result strong { overflow-wrap: anywhere; }
+.result-slot { width: 76px; height: 76px; }
+.result-slot img { width: 56px; height: 56px; }
+.recipe-alternatives { margin-top: 1.2rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+.recipe-alternatives h3 { margin-top: 0; }
+.recipe-alternatives details { padding: .55rem 0; border-bottom: 1px solid var(--line); }
+.recipe-alternatives summary { cursor: pointer; font-weight: 700; }
+.recipe-alternatives ul { margin-bottom: 0; }
+
+@media (max-width: 650px) {
+  .filter-with-reset { grid-template-columns: 1fr; }
+  .crafting-recipe { grid-template-columns: 1fr; justify-items: center; }
+  .recipe-arrow { transform: rotate(90deg); }
+  .crafting-grid { grid-template-columns: repeat(3, minmax(50px, 58px)); grid-template-rows: repeat(3, minmax(50px, 58px)); }
+  .recipe-slot { width: 100%; height: 100%; min-width: 50px; min-height: 50px; }
+  .recipe-slot img { width: 40px; height: 40px; }
+  .result-slot { width: 70px; height: 70px; }
 }

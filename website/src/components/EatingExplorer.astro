@@ -3,6 +3,11 @@ import type { DocumentedValue, EatingSystem } from '../lib/catalog';
 interface Props { eating: EatingSystem; values: DocumentedValue[] }
 const { eating, values } = Astro.props;
 const byId = new Map(values.map((value) => [value.id, value]));
+const ingredientById = new Map(eating.ingredients.map((ingredient) => [ingredient.id, ingredient]));
+const ingredientSearchText = (item: string) => {
+  const ingredient = ingredientById.get(item);
+  return ingredient ? `${item} ${ingredient.names.fr} ${ingredient.names.en} ${ingredient.categories.join(' ')}` : item;
+};
 const xpSources = [
   { id: 'vanilla_food', label: 'Aliment vanilla ordinaire', value: Number(byId.get('eating.vanilla_food_xp')?.value ?? 0), status: byId.get('eating.vanilla_food_xp')?.status },
   { id: 'vanilla_soup', label: 'Soupe vanilla', value: Number(byId.get('eating.vanilla_soup_xp')?.value ?? 0), status: byId.get('eating.vanilla_soup_xp')?.status },
@@ -41,9 +46,12 @@ const xpSources = [
     <article class="interactive-panel ingredient-explorer" data-ingredient-explorer>
       <p class="eyebrow">Ingrédients</p>
       <h3>{eating.ingredients.length} ingrédients littéraux + {eating.dynamic_ingredient_sources.length} source dynamique</h3>
-      <label>Filtrer
-        <input type="search" placeholder="Pomme, viande, magique…" data-ingredient-search />
-      </label>
+      <div class="filter-with-reset">
+        <label>Filtrer
+          <input type="search" placeholder="Pomme, viande, magique…" data-ingredient-search />
+        </label>
+        <button type="button" class="button small" data-ingredient-reset>Réinitialiser</button>
+      </div>
       <label>Score minimum
         <input type="range" min="1" max="5" value="1" data-ingredient-score />
         <output data-ingredient-score-output>1</output>
@@ -53,14 +61,15 @@ const xpSources = [
           <div
             class="compact-row"
             data-ingredient
-            data-search={`${ingredient.id} ${ingredient.categories.join(' ')}`}
+            data-search={`${ingredient.id} ${ingredient.names.fr} ${ingredient.names.en} ${ingredient.categories.join(' ')}`}
             data-score={ingredient.score}
           >
-            <div><strong>{ingredient.id.replace('minecraft:', '').replaceAll('_', ' ')}</strong><small>{ingredient.categories.join(' · ')}</small></div>
+            <div><strong>{ingredient.names.fr}</strong><small><code>{ingredient.id}</code> · {ingredient.categories.join(' · ')}</small></div>
             <span class="status-badge">score {ingredient.score}</span>
           </div>
         ))}
       </div>
+      <p class="empty-state" data-ingredient-empty hidden>Aucun ingrédient ne correspond à ces filtres.</p>
       <p class="source-note">Les prises Fishing sont évaluées dynamiquement selon leur famille et leur rareté.</p>
     </article>
   </div>
@@ -95,13 +104,14 @@ const xpSources = [
         </select>
       </label>
     </div>
+    <button type="button" class="button small filter-reset-button" data-cooking-reset>Réinitialiser les filtres</button>
 
     <div class="data-card-grid" data-cooking-grid>
       {eating.cooking_recipes.map((recipe) => (
         <article
           class="data-card"
           data-cooking-card
-          data-search={`${recipe.names.fr} ${recipe.names.en} ${recipe.id} ${recipe.ingredients.map((ingredient) => `${ingredient.item} ${ingredient.category}`).join(' ')} ${(recipe.ingredient_hints ?? []).join(' ')}`}
+          data-search={`${recipe.names.fr} ${recipe.names.en} ${recipe.id} ${recipe.ingredients.map((ingredient) => `${ingredientSearchText(ingredient.item)} ${ingredient.category}`).join(' ')} ${(recipe.ingredient_hints ?? []).join(' ')}`}
           data-category={recipe.category}
           data-rarity={recipe.rarity}
           data-kind={recipe.kind}
@@ -118,10 +128,14 @@ const xpSources = [
         </article>
       ))}
     </div>
+    <p class="empty-state" data-cooking-empty hidden>Aucune recette ne correspond aux filtres actifs.</p>
   </div>
 </section>
 
 <script>
+  import { commitNumberInput, readNumberInput } from '../scripts/number-input';
+  import { normalizeSearch } from '../scripts/search-normalize';
+
   document.querySelectorAll('[data-eating-xp]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
     const sources = JSON.parse(root.dataset.xpSources ?? '[]');
@@ -161,34 +175,55 @@ const xpSources = [
     const update = () => {
       const id = sourceSelect instanceof HTMLSelectElement ? sourceSelect.value : sources[0]?.id;
       const source = sources.find((entry) => entry.id === id) ?? sources[0];
-      const quantity = quantityInput instanceof HTMLInputElement ? Math.max(1, Number(quantityInput.value) || 1) : 1;
-      if (quantityInput instanceof HTMLInputElement) quantityInput.value = String(quantity);
+      const quantity = quantityInput instanceof HTMLInputElement
+        ? readNumberInput(quantityInput, { minimum: 1, maximum: 999, integer: true })
+        : 1;
+      if (quantity === null) {
+        if (total) total.textContent = '—';
+        if (status) status.textContent = 'Terminez la saisie de la quantité.';
+        return;
+      }
       if (total) total.textContent = `${source.value * quantity} XP`;
       if (status) status.textContent = source.status === 'beta' ? 'Valeur temporaire de bêta' : 'Valeur stable documentée';
       chart?.querySelectorAll('button').forEach((button, index) => button.classList.toggle('is-active', sources[index]?.id === source.id));
     };
     sourceSelect?.addEventListener('change', update);
     quantityInput?.addEventListener('input', update);
+    quantityInput?.addEventListener('blur', () => {
+      if (quantityInput instanceof HTMLInputElement) commitNumberInput(quantityInput, 1, { minimum: 1, maximum: 999, integer: true });
+      update();
+    });
     update();
   });
 
   document.querySelectorAll('[data-ingredient-explorer]').forEach((root) => {
     const search = root.querySelector('[data-ingredient-search]');
+    const reset = root.querySelector('[data-ingredient-reset]');
     const score = root.querySelector('[data-ingredient-score]');
     const scoreOutput = root.querySelector('[data-ingredient-score-output]');
+    const empty = root.querySelector('[data-ingredient-empty]');
     const rows = [...root.querySelectorAll('[data-ingredient]')];
     const update = () => {
-      const query = search instanceof HTMLInputElement ? search.value.toLowerCase().trim() : '';
+      const query = search instanceof HTMLInputElement ? normalizeSearch(search.value) : '';
       const minimum = score instanceof HTMLInputElement ? Number(score.value) : 1;
       if (scoreOutput) scoreOutput.textContent = String(minimum);
+      let visible = 0;
       rows.forEach((row) => {
         if (!(row instanceof HTMLElement)) return;
-        const show = (row.dataset.search ?? '').toLowerCase().includes(query) && Number(row.dataset.score ?? 0) >= minimum;
+        const show = normalizeSearch(row.dataset.search ?? '').includes(query) && Number(row.dataset.score ?? 0) >= minimum;
         row.hidden = !show;
+        if (show) visible += 1;
       });
+      if (empty instanceof HTMLElement) empty.hidden = visible !== 0;
     };
     search?.addEventListener('input', update);
     score?.addEventListener('input', update);
+    reset?.addEventListener('click', () => {
+      if (search instanceof HTMLInputElement) search.value = '';
+      if (score instanceof HTMLInputElement) score.value = '1';
+      update();
+      if (search instanceof HTMLInputElement) search.focus();
+    });
     update();
   });
 
@@ -197,17 +232,19 @@ const xpSources = [
     const category = root.querySelector('[data-cooking-category]');
     const rarity = root.querySelector('[data-cooking-rarity]');
     const kind = root.querySelector('[data-cooking-kind]');
+    const reset = root.querySelector('[data-cooking-reset]');
     const count = root.querySelector('[data-cooking-count]');
+    const empty = root.querySelector('[data-cooking-empty]');
     const cards = [...root.querySelectorAll('[data-cooking-card]')];
     const update = () => {
-      const query = search instanceof HTMLInputElement ? search.value.toLowerCase().trim() : '';
+      const query = search instanceof HTMLInputElement ? normalizeSearch(search.value) : '';
       const categoryValue = category instanceof HTMLSelectElement ? category.value : 'all';
       const rarityValue = rarity instanceof HTMLSelectElement ? rarity.value : 'all';
       const kindValue = kind instanceof HTMLSelectElement ? kind.value : 'all';
       let visible = 0;
       cards.forEach((card) => {
         if (!(card instanceof HTMLElement)) return;
-        const show = (card.dataset.search ?? '').toLowerCase().includes(query)
+        const show = normalizeSearch(card.dataset.search ?? '').includes(query)
           && (categoryValue === 'all' || card.dataset.category === categoryValue)
           && (rarityValue === 'all' || card.dataset.rarity === rarityValue)
           && (kindValue === 'all' || card.dataset.kind === kindValue);
@@ -215,8 +252,17 @@ const xpSources = [
         if (show) visible += 1;
       });
       if (count) count.textContent = `${visible} résultats`;
+      if (empty instanceof HTMLElement) empty.hidden = visible !== 0;
     };
     [search, category, rarity, kind].forEach((control) => control?.addEventListener('input', update));
+    reset?.addEventListener('click', () => {
+      if (search instanceof HTMLInputElement) search.value = '';
+      [category, rarity, kind].forEach((control) => {
+        if (control instanceof HTMLSelectElement) control.value = 'all';
+      });
+      update();
+      if (search instanceof HTMLInputElement) search.focus();
+    });
     update();
   });
 </script>

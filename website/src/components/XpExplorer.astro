@@ -135,6 +135,8 @@ const format = (value: number) => new Intl.NumberFormat('fr-FR').format(Math.max
 </section>
 
 <script>
+  import { commitNumberInput, readNumberInput } from '../scripts/number-input';
+
   document.querySelectorAll('[data-xp-calculator]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
     const raw = root.dataset.progression;
@@ -149,21 +151,28 @@ const format = (value: number) => new Intl.NumberFormat('fr-FR').format(Math.max
     const totalXpInput = root.querySelector('[data-total-xp]');
     const levelFromXpOutput = root.querySelector('[data-level-from-xp]');
     const levelXpContext = root.querySelector('[data-level-xp-context]');
-    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
     const format = (value) => new Intl.NumberFormat('fr-FR').format(Math.max(0, Math.round(value)));
 
     const updateCalculator = () => {
       if (!(currentLevelInput instanceof HTMLInputElement) || !(currentXpInput instanceof HTMLInputElement) || !(targetLevelInput instanceof HTMLInputElement)) return;
-      const currentLevel = clamp(Number(currentLevelInput.value) || 1, 1, progression.max_level);
-      const targetLevel = clamp(Number(targetLevelInput.value) || currentLevel, currentLevel, progression.max_level);
-      currentLevelInput.value = String(currentLevel);
-      targetLevelInput.value = String(targetLevel);
+      const currentLevel = readNumberInput(currentLevelInput, { minimum: 1, maximum: progression.max_level, integer: true });
+      const targetRaw = readNumberInput(targetLevelInput, { minimum: 1, maximum: progression.max_level, integer: true });
+      if (currentLevel === null || targetRaw === null) {
+        if (remainingOutput) remainingOutput.textContent = '—';
+        if (contextOutput) contextOutput.textContent = 'Terminez la saisie des niveaux pour calculer l’objectif.';
+        return;
+      }
+      const targetLevel = Math.max(currentLevel, targetRaw);
       const currentEntry = levels.find((entry) => entry.level === currentLevel);
       const targetEntry = levels.find((entry) => entry.level === targetLevel);
       const maxInternalXp = Math.max(0, (currentEntry?.required ?? 1) - 1);
-      const internalXp = clamp(Number(currentXpInput.value) || 0, 0, maxInternalXp);
-      currentXpInput.value = String(internalXp);
       currentXpInput.max = String(maxInternalXp);
+      const internalXp = readNumberInput(currentXpInput, { minimum: 0, maximum: maxInternalXp, integer: true });
+      if (internalXp === null) {
+        if (remainingOutput) remainingOutput.textContent = '—';
+        if (contextOutput) contextOutput.textContent = 'Terminez la saisie de l’XP actuelle.';
+        return;
+      }
       const currentTotal = (currentEntry?.cumulative ?? 0) + internalXp;
       const targetTotal = targetEntry?.cumulative ?? currentTotal;
       const remaining = Math.max(0, targetTotal - currentTotal);
@@ -171,9 +180,25 @@ const format = (value: number) => new Intl.NumberFormat('fr-FR').format(Math.max
       if (contextOutput) contextOutput.textContent = `Du niveau ${currentLevel} (${internalXp} XP) au niveau ${targetLevel}.`;
     };
 
+    const commitCalculator = () => {
+      if (!(currentLevelInput instanceof HTMLInputElement) || !(currentXpInput instanceof HTMLInputElement) || !(targetLevelInput instanceof HTMLInputElement)) return;
+      const currentLevel = commitNumberInput(currentLevelInput, 1, { minimum: 1, maximum: progression.max_level, integer: true });
+      const currentEntry = levels.find((entry) => entry.level === currentLevel);
+      const maxInternalXp = Math.max(0, (currentEntry?.required ?? 1) - 1);
+      currentXpInput.max = String(maxInternalXp);
+      commitNumberInput(currentXpInput, 0, { minimum: 0, maximum: maxInternalXp, integer: true });
+      commitNumberInput(targetLevelInput, currentLevel, { minimum: currentLevel, maximum: progression.max_level, integer: true });
+      updateCalculator();
+    };
+
     const updateLevelFromXp = () => {
       if (!(totalXpInput instanceof HTMLInputElement)) return;
-      const total = Math.max(0, Number(totalXpInput.value) || 0);
+      const total = readNumberInput(totalXpInput, { minimum: 0, integer: true });
+      if (total === null) {
+        if (levelFromXpOutput) levelFromXpOutput.textContent = '—';
+        if (levelXpContext) levelXpContext.textContent = 'Terminez la saisie de l’XP cumulée.';
+        return;
+      }
       let reached = levels[0];
       for (const entry of levels) {
         if (entry.cumulative <= total) reached = entry;
@@ -186,8 +211,15 @@ const format = (value: number) => new Intl.NumberFormat('fr-FR').format(Math.max
         : `${format(internal)} / ${format(reached.required)} XP dans ce niveau.`;
     };
 
-    [currentLevelInput, currentXpInput, targetLevelInput].forEach((control) => control?.addEventListener('input', updateCalculator));
+    [currentLevelInput, currentXpInput, targetLevelInput].forEach((control) => {
+      control?.addEventListener('input', updateCalculator);
+      control?.addEventListener('blur', commitCalculator);
+    });
     totalXpInput?.addEventListener('input', updateLevelFromXp);
+    totalXpInput?.addEventListener('blur', () => {
+      if (totalXpInput instanceof HTMLInputElement) commitNumberInput(totalXpInput, 0, { minimum: 0, integer: true });
+      updateLevelFromXp();
+    });
     updateCalculator();
     updateLevelFromXp();
   });

@@ -1,0 +1,77 @@
+---
+import type { RecipeEntry, RecipeIngredient, RecipeVisualItem } from '../lib/catalog';
+import { readableIdentifier, sitePath } from '../lib/catalog';
+interface Props { recipe: RecipeEntry; compact?: boolean }
+const { recipe, compact = false } = Astro.props;
+const visualIngredients = recipe.visual.kind === 'shaped'
+  ? recipe.visual.slots
+  : [...recipe.visual.ingredients, ...Array(Math.max(0, 9 - recipe.visual.ingredients.length)).fill(null)].slice(0, 9);
+const alternativeMap = new Map<string, RecipeIngredient>();
+for (const ingredient of [...recipe.visual.slots, ...recipe.visual.ingredients]) {
+  if (ingredient && ingredient.kind === 'tag') alternativeMap.set(ingredient.id, ingredient);
+}
+const alternativeIngredients = [...alternativeMap.values()];
+const fallbackLabel = (item: RecipeVisualItem) => {
+  const readable = readableIdentifier(item.id).replace(/[^\p{L}\p{N} ]/gu, '').trim();
+  const words = readable.split(/\s+/).filter(Boolean);
+  return (words.length > 1 ? `${words[0][0]}${words[1][0]}` : readable.slice(0, 2)).toUpperCase() || '?';
+};
+const ingredientLabel = (ingredient: RecipeIngredient) => ingredient.kind === 'tag'
+  ? `${ingredient.names.fr} ; variante affichée : ${ingredient.representative.names.fr}`
+  : ingredient.names.fr;
+---
+<figure class:list={['recipe-visual', compact && 'recipe-visual-compact']}>
+  <figcaption>
+    <span class="status-badge">{recipe.visual.kind === 'shaped' ? 'Recette façonnée' : recipe.visual.kind === 'shapeless' ? 'Recette sans forme' : readableIdentifier(recipe.visual.station)}</span>
+    {recipe.visual.kind === 'shapeless' && <span>La position des ingrédients n’a aucune importance.</span>}
+    {recipe.visual.kind === 'shaped' && recipe.visual.shiftable && <span>Le motif conserve cette disposition relative et peut être déplacé dans la grille 3×3.</span>}
+  </figcaption>
+
+  <div class="crafting-recipe" aria-label={`Recette de ${recipe.result.names.fr}`}>
+    <div class="crafting-grid" role="list" aria-label={recipe.visual.kind === 'shapeless' ? 'Ingrédients sans ordre' : 'Motif de fabrication 3 par 3'}>
+      {visualIngredients.map((ingredient, index) => (
+        <div class:list={['recipe-slot', !ingredient && 'is-empty']} role="listitem" aria-label={ingredient ? ingredientLabel(ingredient) : `Emplacement ${index + 1} vide`}>
+          {ingredient && (
+            <>
+              {ingredient.representative.texture
+                ? <img src={sitePath(ingredient.representative.texture)} alt={ingredientLabel(ingredient)} loading="lazy" />
+                : <span class="recipe-icon-fallback" aria-hidden="true">{fallbackLabel(ingredient.representative)}</span>}
+              {ingredient.kind === 'tag' && <span class="recipe-slot-variant-count" aria-hidden="true">{ingredient.variant_count || '+'}</span>}
+              <span class="sr-only">{ingredientLabel(ingredient)}</span>
+            </>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <span class="recipe-arrow" aria-hidden="true">→</span>
+
+    <div class="recipe-result" aria-label={`${recipe.result.count} ${recipe.result.names.fr}`}>
+      <div class="recipe-slot result-slot">
+        {recipe.result.texture
+          ? <img src={sitePath(recipe.result.texture)} alt={recipe.result.names.fr} loading="lazy" />
+          : <span class="recipe-icon-fallback" aria-hidden="true">{fallbackLabel({ id: recipe.result.id, names: recipe.result.names, texture: null })}</span>}
+        {recipe.result.count > 1 && <span class="recipe-quantity" aria-label={`Quantité ${recipe.result.count}`}>{recipe.result.count}</span>}
+      </div>
+      <strong>{recipe.result.names.fr}</strong>
+    </div>
+  </div>
+
+  {alternativeIngredients.length > 0 && (
+    <div class="recipe-alternatives">
+      <h3>Variantes acceptées</h3>
+      {alternativeIngredients.map((ingredient) => (
+        <details>
+          <summary>{ingredient.names.fr} — {ingredient.variant_count ? `${ingredient.variant_count} variante(s) documentée(s)` : 'variantes définies par Minecraft'}</summary>
+          {ingredient.variants.length > 0 ? (
+            <ul>
+              {ingredient.variants.map((variant) => <li><code>{variant.id}</code> — {variant.names.fr}</li>)}
+            </ul>
+          ) : (
+            <p>Le tag <code>{ingredient.id}</code> est accepté. La source du mod ne contient pas la liste vanilla complète ; la représentation reste donc générique.</p>
+          )}
+        </details>
+      ))}
+    </div>
+  )}
+</figure>

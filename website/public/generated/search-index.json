@@ -5704,5 +5704,464 @@
       "en": "Legendary Whale"
     },
     "url": "/skills/fishing/#sea-monsters"
+  },
+  {
+    "type": "baron",
+    "id": "normal",
+    "title": {
+      "fr": "Baron",
+      "en": "Baron"
+    },
+    "url": "/skills/fighting/#baron-normal"
+  },
+  {
+    "type": "baron",
+    "id": "druid",
+    "title": {
+      "fr": "Baron druide",
+      "en": "Druid Baron"
+    },
+    "url": "/skills/fighting/#baron-druid"
+  },
+  {
+    "type": "baron",
+    "id": "barrage",
+    "title": {
+      "fr": "Baron barrage",
+      "en": "Barrage Baron"
+    },
+    "url": "/skills/fighting/#baron-barrage"
+  },
+  {
+    "type": "baron",
+    "id": "nuke",
+    "title": {
+      "fr": "Baron nucléaire",
+      "en": "Nuke Baron"
+    },
+    "url": "/skills/fighting/#baron-nuke"
+  },
+  {
+    "type": "baron",
+    "id": "survivor",
+    "title": {
+      "fr": "Baron survivant",
+      "en": "Survivor Baron"
+    },
+    "url": "/skills/fighting/#baron-survivor"
+  },
+  {
+    "type": "baron",
+    "id": "fugitive",
+    "title": {
+      "fr": "Baron fugitif",
+      "en": "Fugitive Baron"
+    },
+    "url": "/skills/fighting/#baron-fugitive"
+  },
+  {
+    "type": "baron",
+    "id": "golden",
+    "title": {
+      "fr": "Baron doré",
+      "en": "Golden Baron"
+    },
+    "url": "/skills/fighting/#baron-golden"
+  },
+  {
+    "type": "baron",
+    "id": "panic",
+    "title": {
+      "fr": "Baron panique",
+      "en": "Panic Baron"
+    },
+    "url": "/skills/fighting/#baron-panic"
+  },
+  {
+    "type": "baron",
+    "id": "giant",
+    "title": {
+      "fr": "Baron géant",
+      "en": "Giant Baron"
+    },
+    "url": "/skills/fighting/#baron-giant"
+  },
+  {
+    "type": "baron",
+    "id": "darknight",
+    "title": {
+      "fr": "Baron de la nuit",
+      "en": "Darknight Baron"
+    },
+    "url": "/skills/fighting/#baron-darknight"
+  },
+  {
+    "type": "baron",
+    "id": "alchemist",
+    "title": {
+      "fr": "Baron alchimiste",
+      "en": "Alchemist Baron"
+    },
+    "url": "/skills/fighting/#baron-alchemist"
+  },
+  {
+    "type": "baron",
+    "id": "hothead",
+    "title": {
+      "fr": "Baron tête brûlée",
+      "en": "Hothead Baron"
+    },
+    "url": "/skills/fighting/#baron-hothead"
+  },
+  {
+    "type": "baron",
+    "id": "swimming",
+    "title": {
+      "fr": "Baron nageur",
+      "en": "Swimming Baron"
+    },
+    "url": "/skills/fighting/#baron-swimming"
+  },
+  {
+    "type": "baron",
+    "id": "drowned_king",
+    "title": {
+      "fr": "Roi noyé",
+      "en": "Drowned King"
+    },
+    "url": "/skills/fighting/#baron-drowned_king"
+  },
+  {
+    "type": "baron",
+    "id": "balloon",
+    "title": {
+      "fr": "Baron ballon",
+      "en": "Balloon Baron"
+    },
+    "url": "/skills/fighting/#baron-balloon"
+  },
+  {
+    "type": "baron",
+    "id": "charging",
+    "title": {
+      "fr": "Baron chargeur",
+      "en": "Charging Baron"
+    },
+    "url": "/skills/fighting/#baron-charging"
+  },
+  {
+    "type": "baron",
+    "id": "diamond",
+    "title": {
+      "fr": "Baron de diamant",
+      "en": "Diamond Baron"
+    },
+    "url": "/skills/fighting/#baron-diamond"
+  },
+  {
+    "type": "baron",
+    "id": "stalker",
+    "title": {
+      "fr": "Baron traqueur",
+      "en": "Stalker Baron"
+    },
+    "url": "/skills/fighting/#baron-stalker"
+  },
+  {
+    "type": "baron",
+    "id": "heavy",
+    "title": {
+      "fr": "Baron lourd",
+      "en": "Heavy Baron"
+    },
+    "url": "/skills/fighting/#baron-heavy"
+  },
+  {
+    "type": "baron",
+    "id": "molten",
+    "title": {
+      "fr": "Baron en fusion",
+      "en": "Molten Baron"
+    },
+    "url": "/skills/fighting/#baron-molten"
+  },
+  {
+    "type": "baron",
+    "id": "runner",
+    "title": {
+      "fr": "Baron coureur",
+      "en": "Runner Baron"
+    },
+    "url": "/skills/fighting/#baron-runner"
+  },
+  {
+    "type": "baron",
+    "id": "ink",
+    "title": {
+      "fr": "Baron d’encre",
+      "en": "Ink Baron"
+    },
+    "url": "/skills/fighting/#baron-ink"
+  },
+  {
+    "type": "baron",
+    "id": "undying_wolf",
+    "title": {
+      "fr": "Baron immortel",
+      "en": "Undying Baron"
+    },
+    "url": "/skills/fighting/#baron-undying_wolf"
+  },
+  {
+    "type": "baron",
+    "id": "inferno",
+    "title": {
+      "fr": "Baron infernal",
+      "en": "Inferno Baron"
+    },
+    "url": "/skills/fighting/#baron-inferno"
+  },
+  {
+    "type": "baron",
+    "id": "thrower",
+    "title": {
+      "fr": "Baron lanceur",
+      "en": "Thrower Baron"
+    },
+    "url": "/skills/fighting/#baron-thrower"
+  },
+  {
+    "type": "legendary_item",
+    "id": "fire_wand",
+    "title": {
+      "fr": "Baguette de feu",
+      "en": "Fire Wand"
+    },
+    "url": "/skills/fighting/#legendary-items"
+  },
+  {
+    "type": "legendary_item",
+    "id": "wither_shield",
+    "title": {
+      "fr": "Bouclier du Wither",
+      "en": "Wither Shield"
+    },
+    "url": "/skills/fighting/#legendary-items"
+  },
+  {
+    "type": "legendary_item",
+    "id": "heart_of_the_beam",
+    "title": {
+      "fr": "Cœur du rayon",
+      "en": "Heart of the Beam"
+    },
+    "url": "/skills/fighting/#legendary-items"
+  },
+  {
+    "type": "legendary_item",
+    "id": "spider_wand",
+    "title": {
+      "fr": "Baguette araignée",
+      "en": "Spider Wand"
+    },
+    "url": "/skills/fighting/#legendary-items"
+  },
+  {
+    "type": "legendary_item",
+    "id": "barons_doll",
+    "title": {
+      "fr": "Poupée du Baron",
+      "en": "Baron's Doll"
+    },
+    "url": "/skills/fighting/#legendary-items"
+  },
+  {
+    "type": "lucky_event",
+    "id": "randomOreDrop",
+    "title": {
+      "fr": "Minerai aléatoire",
+      "en": "Random ore"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "mythicResourceDrop",
+    "title": {
+      "fr": "Ressource MythicRPG",
+      "en": "MythicRPG resource"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "randomSkillSpark",
+    "title": {
+      "fr": "Étincelle de skill",
+      "en": "Skill spark"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "boundDiamondArmor",
+    "title": {
+      "fr": "Armure en diamant maudite",
+      "en": "Bound diamond armor"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "redstoneEngineerPack",
+    "title": {
+      "fr": "Pack d’ingénieur redstone",
+      "en": "Redstone engineer pack"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "coinTossBlessed",
+    "title": {
+      "fr": "Pile ou face bénéfique",
+      "en": "Blessed coin toss"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "templeVariant",
+    "title": {
+      "fr": "Temple aléatoire",
+      "en": "Random temple"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "nothingHappens",
+    "title": {
+      "fr": "Rien ne se passe",
+      "en": "Nothing happens"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "luckyBlockBlink",
+    "title": {
+      "fr": "Téléportation du Bloc chanceux",
+      "en": "Lucky Block blink"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "visitAFriend",
+    "title": {
+      "fr": "Visite chez un joueur",
+      "en": "Visit a friend"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "impossibleChoice",
+    "title": {
+      "fr": "Choix impossible",
+      "en": "Impossible choice"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "uselessBlastProtectionStick",
+    "title": {
+      "fr": "Bâton Protection contre les explosions",
+      "en": "Blast Protection stick"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "rainbowSheep",
+    "title": {
+      "fr": "Mouton arc-en-ciel",
+      "en": "Rainbow sheep"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "minorCurse",
+    "title": {
+      "fr": "Malédiction mineure",
+      "en": "Minor curse"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "chickenJockeySquad",
+    "title": {
+      "fr": "Escouade de jockeys",
+      "en": "Chicken jockey squad"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "fallingAnvil",
+    "title": {
+      "fr": "Enclume tombante",
+      "en": "Falling anvil"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "safeTnt",
+    "title": {
+      "fr": "TNT sécurisée",
+      "en": "Safe TNT"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "coinTossCursed",
+    "title": {
+      "fr": "Pile ou face maudit",
+      "en": "Cursed coin toss"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "skyTrial",
+    "title": {
+      "fr": "Épreuve aérienne",
+      "en": "Sky trial"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "baronRitual",
+    "title": {
+      "fr": "Rituel de Baron",
+      "en": "Baron ritual"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "lucky_event",
+    "id": "shuffleInventory",
+    "title": {
+      "fr": "Inventaire mélangé",
+      "en": "Shuffled inventory"
+    },
+    "url": "/skills/crafting/#lucky-blocks"
   }
 ]

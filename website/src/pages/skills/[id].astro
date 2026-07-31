@@ -5,6 +5,8 @@ import StatusBadge from '../../components/StatusBadge.astro';
 import MiningExplorer from '../../components/MiningExplorer.astro';
 import EatingExplorer from '../../components/EatingExplorer.astro';
 import FishingExplorer from '../../components/FishingExplorer.astro';
+import FightingExplorer from '../../components/FightingExplorer.astro';
+import CraftingExplorer from '../../components/CraftingExplorer.astro';
 import RelatedContentExplorer from '../../components/RelatedContentExplorer.astro';
 import { catalog, sitePath, readableToken, type Skill } from '../../lib/catalog';
 import { markdownToHtml } from '../../lib/markdown';
@@ -29,7 +31,11 @@ const editorial = skill.editorial.fr;
   </header>
 
   <nav class="local-navigation" aria-label={`Sommaire de ${skill.names.fr}`}>
-    <a href="#presentation">Présentation</a><a href="#progression">Progression</a><a href="#perk-tree">Arbre</a><a href="#systems">Mécaniques</a><a href="#related-content">Contenus associés</a>
+    <a href="#presentation">Présentation</a><a href="#progression">Progression</a><a href="#perk-tree">Arbre</a><a href="#systems">Mécaniques</a>
+    {skill.id === 'fighting' && <a href="#barons">Barons</a>}
+    {skill.id === 'crafting' && <a href="#craft-score">Craft Score</a>}
+    {skill.id === 'crafting' && <a href="#lucky-blocks">Lucky Blocks</a>}
+    <a href="#related-content">Contenus associés</a>
   </nav>
 
   <section id="presentation" class="prose" set:html={markdownToHtml(editorial?.body_markdown ?? '')}></section>
@@ -66,8 +72,10 @@ const editorial = skill.editorial.fr;
     {skill.id === 'mining' && <MiningExplorer mining={catalog.systems.mining} />}
     {skill.id === 'eating' && <EatingExplorer eating={catalog.systems.eating} values={catalog.values} />}
     {skill.id === 'fishing' && <FishingExplorer fishing={catalog.systems.fishing} />}
-    {!['mining', 'eating', 'fishing'].includes(skill.id) && (
-      <div class="data-callout"><div><p class="eyebrow">Couverture v0.2</p><h2>Fondation interactive prête</h2></div><p>Cette compétence dispose déjà de son arbre complet, de ses fiches de perks, de ses relations et de son contenu structuré. Ses extracteurs spécialisés seront enrichis sans refonte de l’architecture.</p></div>
+    {skill.id === 'fighting' && <FightingExplorer fighting={catalog.systems.fighting} />}
+    {skill.id === 'crafting' && <CraftingExplorer crafting={catalog.systems.crafting} />}
+    {!['mining', 'eating', 'fishing', 'fighting', 'crafting'].includes(skill.id) && (
+      <div class="data-callout"><div><p class="eyebrow">Couverture structurée</p><h2>Fondation interactive prête</h2></div><p>Cette compétence dispose déjà de son arbre complet, de ses fiches de perks, de ses relations et de son contenu structuré. Ses extracteurs spécialisés seront enrichis sans refonte de l’architecture.</p></div>
     )}
   </section>
 

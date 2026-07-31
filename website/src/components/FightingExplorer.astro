@@ -1,0 +1,211 @@
+---
+import { sitePath, type FightingSystem } from '../lib/catalog';
+interface Props { fighting: FightingSystem }
+const { fighting } = Astro.props;
+const percent = (value: number | null) => value === null ? 'Condition spéciale' : `${new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 4 }).format(value * 100)} %`;
+const readable = (value: string) => value.replaceAll('_', ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
+const initialHealth = 20;
+const initialLevel = 50;
+const initialNormalXp = Math.max(fighting.xp.normal_min, Math.min(fighting.xp.normal_max, Math.round(initialHealth / fighting.xp.health_divisor)));
+const formatConstant = (constant: { value: number | boolean | number[]; unit: string; seconds?: number }) => {
+  const raw = Array.isArray(constant.value) ? constant.value.join(' · ') : String(constant.value);
+  return constant.unit === 'ticks' && constant.seconds !== undefined ? `${raw} ticks (${constant.seconds} s)` : `${raw} ${constant.unit === 'value' ? '' : constant.unit}`.trim();
+};
+---
+<div class="specialized-explorer fighting-explorer">
+  <section id="fighting-xp" class="interactive-panel" data-fighting-xp data-fighting={JSON.stringify(fighting)}>
+    <div class="interactive-heading">
+      <div><p class="eyebrow">Progression serveur</p><h2>Calculateur d’XP Fighting</h2><p>L’XP est calculée depuis la vie maximale de la créature. Les Barons utilisent leur vie non multipliée, puis reçoivent le bonus et le scaling de récompense extraits du Java.</p></div>
+      <span class="status-badge">Inspection statique</span>
+    </div>
+    <div class="calculator-inline">
+      <label>Vie maximale de la créature
+        <input type="number" min="1" step="1" value={initialHealth} data-fighting-health />
+      </label>
+      <label>Niveau Fighting de naissance du Baron
+        <input type="number" min={fighting.barons.scaling.min_level} max={fighting.barons.scaling.max_level} step="1" value={initialLevel} data-fighting-level />
+      </label>
+      <label class="form-choice"><input type="checkbox" data-fighting-baron /> Créature promue Baron</label>
+    </div>
+    <div class="metric-grid">
+      <div class="metric-card"><span>XP Fighting</span><strong class="viz-stat-value" data-fighting-result>{initialNormalXp}</strong><small data-fighting-context>Créature normale</small></div>
+      <div class="metric-card"><span>Multiplicateur de vie</span><strong class="viz-stat-value" data-fighting-health-multiplier>1</strong><small>Baron uniquement</small></div>
+      <div class="metric-card"><span>Multiplicateur de dégâts</span><strong class="viz-stat-value" data-fighting-damage-multiplier>1</strong><small>Baron uniquement</small></div>
+      <div class="metric-card"><span>Multiplicateur d’XP</span><strong class="viz-stat-value" data-fighting-xp-multiplier>1</strong><small>Baron uniquement</small></div>
+    </div>
+    <p class="chart-caption">Les valeurs vanilla supplémentaires du perk « XP triplée » utilisent une estimation interne distincte : le code indique explicitement que cette estimation n’est pas garantie identique à l’orbe réellement lâchée par Minecraft.</p>
+  </section>
+
+  <section id="baron-promotion">
+    <div class="section-heading"><div><p class="eyebrow">Conditions</p><h2>Promotion et scaling des Barons</h2></div></div>
+    <div class="interactive-grid">
+      <article class="interactive-panel">
+        <h3>Conditions communes</h3>
+        <ul class="check-list">
+          <li>La créature est vérifiée une seule fois et doit avoir au plus {fighting.barons.promotion.maximum_entity_age_ticks} ticks lors du contrôle.</li>
+          <li>Le joueur de référence est recherché dans un rayon de {fighting.barons.promotion.player_search_radius} blocs.</li>
+          <li>Un joueur Fighting inférieur au niveau {fighting.barons.promotion.minimum_fighting_level_for_multiplayer_protection} dans un rayon de {fighting.barons.promotion.low_level_protection_radius} blocs bloque la promotion déclenchée par un joueur de niveau supérieur.</li>
+          <li>Lorsqu’un type spécial est disponible, le code conserve {percent(fighting.barons.promotion.special_type_chance)} de chances de rester un Baron normal.</li>
+          <li>Un événement de Lucky Block peut forcer une promotion sur une liste limitée de types de créatures.</li>
+        </ul>
+      </article>
+      <article class="interactive-panel">
+        <h3>Chance selon le niveau Fighting</h3>
+        <div class="comparison-table">
+          <div class="comparison-row heading"><strong>Niveaux</strong><strong>Chance</strong><strong>Source</strong></div>
+          {fighting.barons.promotion.chance_tiers.map((tier) => (
+            <div class="comparison-row"><span>{tier.min_level}–{tier.max_level}</span><strong>{percent(tier.chance)}</strong><span>BaronMobManager</span></div>
+          ))}
+        </div>
+      </article>
+    </div>
+    <div class="responsive-table">
+      <table>
+        <thead><tr><th>Niveau de naissance</th><th>Vie</th><th>Dégâts</th><th>Récompense XP</th></tr></thead>
+        <tbody>{fighting.barons.scaling.samples.map((sample) => (
+          <tr><td>{sample.level}</td><td>×{sample.health_multiplier}</td><td>×{sample.damage_multiplier}</td><td>×{sample.xp_multiplier}</td></tr>
+        ))}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="barons" data-baron-catalog>
+    <div class="section-heading"><div><p class="eyebrow">{fighting.barons.types.length} types extraits</p><h2>Catalogue complet des Barons</h2></div></div>
+    <div class="filter-grid two">
+      <label>Rechercher
+        <input type="search" placeholder="Nom, créature, récompense…" data-baron-search />
+      </label>
+      <label>Créature de base
+        <select data-baron-entity>
+          <option value="">Toutes</option>
+          {[...new Set(fighting.barons.types.flatMap((baron) => baron.base_entities))].sort().map((entity) => <option value={entity}>{readable(entity)}</option>)}
+        </select>
+      </label>
+    </div>
+    <p class="filter-summary" aria-live="polite" data-baron-summary></p>
+    <div class="detail-list">
+      {fighting.barons.types.map((baron) => {
+        const rewardSearch = baron.rewards.map((reward) => `${reward.identifier} ${reward.names.fr}`).join(' ');
+        return (
+          <details id={`baron-${baron.id}`} class="detail-panel" data-baron-card data-search={`${baron.names.fr} ${baron.names.en} ${baron.id} ${baron.base_entities.join(' ')} ${rewardSearch}`.toLowerCase()} data-entities={baron.base_entities.join(' ')}>
+            <summary><span><strong>{baron.names.fr}</strong><small>{baron.base_entities.length ? baron.base_entities.map(readable).join(' · ') : 'Type commun'}</small></span><span class="status-badge">{baron.rewards.length} récompense(s)</span></summary>
+            <div class="detail-panel-body">
+              <p>{baron.behavior.summary.fr}</p>
+              <div class="source-line"><code>{baron.behavior.file}</code><code>{baron.tag}</code></div>
+              {baron.behavior.constants.length > 0 && (
+                <div>
+                  <h3>Valeurs du comportement</h3>
+                  <div class="stat-table compact-stat-table">{baron.behavior.constants.map((constant) => (
+                    <div><span>{readable(constant.symbol)}</span><strong>{formatConstant(constant)}</strong><small>{constant.source}</small></div>
+                  ))}</div>
+                </div>
+              )}
+              <div>
+                <h3>Récompenses</h3>
+                {baron.rewards.length ? (
+                  <div class="reward-list">{baron.rewards.map((reward) => (
+                    <div class="reward-row">
+                      {reward.identifier.startsWith('mythicrpg:')
+                        ? <a href={sitePath(`items/${reward.identifier.split(':')[1]}/`)}>{reward.names.fr}</a>
+                        : <span class="reward-name">{reward.names.fr}</span>}
+                      <strong>{percent(reward.chance)}</strong>
+                      <span>{reward.count > 1 ? `×${reward.count}` : ''} {reward.note.fr}</span>
+                    </div>
+                  ))}</div>
+                ) : <p>Aucune récompense spécifique ajoutée par ce type.</p>}
+              </div>
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  </section>
+
+  <section id="legendary-items">
+    <div class="section-heading"><div><p class="eyebrow">Récompenses rares</p><h2>Objets légendaires des Barons</h2></div></div>
+    <div class="data-card-grid">
+      {fighting.legendary_items.map((item) => (
+        <article class="data-card">
+          <div class="badge-row"><span class="status-badge">Légendaire</span><a class="status-badge" href={sitePath(`items/${item.id}/`)}>Fiche objet</a></div>
+          <h3>{item.names.fr}</h3>
+          <p>{item.summary.fr}</p>
+          {item.constants.length > 0 && <ul class="compact-list">{item.constants.slice(0, 8).map((constant) => <li><strong>{readable(constant.symbol)} :</strong> {formatConstant(constant)}</li>)}</ul>}
+          <code>{item.source_file}</code>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <aside class="source-panel">
+    <h2>Solo et multijoueur</h2>
+    <p>La promotion, les dégâts spéciaux, le scaling et les récompenses sont décidés côté serveur. Le niveau Fighting du joueur le plus proche fixe le niveau de naissance du Baron. La protection de proximité empêche qu’un joueur de haut niveau génère un Baron près d’un joueur encore sous le seuil prévu.</p>
+    <p>Cette page documente l’état statiquement visible de <code>src(92)</code>. Elle ne constitue pas une validation en jeu.</p>
+  </aside>
+</div>
+
+<script>
+  const clampFighting = (value, minimum, maximum) => Math.min(maximum, Math.max(minimum, value));
+  document.querySelectorAll('[data-fighting-xp]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const raw = root.dataset.fighting;
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    const healthInput = root.querySelector('[data-fighting-health]');
+    const levelInput = root.querySelector('[data-fighting-level]');
+    const baronInput = root.querySelector('[data-fighting-baron]');
+    const result = root.querySelector('[data-fighting-result]');
+    const context = root.querySelector('[data-fighting-context]');
+    const healthMultiplier = root.querySelector('[data-fighting-health-multiplier]');
+    const damageMultiplier = root.querySelector('[data-fighting-damage-multiplier]');
+    const xpMultiplier = root.querySelector('[data-fighting-xp-multiplier]');
+    const update = () => {
+      if (!(healthInput instanceof HTMLInputElement) || !(levelInput instanceof HTMLInputElement) || !(baronInput instanceof HTMLInputElement)) return;
+      const health = Math.max(1, Number(healthInput.value) || 1);
+      const level = clampFighting(Number(levelInput.value) || data.barons.scaling.min_level, data.barons.scaling.min_level, data.barons.scaling.max_level);
+      levelInput.value = String(level);
+      const isBaron = baronInput.checked;
+      const base = Math.max(data.xp.normal_min, Math.min(data.xp.normal_max, Math.round(health / data.xp.health_divisor)));
+      const healthScale = 1 + level * data.barons.scaling.health_per_level;
+      const damageScale = 1 + level * data.barons.scaling.damage_per_level;
+      const rewardScale = 1 + level * data.barons.scaling.xp_reward_per_level;
+      const gained = isBaron
+        ? Math.max(1, Math.round((Math.round(base * data.xp.baron_base_multiplier) + data.xp.baron_flat_bonus) * rewardScale))
+        : base;
+      if (result) result.textContent = new Intl.NumberFormat('fr-FR').format(gained);
+      if (context) context.textContent = isBaron ? `Baron né au niveau Fighting ${level}` : 'Créature normale';
+      if (healthMultiplier) healthMultiplier.textContent = isBaron ? `×${healthScale.toFixed(2)}` : '×1';
+      if (damageMultiplier) damageMultiplier.textContent = isBaron ? `×${damageScale.toFixed(2)}` : '×1';
+      if (xpMultiplier) xpMultiplier.textContent = isBaron ? `×${rewardScale.toFixed(2)}` : '×1';
+    };
+    [healthInput, levelInput, baronInput].forEach((control) => control?.addEventListener('input', update));
+    update();
+  });
+
+  document.querySelectorAll('[data-baron-catalog]').forEach((root) => {
+    const search = root.querySelector('[data-baron-search]');
+    const entity = root.querySelector('[data-baron-entity]');
+    const cards = [...root.querySelectorAll('[data-baron-card]')];
+    const summary = root.querySelector('[data-baron-summary]');
+    const update = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const entityValue = entity instanceof HTMLSelectElement ? entity.value : '';
+      let visible = 0;
+      cards.forEach((card) => {
+        if (!(card instanceof HTMLElement)) return;
+        const matchesSearch = !query || (card.dataset.search ?? '').includes(query);
+        const matchesEntity = !entityValue || (card.dataset.entities ?? '').split(' ').includes(entityValue);
+        card.hidden = !(matchesSearch && matchesEntity);
+        if (!card.hidden) visible += 1;
+      });
+      if (summary) summary.textContent = `${visible} Baron(s) affiché(s).`;
+    };
+    search?.addEventListener('input', update);
+    entity?.addEventListener('change', update);
+    update();
+    const hash = location.hash;
+    if (hash.startsWith('#baron-')) {
+      const selected = root.querySelector(hash);
+      if (selected instanceof HTMLDetailsElement) selected.open = true;
+    }
+  });
+</script>

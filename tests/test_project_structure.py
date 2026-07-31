@@ -22,9 +22,14 @@ class ProjectStructureTests(unittest.TestCase):
             "website/src/pages/systems/progression.astro",
             "website/src/components/XpExplorer.astro",
             "website/src/components/FishingExplorer.astro",
+            "website/src/components/FightingExplorer.astro",
+            "website/src/components/CraftingExplorer.astro",
             "website/src/components/RelatedContentExplorer.astro",
             ".github/workflows/deploy-pages.yml",
             "README.md",
+            "CHANGES_V0.3.0.md",
+            "FILES_CREATED_MODIFIED_V0.3.0.md",
+            "FILE_MANIFEST.txt",
         ]
         missing = [path for path in required if not (ROOT / path).is_file()]
         self.assertEqual([], missing)

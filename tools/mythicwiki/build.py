@@ -11,6 +11,8 @@ from .resource_extract import extract_content, extract_recipes, load_translation
 from .systems_extract import (
     extract_eating_system,
     extract_fishing_system,
+    extract_fighting_system,
+    extract_crafting_system,
     extract_mining_system,
     extract_progression_system,
     extract_skill_analysis,
@@ -149,10 +151,12 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
         "mining": extract_mining_system(java_root, locales),
         "eating": extract_eating_system(java_root, locales),
         "fishing": extract_fishing_system(java_root, locales),
+        "fighting": extract_fighting_system(java_root, locales),
+        "crafting": extract_crafting_system(java_root, locales),
     }
 
     catalog = {
-        "schema_version": "0.2.0",
+        "schema_version": "0.3.0",
         "source": {
             "canonical_source": "src(92).zip",
             "received_archive": "src(92).zip",
@@ -195,6 +199,13 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
         search_entries.append({"type": "family", "id": f"fishing-{family['id']}", "title": family["names"], "url": "/skills/fishing/#families"})
     for monster in systems["fishing"]["sea_monsters"]["types"]:
         search_entries.append({"type": "entity", "id": monster["id"], "title": monster["names"], "url": "/skills/fishing/#sea-monsters"})
+    for baron in systems["fighting"]["barons"]["types"]:
+        search_entries.append({"type": "baron", "id": baron["id"], "title": baron["names"], "url": f"/skills/fighting/#baron-{baron['id']}"})
+    for item in systems["fighting"]["legendary_items"]:
+        search_entries.append({"type": "legendary_item", "id": item["id"], "title": item["names"], "url": "/skills/fighting/#legendary-items"})
+    for event_category in systems["crafting"]["lucky_blocks"]["categories"]:
+        for event in event_category["events"]:
+            search_entries.append({"type": "lucky_event", "id": event["id"], "title": event["names"], "url": "/skills/crafting/#lucky-blocks"})
 
     encyclopedia = {
         "schema_version": catalog["schema_version"],
@@ -231,6 +242,16 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
                 "rarities": systems["fishing"]["rarities"],
                 "mini_games": systems["fishing"]["mini_games"],
             },
+            "fighting": {
+                "baron_types": [
+                    {"id": baron["id"], "names": baron["names"], "summary": baron["behavior"]["summary"]}
+                    for baron in systems["fighting"]["barons"]["types"]
+                ],
+            },
+            "crafting": {
+                "stations": systems["crafting"]["stations"],
+                "recycling_groups": systems["crafting"]["recycling"]["groups"],
+            },
         },
     }
 
@@ -254,6 +275,12 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
             "fishing_families": len(systems["fishing"]["families"]),
             "fishing_rarities": len(systems["fishing"]["rarities"]),
             "sea_monsters": len(systems["fishing"]["sea_monsters"]["types"]),
+            "baron_types": len(systems["fighting"]["barons"]["types"]),
+            "baron_legendary_items": len(systems["fighting"]["legendary_items"]),
+            "craft_score_items": len(systems["crafting"]["craft_score"]["item_points"]),
+            "craft_transformations": len(systems["crafting"]["transformations"]["pairs"]),
+            "craft_recycle_groups": len(systems["crafting"]["recycling"]["groups"]),
+            "lucky_block_events": sum(len(category["events"]) for category in systems["crafting"]["lucky_blocks"]["categories"]),
         },
         "errors": errors,
         "warnings": warnings,

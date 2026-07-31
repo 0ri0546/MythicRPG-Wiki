@@ -1,0 +1,23 @@
+$ cd website && npm run build
+
+> mythicrpg-wiki@0.3.0 build
+> astro build
+
+(node:2631) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:2631) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Cannot find native binding. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+  Stack trace:
+    at file://<project>/website/node_modules/@astrojs/compiler-binding/index.js:575:11
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)
+    at async cli (file://<project>/website/node_modules/astro/dist/cli/index.js:220:5)
+  Caused by:
+  Cannot find module '@astrojs/compiler-binding-linux-x64-gnu'
+Require stack:
+- <project>/website/node_modules/@astrojs/compiler-binding/index.js
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at Module.require (node:internal/modules/cjs/loader:1487:12)
+    at requireNative (file://<project>/website/node_modules/@astrojs/compiler-binding/index.js:292:27)

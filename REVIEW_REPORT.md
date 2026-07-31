@@ -1,23 +1,26 @@
-# Rapport de seconde relecture — v0.2
+# Rapport de seconde relecture — MythicRPG Wiki v0.3.0
 
-## Contrôles refaits
+## Vérifications indépendantes
 
-- empreinte de `mod-source/src` inchangée ;
-- génération complète sans erreur ni avertissement ;
-- 9 skills, 180 perks, 196 modèles, 34 blocs et 188 recettes JSON ;
-- 25 valeurs suivies et 634 entrées de recherche ;
-- 5 familles/5 raretés fossiles ;
-- 47 recettes culinaires et 50 sources d’ingrédients ;
-- 5 familles/5 raretés Fishing et 3 monstres marins ;
-- contenu structuré présent en français et anglais pour les neuf skills ;
-- composants interactifs sans `innerHTML` ;
-- source et snapshot alignés sur `src(92)` ;
-- aucune commande Gradle ou Minecraft.
+- comparaison de l’empreinte de `mod-source/src` avec le snapshot ;
+- recompilation syntaxique de tous les fichiers Python ;
+- lecture et validation des JSON générés ;
+- lecture des frontmatters YAML ;
+- contrôle des scripts navigateur ;
+- recherche d’affectations à `innerHTML` ;
+- contrôle des routes et relations ;
+- contrôle des versions `0.3.0` ;
+- contrôle du lockfile et de `.gitattributes` ;
+- exécution complète des 38 tests.
 
 ## Résultat
 
-Les 28 tests Python passent. Le catalogue est propre et les données générées ne contiennent aucun chemin local.
+Le périmètre statique est validé. Le manifeste final contient 1 417 entrées rehachées et le rapport de comparaison avec la v0.2.1 détaille les fichiers créés, modifiés et supprimés. Fighting et Crafting utilisent le catalogue partagé et les valeurs techniques proviennent du code ou des extracteurs spécialisés.
 
-## Limite
+## Limites
 
-Le miroir npm de cet environnement ne permet pas de restaurer les dépendances Linux nécessaires au build Astro. Cette limite est documentée sans réutiliser l’ancien `dist` comme preuve de build v0.2.
+- aucun Gradle ;
+- aucune compilation Java du mod ;
+- aucun lancement Minecraft ;
+- aucun test en jeu ;
+- build Astro local bloqué avant compilation par l’absence du binding natif Linux optionnel.

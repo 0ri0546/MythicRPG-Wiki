@@ -5,50 +5,91 @@ const { progression } = Astro.props;
 const references = progression.reference_levels
   .map((level) => progression.levels.find((entry) => entry.level === level))
   .filter(Boolean);
+
+const levels = progression.levels.filter((entry) => entry.level >= 1 && entry.level <= 100);
+const chart = {
+  width: 820,
+  height: 400,
+  margin: { left: 76, right: 28, top: 24, bottom: 60 },
+};
+const plotWidth = chart.width - chart.margin.left - chart.margin.right;
+const plotHeight = chart.height - chart.margin.top - chart.margin.bottom;
+const maxValue = Math.max(1, ...levels.map((entry) => entry.cumulative));
+const xForLevel = (level: number) => chart.margin.left + ((level - 1) / 99) * plotWidth;
+const yForValue = (value: number) => chart.margin.top + plotHeight - (value / maxValue) * plotHeight;
+const pathData = levels
+  .map((entry, index) => `${index === 0 ? 'M' : 'L'} ${xForLevel(entry.level).toFixed(2)} ${yForValue(entry.cumulative).toFixed(2)}`)
+  .join(' ');
+const xMarkers = [1, 10, 25, 50, 75, 100]
+  .map((level) => levels.find((entry) => entry.level === level))
+  .filter(Boolean);
+const yTicks = [0, .25, .5, .75, 1].map((ratio) => {
+  const value = Math.round(maxValue * ratio);
+  return {
+    value,
+    x1: chart.margin.left,
+    x2: chart.width - chart.margin.right,
+    y: yForValue(value),
+  };
+});
+const format = (value: number) => new Intl.NumberFormat('fr-FR').format(Math.max(0, Math.round(value)));
 ---
-<section
-  class="interactive-panel xp-explorer"
-  data-xp-explorer
-  data-progression={JSON.stringify(progression)}
->
+<section class="interactive-panel xp-explorer" data-xp-calculator data-progression={JSON.stringify(progression)}>
   <div class="interactive-heading">
     <div>
-      <p class="eyebrow">Explorateur interactif</p>
-      <h2>Courbe d’expérience</h2>
-      <p>Les points sont recalculés depuis le coefficient, l’exposant et la règle d’arrondi extraits du Java.</p>
+      <p class="eyebrow">Courbe statique</p>
+      <h2>XP cumulée du niveau 1 au niveau 100</h2>
+      <p>Ce graphique SVG est généré à partir des vraies données de progression globale extraites du catalogue. Il présente l’XP cumulée nécessaire pour atteindre chaque niveau.</p>
     </div>
     <span class="status-badge status-beta">Profil bêta</span>
   </div>
 
-  <div class="xp-layout">
+  <div class="xp-layout static-chart-layout">
     <div class="chart-column">
-      <div class="control-row" role="group" aria-label="Affichage de la courbe">
-        <label class="form-choice"><input type="radio" name="xp-mode" value="required" checked data-xp-mode /> XP du niveau</label>
-        <label class="form-choice"><input type="radio" name="xp-mode" value="cumulative" data-xp-mode /> XP cumulée</label>
-      </div>
+      <div class="chart-frame static-chart-frame">
+        <svg viewBox={`0 0 ${chart.width} ${chart.height}`} role="img" aria-labelledby="xp-chart-title xp-chart-description" class="xp-chart static-xp-chart">
+          <title id="xp-chart-title">Courbe statique d’expérience cumulée de MythicRPG</title>
+          <desc id="xp-chart-description">Graphique SVG statique représentant l’XP cumulée nécessaire pour atteindre les niveaux 1 à 100.</desc>
 
-      <div class="range-grid">
-        <label>Premier niveau
-          <input type="range" min="1" max={progression.max_level} value="1" data-xp-start />
-          <output data-xp-start-output>1</output>
-        </label>
-        <label>Dernier niveau
-          <input type="range" min="1" max={progression.max_level} value={progression.max_level} data-xp-end />
-          <output data-xp-end-output>{progression.max_level}</output>
-        </label>
-      </div>
+          <g class="chart-grid">
+            {yTicks.map((tick) => (
+              <g>
+                <line x1={tick.x1} y1={tick.y} x2={tick.x2} y2={tick.y} />
+                <text x={chart.margin.left - 12} y={tick.y + 4} text-anchor="end">{format(tick.value)}</text>
+              </g>
+            ))}
+          </g>
 
-      <div class="chart-frame">
-        <svg viewBox="0 0 820 380" role="img" aria-labelledby="xp-chart-title xp-chart-description" data-xp-chart>
-          <title id="xp-chart-title">Courbe d’expérience MythicRPG</title>
-          <desc id="xp-chart-description">Graphique interactif du coût par niveau ou de l’expérience cumulée.</desc>
+          <g class="chart-axis">
+            <line x1={chart.margin.left} y1={chart.margin.top + plotHeight} x2={chart.width - chart.margin.right} y2={chart.margin.top + plotHeight} />
+            <line x1={chart.margin.left} y1={chart.margin.top} x2={chart.margin.left} y2={chart.margin.top + plotHeight} />
+          </g>
+
+          <g class="chart-reference-lines">
+            {xMarkers.map((entry) => entry && (
+              <line x1={xForLevel(entry.level)} y1={chart.margin.top} x2={xForLevel(entry.level)} y2={chart.margin.top + plotHeight} />
+            ))}
+          </g>
+
+          <path class="chart-line" d={pathData} />
+
+          <g class="chart-reference-points">
+            {xMarkers.map((entry) => entry && (
+              <g>
+                <circle cx={xForLevel(entry.level)} cy={yForValue(entry.cumulative)} r="4.5" />
+                <text x={xForLevel(entry.level)} y={chart.height - 20} text-anchor="middle">{entry.level}</text>
+              </g>
+            ))}
+          </g>
+
+          <text class="axis-label" x={chart.margin.left + plotWidth / 2} y={chart.height - 6} text-anchor="middle">Niveau</text>
+          <text class="axis-label" x="16" y={chart.margin.top + plotHeight / 2} transform={`rotate(-90 16 ${chart.margin.top + plotHeight / 2})`} text-anchor="middle">XP cumulée</text>
         </svg>
-        <div class="chart-tooltip" data-xp-tooltip hidden></div>
       </div>
-      <p class="chart-caption" aria-live="polite" data-xp-chart-caption></p>
+      <p class="chart-caption">Repères affichés : niveaux 1, 10, 25, 50, 75 et 100. La pente visuelle montre l’évolution de l’XP cumulée sur la courbe bêta actuelle, sans interaction ni survol.</p>
     </div>
 
-    <aside class="calculator-panel">
+    <aside class="calculator-panel xp-calculator">
       <p class="eyebrow">Calculateur</p>
       <h3>Objectif de niveau</h3>
       <label>Niveau actuel
@@ -94,129 +135,12 @@ const references = progression.reference_levels
 </section>
 
 <script>
-  const SVG_NS = 'http://www.w3.org/2000/svg';
-  const svgElement = (name, attributes = {}) => {
-    const element = document.createElementNS(SVG_NS, name);
-    Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, String(value)));
-    return element;
-  };
-
-  document.querySelectorAll('[data-xp-explorer]').forEach((root) => {
+  document.querySelectorAll('[data-xp-calculator]').forEach((root) => {
     if (!(root instanceof HTMLElement)) return;
     const raw = root.dataset.progression;
     if (!raw) return;
     const progression = JSON.parse(raw);
     const levels = progression.levels;
-    const chart = root.querySelector('[data-xp-chart]');
-    const tooltip = root.querySelector('[data-xp-tooltip]');
-    const caption = root.querySelector('[data-xp-chart-caption]');
-    const startInput = root.querySelector('[data-xp-start]');
-    const endInput = root.querySelector('[data-xp-end]');
-    const startOutput = root.querySelector('[data-xp-start-output]');
-    const endOutput = root.querySelector('[data-xp-end-output]');
-
-    const selectedMode = () => {
-      const checked = root.querySelector('[data-xp-mode]:checked');
-      return checked instanceof HTMLInputElement ? checked.value : 'required';
-    };
-
-    const valueForMode = (entry, mode) => mode === 'cumulative' ? entry.cumulative : entry.required;
-    const format = (value) => new Intl.NumberFormat('fr-FR').format(Math.max(0, Math.round(value)));
-
-    const renderChart = () => {
-      if (!(chart instanceof SVGSVGElement) || !(startInput instanceof HTMLInputElement) || !(endInput instanceof HTMLInputElement)) return;
-      let start = Number(startInput.value);
-      let end = Number(endInput.value);
-      if (start > end) {
-        if (document.activeElement === startInput) end = start;
-        else start = end;
-        startInput.value = String(start);
-        endInput.value = String(end);
-      }
-      if (startOutput) startOutput.textContent = String(start);
-      if (endOutput) endOutput.textContent = String(end);
-      const mode = selectedMode();
-      const visible = levels.filter((entry) => entry.level >= start && entry.level <= end);
-      const width = 820;
-      const height = 380;
-      const margin = { left: 72, right: 24, top: 24, bottom: 54 };
-      const plotWidth = width - margin.left - margin.right;
-      const plotHeight = height - margin.top - margin.bottom;
-      const values = visible.map((entry) => valueForMode(entry, mode));
-      const maxValue = Math.max(1, ...values);
-      const x = (level) => margin.left + ((level - start) / Math.max(1, end - start)) * plotWidth;
-      const y = (value) => margin.top + plotHeight - (value / maxValue) * plotHeight;
-
-      const children = [];
-      const gridGroup = svgElement('g', { class: 'chart-grid' });
-      for (let tick = 0; tick <= 4; tick += 1) {
-        const value = maxValue * tick / 4;
-        const py = y(value);
-        gridGroup.append(svgElement('line', { x1: margin.left, y1: py, x2: width - margin.right, y2: py }));
-        const label = svgElement('text', { x: margin.left - 12, y: py + 4, 'text-anchor': 'end' });
-        label.textContent = format(value);
-        gridGroup.append(label);
-      }
-      children.push(gridGroup);
-
-      const axis = svgElement('g', { class: 'chart-axis' });
-      axis.append(svgElement('line', { x1: margin.left, y1: margin.top + plotHeight, x2: width - margin.right, y2: margin.top + plotHeight }));
-      const tickLevels = [...new Set([start, Math.round(start + (end - start) * .25), Math.round(start + (end - start) * .5), Math.round(start + (end - start) * .75), end])];
-      tickLevels.forEach((level) => {
-        const label = svgElement('text', { x: x(level), y: height - 20, 'text-anchor': 'middle' });
-        label.textContent = String(level);
-        axis.append(label);
-      });
-      children.push(axis);
-
-      const path = svgElement('path', { class: 'chart-line' });
-      path.setAttribute('d', visible.map((entry, index) => `${index === 0 ? 'M' : 'L'} ${x(entry.level)} ${y(valueForMode(entry, mode))}`).join(' '));
-      children.push(path);
-
-      const points = svgElement('g', { class: 'chart-points' });
-      visible.forEach((entry) => {
-        const point = svgElement('circle', {
-          cx: x(entry.level),
-          cy: y(valueForMode(entry, mode)),
-          r: visible.length > 55 ? 2 : 3.5,
-          'data-chart-level': entry.level,
-        });
-        points.append(point);
-      });
-      children.push(points);
-
-      const hitArea = svgElement('rect', {
-        x: margin.left,
-        y: margin.top,
-        width: plotWidth,
-        height: plotHeight,
-        fill: 'transparent',
-        'data-chart-hit': '',
-      });
-      hitArea.addEventListener('pointermove', (event) => {
-        const bounds = chart.getBoundingClientRect();
-        const localX = ((event.clientX - bounds.left) / bounds.width) * width;
-        const ratio = Math.min(1, Math.max(0, (localX - margin.left) / plotWidth));
-        const level = Math.round(start + ratio * (end - start));
-        const entry = levels.find((candidate) => candidate.level === level);
-        if (!entry || !(tooltip instanceof HTMLElement)) return;
-        tooltip.textContent = `Niveau ${entry.level} · ${format(valueForMode(entry, mode))} XP${mode === 'cumulative' ? ' cumulées' : ''}`;
-        tooltip.hidden = false;
-        tooltip.style.left = `${Math.min(bounds.width - 210, Math.max(8, event.clientX - bounds.left + 12))}px`;
-        tooltip.style.top = `${Math.max(8, event.clientY - bounds.top - 44)}px`;
-      });
-      hitArea.addEventListener('pointerleave', () => {
-        if (tooltip instanceof HTMLElement) tooltip.hidden = true;
-      });
-      children.push(hitArea);
-      chart.replaceChildren(...children);
-      if (caption) {
-        caption.textContent = mode === 'cumulative'
-          ? `XP cumulée nécessaire pour atteindre les niveaux ${start} à ${end}.`
-          : `Coût individuel des niveaux ${start} à ${end}.`;
-      }
-    };
-
     const currentLevelInput = root.querySelector('[data-current-level]');
     const currentXpInput = root.querySelector('[data-current-xp]');
     const targetLevelInput = root.querySelector('[data-target-level]');
@@ -225,8 +149,9 @@ const references = progression.reference_levels
     const totalXpInput = root.querySelector('[data-total-xp]');
     const levelFromXpOutput = root.querySelector('[data-level-from-xp]');
     const levelXpContext = root.querySelector('[data-level-xp-context]');
-
     const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+    const format = (value) => new Intl.NumberFormat('fr-FR').format(Math.max(0, Math.round(value)));
+
     const updateCalculator = () => {
       if (!(currentLevelInput instanceof HTMLInputElement) || !(currentXpInput instanceof HTMLInputElement) || !(targetLevelInput instanceof HTMLInputElement)) return;
       const currentLevel = clamp(Number(currentLevelInput.value) || 1, 1, progression.max_level);
@@ -261,10 +186,8 @@ const references = progression.reference_levels
         : `${format(internal)} / ${format(reached.required)} XP dans ce niveau.`;
     };
 
-    root.querySelectorAll('[data-xp-mode], [data-xp-start], [data-xp-end]').forEach((control) => control.addEventListener('input', renderChart));
     [currentLevelInput, currentXpInput, targetLevelInput].forEach((control) => control?.addEventListener('input', updateCalculator));
     totalXpInput?.addEventListener('input', updateLevelFromXp);
-    renderChart();
     updateCalculator();
     updateLevelFromXp();
   });

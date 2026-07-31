@@ -1,41 +1,44 @@
-# Architecture MythicRPG Wiki v0.1.1
+# Architecture MythicRPG Wiki v0.2
 
-## Source en lecture seule
+## Source de vérité
 
-`mod-source/src/` contient les 1 206 fichiers de la source reçue. Le nom reçu est `src(92).zip`, mais son SHA-256 et son arbre correspondent à la source canonique documentée `src(91).zip`. Le détail est conservé dans `config/source_snapshot.json`.
+`mod-source/src/` est une copie exacte et en lecture seule de `src(92)`. Son empreinte est contrôlée avant et après chaque extraction. `.gitattributes` protège ses octets de la normalisation des fins de ligne.
 
 ## Extracteur Python
 
-- `java_extract.py` : skills, arbres de perks, constantes explicitement suivies et indices d’enregistrement ;
-- `resource_extract.py` : traductions, modèles, textures, blockstates et recettes ;
+- `java_extract.py` : arbres, constantes explicitement documentées et preuves d’enregistrement ;
+- `resource_extract.py` : traductions, modèles, textures, blockstates et recettes JSON ;
+- `systems_extract.py` : progression, fossiles, cuisine et systèmes Fishing ;
 - `editorial.py` : Markdown et frontmatter YAML ;
-- `build.py` : fusion, validation, recherche et export encyclopédie ;
-- `utils.py` : sérialisation et empreintes.
+- `build.py` : fusion, relations, recherche, rapports et export encyclopédie ;
+- `utils.py` : parsing numérique sûr, sérialisation et empreinte multiplateforme.
 
-Le Java est lu statiquement et n’est jamais exécuté.
+Le Java est lu mais jamais exécuté.
 
 ## Catalogue partagé
 
-Les sorties `catalog.json`, `encyclopedia.json`, `search-index.json` et `extraction-report.json` sont générées. Les valeurs techniques viennent du code ou des JSON ; les explications et statuts viennent du Markdown/YAML.
-
-## Classification des objets
-
-Les modèles d’objets ne sont plus assimilés automatiquement à des objets actifs :
-
-- `confirmed` : enregistrement littéral d’objet ou de bloc détecté ;
-- `dynamic_probable` : pas d’enregistrement littéral, mais présence dans une recette MythicRPG ;
-- `model_only` : modèle détecté sans preuve statique suffisante.
-
-L’index public affiche les entrées confirmées par défaut.
+`catalog.json` contient les données techniques, les textes éditoriaux, leur provenance et les structures interactives. `encyclopedia.json` applique les règles d’audience et retire les champs réservés au site.
 
 ## Site Astro
 
-Le site statique fournit l’accueil, les skills, 180 perks, objets, recettes, recherche, filtres, provenance et une section Systèmes. La courbe globale se trouve dans `/systems/progression/`, et non dans Mining.
+Astro génère le HTML statique. TypeScript n’est hydraté que pour les interactions utiles :
 
-Le JavaScript navigateur est limité à la recherche, aux filtres et aux arbres. Les contenus dynamiques sont créés avec `createElement`, `textContent` et `replaceChildren`, sans affectation à `innerHTML`.
+- recherche et filtres ;
+- arbres de perks ;
+- graphiques et calculateurs d’XP ;
+- comparateurs Mining, Eating et Fishing ;
+- relations entre contenus.
 
-Les données françaises et anglaises sont préparées, mais les routes publiques de cette version restent françaises.
+Aucune API, base de données ou serveur applicatif n’est nécessaire.
+
+## Couverture des skills
+
+Les neuf skills disposent de leur page, de leurs 20 perks, de leur arbre interactif et d’un contenu éditorial structuré. Mining, Eating et Fishing possèdent en plus des extracteurs spécialisés approfondis dans cette version.
+
+## Sécurité d’affichage
+
+Les interactions créent les éléments avec `createElement`, `textContent` et `replaceChildren`. Aucune affectation à `innerHTML` n’est utilisée pour injecter les données extraites.
 
 ## GitHub Pages
 
-Astro calcule le `base` depuis `GITHUB_REPOSITORY`. Le workflow utilise `npm ci` et publie `website/dist`. La génération d’un lockfile et le build réel restent bloqués dans l’environnement actuel ; voir `BUILD_VALIDATION.md`.
+Le `base` est calculé depuis `GITHUB_REPOSITORY`. Le workflow exécute l’extraction, les tests, `npm ci`, le build Astro et publie `website/dist/`.

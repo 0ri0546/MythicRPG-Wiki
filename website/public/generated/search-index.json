@@ -5164,5 +5164,545 @@
       "en": "Global progression"
     },
     "url": "/systems/progression/"
+  },
+  {
+    "type": "family",
+    "id": "fossil-small_land",
+    "title": {
+      "fr": "Petites créatures terrestres",
+      "en": "Small Land Creatures"
+    },
+    "url": "/skills/mining/#fossils"
+  },
+  {
+    "type": "family",
+    "id": "fossil-marine",
+    "title": {
+      "fr": "Créatures marines",
+      "en": "Marine Creatures"
+    },
+    "url": "/skills/mining/#fossils"
+  },
+  {
+    "type": "family",
+    "id": "fossil-flying",
+    "title": {
+      "fr": "Créatures volantes",
+      "en": "Flying Creatures"
+    },
+    "url": "/skills/mining/#fossils"
+  },
+  {
+    "type": "family",
+    "id": "fossil-insect",
+    "title": {
+      "fr": "Insectes",
+      "en": "Insects"
+    },
+    "url": "/skills/mining/#fossils"
+  },
+  {
+    "type": "family",
+    "id": "fossil-large_land",
+    "title": {
+      "fr": "Grandes créatures terrestres",
+      "en": "Large Land Creatures"
+    },
+    "url": "/skills/mining/#fossils"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "apple_compote",
+    "title": {
+      "fr": "Compote de pommes",
+      "en": "Apple Compote"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "berry_pudding",
+    "title": {
+      "fr": "Pudding aux baies",
+      "en": "Berry Pudding"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "chef_cake",
+    "title": {
+      "fr": "Gâteau du chef",
+      "en": "Chef’s Cake"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "chorus_cream",
+    "title": {
+      "fr": "Crème chorique",
+      "en": "Chorus Cream"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "cocoa_cream",
+    "title": {
+      "fr": "Crème au cacao",
+      "en": "Cocoa Cream"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "golden_sweet",
+    "title": {
+      "fr": "Douceur dorée",
+      "en": "Golden Sweet"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "honey_carrots",
+    "title": {
+      "fr": "Carottes au miel",
+      "en": "Honey Carrots"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "luminous_delight",
+    "title": {
+      "fr": "Délice lumineux",
+      "en": "Luminous Delight"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "melon_sweet",
+    "title": {
+      "fr": "Douceur de melon",
+      "en": "Melon Sweet"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "pumpkin_flan",
+    "title": {
+      "fr": "Flan de citrouille",
+      "en": "Pumpkin Flan"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "chorus_nectar",
+    "title": {
+      "fr": "Nectar de chorus",
+      "en": "Chorus Nectar"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "honey_infusion",
+    "title": {
+      "fr": "Infusion au miel",
+      "en": "Honey Infusion"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "hot_chocolate",
+    "title": {
+      "fr": "Chocolat chaud",
+      "en": "Hot Chocolate"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "infernal_tonic",
+    "title": {
+      "fr": "Tonique infernal",
+      "en": "Infernal Tonic"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "luminous_infusion",
+    "title": {
+      "fr": "Infusion lumineuse",
+      "en": "Luminous Infusion"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "caramelized_pork",
+    "title": {
+      "fr": "Porc caramélisé",
+      "en": "Caramelized Pork"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "chorus_meal",
+    "title": {
+      "fr": "Repas chorique",
+      "en": "Chorus Meal"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "deep_skillet",
+    "title": {
+      "fr": "Poêlée des profondeurs",
+      "en": "Deep Skillet"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "farmer_feast",
+    "title": {
+      "fr": "Festin de l’agriculteur",
+      "en": "Farmer’s Feast"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "fish_and_vegetables",
+    "title": {
+      "fr": "Poisson aux légumes",
+      "en": "Fish and Vegetables"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "forest_chicken",
+    "title": {
+      "fr": "Poulet forestier",
+      "en": "Forest Chicken"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "golden_banquet",
+    "title": {
+      "fr": "Banquet doré",
+      "en": "Golden Banquet"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "infernal_simmer",
+    "title": {
+      "fr": "Mijoté infernal",
+      "en": "Infernal Simmer"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "monstrous_stew",
+    "title": {
+      "fr": "Ragoût monstrueux",
+      "en": "Monstrous Stew"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "mythic_feast",
+    "title": {
+      "fr": "Festin mythique",
+      "en": "Mythic Feast"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "simmered_rabbit",
+    "title": {
+      "fr": "Lapin mijoté",
+      "en": "Simmered Rabbit"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "traveler_stew",
+    "title": {
+      "fr": "Ragoût du voyageur",
+      "en": "Traveler’s Stew"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "beetroot_potage",
+    "title": {
+      "fr": "Potage de betterave",
+      "en": "Beetroot Potage"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "chicken_broth",
+    "title": {
+      "fr": "Bouillon de poulet",
+      "en": "Chicken Broth"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "country_soup",
+    "title": {
+      "fr": "Soupe paysanne",
+      "en": "Country Soup"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "fisher_soup",
+    "title": {
+      "fr": "Soupe du pêcheur",
+      "en": "Fisherman’s Soup"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "forest_veloute",
+    "title": {
+      "fr": "Velouté forestier",
+      "en": "Forest Velouté"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "golden_potage",
+    "title": {
+      "fr": "Potage doré",
+      "en": "Golden Potage"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "infernal_broth",
+    "title": {
+      "fr": "Bouillon infernal",
+      "en": "Infernal Broth"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "pumpkin_cream",
+    "title": {
+      "fr": "Crème de citrouille",
+      "en": "Pumpkin Cream"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "fruit_compote",
+    "title": {
+      "fr": "Compote de fruits",
+      "en": "Fruit Compote"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "sweet_cream",
+    "title": {
+      "fr": "Crème sucrée",
+      "en": "Sweet Cream"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "chorus_preparation",
+    "title": {
+      "fr": "Préparation chorique",
+      "en": "Chorus Preparation"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "dubious_dish",
+    "title": {
+      "fr": "Plat douteux",
+      "en": "Dubious Dish"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "experimental_dish",
+    "title": {
+      "fr": "Plat expérimental",
+      "en": "Experimental Dish"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "grain_porridge",
+    "title": {
+      "fr": "Bouillie céréalière",
+      "en": "Grain Porridge"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "infernal_preparation",
+    "title": {
+      "fr": "Préparation infernale",
+      "en": "Infernal Preparation"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "meat_stew",
+    "title": {
+      "fr": "Ragoût de viande",
+      "en": "Meat Stew"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "signature_dish",
+    "title": {
+      "fr": "Plat signature",
+      "en": "Signature Dish"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "fish_soup",
+    "title": {
+      "fr": "Soupe de poisson",
+      "en": "Fish Soup"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "mushroom_veloute",
+    "title": {
+      "fr": "Velouté de champignons",
+      "en": "Mushroom Velouté"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "cooking_recipe",
+    "id": "vegetable_potage",
+    "title": {
+      "fr": "Potage de légumes",
+      "en": "Vegetable Potage"
+    },
+    "url": "/skills/eating/#cooking-recipes"
+  },
+  {
+    "type": "family",
+    "id": "fishing-salmon",
+    "title": {
+      "fr": "Saumon",
+      "en": "Salmon"
+    },
+    "url": "/skills/fishing/#families"
+  },
+  {
+    "type": "family",
+    "id": "fishing-crustacean",
+    "title": {
+      "fr": "Crustacé",
+      "en": "Crustacean"
+    },
+    "url": "/skills/fishing/#families"
+  },
+  {
+    "type": "family",
+    "id": "fishing-shark",
+    "title": {
+      "fr": "Requin",
+      "en": "Shark"
+    },
+    "url": "/skills/fishing/#families"
+  },
+  {
+    "type": "family",
+    "id": "fishing-infernal",
+    "title": {
+      "fr": "Infernale",
+      "en": "Infernal"
+    },
+    "url": "/skills/fishing/#families"
+  },
+  {
+    "type": "family",
+    "id": "fishing-void",
+    "title": {
+      "fr": "Vide",
+      "en": "Void"
+    },
+    "url": "/skills/fishing/#families"
+  },
+  {
+    "type": "entity",
+    "id": "nessie",
+    "title": {
+      "fr": "Nessie",
+      "en": "Nessie"
+    },
+    "url": "/skills/fishing/#sea-monsters"
+  },
+  {
+    "type": "entity",
+    "id": "megalodon",
+    "title": {
+      "fr": "Mégalodon",
+      "en": "Megalodon"
+    },
+    "url": "/skills/fishing/#sea-monsters"
+  },
+  {
+    "type": "entity",
+    "id": "whale",
+    "title": {
+      "fr": "Baleine légendaire",
+      "en": "Legendary Whale"
+    },
+    "url": "/skills/fishing/#sea-monsters"
   }
 ]

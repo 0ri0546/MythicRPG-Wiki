@@ -1,7 +1,7 @@
 {
-  "schema_version": "0.1.1",
+  "schema_version": "0.2.0",
   "source": {
-    "canonical_source": "src(91).zip",
+    "canonical_source": "src(92).zip",
     "received_archive": "src(92).zip",
     "archive_sha256": "4b27706a74060dee996d9c369aa83387e6d68bda2cc69f1be9a5349d3b0c9b96",
     "tree_sha256": "d39d740f8d5f36d37a0e24539287247e1b98c89f49c47a6a99fd6a83988b8b3f",
@@ -27,14 +27,37 @@
         "website",
         "encyclopedia"
       ],
+      "coverage": "deep",
       "editorial": {
         "en": {
-          "summary": "Progress by mining and unlock archaeology, vein mining, and quality-of-life bonuses.",
-          "body_markdown": "# Mining\n\nThis page is generated from the mod code and resources. Editorial text is intentionally brief in v0.1.\n\nDisplayed values include a status and source so stable data can be distinguished from temporary beta tuning."
+          "summary": "Mine, automate connected ore veins, and explore the fossil archaeology loop.",
+          "body_markdown": "# Mining\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "key_systems": [
+            "Vein Mining et Minage 3×3",
+            "Cinq familles et cinq raretés de fossiles",
+            "Nettoyage, incubation, analyse et expéditions",
+            "Bonus de butin, d’XP, de célérité et de confort"
+          ],
+          "xp_sources": [
+            "Casser les blocs reconnus par le gestionnaire Mining",
+            "Les blocs supplémentaires de Vein Mining et du 3×3 réutilisent les règles d’XP du bloc ciblé"
+          ],
+          "multiplayer": "Les effets de zone et les toggles sont contrôlés côté serveur. Vein Mining conserve une préférence cliente synchronisée à chaque connexion."
         },
         "fr": {
-          "summary": "Progressez en minant et débloquez l’archéologie, le minage de filons et des bonus de confort.",
-          "body_markdown": "# Mining\n\nCette page est générée à partir du code et des ressources du mod. Le texte éditorial de la v0.1 reste volontairement court.\n\nLes valeurs affichées portent un statut et une provenance afin de distinguer les données stables des réglages temporaires de bêta."
+          "summary": "Progressez en minant, automatisez les filons et explorez un système complet d’archéologie fossile.",
+          "body_markdown": "# Minage\n\nMining associe une progression classique par extraction de blocs à une branche d’archéologie beaucoup plus large. L’arbre commence par **Filon minier**, puis se divise entre fossiles, surbrillance, butin, expérience et avantages permanents.\n\n## Deux effets de zone indépendants\n\n**Vein Mining** recherche les blocs identiques connectés dans les six directions et casse au maximum la limite extraite du code. Son option d’accessibilité peut le désactiver sans retirer le perk. **Minage 3×3** possède son propre toggle et ne casse que les blocs identiques au bloc d’origine dans le plan déterminé par l’orientation du joueur.\n\n## Archéologie\n\nLes fossiles sont classés par famille et rareté. La rareté contrôle notamment le poids de génération, le temps de nettoyage et le temps d’incubation. Le wiki affiche ces valeurs depuis les enums Java et permet de les comparer sans recopier les chiffres.\n\n## Validation\n\nLes arbres, constantes, familles et raretés sont inspectés statiquement. Les comportements réseau et les résultats en jeu restent distingués de cette inspection.",
+          "key_systems": [
+            "Vein Mining et Minage 3×3",
+            "Cinq familles et cinq raretés de fossiles",
+            "Nettoyage, incubation, analyse et expéditions",
+            "Bonus de butin, d’XP, de célérité et de confort"
+          ],
+          "xp_sources": [
+            "Casser les blocs reconnus par le gestionnaire Mining",
+            "Les blocs supplémentaires de Vein Mining et du 3×3 réutilisent les règles d’XP du bloc ciblé"
+          ],
+          "multiplayer": "Les effets de zone et les toggles sont contrôlés côté serveur. Vein Mining conserve une préférence cliente synchronisée à chaque connexion."
         }
       },
       "nodes": [
@@ -763,6 +786,81 @@
       "extraction": {
         "method": "skill_tree_java",
         "file": "main/java/com/mythicrpg/mining/MiningSkillTree.java"
+      },
+      "analysis": {
+        "roots": [
+          1
+        ],
+        "leaves": [
+          19,
+          20
+        ],
+        "bonus_types": [
+          "drop_multiplier",
+          "fossil_archaeologist",
+          "fossil_excavation",
+          "fossil_incubation",
+          "mining_3x3",
+          "no_durability_loss",
+          "no_fall_damage",
+          "ore_highlight_radius",
+          "vein_mining",
+          "xp_multiplier"
+        ],
+        "branch_counts": {
+          "trunk": 3,
+          "1:0": 3,
+          "1:1": 3,
+          "2:0": 3,
+          "2:1": 3,
+          "2:2": 3,
+          "3:0": 1,
+          "3:1": 1
+        },
+        "fork_count": 3,
+        "max_depth_hint": 295
+      },
+      "related_content": {
+        "items": [
+          "colossal_aegis",
+          "colossal_aegis_blocking",
+          "flying_common_fossil",
+          "flying_epic_fossil",
+          "flying_legendary_fossil",
+          "flying_mythic_fossil",
+          "flying_rare_fossil",
+          "fossil_block",
+          "fossil_drill",
+          "fossil_incubator",
+          "fossil_palette",
+          "growth_totem",
+          "insect_common_fossil",
+          "insect_epic_fossil",
+          "insect_legendary_fossil",
+          "insect_mythic_fossil",
+          "insect_rare_fossil",
+          "large_land_common_fossil",
+          "large_land_epic_fossil",
+          "large_land_legendary_fossil",
+          "large_land_mythic_fossil",
+          "large_land_rare_fossil",
+          "marine_common_fossil",
+          "marine_epic_fossil",
+          "marine_legendary_fossil",
+          "marine_mythic_fossil",
+          "marine_rare_fossil",
+          "small_land_common_fossil",
+          "small_land_epic_fossil",
+          "small_land_legendary_fossil",
+          "small_land_mythic_fossil",
+          "small_land_rare_fossil"
+        ],
+        "recipes": [
+          "fossil_incubator",
+          "structure_module_nether_fossil"
+        ],
+        "method": "identifier_keyword_inference",
+        "confidence": "editorial_association_not_runtime_registration"
       }
     },
     {
@@ -777,14 +875,37 @@
         "website",
         "encyclopedia"
       ],
+      "coverage": "structured",
       "editorial": {
         "en": {
-          "summary": "Improve combat, face Barons, and unlock offensive and defensive effects.",
-          "body_markdown": "# Fighting\n\nThis page is generated from the mod code and resources. Editorial text is intentionally brief in v0.1.\n\nDisplayed values include a status and source so stable data can be distinguished from temporary beta tuning."
+          "summary": "Improve direct combat and prepare for the Baron system.",
+          "body_markdown": "# Fighting\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "key_systems": [
+            "Poison et effets permanents",
+            "Portée et recharge des épées",
+            "Butin et expérience des créatures",
+            "Système des Barons et récompenses légendaires"
+          ],
+          "xp_sources": [
+            "Combats et récompenses gérés par les événements Fighting",
+            "Bonus d’expérience des créatures hostiles selon les perks"
+          ],
+          "multiplayer": "Les dégâts, butins et promotions de Barons sont des règles serveur. Les détails de chaque Baron seront approfondis dans une livraison dédiée."
         },
         "fr": {
-          "summary": "Améliorez le combat, affrontez les Barons et débloquez des effets offensifs et défensifs.",
-          "body_markdown": "# Combat\n\nCette page est générée à partir du code et des ressources du mod. Le texte éditorial de la v0.1 reste volontairement court.\n\nLes valeurs affichées portent un statut et une provenance afin de distinguer les données stables des réglages temporaires de bêta."
+          "summary": "Améliorez les combats directs, les effets offensifs et défensifs, puis affrontez les Barons.",
+          "body_markdown": "# Combat\n\nFighting regroupe les améliorations de mêlée, les effets appliqués à l’impact, les multiplicateurs de butin et les protections permanentes. Son arbre permet de choisir entre plusieurs branches avant de converger vers les perks finaux.\n\n## Barons\n\nLe code contient un catalogue important de comportements de Barons, de récompenses et d’objets légendaires. La v0.2 référence ce système et rend l’arbre complet explorable ; les fiches exhaustives des différents Barons restent prévues pour la phase de contenu suivante.\n\n## Lecture de l’arbre\n\nLe simulateur respecte les parents et les conflits de branche extraits du Java. Il sert à explorer un build, pas à recommander une manière optimale de jouer.",
+          "key_systems": [
+            "Poison et effets permanents",
+            "Portée et recharge des épées",
+            "Butin et expérience des créatures",
+            "Système des Barons et récompenses légendaires"
+          ],
+          "xp_sources": [
+            "Combats et récompenses gérés par les événements Fighting",
+            "Bonus d’expérience des créatures hostiles selon les perks"
+          ],
+          "multiplayer": "Les dégâts, butins et promotions de Barons sont des règles serveur. Les détails de chaque Baron seront approfondis dans une livraison dédiée."
         }
       },
       "nodes": [
@@ -1507,6 +1628,54 @@
       "extraction": {
         "method": "skill_tree_java",
         "file": "main/java/com/mythicrpg/fighting/FightingSkillTree.java"
+      },
+      "analysis": {
+        "roots": [
+          1
+        ],
+        "leaves": [
+          19,
+          20
+        ],
+        "bonus_types": [
+          "attack_cooldown_multiplier",
+          "double_loot_chance",
+          "hit_glowing",
+          "mob_xp_multiplier",
+          "spider_damage",
+          "sword_reach",
+          "undead_damage"
+        ],
+        "branch_counts": {
+          "trunk": 3,
+          "1:0": 3,
+          "1:1": 3,
+          "2:0": 3,
+          "2:1": 3,
+          "2:2": 3,
+          "3:0": 1,
+          "3:1": 1
+        },
+        "fork_count": 3,
+        "max_depth_hint": 295
+      },
+      "related_content": {
+        "items": [
+          "barons_doll",
+          "builder_wand",
+          "fire_wand",
+          "fishing_weather_wand",
+          "fishing_weather_wand_storm",
+          "fishing_weather_wand_sun",
+          "heart_of_the_beam",
+          "spider_wand"
+        ],
+        "recipes": [
+          "builder_wand",
+          "fishing_weather_wand"
+        ],
+        "method": "identifier_keyword_inference",
+        "confidence": "editorial_association_not_runtime_registration"
       }
     },
     {
@@ -1521,14 +1690,37 @@
         "website",
         "encyclopedia"
       ],
+      "coverage": "structured",
       "editorial": {
         "en": {
-          "summary": "Develop wood harvesting and its related storage systems.",
-          "body_markdown": "# Woodcutting\n\nThis page is generated from the mod code and resources. Editorial text is intentionally brief in v0.1.\n\nDisplayed values include a status and source so stable data can be distinguished from temporary beta tuning."
+          "summary": "Expand wood gathering, tree felling, growth, and modular storage.",
+          "body_markdown": "# Woodcutting\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "key_systems": [
+            "Bois enchanté et bonus de butin",
+            "Croissance et pousses",
+            "Abattage complet des arbres",
+            "Modules de coffre et Hache enchantée"
+          ],
+          "xp_sources": [
+            "Casser les bûches reconnues par Woodcutting",
+            "Conversion optionnelle vers l’expérience vanilla via un perk"
+          ],
+          "multiplayer": "Les événements de coupe et les inventaires modulaires sont gérés côté serveur. Les capacités de coffre doivent être vérifiées en jeu lors des régressions."
         },
         "fr": {
-          "summary": "Développez la récolte du bois et les systèmes de stockage associés.",
-          "body_markdown": "# Bûcheronnage\n\nCette page est générée à partir du code et des ressources du mod. Le texte éditorial de la v0.1 reste volontairement court.\n\nLes valeurs affichées portent un statut et une provenance afin de distinguer les données stables des réglages temporaires de bêta."
+          "summary": "Développez la récolte du bois, l’abattage, les pousses et les modules de stockage.",
+          "body_markdown": "# Bûcheronnage\n\nWoodcutting transforme la coupe du bois en progression spécialisée. Les branches couvrent le double butin, le Bois enchanté, la croissance des arbres, l’abattage complet et le stockage modulaire.\n\n## Stockage modulaire\n\nLes perks 15 à 17 débloquent trois niveaux de modules destinés aux coffres vanilla. Le wiki relie les perks aux objets détectés et signale le niveau de preuve de leur enregistrement.\n\n## Confort de récolte\n\nLes perks finaux proposent une Hache enchantée, la possibilité de manger du bois et la suppression de la perte de durabilité des haches.",
+          "key_systems": [
+            "Bois enchanté et bonus de butin",
+            "Croissance et pousses",
+            "Abattage complet des arbres",
+            "Modules de coffre et Hache enchantée"
+          ],
+          "xp_sources": [
+            "Casser les bûches reconnues par Woodcutting",
+            "Conversion optionnelle vers l’expérience vanilla via un perk"
+          ],
+          "multiplayer": "Les événements de coupe et les inventaires modulaires sont gérés côté serveur. Les capacités de coffre doivent être vérifiées en jeu lors des régressions."
         }
       },
       "nodes": [
@@ -2257,6 +2449,73 @@
       "extraction": {
         "method": "skill_tree_java",
         "file": "main/java/com/mythicrpg/woodcutting/WoodcuttingSkillTree.java"
+      },
+      "analysis": {
+        "roots": [
+          1
+        ],
+        "leaves": [
+          19,
+          20
+        ],
+        "bonus_types": [
+          "axe_no_durability",
+          "chest_module_i_craft",
+          "chest_module_ii_craft",
+          "chest_module_iii_craft",
+          "enchanted_axe_craft",
+          "enchanted_wood_chance",
+          "growth_craft",
+          "leaf_apple_drop",
+          "leaf_golden_apple_chance",
+          "random_sapling_drop_chance",
+          "timber",
+          "tree_growth",
+          "wood_double_drop_chance",
+          "wood_eater",
+          "wood_vanilla_xp"
+        ],
+        "branch_counts": {
+          "trunk": 3,
+          "1:0": 3,
+          "1:1": 3,
+          "2:0": 3,
+          "2:1": 3,
+          "2:2": 3,
+          "3:0": 1,
+          "3:1": 1
+        },
+        "fork_count": 3,
+        "max_depth_hint": 295
+      },
+      "related_content": {
+        "items": [
+          "chest_module_1",
+          "chest_module_2",
+          "chest_module_3",
+          "enchanted_axe",
+          "enchanted_wood"
+        ],
+        "recipes": [
+          "chest_module_1",
+          "chest_module_2",
+          "chest_module_3",
+          "enchanted_axe",
+          "recycle_golden_axe",
+          "recycle_golden_pickaxe",
+          "recycle_iron_axe",
+          "recycle_iron_pickaxe",
+          "recycle_stone_axe",
+          "recycle_stone_pickaxe",
+          "recycle_wooden_axe",
+          "recycle_wooden_hoe",
+          "recycle_wooden_pickaxe",
+          "recycle_wooden_shovel",
+          "recycle_wooden_sword",
+          "structure_module_woodland_mansion"
+        ],
+        "method": "identifier_keyword_inference",
+        "confidence": "editorial_association_not_runtime_registration"
       }
     },
     {
@@ -2271,14 +2530,37 @@
         "website",
         "encyclopedia"
       ],
+      "coverage": "structured",
       "editorial": {
         "en": {
-          "summary": "Grow, harvest, and use farming-related tools and rewards.",
-          "body_markdown": "# Farming\n\nThis page is generated from the mod code and resources. Editorial text is intentionally brief in v0.1.\n\nDisplayed values include a status and source so stable data can be distinguished from temporary beta tuning."
+          "summary": "Automate harvesting and unlock advanced agricultural rewards.",
+          "body_markdown": "# Farming\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "key_systems": [
+            "Replantation et récoltes abondantes",
+            "Graines et fleurs enchantées",
+            "Food Backpack de 54 emplacements",
+            "Portée des houes et croissance accélérée"
+          ],
+          "xp_sources": [
+            "Récoltes agricoles matures",
+            "Élevage et autres événements Farming confirmés par les gestionnaires dédiés"
+          ],
+          "multiplayer": "Les récoltes de zone et la croissance sont appliquées côté serveur. Le Food Backpack possède des données de session et de mort spécifiques."
         },
         "fr": {
-          "summary": "Cultivez, récoltez et exploitez des outils et récompenses liés à l’agriculture.",
-          "body_markdown": "# Agriculture\n\nCette page est générée à partir du code et des ressources du mod. Le texte éditorial de la v0.1 reste volontairement court.\n\nLes valeurs affichées portent un statut et une provenance afin de distinguer les données stables des réglages temporaires de bêta."
+          "summary": "Cultivez, replantez automatiquement et exploitez les récompenses agricoles avancées.",
+          "body_markdown": "# Agriculture\n\nFarming récompense la culture, la récolte et l’élevage. L’arbre combine automatisation, gains supplémentaires, objets de stockage et effets contextuels.\n\n## Récolte et croissance\n\nLa replantation automatique et les perks de portée transforment les houes en outils de récolte de zone. **Champ vivant** accélère la croissance naturelle autour du joueur.\n\n## Conservation\n\nLe Food Backpack est un inventaire spécialisé de 54 emplacements. Le perk Fermier préservé protège cet inventaire et les niveaux vanilla selon les règles du gestionnaire de mort.",
+          "key_systems": [
+            "Replantation et récoltes abondantes",
+            "Graines et fleurs enchantées",
+            "Food Backpack de 54 emplacements",
+            "Portée des houes et croissance accélérée"
+          ],
+          "xp_sources": [
+            "Récoltes agricoles matures",
+            "Élevage et autres événements Farming confirmés par les gestionnaires dédiés"
+          ],
+          "multiplayer": "Les récoltes de zone et la croissance sont appliquées côté serveur. Le Food Backpack possède des données de session et de mort spécifiques."
         }
       },
       "nodes": [
@@ -3007,6 +3289,54 @@
       "extraction": {
         "method": "skill_tree_java",
         "file": "main/java/com/mythicrpg/farming/FarmingSkillTree.java"
+      },
+      "analysis": {
+        "roots": [
+          1
+        ],
+        "leaves": [
+          19,
+          20
+        ],
+        "bonus_types": [
+          "auto_replant",
+          "bone_meal_regen",
+          "compost_rare_drop_chance",
+          "cultivated_shield",
+          "enchanted_flower_craft",
+          "enchanted_seed_chance",
+          "farmer_reach_radius",
+          "farming_double_drop_chance",
+          "farming_vanilla_xp",
+          "food_backpack_craft",
+          "irrigated_step",
+          "living_field",
+          "preserved_farmer"
+        ],
+        "branch_counts": {
+          "trunk": 3,
+          "1:0": 3,
+          "1:1": 3,
+          "2:0": 3,
+          "2:1": 3,
+          "2:2": 3,
+          "3:0": 1,
+          "3:1": 1
+        },
+        "fork_count": 3,
+        "max_depth_hint": 295
+      },
+      "related_content": {
+        "items": [
+          "enchanted_flower",
+          "food_backpack"
+        ],
+        "recipes": [
+          "enchanted_flower",
+          "food_backpack"
+        ],
+        "method": "identifier_keyword_inference",
+        "confidence": "editorial_association_not_runtime_registration"
       }
     },
     {
@@ -3021,14 +3351,37 @@
         "website",
         "encyclopedia"
       ],
+      "coverage": "structured",
       "editorial": {
         "en": {
-          "summary": "Unlock advanced crafting mechanics and utility items.",
-          "body_markdown": "# Crafting\n\nThis page is generated from the mod code and resources. Editorial text is intentionally brief in v0.1.\n\nDisplayed values include a status and source so stable data can be distinguished from temporary beta tuning."
+          "summary": "Use portable crafting, charges, recycling, and mastery systems.",
+          "body_markdown": "# Crafting\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "key_systems": [
+            "Fabrication 3×3 portable et charges",
+            "Économie de ressources et première fabrication",
+            "Bloc chanceux et infusion de chance",
+            "Recyclage, renforcement et transformation"
+          ],
+          "xp_sources": [
+            "Fabrications éligibles identifiées par CraftXpManager",
+            "Bonus de première fabrication, de nuit et d’inspiration"
+          ],
+          "multiplayer": "Les décisions de fabrication et les événements de Lucky Block sont validés côté serveur. Les interfaces portables restent des vues clientes sur un état autoritaire."
         },
         "fr": {
-          "summary": "Débloquez des mécaniques de fabrication avancées et des objets utilitaires.",
-          "body_markdown": "# Artisanat\n\nCette page est générée à partir du code et des ressources du mod. Le texte éditorial de la v0.1 reste volontairement court.\n\nLes valeurs affichées portent un statut et une provenance afin de distinguer les données stables des réglages temporaires de bêta."
+          "summary": "Débloquez la fabrication portable, les charges, le recyclage et les objets de maîtrise artisanale.",
+          "body_markdown": "# Fabrication\n\nCrafting ajoute plusieurs couches au système de recettes : interface portable, économie d’ingrédients, jauge de charge, bonus contextuels et transformation instantanée.\n\n## Fabrication portable\n\nLe premier perk ouvre une grille 3×3 dans l’inventaire avec un stock de charges. D’autres perks améliorent l’efficacité, la durabilité des stations ou les récompenses d’expérience.\n\n## Recettes et relations\n\nL’explorateur du wiki permet de rechercher les recettes JSON par résultat ou ingrédient. Les systèmes dont les recettes sont générées en Java sont signalés séparément.",
+          "key_systems": [
+            "Fabrication 3×3 portable et charges",
+            "Économie de ressources et première fabrication",
+            "Bloc chanceux et infusion de chance",
+            "Recyclage, renforcement et transformation"
+          ],
+          "xp_sources": [
+            "Fabrications éligibles identifiées par CraftXpManager",
+            "Bonus de première fabrication, de nuit et d’inspiration"
+          ],
+          "multiplayer": "Les décisions de fabrication et les événements de Lucky Block sont validés côté serveur. Les interfaces portables restent des vues clientes sur un état autoritaire."
         }
       },
       "nodes": [
@@ -3757,6 +4110,118 @@
       "extraction": {
         "method": "skill_tree_java",
         "file": "main/java/com/mythicrpg/crafting/CraftingSkillTree.java"
+      },
+      "analysis": {
+        "roots": [
+          1
+        ],
+        "leaves": [
+          19,
+          20
+        ],
+        "bonus_types": [
+          "craft_charge",
+          "craft_mastery",
+          "craft_portable_table",
+          "craft_resource_save_chance",
+          "craft_vanilla_xp",
+          "exp_charm_craft",
+          "first_craft_bonus",
+          "infinite_crafting_table_craft",
+          "lucky_block_craft",
+          "lucky_infusion",
+          "midnight_crafting",
+          "mythic_inspiration",
+          "recycle_crafts",
+          "reinforced_craft_chance",
+          "repair_kit_craft",
+          "repair_kit_power",
+          "transformation_slot"
+        ],
+        "branch_counts": {
+          "trunk": 3,
+          "1:0": 3,
+          "1:1": 3,
+          "2:0": 3,
+          "2:1": 3,
+          "2:2": 3,
+          "3:0": 1,
+          "3:1": 1
+        },
+        "fork_count": 3,
+        "max_depth_hint": 295
+      },
+      "related_content": {
+        "items": [
+          "coin_toss_blessed",
+          "coin_toss_cursed",
+          "infinite_crafting_table",
+          "lucky_block",
+          "repair_kit"
+        ],
+        "recipes": [
+          "growth_1_book",
+          "growth_2_book",
+          "growth_3_book",
+          "infinite_crafting_table",
+          "lucky_block",
+          "lucky_infusion_coal_block",
+          "lucky_infusion_cobblestone",
+          "lucky_infusion_copper_block",
+          "lucky_infusion_diamond_block",
+          "lucky_infusion_dirt",
+          "lucky_infusion_emerald_block",
+          "lucky_infusion_fermented_spider_eye",
+          "lucky_infusion_gold_block",
+          "lucky_infusion_gravel",
+          "lucky_infusion_gunpowder",
+          "lucky_infusion_iron_block",
+          "lucky_infusion_lapis_block",
+          "lucky_infusion_magma_block",
+          "lucky_infusion_netherrack",
+          "lucky_infusion_phantom_membrane",
+          "lucky_infusion_poisonous_potato",
+          "lucky_infusion_redstone_block",
+          "lucky_infusion_rotten_flesh",
+          "lucky_infusion_sand",
+          "lucky_infusion_soul_sand",
+          "lucky_infusion_soul_soil",
+          "lucky_infusion_spider_eye",
+          "lucky_infusion_wither_rose",
+          "lucky_infusion_wither_skeleton_skull",
+          "portable_fridge_book",
+          "recycle_golden_axe",
+          "recycle_golden_boots",
+          "recycle_golden_chestplate",
+          "recycle_golden_helmet",
+          "recycle_golden_hoe",
+          "recycle_golden_leggings",
+          "recycle_golden_pickaxe",
+          "recycle_golden_shovel",
+          "recycle_golden_sword",
+          "recycle_iron_axe",
+          "recycle_iron_boots",
+          "recycle_iron_chestplate",
+          "recycle_iron_helmet",
+          "recycle_iron_hoe",
+          "recycle_iron_leggings",
+          "recycle_iron_pickaxe",
+          "recycle_iron_shovel",
+          "recycle_iron_sword",
+          "recycle_stone_axe",
+          "recycle_stone_hoe",
+          "recycle_stone_pickaxe",
+          "recycle_stone_shovel",
+          "recycle_stone_sword",
+          "recycle_wooden_axe",
+          "recycle_wooden_hoe",
+          "recycle_wooden_pickaxe",
+          "recycle_wooden_shovel",
+          "recycle_wooden_sword",
+          "repair_kit"
+        ],
+        "method": "identifier_keyword_inference",
+        "confidence": "editorial_association_not_runtime_registration"
       }
     },
     {
@@ -3771,14 +4236,37 @@
         "website",
         "encyclopedia"
       ],
+      "coverage": "structured",
       "editorial": {
         "en": {
-          "summary": "Explore the world with movement abilities, mounts, and structure modules.",
-          "body_markdown": "# Traveling\n\nThis page is generated from the mod code and resources. Editorial text is intentionally brief in v0.1.\n\nDisplayed values include a status and source so stable data can be distinguished from temporary beta tuning."
+          "summary": "Explore with movement perks, vehicles, mounts, and structure tools.",
+          "body_markdown": "# Traveling\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "key_systems": [
+            "Double saut et bonus de déplacement",
+            "Découverte de biomes, structures et trésors",
+            "Boussole et modules de structures",
+            "Véhicules, montures, rappel mortel et grappin"
+          ],
+          "xp_sources": [
+            "Déplacements et découvertes enregistrés par TravelingXpManager",
+            "Sources distinctes définies dans TravelingXpSource"
+          ],
+          "multiplayer": "Les découvertes et la progression sont persistantes par joueur. Le Fishing Boat peut volontairement attribuer de l’XP Traveling."
         },
         "fr": {
-          "summary": "Explorez le monde avec des capacités de déplacement, des montures et des modules de structures.",
-          "body_markdown": "# Voyage\n\nCette page est générée à partir du code et des ressources du mod. Le texte éditorial de la v0.1 reste volontairement court.\n\nLes valeurs affichées portent un statut et une provenance afin de distinguer les données stables des réglages temporaires de bêta."
+          "summary": "Explorez le monde avec le double saut, les véhicules, les montures et la Boussole monumentale.",
+          "body_markdown": "# Voyage\n\nTraveling récompense l’exploration plutôt qu’un trajet imposé. Les perks couvrent la mobilité personnelle, la découverte, les véhicules et les outils de recherche de structures.\n\n## Choix de fin d’arbre\n\nLes montures volantes et le grappin représentent un choix de branche. Le simulateur affiche le conflit à partir des identifiants de fork extraits du code.\n\n## Interactions entre skills\n\nCertains objets produits par d’autres systèmes contribuent à Traveling. Le Fishing Boat donnant de l’XP Traveling est une décision fonctionnelle conservée, pas un bug.",
+          "key_systems": [
+            "Double saut et bonus de déplacement",
+            "Découverte de biomes, structures et trésors",
+            "Boussole et modules de structures",
+            "Véhicules, montures, rappel mortel et grappin"
+          ],
+          "xp_sources": [
+            "Déplacements et découvertes enregistrés par TravelingXpManager",
+            "Sources distinctes définies dans TravelingXpSource"
+          ],
+          "multiplayer": "Les découvertes et la progression sont persistantes par joueur. Le Fishing Boat peut volontairement attribuer de l’XP Traveling."
         }
       },
       "nodes": [
@@ -4507,6 +4995,109 @@
       "extraction": {
         "method": "skill_tree_java",
         "file": "main/java/com/mythicrpg/traveling/TravelingSkillTree.java"
+      },
+      "analysis": {
+        "roots": [
+          1
+        ],
+        "leaves": [
+          19,
+          20
+        ],
+        "bonus_types": [
+          "fast_boat_craft",
+          "fast_minecart_craft",
+          "flying_mounts",
+          "grappling_hook_craft",
+          "land_mounts",
+          "monumental_compass_craft",
+          "structure_modules_nether_end",
+          "structure_modules_overworld",
+          "travel_biome_speed",
+          "travel_boots_no_durability",
+          "travel_death_recall",
+          "travel_discovery_xp_multiplier",
+          "travel_dolphins_grace",
+          "travel_double_jump",
+          "travel_miniaturization",
+          "travel_powder_walker",
+          "travel_soul_walker",
+          "travel_xp_multiplier",
+          "treasure_vanilla_xp"
+        ],
+        "branch_counts": {
+          "trunk": 3,
+          "1:0": 3,
+          "1:1": 3,
+          "2:0": 3,
+          "2:1": 3,
+          "2:2": 3,
+          "3:0": 1,
+          "3:1": 1
+        },
+        "fork_count": 3,
+        "max_depth_hint": 295
+      },
+      "related_content": {
+        "items": [
+          "architect_compass",
+          "bee_saddle",
+          "blaze_saddle",
+          "breeze_saddle",
+          "chicken_saddle",
+          "cow_saddle",
+          "death_recall_token",
+          "enderman_saddle",
+          "ghast_saddle",
+          "goat_saddle",
+          "grappling_hook",
+          "hoglin_saddle",
+          "llama_saddle",
+          "mooshroom_saddle",
+          "panda_saddle",
+          "phantom_saddle",
+          "pig_saddle",
+          "polar_bear_saddle",
+          "ravager_saddle",
+          "sheep_saddle",
+          "snow_golem_saddle",
+          "spider_saddle",
+          "traveler_boat",
+          "traveler_minecart",
+          "turtle_saddle",
+          "villager_saddle",
+          "zoglin_saddle"
+        ],
+        "recipes": [
+          "architect_compass",
+          "bee_saddle",
+          "blaze_saddle",
+          "breeze_saddle",
+          "chicken_saddle",
+          "cow_saddle",
+          "enderman_saddle",
+          "ghast_saddle",
+          "goat_saddle",
+          "grappling_hook",
+          "hoglin_saddle",
+          "llama_saddle",
+          "mooshroom_saddle",
+          "panda_saddle",
+          "phantom_saddle",
+          "pig_saddle",
+          "polar_bear_saddle",
+          "ravager_saddle",
+          "sheep_saddle",
+          "snow_golem_saddle",
+          "spider_saddle",
+          "traveler_boat",
+          "traveler_minecart",
+          "turtle_saddle",
+          "villager_saddle",
+          "zoglin_saddle"
+        ],
+        "method": "identifier_keyword_inference",
+        "confidence": "editorial_association_not_runtime_registration"
       }
     },
     {
@@ -4521,14 +5112,37 @@
         "website",
         "encyclopedia"
       ],
+      "coverage": "structured",
       "editorial": {
         "en": {
-          "summary": "Speed up building with MythicRPG plans, tools, and decorative blocks.",
-          "body_markdown": "# Building\n\nThis page is generated from the mod code and resources. Editorial text is intentionally brief in v0.1.\n\nDisplayed values include a status and source so stable data can be distinguished from temporary beta tuning."
+          "summary": "Plan and execute builds with optional construction tools.",
+          "body_markdown": "# Building\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "key_systems": [
+            "Plans 2D et 3D",
+            "Réapprovisionnement, aimant et portée",
+            "Blocs vierges et décorations statiques",
+            "Réserves de chantier, miniatures et Baguette du bâtisseur"
+          ],
+          "xp_sources": [
+            "Placement et opérations Building suivis par BuildingXpManager",
+            "Données de chantier enregistrées par les gestionnaires de plans"
+          ],
+          "multiplayer": "Les travaux de plans et de réserves sont contrôlés côté serveur. Les aperçus et décorations statiques utilisent des payloads ou rendus clients dédiés."
         },
         "fr": {
-          "summary": "Accélérez la construction grâce aux plans, outils et blocs décoratifs de MythicRPG.",
-          "body_markdown": "# Construction\n\nCette page est générée à partir du code et des ressources du mod. Le texte éditorial de la v0.1 reste volontairement court.\n\nLes valeurs affichées portent un statut et une provenance afin de distinguer les données stables des réglages temporaires de bêta."
+          "summary": "Construisez avec des plans, des réserves, des blocs configurables et des outils de placement.",
+          "body_markdown": "# Construction\n\nBuilding est centré sur la préparation et l’exécution de projets sans remplacer la construction libre de Minecraft. Les plans, réserves et outils restent optionnels.\n\n## Plans et chantiers\n\nLes perks augmentent progressivement les volumes de sélection et débloquent les plans 2D puis 3D. Les gestionnaires conservent les tâches, réserves et sessions d’interface nécessaires.\n\n## Décoration\n\nLes dalles verticales, Blocs vierges, miniatures et générateurs de particules statiques forment la branche décorative. Les options d’accessibilité correspondantes restent indépendantes des perks.",
+          "key_systems": [
+            "Plans 2D et 3D",
+            "Réapprovisionnement, aimant et portée",
+            "Blocs vierges et décorations statiques",
+            "Réserves de chantier, miniatures et Baguette du bâtisseur"
+          ],
+          "xp_sources": [
+            "Placement et opérations Building suivis par BuildingXpManager",
+            "Données de chantier enregistrées par les gestionnaires de plans"
+          ],
+          "multiplayer": "Les travaux de plans et de réserves sont contrôlés côté serveur. Les aperçus et décorations statiques utilisent des payloads ou rendus clients dédiés."
         }
       },
       "nodes": [
@@ -5257,6 +5871,69 @@
       "extraction": {
         "method": "skill_tree_java",
         "file": "main/java/com/mythicrpg/building/BuildingSkillTree.java"
+      },
+      "analysis": {
+        "roots": [
+          1
+        ],
+        "leaves": [
+          19,
+          20
+        ],
+        "bonus_types": [
+          "build_architect_compass",
+          "build_auto_restock",
+          "build_blank_block",
+          "build_decorative_magnet",
+          "build_miniature",
+          "build_no_tool_durability",
+          "build_plan_2d_12",
+          "build_plan_2d_8",
+          "build_plan_3d",
+          "build_quick_replace",
+          "build_reach",
+          "build_reserve_range",
+          "build_scaffolding_range",
+          "build_static_decoration",
+          "build_vertical_slabs",
+          "build_wand"
+        ],
+        "branch_counts": {
+          "trunk": 3,
+          "1:0": 3,
+          "1:1": 3,
+          "2:0": 3,
+          "2:1": 3,
+          "2:2": 3,
+          "3:0": 1,
+          "3:1": 1
+        },
+        "fork_count": 3,
+        "max_depth_hint": 295
+      },
+      "related_content": {
+        "items": [
+          "architect_compass",
+          "blank_block",
+          "builder_wand",
+          "building_miniature_project",
+          "building_plan_2d",
+          "building_plan_3d",
+          "building_reserve_chest",
+          "static_decoration_generator"
+        ],
+        "recipes": [
+          "architect_compass",
+          "blank_block",
+          "builder_wand",
+          "building_miniature_project",
+          "building_plan_2d",
+          "building_plan_3d",
+          "building_reserve_chest",
+          "static_decoration_generator"
+        ],
+        "method": "identifier_keyword_inference",
+        "confidence": "editorial_association_not_runtime_registration"
       }
     },
     {
@@ -5271,14 +5948,37 @@
         "website",
         "encyclopedia"
       ],
+      "coverage": "deep",
       "editorial": {
         "en": {
-          "summary": "Discover fish families, rarities, mini-games, and sea monsters.",
-          "body_markdown": "# Fishing\n\nThis page is generated from the mod code and resources. Editorial text is intentionally brief in v0.1.\n\nDisplayed values include a status and source so stable data can be distinguished from temporary beta tuning."
+          "summary": "Explore five families, five rarities, equipment, minigames, and legendary hunts.",
+          "body_markdown": "# Fishing\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "key_systems": [
+            "Probabilités par appât et rune de rareté",
+            "Mini-jeux Epic, Legendary et Mythic",
+            "Filets, Fishery Table, armures et Fishing Boat",
+            "Microclimats, jauges et monstres marins"
+          ],
+          "xp_sources": [
+            "Chaque rareté possède une valeur d’XP extraite de FishingRarity",
+            "Les monstres marins accordent une récompense principale au propriétaire et une XP réduite aux assistants"
+          ],
+          "multiplayer": "Les prises, inventaires, microclimats, jauges et boss sont autoritaires côté serveur. Fishing V1 reste en stabilisation avant son gel officiel."
         },
         "fr": {
-          "summary": "Découvrez les familles de poissons, les raretés, les mini-jeux et les monstres marins.",
-          "body_markdown": "# Pêche\n\nCette page est générée à partir du code et des ressources du mod. Le texte éditorial de la v0.1 reste volontairement court.\n\nLes valeurs affichées portent un statut et une provenance afin de distinguer les données stables des réglages temporaires de bêta."
+          "summary": "Explorez cinq familles, cinq raretés, des équipements, des mini-jeux et trois chasses légendaires.",
+          "body_markdown": "# Pêche\n\nFishing est le système le plus dense actuellement documenté. La boucle combine famille, rareté, appât, runes et mini-jeu éventuel avant d’accorder la prise.\n\n## Familles et dimensions\n\nDans l’Overworld, une famille primaire représente 75 % des choix et les deux autres familles ordinaires se partagent le reste. Le Nether force la famille Infernale et l’End force la famille Vide dans les conditions prévues par les cannes spécialisées.\n\n## Raretés et mini-jeux\n\nLes poids de rareté changent selon l’appât et la rune de rareté. Common et Rare sont accordées directement ; Epic utilise la précision, Legendary les cartes et Mythic la grille de formes.\n\n## Chasses légendaires\n\nLes microclimats personnels remplissent une jauge liée à Nessie, au Mégalodon ou à la Baleine légendaire. Le simulateur du wiki calcule le nombre de prises restantes à partir de la jauge et du gain extraits du code.",
+          "key_systems": [
+            "Probabilités par appât et rune de rareté",
+            "Mini-jeux Epic, Legendary et Mythic",
+            "Filets, Fishery Table, armures et Fishing Boat",
+            "Microclimats, jauges et monstres marins"
+          ],
+          "xp_sources": [
+            "Chaque rareté possède une valeur d’XP extraite de FishingRarity",
+            "Les monstres marins accordent une récompense principale au propriétaire et une XP réduite aux assistants"
+          ],
+          "multiplayer": "Les prises, inventaires, microclimats, jauges et boss sont autoritaires côté serveur. Fishing V1 reste en stabilisation avant son gel officiel."
         }
       },
       "nodes": [
@@ -6007,6 +6707,147 @@
       "extraction": {
         "method": "skill_tree_java",
         "file": "main/java/com/mythicrpg/fishing/FishingSkillTree.java"
+      },
+      "analysis": {
+        "roots": [
+          1
+        ],
+        "leaves": [
+          19,
+          20
+        ],
+        "bonus_types": [
+          "fishing_bait_i",
+          "fishing_bait_ii",
+          "fishing_bait_iii",
+          "fishing_basalt_rod",
+          "fishing_boat",
+          "fishing_custom_rod",
+          "fishing_fishery_table",
+          "fishing_legendary_bait",
+          "fishing_net_3",
+          "fishing_net_4",
+          "fishing_net_5",
+          "fishing_rune_mastery",
+          "fishing_rune_rarity",
+          "fishing_rune_slots",
+          "fishing_rune_speed",
+          "fishing_scale_armor",
+          "fishing_void_rod",
+          "fishing_weather_rain",
+          "fishing_weather_storm",
+          "fishing_weather_sun"
+        ],
+        "branch_counts": {
+          "trunk": 3,
+          "1:0": 3,
+          "1:1": 3,
+          "2:0": 3,
+          "2:1": 3,
+          "2:2": 3,
+          "3:0": 1,
+          "3:1": 1
+        },
+        "fork_count": 3,
+        "max_depth_hint": 295
+      },
+      "related_content": {
+        "items": [
+          "basalt_fishing_rod",
+          "fish_net",
+          "fishery_table",
+          "fishing_armor_common_boots",
+          "fishing_armor_common_chestplate",
+          "fishing_armor_common_helmet",
+          "fishing_armor_common_leggings",
+          "fishing_armor_epic_boots",
+          "fishing_armor_epic_chestplate",
+          "fishing_armor_epic_helmet",
+          "fishing_armor_epic_leggings",
+          "fishing_armor_legendary_boots",
+          "fishing_armor_legendary_chestplate",
+          "fishing_armor_legendary_helmet",
+          "fishing_armor_legendary_leggings",
+          "fishing_armor_mythic_boots",
+          "fishing_armor_mythic_chestplate",
+          "fishing_armor_mythic_helmet",
+          "fishing_armor_mythic_leggings",
+          "fishing_armor_rare_boots",
+          "fishing_armor_rare_chestplate",
+          "fishing_armor_rare_helmet",
+          "fishing_armor_rare_leggings",
+          "fishing_bait_i",
+          "fishing_bait_ii",
+          "fishing_bait_iii",
+          "fishing_bait_legendary",
+          "fishing_boat",
+          "fishing_catch",
+          "fishing_common_scale",
+          "fishing_common_shell",
+          "fishing_epic_scale",
+          "fishing_epic_shell",
+          "fishing_legendary_scale",
+          "fishing_legendary_shell",
+          "fishing_mythic_scale",
+          "fishing_mythic_shell",
+          "fishing_rare_scale",
+          "fishing_rare_shell",
+          "fishing_rune_mastery",
+          "fishing_rune_rarity",
+          "fishing_rune_speed",
+          "fishing_weather_wand",
+          "fishing_weather_wand_storm",
+          "fishing_weather_wand_sun",
+          "megalodon_charm",
+          "megalodon_tooth",
+          "mythic_fishing_rod",
+          "nessie_charm",
+          "nessie_scale",
+          "void_fishing_rod",
+          "whale_ambergris",
+          "whale_charm"
+        ],
+        "recipes": [
+          "basalt_fishing_rod",
+          "fish_net",
+          "fishery_table",
+          "fishing_armor_common_boots",
+          "fishing_armor_common_chestplate",
+          "fishing_armor_common_helmet",
+          "fishing_armor_common_leggings",
+          "fishing_armor_epic_boots",
+          "fishing_armor_epic_chestplate",
+          "fishing_armor_epic_helmet",
+          "fishing_armor_epic_leggings",
+          "fishing_armor_legendary_boots",
+          "fishing_armor_legendary_chestplate",
+          "fishing_armor_legendary_helmet",
+          "fishing_armor_legendary_leggings",
+          "fishing_armor_mythic_boots",
+          "fishing_armor_mythic_chestplate",
+          "fishing_armor_mythic_helmet",
+          "fishing_armor_mythic_leggings",
+          "fishing_armor_rare_boots",
+          "fishing_armor_rare_chestplate",
+          "fishing_armor_rare_helmet",
+          "fishing_armor_rare_leggings",
+          "fishing_bait_i",
+          "fishing_bait_ii",
+          "fishing_bait_iii",
+          "fishing_bait_legendary",
+          "fishing_boat",
+          "fishing_rune_mastery",
+          "fishing_rune_rarity",
+          "fishing_rune_speed",
+          "fishing_weather_wand",
+          "megalodon_charm",
+          "mythic_fishing_rod",
+          "nessie_charm",
+          "void_fishing_rod",
+          "whale_charm"
+        ],
+        "method": "identifier_keyword_inference",
+        "confidence": "editorial_association_not_runtime_registration"
       }
     },
     {
@@ -6021,14 +6862,39 @@
         "website",
         "encyclopedia"
       ],
+      "coverage": "deep",
       "editorial": {
         "en": {
-          "summary": "Progress by eating, cook dishes, and discover custom recipes.",
-          "body_markdown": "# Eating\n\nThis page is generated from the mod code and resources. Editorial text is intentionally brief in v0.1.\n\nDisplayed values include a status and source so stable data can be distinguished from temporary beta tuning."
+          "summary": "Progress by eating, cook structured dishes, and manage preservation.",
+          "body_markdown": "# Eating\n\nThe v0.2 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "key_systems": [
+            "XP Eating des aliments vanilla et MythicRPG",
+            "47 recettes culinaires et 50 sources d’ingrédients",
+            "Marmite, assiettes, frigidaire et livraison",
+            "Codex, découverte, plats douteux et Plat signature"
+          ],
+          "xp_sources": [
+            "Consommation terminée côté serveur",
+            "Découverte d’un plat",
+            "Règles distinctes pour nourriture vanilla, soupes, gâteau et plats MythicRPG"
+          ],
+          "multiplayer": "L’attribution d’XP, la cuisson et la livraison sont côté serveur. Les plats préparés conservent leurs données de créateur et peuvent déclencher des interactions entre joueurs."
         },
         "fr": {
-          "summary": "Progressez en mangeant, cuisinez des plats et découvrez des recettes personnalisées.",
-          "body_markdown": "# Cuisine\n\nCette page est générée à partir du code et des ressources du mod. Le texte éditorial de la v0.1 reste volontairement court.\n\nLes valeurs affichées portent un statut et une provenance afin de distinguer les données stables des réglages temporaires de bêta."
+          "summary": "Progressez en mangeant, cuisinez des plats structurés et gérez leur conservation.",
+          "body_markdown": "# Alimentation\n\nEating distingue les aliments vanilla, les plats préparés par MythicRPG et les aliments provenant d’autres mods. L’XP n’est accordée qu’après une consommation réellement terminée.\n\n## Cuisine structurée\n\nLe registre Java contient 35 recettes fixes et 12 recettes génériques ou dynamiques. Les ingrédients littéraux possèdent un score et plusieurs catégories ; les prises Fishing forment une source dynamique supplémentaire.\n\n## Conservation et service\n\nLes plats possèdent une rareté, une saturation et une durée de conservation. Le frigidaire, les assiettes, la livraison et le service automatique utilisent ces données sans inclure automatiquement la nourriture vanilla.\n\n## Valeurs de bêta\n\nLes gains des aliments vanilla, des soupes, du gâteau et le multiplicateur de saturation sont affichés avec leur statut temporaire lorsqu’il s’applique.",
+          "key_systems": [
+            "XP Eating des aliments vanilla et MythicRPG",
+            "47 recettes culinaires et 50 sources d’ingrédients",
+            "Marmite, assiettes, frigidaire et livraison",
+            "Codex, découverte, plats douteux et Plat signature"
+          ],
+          "xp_sources": [
+            "Consommation terminée côté serveur",
+            "Découverte d’un plat",
+            "Règles distinctes pour nourriture vanilla, soupes, gâteau et plats MythicRPG"
+          ],
+          "multiplayer": "L’attribution d’XP, la cuisson et la livraison sont côté serveur. Les plats préparés conservent leurs données de créateur et peuvent déclencher des interactions entre joueurs."
         }
       },
       "nodes": [
@@ -6757,6 +7623,66 @@
       "extraction": {
         "method": "skill_tree_java",
         "file": "main/java/com/mythicrpg/eating/EatingSkillTree.java"
+      },
+      "analysis": {
+        "roots": [
+          1
+        ],
+        "leaves": [
+          19,
+          20
+        ],
+        "bonus_types": [
+          "eating_auto_feed",
+          "eating_chef_aura",
+          "eating_chef_renown",
+          "eating_complete_meal",
+          "eating_cooking",
+          "eating_delivery",
+          "eating_dubious_compost",
+          "eating_fridge",
+          "eating_international_gastronomy",
+          "eating_large_plate",
+          "eating_medium_plate",
+          "eating_portable_fridge",
+          "eating_pot_slots",
+          "eating_rarity_up",
+          "eating_risk_taste",
+          "eating_signature_dish",
+          "eating_small_plate",
+          "eating_when_full"
+        ],
+        "branch_counts": {
+          "trunk": 3,
+          "1:0": 3,
+          "1:1": 3,
+          "2:0": 3,
+          "2:1": 3,
+          "2:2": 3,
+          "3:0": 1,
+          "3:1": 1
+        },
+        "fork_count": 3,
+        "max_depth_hint": 295
+      },
+      "related_content": {
+        "items": [
+          "chef_notebook",
+          "cooking_pot",
+          "delivery_phone",
+          "fridge",
+          "prepared_dish",
+          "signature_dish"
+        ],
+        "recipes": [
+          "chef_notebook",
+          "cooking_pot",
+          "delivery_phone",
+          "fridge",
+          "portable_fridge_book"
+        ],
+        "method": "identifier_keyword_inference",
+        "confidence": "editorial_association_not_runtime_registration"
       }
     }
   ],
@@ -17262,6 +18188,65 @@
       }
     },
     {
+      "id": "progression.max_level",
+      "value": 100,
+      "unit": "level",
+      "status": "stable",
+      "label": {
+        "fr": "Niveau maximum par skill",
+        "en": "Maximum level per skill"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/core/SkillProgress.java",
+        "symbol": "MAX_LEVEL",
+        "expression": "100"
+      }
+    },
+    {
+      "id": "progression.max_skill_points",
+      "value": 10000,
+      "unit": "points",
+      "status": "stable",
+      "label": {
+        "fr": "Plafond technique des points de skill",
+        "en": "Skill point technical cap"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/core/SkillProgress.java",
+        "symbol": "MAX_SKILL_POINTS",
+        "expression": "10_000"
+      }
+    },
+    {
+      "id": "progression.node_unlock_cost",
+      "value": 10,
+      "unit": "points",
+      "status": "stable",
+      "label": {
+        "fr": "Coût d'un perk",
+        "en": "Perk unlock cost"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/core/SkillTreeManager.java",
+        "symbol": "NODE_UNLOCK_COST",
+        "expression": "10"
+      }
+    },
+    {
       "id": "eating.vanilla_saturation_multiplier",
       "value": 0.7,
       "unit": "multiplier",
@@ -17437,6 +18422,3157 @@
         "symbol": "VEIN_MINING_MAX_BLOCKS",
         "expression": "10"
       }
+    },
+    {
+      "id": "mining.fossil_site_min_size",
+      "value": 2,
+      "unit": "blocks",
+      "status": "stable",
+      "label": {
+        "fr": "Taille minimale d'un site fossile",
+        "en": "Minimum fossil site size"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/mining/archaeology/FossilSiteGenerator.java",
+        "symbol": "MIN_SITE_SIZE",
+        "expression": "2"
+      }
+    },
+    {
+      "id": "mining.fossil_site_max_size",
+      "value": 6,
+      "unit": "blocks",
+      "status": "stable",
+      "label": {
+        "fr": "Taille maximale d'un site fossile",
+        "en": "Maximum fossil site size"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/mining/archaeology/FossilSiteGenerator.java",
+        "symbol": "MAX_SITE_SIZE",
+        "expression": "6"
+      }
+    },
+    {
+      "id": "fishing.weather_base_radius",
+      "value": 10,
+      "unit": "blocks",
+      "status": "stable",
+      "label": {
+        "fr": "Rayon normal d'un microclimat",
+        "en": "Normal microclimate radius"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fishing/FishingWeatherManager.java",
+        "symbol": "BASE_RADIUS",
+        "expression": "10"
+      }
+    },
+    {
+      "id": "fishing.weather_harmonized_radius",
+      "value": 14,
+      "unit": "blocks",
+      "status": "stable",
+      "label": {
+        "fr": "Rayon harmonisé d'un microclimat",
+        "en": "Harmonized microclimate radius"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fishing/FishingWeatherManager.java",
+        "symbol": "HARMONIZED_RADIUS",
+        "expression": "14"
+      }
+    },
+    {
+      "id": "fishing.weather_base_duration_ticks",
+      "value": 12000,
+      "unit": "ticks",
+      "status": "stable",
+      "label": {
+        "fr": "Durée normale d'un microclimat",
+        "en": "Normal microclimate duration"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fishing/FishingWeatherManager.java",
+        "symbol": "BASE_DURATION_TICKS",
+        "expression": "20L * 60L * 10L"
+      }
+    },
+    {
+      "id": "fishing.weather_sealed_duration_ticks",
+      "value": 18000,
+      "unit": "ticks",
+      "status": "stable",
+      "label": {
+        "fr": "Durée d'un microclimat scellé",
+        "en": "Sealed microclimate duration"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fishing/FishingWeatherManager.java",
+        "symbol": "SEALED_DURATION_TICKS",
+        "expression": "20L * 60L * 15L"
+      }
+    },
+    {
+      "id": "fishing.sea_monster_max_gauge",
+      "value": 1000,
+      "unit": "points",
+      "status": "stable",
+      "label": {
+        "fr": "Jauge maximale des monstres marins",
+        "en": "Sea monster maximum gauge"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fishing/SeaMonsterProgressData.java",
+        "symbol": "MAX_GAUGE",
+        "expression": "1000"
+      }
+    },
+    {
+      "id": "fishing.sea_monster_normal_gain",
+      "value": 15,
+      "unit": "points",
+      "status": "stable",
+      "label": {
+        "fr": "Progression de jauge sans sceau",
+        "en": "Gauge gain without seal"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fishing/SeaMonsterManager.java",
+        "symbol": "NORMAL_GAUGE_GAIN",
+        "expression": "15"
+      }
+    },
+    {
+      "id": "fishing.sea_monster_sealed_gain",
+      "value": 20,
+      "unit": "points",
+      "status": "stable",
+      "label": {
+        "fr": "Progression de jauge avec sceau",
+        "en": "Gauge gain with seal"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fishing/SeaMonsterManager.java",
+        "symbol": "SEALED_GAUGE_GAIN",
+        "expression": "20"
+      }
+    },
+    {
+      "id": "fishing.boat_capacity",
+      "value": 3,
+      "unit": "slots",
+      "status": "stable",
+      "label": {
+        "fr": "Capacité du Fishing Boat",
+        "en": "Fishing Boat capacity"
+      },
+      "audiences": [
+        "website",
+        "encyclopedia"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fishing/FishingBoatScreenHandler.java",
+        "symbol": "CAPACITY",
+        "expression": "3"
+      }
+    },
+    {
+      "id": "fishing.net_inventory_size",
+      "value": 5,
+      "unit": "slots",
+      "status": "stable",
+      "label": {
+        "fr": "Taille maximale d'inventaire d'un filet",
+        "en": "Maximum fish net inventory size"
+      },
+      "audiences": [
+        "website"
+      ],
+      "formula_group": null,
+      "source": {
+        "file": "com/mythicrpg/fishing/FishNetBlockEntity.java",
+        "symbol": "INVENTORY_SIZE",
+        "expression": "5"
+      }
     }
-  ]
+  ],
+  "systems": {
+    "progression": {
+      "formula": {
+        "kind": "power_round_minimum",
+        "coefficient": 19.5,
+        "exponent": 0.04,
+        "minimum": 1,
+        "expression": "max(1, round(coefficient × level^exponent))"
+      },
+      "max_level": 100,
+      "max_skill_points": 10000,
+      "node_unlock_cost": 10,
+      "points_per_level": 1,
+      "levels": [
+        {
+          "level": 1,
+          "required": 20,
+          "cumulative": 0
+        },
+        {
+          "level": 2,
+          "required": 20,
+          "cumulative": 20
+        },
+        {
+          "level": 3,
+          "required": 20,
+          "cumulative": 40
+        },
+        {
+          "level": 4,
+          "required": 21,
+          "cumulative": 60
+        },
+        {
+          "level": 5,
+          "required": 21,
+          "cumulative": 81
+        },
+        {
+          "level": 6,
+          "required": 21,
+          "cumulative": 102
+        },
+        {
+          "level": 7,
+          "required": 21,
+          "cumulative": 123
+        },
+        {
+          "level": 8,
+          "required": 21,
+          "cumulative": 144
+        },
+        {
+          "level": 9,
+          "required": 21,
+          "cumulative": 165
+        },
+        {
+          "level": 10,
+          "required": 21,
+          "cumulative": 186
+        },
+        {
+          "level": 11,
+          "required": 21,
+          "cumulative": 207
+        },
+        {
+          "level": 12,
+          "required": 22,
+          "cumulative": 228
+        },
+        {
+          "level": 13,
+          "required": 22,
+          "cumulative": 250
+        },
+        {
+          "level": 14,
+          "required": 22,
+          "cumulative": 272
+        },
+        {
+          "level": 15,
+          "required": 22,
+          "cumulative": 294
+        },
+        {
+          "level": 16,
+          "required": 22,
+          "cumulative": 316
+        },
+        {
+          "level": 17,
+          "required": 22,
+          "cumulative": 338
+        },
+        {
+          "level": 18,
+          "required": 22,
+          "cumulative": 360
+        },
+        {
+          "level": 19,
+          "required": 22,
+          "cumulative": 382
+        },
+        {
+          "level": 20,
+          "required": 22,
+          "cumulative": 404
+        },
+        {
+          "level": 21,
+          "required": 22,
+          "cumulative": 426
+        },
+        {
+          "level": 22,
+          "required": 22,
+          "cumulative": 448
+        },
+        {
+          "level": 23,
+          "required": 22,
+          "cumulative": 470
+        },
+        {
+          "level": 24,
+          "required": 22,
+          "cumulative": 492
+        },
+        {
+          "level": 25,
+          "required": 22,
+          "cumulative": 514
+        },
+        {
+          "level": 26,
+          "required": 22,
+          "cumulative": 536
+        },
+        {
+          "level": 27,
+          "required": 22,
+          "cumulative": 558
+        },
+        {
+          "level": 28,
+          "required": 22,
+          "cumulative": 580
+        },
+        {
+          "level": 29,
+          "required": 22,
+          "cumulative": 602
+        },
+        {
+          "level": 30,
+          "required": 22,
+          "cumulative": 624
+        },
+        {
+          "level": 31,
+          "required": 22,
+          "cumulative": 646
+        },
+        {
+          "level": 32,
+          "required": 22,
+          "cumulative": 668
+        },
+        {
+          "level": 33,
+          "required": 22,
+          "cumulative": 690
+        },
+        {
+          "level": 34,
+          "required": 22,
+          "cumulative": 712
+        },
+        {
+          "level": 35,
+          "required": 22,
+          "cumulative": 734
+        },
+        {
+          "level": 36,
+          "required": 23,
+          "cumulative": 756
+        },
+        {
+          "level": 37,
+          "required": 23,
+          "cumulative": 779
+        },
+        {
+          "level": 38,
+          "required": 23,
+          "cumulative": 802
+        },
+        {
+          "level": 39,
+          "required": 23,
+          "cumulative": 825
+        },
+        {
+          "level": 40,
+          "required": 23,
+          "cumulative": 848
+        },
+        {
+          "level": 41,
+          "required": 23,
+          "cumulative": 871
+        },
+        {
+          "level": 42,
+          "required": 23,
+          "cumulative": 894
+        },
+        {
+          "level": 43,
+          "required": 23,
+          "cumulative": 917
+        },
+        {
+          "level": 44,
+          "required": 23,
+          "cumulative": 940
+        },
+        {
+          "level": 45,
+          "required": 23,
+          "cumulative": 963
+        },
+        {
+          "level": 46,
+          "required": 23,
+          "cumulative": 986
+        },
+        {
+          "level": 47,
+          "required": 23,
+          "cumulative": 1009
+        },
+        {
+          "level": 48,
+          "required": 23,
+          "cumulative": 1032
+        },
+        {
+          "level": 49,
+          "required": 23,
+          "cumulative": 1055
+        },
+        {
+          "level": 50,
+          "required": 23,
+          "cumulative": 1078
+        },
+        {
+          "level": 51,
+          "required": 23,
+          "cumulative": 1101
+        },
+        {
+          "level": 52,
+          "required": 23,
+          "cumulative": 1124
+        },
+        {
+          "level": 53,
+          "required": 23,
+          "cumulative": 1147
+        },
+        {
+          "level": 54,
+          "required": 23,
+          "cumulative": 1170
+        },
+        {
+          "level": 55,
+          "required": 23,
+          "cumulative": 1193
+        },
+        {
+          "level": 56,
+          "required": 23,
+          "cumulative": 1216
+        },
+        {
+          "level": 57,
+          "required": 23,
+          "cumulative": 1239
+        },
+        {
+          "level": 58,
+          "required": 23,
+          "cumulative": 1262
+        },
+        {
+          "level": 59,
+          "required": 23,
+          "cumulative": 1285
+        },
+        {
+          "level": 60,
+          "required": 23,
+          "cumulative": 1308
+        },
+        {
+          "level": 61,
+          "required": 23,
+          "cumulative": 1331
+        },
+        {
+          "level": 62,
+          "required": 23,
+          "cumulative": 1354
+        },
+        {
+          "level": 63,
+          "required": 23,
+          "cumulative": 1377
+        },
+        {
+          "level": 64,
+          "required": 23,
+          "cumulative": 1400
+        },
+        {
+          "level": 65,
+          "required": 23,
+          "cumulative": 1423
+        },
+        {
+          "level": 66,
+          "required": 23,
+          "cumulative": 1446
+        },
+        {
+          "level": 67,
+          "required": 23,
+          "cumulative": 1469
+        },
+        {
+          "level": 68,
+          "required": 23,
+          "cumulative": 1492
+        },
+        {
+          "level": 69,
+          "required": 23,
+          "cumulative": 1515
+        },
+        {
+          "level": 70,
+          "required": 23,
+          "cumulative": 1538
+        },
+        {
+          "level": 71,
+          "required": 23,
+          "cumulative": 1561
+        },
+        {
+          "level": 72,
+          "required": 23,
+          "cumulative": 1584
+        },
+        {
+          "level": 73,
+          "required": 23,
+          "cumulative": 1607
+        },
+        {
+          "level": 74,
+          "required": 23,
+          "cumulative": 1630
+        },
+        {
+          "level": 75,
+          "required": 23,
+          "cumulative": 1653
+        },
+        {
+          "level": 76,
+          "required": 23,
+          "cumulative": 1676
+        },
+        {
+          "level": 77,
+          "required": 23,
+          "cumulative": 1699
+        },
+        {
+          "level": 78,
+          "required": 23,
+          "cumulative": 1722
+        },
+        {
+          "level": 79,
+          "required": 23,
+          "cumulative": 1745
+        },
+        {
+          "level": 80,
+          "required": 23,
+          "cumulative": 1768
+        },
+        {
+          "level": 81,
+          "required": 23,
+          "cumulative": 1791
+        },
+        {
+          "level": 82,
+          "required": 23,
+          "cumulative": 1814
+        },
+        {
+          "level": 83,
+          "required": 23,
+          "cumulative": 1837
+        },
+        {
+          "level": 84,
+          "required": 23,
+          "cumulative": 1860
+        },
+        {
+          "level": 85,
+          "required": 23,
+          "cumulative": 1883
+        },
+        {
+          "level": 86,
+          "required": 23,
+          "cumulative": 1906
+        },
+        {
+          "level": 87,
+          "required": 23,
+          "cumulative": 1929
+        },
+        {
+          "level": 88,
+          "required": 23,
+          "cumulative": 1952
+        },
+        {
+          "level": 89,
+          "required": 23,
+          "cumulative": 1975
+        },
+        {
+          "level": 90,
+          "required": 23,
+          "cumulative": 1998
+        },
+        {
+          "level": 91,
+          "required": 23,
+          "cumulative": 2021
+        },
+        {
+          "level": 92,
+          "required": 23,
+          "cumulative": 2044
+        },
+        {
+          "level": 93,
+          "required": 23,
+          "cumulative": 2067
+        },
+        {
+          "level": 94,
+          "required": 23,
+          "cumulative": 2090
+        },
+        {
+          "level": 95,
+          "required": 23,
+          "cumulative": 2113
+        },
+        {
+          "level": 96,
+          "required": 23,
+          "cumulative": 2136
+        },
+        {
+          "level": 97,
+          "required": 23,
+          "cumulative": 2159
+        },
+        {
+          "level": 98,
+          "required": 23,
+          "cumulative": 2182
+        },
+        {
+          "level": 99,
+          "required": 23,
+          "cumulative": 2205
+        },
+        {
+          "level": 100,
+          "required": 0,
+          "cumulative": 2228
+        }
+      ],
+      "reference_levels": [
+        10,
+        20,
+        30,
+        40,
+        50,
+        75,
+        100
+      ],
+      "status": "beta",
+      "extraction": {
+        "method": "java_constants_and_formula_reproduction",
+        "files": [
+          "com/mythicrpg/core/SkillProgress.java",
+          "com/mythicrpg/core/SkillTreeManager.java"
+        ]
+      }
+    },
+    "mining": {
+      "fossils": {
+        "families": [
+          {
+            "id": "small_land",
+            "names": {
+              "fr": "Petites créatures terrestres",
+              "en": "Small Land Creatures"
+            }
+          },
+          {
+            "id": "marine",
+            "names": {
+              "fr": "Créatures marines",
+              "en": "Marine Creatures"
+            }
+          },
+          {
+            "id": "flying",
+            "names": {
+              "fr": "Créatures volantes",
+              "en": "Flying Creatures"
+            }
+          },
+          {
+            "id": "insect",
+            "names": {
+              "fr": "Insectes",
+              "en": "Insects"
+            }
+          },
+          {
+            "id": "large_land",
+            "names": {
+              "fr": "Grandes créatures terrestres",
+              "en": "Large Land Creatures"
+            }
+          }
+        ],
+        "rarities": [
+          {
+            "id": "common",
+            "names": {
+              "fr": "Commun",
+              "en": "Common"
+            },
+            "rank": 1,
+            "generation_weight": 40,
+            "generation_percent": 40.0,
+            "cleaning_ticks": 100,
+            "cleaning_seconds": 5.0,
+            "incubation_ticks": 18000,
+            "incubation_minutes": 15.0
+          },
+          {
+            "id": "rare",
+            "names": {
+              "fr": "Rare",
+              "en": "Rare"
+            },
+            "rank": 2,
+            "generation_weight": 30,
+            "generation_percent": 30.0,
+            "cleaning_ticks": 160,
+            "cleaning_seconds": 8.0,
+            "incubation_ticks": 30000,
+            "incubation_minutes": 25.0
+          },
+          {
+            "id": "epic",
+            "names": {
+              "fr": "Épique",
+              "en": "Epic"
+            },
+            "rank": 3,
+            "generation_weight": 17,
+            "generation_percent": 17.0,
+            "cleaning_ticks": 240,
+            "cleaning_seconds": 12.0,
+            "incubation_ticks": 48000,
+            "incubation_minutes": 40.0
+          },
+          {
+            "id": "legendary",
+            "names": {
+              "fr": "Légendaire",
+              "en": "Legendary"
+            },
+            "rank": 4,
+            "generation_weight": 9,
+            "generation_percent": 9.0,
+            "cleaning_ticks": 360,
+            "cleaning_seconds": 18.0,
+            "incubation_ticks": 72000,
+            "incubation_minutes": 60.0
+          },
+          {
+            "id": "mythic",
+            "names": {
+              "fr": "Mythique",
+              "en": "Mythic"
+            },
+            "rank": 5,
+            "generation_weight": 4,
+            "generation_percent": 4.0,
+            "cleaning_ticks": 500,
+            "cleaning_seconds": 25.0,
+            "incubation_ticks": 108000,
+            "incubation_minutes": 90.0
+          }
+        ],
+        "site_generation": {
+          "min_size": 2,
+          "max_size": 6,
+          "min_y": -56,
+          "max_y": 48
+        }
+      },
+      "area_effects": {
+        "vein_mining": {
+          "max_extra_blocks": 10,
+          "toggle_default": true,
+          "server_authoritative": true
+        },
+        "mining_3x3": {
+          "extra_positions": 8,
+          "independent_toggle": true,
+          "server_authoritative": true
+        }
+      },
+      "extraction": {
+        "method": "specialized_java_enum_and_constant_extraction",
+        "files": [
+          "com/mythicrpg/mining/archaeology/FossilFamily.java",
+          "com/mythicrpg/mining/archaeology/FossilRarity.java",
+          "com/mythicrpg/mining/archaeology/FossilSiteGenerator.java",
+          "com/mythicrpg/mining/MiningAreaEffects.java"
+        ]
+      }
+    },
+    "eating": {
+      "dish_categories": [
+        {
+          "id": "starter",
+          "names": {
+            "fr": "Entrée",
+            "en": "Starter"
+          }
+        },
+        {
+          "id": "main",
+          "names": {
+            "fr": "Plat",
+            "en": "Main course"
+          }
+        },
+        {
+          "id": "dessert",
+          "names": {
+            "fr": "Dessert",
+            "en": "Dessert"
+          }
+        },
+        {
+          "id": "drink",
+          "names": {
+            "fr": "Boisson",
+            "en": "Drink"
+          }
+        }
+      ],
+      "dish_rarities": [
+        {
+          "id": "common",
+          "names": {
+            "fr": "Commun",
+            "en": "Common"
+          },
+          "rank": 0,
+          "saturation": 14.4
+        },
+        {
+          "id": "rare",
+          "names": {
+            "fr": "Rare",
+            "en": "Rare"
+          },
+          "rank": 1,
+          "saturation": 15.8
+        },
+        {
+          "id": "epic",
+          "names": {
+            "fr": "Épique",
+            "en": "Epic"
+          },
+          "rank": 2,
+          "saturation": 17.2
+        },
+        {
+          "id": "legendary",
+          "names": {
+            "fr": "Légendaire",
+            "en": "Legendary"
+          },
+          "rank": 3,
+          "saturation": 18.6
+        },
+        {
+          "id": "mythic",
+          "names": {
+            "fr": "Mythique",
+            "en": "Mythic"
+          },
+          "rank": 4,
+          "saturation": 20.0
+        }
+      ],
+      "food_categories": [
+        {
+          "id": "dairy",
+          "names": {
+            "fr": "produit laitier",
+            "en": "dairy"
+          }
+        },
+        {
+          "id": "egg",
+          "names": {
+            "fr": "œuf",
+            "en": "egg"
+          }
+        },
+        {
+          "id": "end",
+          "names": {
+            "fr": "End",
+            "en": "End"
+          }
+        },
+        {
+          "id": "fish",
+          "names": {
+            "fr": "poisson",
+            "en": "fish"
+          }
+        },
+        {
+          "id": "fruit",
+          "names": {
+            "fr": "fruit",
+            "en": "fruit"
+          }
+        },
+        {
+          "id": "grain",
+          "names": {
+            "fr": "céréale",
+            "en": "grain"
+          }
+        },
+        {
+          "id": "liquid",
+          "names": {
+            "fr": "liquide",
+            "en": "liquid"
+          }
+        },
+        {
+          "id": "magical",
+          "names": {
+            "fr": "magique",
+            "en": "magical"
+          }
+        },
+        {
+          "id": "meat",
+          "names": {
+            "fr": "viande",
+            "en": "meat"
+          }
+        },
+        {
+          "id": "monstrous",
+          "names": {
+            "fr": "monstrueux",
+            "en": "monstrous"
+          }
+        },
+        {
+          "id": "mushroom",
+          "names": {
+            "fr": "champignon",
+            "en": "mushroom"
+          }
+        },
+        {
+          "id": "nether",
+          "names": {
+            "fr": "Nether",
+            "en": "Nether"
+          }
+        },
+        {
+          "id": "ocean",
+          "names": {
+            "fr": "océan",
+            "en": "ocean"
+          }
+        },
+        {
+          "id": "precious",
+          "names": {
+            "fr": "précieux",
+            "en": "precious"
+          }
+        },
+        {
+          "id": "salty",
+          "names": {
+            "fr": "salé",
+            "en": "salty"
+          }
+        },
+        {
+          "id": "spice",
+          "names": {
+            "fr": "épice",
+            "en": "spice"
+          }
+        },
+        {
+          "id": "sweet",
+          "names": {
+            "fr": "sucré",
+            "en": "sweet"
+          }
+        },
+        {
+          "id": "thickener",
+          "names": {
+            "fr": "épaississant",
+            "en": "thickener"
+          }
+        },
+        {
+          "id": "toxic",
+          "names": {
+            "fr": "toxique",
+            "en": "toxic"
+          }
+        },
+        {
+          "id": "underground",
+          "names": {
+            "fr": "souterrain",
+            "en": "underground"
+          }
+        },
+        {
+          "id": "vegetable",
+          "names": {
+            "fr": "légume",
+            "en": "vegetable"
+          }
+        }
+      ],
+      "ingredients": [
+        {
+          "id": "minecraft:carrot",
+          "names": {
+            "fr": "Carrot",
+            "en": "Carrot"
+          },
+          "score": 1,
+          "categories": [
+            "vegetable"
+          ]
+        },
+        {
+          "id": "minecraft:potato",
+          "names": {
+            "fr": "Potato",
+            "en": "Potato"
+          },
+          "score": 1,
+          "categories": [
+            "vegetable"
+          ]
+        },
+        {
+          "id": "minecraft:baked_potato",
+          "names": {
+            "fr": "Baked Potato",
+            "en": "Baked Potato"
+          },
+          "score": 2,
+          "categories": [
+            "vegetable"
+          ]
+        },
+        {
+          "id": "minecraft:poisonous_potato",
+          "names": {
+            "fr": "Poisonous Potato",
+            "en": "Poisonous Potato"
+          },
+          "score": 2,
+          "categories": [
+            "vegetable",
+            "toxic"
+          ]
+        },
+        {
+          "id": "minecraft:beetroot",
+          "names": {
+            "fr": "Beetroot",
+            "en": "Beetroot"
+          },
+          "score": 1,
+          "categories": [
+            "vegetable"
+          ]
+        },
+        {
+          "id": "minecraft:pumpkin",
+          "names": {
+            "fr": "Pumpkin",
+            "en": "Pumpkin"
+          },
+          "score": 1,
+          "categories": [
+            "vegetable"
+          ]
+        },
+        {
+          "id": "minecraft:golden_carrot",
+          "names": {
+            "fr": "Golden Carrot",
+            "en": "Golden Carrot"
+          },
+          "score": 3,
+          "categories": [
+            "vegetable",
+            "precious",
+            "magical"
+          ]
+        },
+        {
+          "id": "minecraft:apple",
+          "names": {
+            "fr": "Apple",
+            "en": "Apple"
+          },
+          "score": 1,
+          "categories": [
+            "fruit",
+            "sweet"
+          ]
+        },
+        {
+          "id": "minecraft:golden_apple",
+          "names": {
+            "fr": "Golden Apple",
+            "en": "Golden Apple"
+          },
+          "score": 4,
+          "categories": [
+            "fruit",
+            "sweet",
+            "precious",
+            "magical"
+          ]
+        },
+        {
+          "id": "minecraft:enchanted_golden_apple",
+          "names": {
+            "fr": "Enchanted Golden Apple",
+            "en": "Enchanted Golden Apple"
+          },
+          "score": 5,
+          "categories": [
+            "fruit",
+            "sweet",
+            "precious",
+            "magical"
+          ]
+        },
+        {
+          "id": "minecraft:melon_slice",
+          "names": {
+            "fr": "Melon Slice",
+            "en": "Melon Slice"
+          },
+          "score": 1,
+          "categories": [
+            "fruit",
+            "sweet"
+          ]
+        },
+        {
+          "id": "minecraft:sweet_berries",
+          "names": {
+            "fr": "Sweet Berries",
+            "en": "Sweet Berries"
+          },
+          "score": 1,
+          "categories": [
+            "fruit",
+            "sweet"
+          ]
+        },
+        {
+          "id": "minecraft:glow_berries",
+          "names": {
+            "fr": "Glow Berries",
+            "en": "Glow Berries"
+          },
+          "score": 3,
+          "categories": [
+            "fruit",
+            "sweet",
+            "underground",
+            "magical"
+          ]
+        },
+        {
+          "id": "minecraft:chorus_fruit",
+          "names": {
+            "fr": "Chorus Fruit",
+            "en": "Chorus Fruit"
+          },
+          "score": 3,
+          "categories": [
+            "fruit",
+            "end",
+            "magical"
+          ]
+        },
+        {
+          "id": "minecraft:wheat",
+          "names": {
+            "fr": "Wheat",
+            "en": "Wheat"
+          },
+          "score": 1,
+          "categories": [
+            "grain",
+            "thickener"
+          ]
+        },
+        {
+          "id": "minecraft:bread",
+          "names": {
+            "fr": "Bread",
+            "en": "Bread"
+          },
+          "score": 2,
+          "categories": [
+            "grain"
+          ]
+        },
+        {
+          "id": "minecraft:cookie",
+          "names": {
+            "fr": "Cookie",
+            "en": "Cookie"
+          },
+          "score": 2,
+          "categories": [
+            "grain",
+            "sweet"
+          ]
+        },
+        {
+          "id": "minecraft:sugar",
+          "names": {
+            "fr": "Sugar",
+            "en": "Sugar"
+          },
+          "score": 1,
+          "categories": [
+            "sweet",
+            "spice"
+          ]
+        },
+        {
+          "id": "minecraft:cocoa_beans",
+          "names": {
+            "fr": "Cocoa Beans",
+            "en": "Cocoa Beans"
+          },
+          "score": 2,
+          "categories": [
+            "sweet",
+            "spice"
+          ]
+        },
+        {
+          "id": "minecraft:honey_bottle",
+          "names": {
+            "fr": "Honey Bottle",
+            "en": "Honey Bottle"
+          },
+          "score": 2,
+          "categories": [
+            "sweet",
+            "liquid"
+          ]
+        },
+        {
+          "id": "minecraft:egg",
+          "names": {
+            "fr": "Egg",
+            "en": "Egg"
+          },
+          "score": 1,
+          "categories": [
+            "egg",
+            "thickener"
+          ]
+        },
+        {
+          "id": "minecraft:milk_bucket",
+          "names": {
+            "fr": "Milk Bucket",
+            "en": "Milk Bucket"
+          },
+          "score": 2,
+          "categories": [
+            "dairy",
+            "liquid"
+          ]
+        },
+        {
+          "id": "minecraft:red_mushroom",
+          "names": {
+            "fr": "Red Mushroom",
+            "en": "Red Mushroom"
+          },
+          "score": 1,
+          "categories": [
+            "mushroom"
+          ]
+        },
+        {
+          "id": "minecraft:brown_mushroom",
+          "names": {
+            "fr": "Brown Mushroom",
+            "en": "Brown Mushroom"
+          },
+          "score": 1,
+          "categories": [
+            "mushroom"
+          ]
+        },
+        {
+          "id": "minecraft:warped_fungus",
+          "names": {
+            "fr": "Warped Fungus",
+            "en": "Warped Fungus"
+          },
+          "score": 3,
+          "categories": [
+            "mushroom",
+            "nether",
+            "magical"
+          ]
+        },
+        {
+          "id": "minecraft:nether_wart",
+          "names": {
+            "fr": "Nether Wart",
+            "en": "Nether Wart"
+          },
+          "score": 3,
+          "categories": [
+            "spice",
+            "nether",
+            "magical"
+          ]
+        },
+        {
+          "id": "minecraft:blaze_powder",
+          "names": {
+            "fr": "Blaze Powder",
+            "en": "Blaze Powder"
+          },
+          "score": 4,
+          "categories": [
+            "spice",
+            "nether",
+            "magical"
+          ]
+        },
+        {
+          "id": "minecraft:magma_cream",
+          "names": {
+            "fr": "Magma Cream",
+            "en": "Magma Cream"
+          },
+          "score": 4,
+          "categories": [
+            "nether",
+            "magical",
+            "monstrous"
+          ]
+        },
+        {
+          "id": "minecraft:beef",
+          "names": {
+            "fr": "Beef",
+            "en": "Beef"
+          },
+          "score": 1,
+          "categories": [
+            "meat"
+          ]
+        },
+        {
+          "id": "minecraft:cooked_beef",
+          "names": {
+            "fr": "Cooked Beef",
+            "en": "Cooked Beef"
+          },
+          "score": 2,
+          "categories": [
+            "meat",
+            "salty"
+          ]
+        },
+        {
+          "id": "minecraft:chicken",
+          "names": {
+            "fr": "Chicken",
+            "en": "Chicken"
+          },
+          "score": 1,
+          "categories": [
+            "meat"
+          ]
+        },
+        {
+          "id": "minecraft:cooked_chicken",
+          "names": {
+            "fr": "Cooked Chicken",
+            "en": "Cooked Chicken"
+          },
+          "score": 2,
+          "categories": [
+            "meat",
+            "salty"
+          ]
+        },
+        {
+          "id": "minecraft:porkchop",
+          "names": {
+            "fr": "Porkchop",
+            "en": "Porkchop"
+          },
+          "score": 1,
+          "categories": [
+            "meat"
+          ]
+        },
+        {
+          "id": "minecraft:cooked_porkchop",
+          "names": {
+            "fr": "Cooked Porkchop",
+            "en": "Cooked Porkchop"
+          },
+          "score": 2,
+          "categories": [
+            "meat",
+            "salty"
+          ]
+        },
+        {
+          "id": "minecraft:rabbit",
+          "names": {
+            "fr": "Rabbit",
+            "en": "Rabbit"
+          },
+          "score": 2,
+          "categories": [
+            "meat"
+          ]
+        },
+        {
+          "id": "minecraft:cooked_rabbit",
+          "names": {
+            "fr": "Cooked Rabbit",
+            "en": "Cooked Rabbit"
+          },
+          "score": 3,
+          "categories": [
+            "meat",
+            "salty"
+          ]
+        },
+        {
+          "id": "minecraft:mutton",
+          "names": {
+            "fr": "Mutton",
+            "en": "Mutton"
+          },
+          "score": 1,
+          "categories": [
+            "meat"
+          ]
+        },
+        {
+          "id": "minecraft:cooked_mutton",
+          "names": {
+            "fr": "Cooked Mutton",
+            "en": "Cooked Mutton"
+          },
+          "score": 2,
+          "categories": [
+            "meat",
+            "salty"
+          ]
+        },
+        {
+          "id": "minecraft:rotten_flesh",
+          "names": {
+            "fr": "Rotten Flesh",
+            "en": "Rotten Flesh"
+          },
+          "score": 1,
+          "categories": [
+            "meat",
+            "monstrous",
+            "toxic"
+          ]
+        },
+        {
+          "id": "minecraft:spider_eye",
+          "names": {
+            "fr": "Spider Eye",
+            "en": "Spider Eye"
+          },
+          "score": 2,
+          "categories": [
+            "monstrous",
+            "toxic"
+          ]
+        },
+        {
+          "id": "minecraft:cod",
+          "names": {
+            "fr": "Cod",
+            "en": "Cod"
+          },
+          "score": 1,
+          "categories": [
+            "fish",
+            "ocean"
+          ]
+        },
+        {
+          "id": "minecraft:cooked_cod",
+          "names": {
+            "fr": "Cooked Cod",
+            "en": "Cooked Cod"
+          },
+          "score": 2,
+          "categories": [
+            "fish",
+            "ocean",
+            "salty"
+          ]
+        },
+        {
+          "id": "minecraft:salmon",
+          "names": {
+            "fr": "Salmon",
+            "en": "Salmon"
+          },
+          "score": 1,
+          "categories": [
+            "fish",
+            "ocean"
+          ]
+        },
+        {
+          "id": "minecraft:cooked_salmon",
+          "names": {
+            "fr": "Cooked Salmon",
+            "en": "Cooked Salmon"
+          },
+          "score": 2,
+          "categories": [
+            "fish",
+            "ocean",
+            "salty"
+          ]
+        },
+        {
+          "id": "minecraft:tropical_fish",
+          "names": {
+            "fr": "Tropical Fish",
+            "en": "Tropical Fish"
+          },
+          "score": 2,
+          "categories": [
+            "fish",
+            "ocean"
+          ]
+        },
+        {
+          "id": "minecraft:pufferfish",
+          "names": {
+            "fr": "Pufferfish",
+            "en": "Pufferfish"
+          },
+          "score": 3,
+          "categories": [
+            "fish",
+            "ocean",
+            "toxic"
+          ]
+        },
+        {
+          "id": "minecraft:kelp",
+          "names": {
+            "fr": "Kelp",
+            "en": "Kelp"
+          },
+          "score": 1,
+          "categories": [
+            "vegetable",
+            "ocean"
+          ]
+        },
+        {
+          "id": "minecraft:dried_kelp",
+          "names": {
+            "fr": "Dried Kelp",
+            "en": "Dried Kelp"
+          },
+          "score": 1,
+          "categories": [
+            "vegetable",
+            "ocean",
+            "salty"
+          ]
+        },
+        {
+          "id": "minecraft:potion",
+          "names": {
+            "fr": "Potion",
+            "en": "Potion"
+          },
+          "score": 1,
+          "categories": [
+            "liquid"
+          ]
+        }
+      ],
+      "cooking_recipes": [
+        {
+          "id": "apple_compote",
+          "kind": "fixed",
+          "names": {
+            "fr": "Compote de pommes",
+            "en": "Apple Compote"
+          },
+          "category": "dessert",
+          "rarity": "common",
+          "shelf_life_days": 4,
+          "ingredients": [
+            {
+              "item": "minecraft:apple",
+              "category": "fruit"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "berry_pudding",
+          "kind": "fixed",
+          "names": {
+            "fr": "Pudding aux baies",
+            "en": "Berry Pudding"
+          },
+          "category": "dessert",
+          "rarity": "rare",
+          "shelf_life_days": 3,
+          "ingredients": [
+            {
+              "item": "minecraft:sweet_berries",
+              "category": "fruit"
+            },
+            {
+              "item": "minecraft:milk_bucket",
+              "category": "dairy"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            },
+            {
+              "item": "minecraft:wheat",
+              "category": "grain"
+            }
+          ]
+        },
+        {
+          "id": "chef_cake",
+          "kind": "fixed",
+          "names": {
+            "fr": "Gâteau du chef",
+            "en": "Chef’s Cake"
+          },
+          "category": "dessert",
+          "rarity": "legendary",
+          "shelf_life_days": 5,
+          "ingredients": [
+            {
+              "item": "minecraft:wheat",
+              "category": "grain"
+            },
+            {
+              "item": "minecraft:egg",
+              "category": "egg"
+            },
+            {
+              "item": "minecraft:milk_bucket",
+              "category": "dairy"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            },
+            {
+              "item": "minecraft:cocoa_beans",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "chorus_cream",
+          "kind": "fixed",
+          "names": {
+            "fr": "Crème chorique",
+            "en": "Chorus Cream"
+          },
+          "category": "dessert",
+          "rarity": "epic",
+          "shelf_life_days": 3,
+          "ingredients": [
+            {
+              "item": "minecraft:chorus_fruit",
+              "category": "end"
+            },
+            {
+              "item": "minecraft:milk_bucket",
+              "category": "dairy"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "cocoa_cream",
+          "kind": "fixed",
+          "names": {
+            "fr": "Crème au cacao",
+            "en": "Cocoa Cream"
+          },
+          "category": "dessert",
+          "rarity": "rare",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:milk_bucket",
+              "category": "dairy"
+            },
+            {
+              "item": "minecraft:cocoa_beans",
+              "category": "sweet"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "golden_sweet",
+          "kind": "fixed",
+          "names": {
+            "fr": "Douceur dorée",
+            "en": "Golden Sweet"
+          },
+          "category": "dessert",
+          "rarity": "legendary",
+          "shelf_life_days": 6,
+          "ingredients": [
+            {
+              "item": "minecraft:golden_apple",
+              "category": "precious"
+            },
+            {
+              "item": "minecraft:honey_bottle",
+              "category": "sweet"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "honey_carrots",
+          "kind": "fixed",
+          "names": {
+            "fr": "Carottes au miel",
+            "en": "Honey Carrots"
+          },
+          "category": "dessert",
+          "rarity": "common",
+          "shelf_life_days": 4,
+          "ingredients": [
+            {
+              "item": "minecraft:carrot",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:honey_bottle",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "luminous_delight",
+          "kind": "fixed",
+          "names": {
+            "fr": "Délice lumineux",
+            "en": "Luminous Delight"
+          },
+          "category": "dessert",
+          "rarity": "epic",
+          "shelf_life_days": 3,
+          "ingredients": [
+            {
+              "item": "minecraft:glow_berries",
+              "category": "underground"
+            },
+            {
+              "item": "minecraft:honey_bottle",
+              "category": "sweet"
+            },
+            {
+              "item": "minecraft:milk_bucket",
+              "category": "dairy"
+            }
+          ]
+        },
+        {
+          "id": "melon_sweet",
+          "kind": "fixed",
+          "names": {
+            "fr": "Douceur de melon",
+            "en": "Melon Sweet"
+          },
+          "category": "dessert",
+          "rarity": "rare",
+          "shelf_life_days": 5,
+          "ingredients": [
+            {
+              "item": "minecraft:melon_slice",
+              "category": "fruit"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            },
+            {
+              "item": "minecraft:honey_bottle",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "pumpkin_flan",
+          "kind": "fixed",
+          "names": {
+            "fr": "Flan de citrouille",
+            "en": "Pumpkin Flan"
+          },
+          "category": "dessert",
+          "rarity": "epic",
+          "shelf_life_days": 3,
+          "ingredients": [
+            {
+              "item": "minecraft:pumpkin",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:egg",
+              "category": "egg"
+            },
+            {
+              "item": "minecraft:milk_bucket",
+              "category": "dairy"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "chorus_nectar",
+          "kind": "fixed",
+          "names": {
+            "fr": "Nectar de chorus",
+            "en": "Chorus Nectar"
+          },
+          "category": "drink",
+          "rarity": "epic",
+          "shelf_life_days": 4,
+          "ingredients": [
+            {
+              "item": "minecraft:potion",
+              "category": "liquid"
+            },
+            {
+              "item": "minecraft:chorus_fruit",
+              "category": "end"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "honey_infusion",
+          "kind": "fixed",
+          "names": {
+            "fr": "Infusion au miel",
+            "en": "Honey Infusion"
+          },
+          "category": "drink",
+          "rarity": "common",
+          "shelf_life_days": 4,
+          "ingredients": [
+            {
+              "item": "minecraft:potion",
+              "category": "liquid"
+            },
+            {
+              "item": "minecraft:honey_bottle",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "hot_chocolate",
+          "kind": "fixed",
+          "names": {
+            "fr": "Chocolat chaud",
+            "en": "Hot Chocolate"
+          },
+          "category": "drink",
+          "rarity": "rare",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:potion",
+              "category": "liquid"
+            },
+            {
+              "item": "minecraft:cocoa_beans",
+              "category": "sweet"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "infernal_tonic",
+          "kind": "fixed",
+          "names": {
+            "fr": "Tonique infernal",
+            "en": "Infernal Tonic"
+          },
+          "category": "drink",
+          "rarity": "legendary",
+          "shelf_life_days": 5,
+          "ingredients": [
+            {
+              "item": "minecraft:potion",
+              "category": "liquid"
+            },
+            {
+              "item": "minecraft:nether_wart",
+              "category": "nether"
+            },
+            {
+              "item": "minecraft:blaze_powder",
+              "category": "spice"
+            }
+          ]
+        },
+        {
+          "id": "luminous_infusion",
+          "kind": "fixed",
+          "names": {
+            "fr": "Infusion lumineuse",
+            "en": "Luminous Infusion"
+          },
+          "category": "drink",
+          "rarity": "epic",
+          "shelf_life_days": 4,
+          "ingredients": [
+            {
+              "item": "minecraft:potion",
+              "category": "liquid"
+            },
+            {
+              "item": "minecraft:glow_berries",
+              "category": "underground"
+            },
+            {
+              "item": "minecraft:honey_bottle",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "caramelized_pork",
+          "kind": "fixed",
+          "names": {
+            "fr": "Porc caramélisé",
+            "en": "Caramelized Pork"
+          },
+          "category": "main",
+          "rarity": "rare",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:cooked_porkchop",
+              "category": "meat"
+            },
+            {
+              "item": "minecraft:honey_bottle",
+              "category": "sweet"
+            },
+            {
+              "item": "minecraft:apple",
+              "category": "fruit"
+            }
+          ]
+        },
+        {
+          "id": "chorus_meal",
+          "kind": "fixed",
+          "names": {
+            "fr": "Repas chorique",
+            "en": "Chorus Meal"
+          },
+          "category": "main",
+          "rarity": "legendary",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:chorus_fruit",
+              "category": "end"
+            },
+            {
+              "item": "minecraft:cooked_rabbit",
+              "category": "meat"
+            },
+            {
+              "item": "minecraft:beetroot",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:brown_mushroom",
+              "category": "mushroom"
+            }
+          ]
+        },
+        {
+          "id": "deep_skillet",
+          "kind": "fixed",
+          "names": {
+            "fr": "Poêlée des profondeurs",
+            "en": "Deep Skillet"
+          },
+          "category": "main",
+          "rarity": "epic",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:glow_berries",
+              "category": "underground"
+            },
+            {
+              "item": "minecraft:brown_mushroom",
+              "category": "mushroom"
+            },
+            {
+              "item": "minecraft:baked_potato",
+              "category": "vegetable"
+            }
+          ]
+        },
+        {
+          "id": "farmer_feast",
+          "kind": "fixed",
+          "names": {
+            "fr": "Festin de l’agriculteur",
+            "en": "Farmer’s Feast"
+          },
+          "category": "main",
+          "rarity": "rare",
+          "shelf_life_days": 3,
+          "ingredients": [
+            {
+              "item": "minecraft:bread",
+              "category": "grain"
+            },
+            {
+              "item": "minecraft:carrot",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:beetroot",
+              "category": "vegetable"
+            }
+          ]
+        },
+        {
+          "id": "fish_and_vegetables",
+          "kind": "fixed",
+          "names": {
+            "fr": "Poisson aux légumes",
+            "en": "Fish and Vegetables"
+          },
+          "category": "main",
+          "rarity": "rare",
+          "shelf_life_days": 1,
+          "ingredients": [
+            {
+              "item": "minecraft:cooked_salmon",
+              "category": "fish"
+            },
+            {
+              "item": "minecraft:carrot",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            }
+          ]
+        },
+        {
+          "id": "forest_chicken",
+          "kind": "fixed",
+          "names": {
+            "fr": "Poulet forestier",
+            "en": "Forest Chicken"
+          },
+          "category": "main",
+          "rarity": "rare",
+          "shelf_life_days": 1,
+          "ingredients": [
+            {
+              "item": "minecraft:cooked_chicken",
+              "category": "meat"
+            },
+            {
+              "item": "minecraft:brown_mushroom",
+              "category": "mushroom"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            }
+          ]
+        },
+        {
+          "id": "golden_banquet",
+          "kind": "fixed",
+          "names": {
+            "fr": "Banquet doré",
+            "en": "Golden Banquet"
+          },
+          "category": "main",
+          "rarity": "legendary",
+          "shelf_life_days": 4,
+          "ingredients": [
+            {
+              "item": "minecraft:golden_carrot",
+              "category": "precious"
+            },
+            {
+              "item": "minecraft:golden_apple",
+              "category": "precious"
+            },
+            {
+              "item": "minecraft:honey_bottle",
+              "category": "sweet"
+            },
+            {
+              "item": "minecraft:cooked_beef",
+              "category": "meat"
+            }
+          ]
+        },
+        {
+          "id": "infernal_simmer",
+          "kind": "fixed",
+          "names": {
+            "fr": "Mijoté infernal",
+            "en": "Infernal Simmer"
+          },
+          "category": "main",
+          "rarity": "legendary",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:cooked_porkchop",
+              "category": "meat"
+            },
+            {
+              "item": "minecraft:nether_wart",
+              "category": "nether"
+            },
+            {
+              "item": "minecraft:warped_fungus",
+              "category": "nether"
+            },
+            {
+              "item": "minecraft:blaze_powder",
+              "category": "spice"
+            }
+          ]
+        },
+        {
+          "id": "monstrous_stew",
+          "kind": "fixed",
+          "names": {
+            "fr": "Ragoût monstrueux",
+            "en": "Monstrous Stew"
+          },
+          "category": "main",
+          "rarity": "epic",
+          "shelf_life_days": 1,
+          "ingredients": [
+            {
+              "item": "minecraft:rotten_flesh",
+              "category": "monstrous"
+            },
+            {
+              "item": "minecraft:spider_eye",
+              "category": "toxic"
+            },
+            {
+              "item": "minecraft:red_mushroom",
+              "category": "mushroom"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            }
+          ]
+        },
+        {
+          "id": "mythic_feast",
+          "kind": "fixed",
+          "names": {
+            "fr": "Festin mythique",
+            "en": "Mythic Feast"
+          },
+          "category": "main",
+          "rarity": "mythic",
+          "shelf_life_days": 7,
+          "ingredients": [
+            {
+              "item": "minecraft:enchanted_golden_apple",
+              "category": "precious"
+            },
+            {
+              "item": "minecraft:golden_carrot",
+              "category": "precious"
+            },
+            {
+              "item": "minecraft:chorus_fruit",
+              "category": "end"
+            },
+            {
+              "item": "minecraft:magma_cream",
+              "category": "nether"
+            },
+            {
+              "item": "minecraft:honey_bottle",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "simmered_rabbit",
+          "kind": "fixed",
+          "names": {
+            "fr": "Lapin mijoté",
+            "en": "Simmered Rabbit"
+          },
+          "category": "main",
+          "rarity": "epic",
+          "shelf_life_days": 1,
+          "ingredients": [
+            {
+              "item": "minecraft:cooked_rabbit",
+              "category": "meat"
+            },
+            {
+              "item": "minecraft:carrot",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:red_mushroom",
+              "category": "mushroom"
+            }
+          ]
+        },
+        {
+          "id": "traveler_stew",
+          "kind": "fixed",
+          "names": {
+            "fr": "Ragoût du voyageur",
+            "en": "Traveler’s Stew"
+          },
+          "category": "main",
+          "rarity": "rare",
+          "shelf_life_days": 1,
+          "ingredients": [
+            {
+              "item": "minecraft:cooked_beef",
+              "category": "meat"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:carrot",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:brown_mushroom",
+              "category": "mushroom"
+            }
+          ]
+        },
+        {
+          "id": "beetroot_potage",
+          "kind": "fixed",
+          "names": {
+            "fr": "Potage de betterave",
+            "en": "Beetroot Potage"
+          },
+          "category": "starter",
+          "rarity": "common",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:beetroot",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:wheat",
+              "category": "grain"
+            }
+          ]
+        },
+        {
+          "id": "chicken_broth",
+          "kind": "fixed",
+          "names": {
+            "fr": "Bouillon de poulet",
+            "en": "Chicken Broth"
+          },
+          "category": "starter",
+          "rarity": "rare",
+          "shelf_life_days": 1,
+          "ingredients": [
+            {
+              "item": "minecraft:cooked_chicken",
+              "category": "meat"
+            },
+            {
+              "item": "minecraft:carrot",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:potion",
+              "category": "liquid"
+            }
+          ]
+        },
+        {
+          "id": "country_soup",
+          "kind": "fixed",
+          "names": {
+            "fr": "Soupe paysanne",
+            "en": "Country Soup"
+          },
+          "category": "starter",
+          "rarity": "common",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:carrot",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            }
+          ]
+        },
+        {
+          "id": "fisher_soup",
+          "kind": "fixed",
+          "names": {
+            "fr": "Soupe du pêcheur",
+            "en": "Fisherman’s Soup"
+          },
+          "category": "starter",
+          "rarity": "rare",
+          "shelf_life_days": 1,
+          "ingredients": [
+            {
+              "item": "minecraft:cooked_cod",
+              "category": "fish"
+            },
+            {
+              "item": "minecraft:kelp",
+              "category": "ocean"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            }
+          ]
+        },
+        {
+          "id": "forest_veloute",
+          "kind": "fixed",
+          "names": {
+            "fr": "Velouté forestier",
+            "en": "Forest Velouté"
+          },
+          "category": "starter",
+          "rarity": "rare",
+          "shelf_life_days": 1,
+          "ingredients": [
+            {
+              "item": "minecraft:red_mushroom",
+              "category": "mushroom"
+            },
+            {
+              "item": "minecraft:brown_mushroom",
+              "category": "mushroom"
+            },
+            {
+              "item": "minecraft:milk_bucket",
+              "category": "dairy"
+            }
+          ]
+        },
+        {
+          "id": "golden_potage",
+          "kind": "fixed",
+          "names": {
+            "fr": "Potage doré",
+            "en": "Golden Potage"
+          },
+          "category": "starter",
+          "rarity": "epic",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:golden_carrot",
+              "category": "precious"
+            },
+            {
+              "item": "minecraft:potato",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:milk_bucket",
+              "category": "dairy"
+            }
+          ]
+        },
+        {
+          "id": "infernal_broth",
+          "kind": "fixed",
+          "names": {
+            "fr": "Bouillon infernal",
+            "en": "Infernal Broth"
+          },
+          "category": "starter",
+          "rarity": "epic",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:nether_wart",
+              "category": "nether"
+            },
+            {
+              "item": "minecraft:blaze_powder",
+              "category": "spice"
+            },
+            {
+              "item": "minecraft:cooked_porkchop",
+              "category": "meat"
+            }
+          ]
+        },
+        {
+          "id": "pumpkin_cream",
+          "kind": "fixed",
+          "names": {
+            "fr": "Crème de citrouille",
+            "en": "Pumpkin Cream"
+          },
+          "category": "starter",
+          "rarity": "rare",
+          "shelf_life_days": 2,
+          "ingredients": [
+            {
+              "item": "minecraft:pumpkin",
+              "category": "vegetable"
+            },
+            {
+              "item": "minecraft:milk_bucket",
+              "category": "dairy"
+            },
+            {
+              "item": "minecraft:sugar",
+              "category": "sweet"
+            }
+          ]
+        },
+        {
+          "id": "fruit_compote",
+          "kind": "generic",
+          "names": {
+            "fr": "Compote de fruits",
+            "en": "Fruit Compote"
+          },
+          "category": "dessert",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "fruit",
+            "sweet"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "sweet_cream",
+          "kind": "generic",
+          "names": {
+            "fr": "Crème sucrée",
+            "en": "Sweet Cream"
+          },
+          "category": "dessert",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "dairy",
+            "sweet"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "chorus_preparation",
+          "kind": "generic",
+          "names": {
+            "fr": "Préparation chorique",
+            "en": "Chorus Preparation"
+          },
+          "category": "main",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "end",
+            "food"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "dubious_dish",
+          "kind": "generic",
+          "names": {
+            "fr": "Plat douteux",
+            "en": "Dubious Dish"
+          },
+          "category": "main",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "incoherent",
+            "ingredients"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "experimental_dish",
+          "kind": "generic",
+          "names": {
+            "fr": "Plat expérimental",
+            "en": "Experimental Dish"
+          },
+          "category": "main",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "varied",
+            "ingredients"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "grain_porridge",
+          "kind": "generic",
+          "names": {
+            "fr": "Bouillie céréalière",
+            "en": "Grain Porridge"
+          },
+          "category": "main",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "grain",
+            "dairy"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "infernal_preparation",
+          "kind": "generic",
+          "names": {
+            "fr": "Préparation infernale",
+            "en": "Infernal Preparation"
+          },
+          "category": "main",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "nether",
+            "food"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "meat_stew",
+          "kind": "generic",
+          "names": {
+            "fr": "Ragoût de viande",
+            "en": "Meat Stew"
+          },
+          "category": "main",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "meat",
+            "vegetable"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "signature_dish",
+          "kind": "generic",
+          "names": {
+            "fr": "Plat signature",
+            "en": "Signature Dish"
+          },
+          "category": "main",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "signature",
+            "ingredients"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "fish_soup",
+          "kind": "generic",
+          "names": {
+            "fr": "Soupe de poisson",
+            "en": "Fish Soup"
+          },
+          "category": "starter",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "fish",
+            "vegetable"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "mushroom_veloute",
+          "kind": "generic",
+          "names": {
+            "fr": "Velouté de champignons",
+            "en": "Mushroom Velouté"
+          },
+          "category": "starter",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "mushroom",
+            "mushroom"
+          ],
+          "ingredients": []
+        },
+        {
+          "id": "vegetable_potage",
+          "kind": "generic",
+          "names": {
+            "fr": "Potage de légumes",
+            "en": "Vegetable Potage"
+          },
+          "category": "starter",
+          "rarity": "dynamic",
+          "shelf_life_days": 2,
+          "ingredient_hints": [
+            "vegetable",
+            "vegetable"
+          ],
+          "ingredients": []
+        }
+      ],
+      "dynamic_ingredient_sources": [
+        {
+          "id": "mythicrpg:fishing_catch",
+          "description": {
+            "fr": "Les prises Fishing deviennent des ingrédients dynamiques selon leur famille et leur rareté.",
+            "en": "Fishing catches become dynamic ingredients based on their family and rarity."
+          }
+        }
+      ],
+      "extraction": {
+        "method": "specialized_java_registry_extraction",
+        "files": [
+          "com/mythicrpg/eating/DishCategory.java",
+          "com/mythicrpg/eating/DishRarity.java",
+          "com/mythicrpg/eating/CookingRecipeRegistry.java",
+          "com/mythicrpg/eating/CulinaryIngredientRegistry.java"
+        ]
+      }
+    },
+    "fishing": {
+      "families": [
+        {
+          "id": "salmon",
+          "names": {
+            "fr": "Saumon",
+            "en": "Salmon"
+          },
+          "dimension_rule": "overworld"
+        },
+        {
+          "id": "crustacean",
+          "names": {
+            "fr": "Crustacé",
+            "en": "Crustacean"
+          },
+          "dimension_rule": "overworld"
+        },
+        {
+          "id": "shark",
+          "names": {
+            "fr": "Requin",
+            "en": "Shark"
+          },
+          "dimension_rule": "overworld"
+        },
+        {
+          "id": "infernal",
+          "names": {
+            "fr": "Infernale",
+            "en": "Infernal"
+          },
+          "dimension_rule": "nether_only"
+        },
+        {
+          "id": "void",
+          "names": {
+            "fr": "Vide",
+            "en": "Void"
+          },
+          "dimension_rule": "end_only"
+        }
+      ],
+      "rarities": [
+        {
+          "id": "common",
+          "names": {
+            "fr": "Common",
+            "en": "Common"
+          },
+          "rank": 0,
+          "base_weight": 50,
+          "xp": 8
+        },
+        {
+          "id": "rare",
+          "names": {
+            "fr": "Rare",
+            "en": "Rare"
+          },
+          "rank": 1,
+          "base_weight": 25,
+          "xp": 18
+        },
+        {
+          "id": "epic",
+          "names": {
+            "fr": "Epic",
+            "en": "Epic"
+          },
+          "rank": 2,
+          "base_weight": 15,
+          "xp": 40
+        },
+        {
+          "id": "legendary",
+          "names": {
+            "fr": "Legendary",
+            "en": "Legendary"
+          },
+          "rank": 3,
+          "base_weight": 7,
+          "xp": 90
+        },
+        {
+          "id": "mythic",
+          "names": {
+            "fr": "Mythic",
+            "en": "Mythic"
+          },
+          "rank": 4,
+          "base_weight": 3,
+          "xp": 180
+        }
+      ],
+      "rarity_distributions": [
+        {
+          "id": "none",
+          "weights": {
+            "common": 50,
+            "rare": 25,
+            "epic": 15,
+            "legendary": 7,
+            "mythic": 3
+          },
+          "percentages": {
+            "common": 50.0,
+            "rare": 25.0,
+            "epic": 15.0,
+            "legendary": 7.0,
+            "mythic": 3.0
+          },
+          "source_symbol": "BASE_WEIGHTS"
+        },
+        {
+          "id": "bait_i",
+          "weights": {
+            "common": 42,
+            "rare": 23,
+            "epic": 20,
+            "legendary": 10,
+            "mythic": 5
+          },
+          "percentages": {
+            "common": 42.0,
+            "rare": 23.0,
+            "epic": 20.0,
+            "legendary": 10.0,
+            "mythic": 5.0
+          },
+          "source_symbol": "BAIT_I_WEIGHTS"
+        },
+        {
+          "id": "bait_ii",
+          "weights": {
+            "common": 32,
+            "rare": 20,
+            "epic": 27,
+            "legendary": 14,
+            "mythic": 7
+          },
+          "percentages": {
+            "common": 32.0,
+            "rare": 20.0,
+            "epic": 27.0,
+            "legendary": 14.0,
+            "mythic": 7.0
+          },
+          "source_symbol": "BAIT_II_WEIGHTS"
+        },
+        {
+          "id": "bait_iii",
+          "weights": {
+            "common": 20,
+            "rare": 15,
+            "epic": 35,
+            "legendary": 20,
+            "mythic": 10
+          },
+          "percentages": {
+            "common": 20.0,
+            "rare": 15.0,
+            "epic": 35.0,
+            "legendary": 20.0,
+            "mythic": 10.0
+          },
+          "source_symbol": "BAIT_III_WEIGHTS"
+        },
+        {
+          "id": "bait_legendary",
+          "weights": {
+            "common": 0,
+            "rare": 0,
+            "epic": 50,
+            "legendary": 40,
+            "mythic": 10
+          },
+          "percentages": {
+            "common": 0.0,
+            "rare": 0.0,
+            "epic": 50.0,
+            "legendary": 40.0,
+            "mythic": 10.0
+          },
+          "source_symbol": "LEGENDARY_BAIT_WEIGHTS"
+        }
+      ],
+      "rarity_rune_shifts": {
+        "common": -5,
+        "rare": -3,
+        "epic": 4,
+        "legendary": 3,
+        "mythic": 1
+      },
+      "family_distribution": {
+        "overworld_primary_percent": 75,
+        "overworld_other_percent": 25,
+        "nether": "infernal",
+        "end": "void"
+      },
+      "mini_games": [
+        {
+          "rarity": "common",
+          "game": "none"
+        },
+        {
+          "rarity": "rare",
+          "game": "none"
+        },
+        {
+          "rarity": "epic",
+          "game": "precision"
+        },
+        {
+          "rarity": "legendary",
+          "game": "cards"
+        },
+        {
+          "rarity": "mythic",
+          "game": "grid"
+        }
+      ],
+      "weather": {
+        "modes": [
+          "rain",
+          "sun",
+          "storm"
+        ],
+        "base_radius": 10,
+        "harmonized_radius": 14,
+        "base_duration_ticks": 12000,
+        "sealed_duration_ticks": 18000
+      },
+      "sea_monsters": {
+        "max_gauge": 1000,
+        "normal_gauge_gain": 15,
+        "sealed_gauge_gain": 20,
+        "owner_xp": 4500,
+        "assistant_xp": 250,
+        "base_hook_damage": 8.0,
+        "sharpness_damage_per_level": 2.5,
+        "types": [
+          {
+            "id": "nessie",
+            "names": {
+              "fr": "Nessie",
+              "en": "Nessie"
+            },
+            "weather": "rain",
+            "max_health": 180.0,
+            "attack_damage": 8.0,
+            "attack_radius": 6.0,
+            "attack_interval_ticks": 80,
+            "attack_interval_seconds": 4.0,
+            "slime_size": 4,
+            "horizontal_knockback": 1.1,
+            "vertical_knockback": 0.55,
+            "material_item": "nessie_scale",
+            "charm_item": "nessie_charm",
+            "title_id": "special_sea_hunter_nessie"
+          },
+          {
+            "id": "megalodon",
+            "names": {
+              "fr": "Mégalodon",
+              "en": "Megalodon"
+            },
+            "weather": "storm",
+            "max_health": 240.0,
+            "attack_damage": 12.0,
+            "attack_radius": 7.0,
+            "attack_interval_ticks": 60,
+            "attack_interval_seconds": 3.0,
+            "slime_size": 6,
+            "horizontal_knockback": 1.5,
+            "vertical_knockback": 0.45,
+            "material_item": "megalodon_tooth",
+            "charm_item": "megalodon_charm",
+            "title_id": "special_sea_hunter_megalodon"
+          },
+          {
+            "id": "whale",
+            "names": {
+              "fr": "Baleine légendaire",
+              "en": "Legendary Whale"
+            },
+            "weather": "sun",
+            "max_health": 210.0,
+            "attack_damage": 10.0,
+            "attack_radius": 7.0,
+            "attack_interval_ticks": 100,
+            "attack_interval_seconds": 5.0,
+            "slime_size": 5,
+            "horizontal_knockback": 0.5,
+            "vertical_knockback": 1.35,
+            "material_item": "whale_ambergris",
+            "charm_item": "whale_charm",
+            "title_id": "special_sea_hunter_whale"
+          }
+        ]
+      },
+      "inventories": {
+        "fish_net_max_slots": 5,
+        "fishing_boat_capacity": 3
+      },
+      "extraction": {
+        "method": "specialized_java_enum_array_and_constant_extraction",
+        "files": [
+          "com/mythicrpg/fishing/FishingFamily.java",
+          "com/mythicrpg/fishing/FishingRarity.java",
+          "com/mythicrpg/fishing/FishingBalance.java",
+          "com/mythicrpg/fishing/SeaMonsterType.java",
+          "com/mythicrpg/fishing/FishingWeatherManager.java",
+          "com/mythicrpg/fishing/SeaMonsterProgressData.java",
+          "com/mythicrpg/fishing/SeaMonsterManager.java"
+        ]
+      }
+    }
+  }
 }

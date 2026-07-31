@@ -1,33 +1,19 @@
-# Validation npm et Astro
+# Validation du build Astro v0.2
 
-## Commandes tentées
+## État dans cet environnement
 
-```bash
-npm view astro@7.1.4 version
-npm install --package-lock-only --ignore-scripts
-```
+- `website/package-lock.json` présent ;
+- suite Python : validée ;
+- génération du catalogue : validée ;
+- `npm ci` : bloqué par le miroir npm interne, qui répond 404 pour certaines archives présentes dans le lockfile ;
+- build Astro v0.2 : à relancer dans l’environnement Windows ou GitHub Actions déjà validé pour le projet.
 
-## Résultat
+Ce blocage ne vient pas du projet et aucun lockfile alternatif n’a été fabriqué.
 
-Le registre configuré dans l’environnement répond `404 Not Found` pour `astro`, `vite` et `typescript`. Le registre public npm n’est pas joignable depuis le conteneur.
-
-Par conséquent :
-
-- aucun `package-lock.json` n’a été inventé ou copié depuis un projet différent ;
-- `npm ci` n’a pas été exécuté ;
-- le build Astro n’est pas déclaré comme validé ;
-- `website/dist` n’est pas livré comme résultat de build.
-
-## Validation à effectuer dans un environnement avec npm accessible
+## Commande de validation officielle
 
 ```bash
-cd website
-npm install --package-lock-only --ignore-scripts --no-audit --no-fund
-npm ci --no-audit --no-fund
-npm run build
-cd ..
-python -m unittest discover -s tests -v
-python scripts/verify_delivery.py
+python scripts/build_all.py
 ```
 
-Après génération, `website/package-lock.json` doit être versionné. Le workflow GitHub Pages est déjà configuré pour utiliser `npm ci`.
+Le script exécute l’extraction, les tests, `npm ci`, `npm run build`, puis `verify_delivery.py --require-build`.

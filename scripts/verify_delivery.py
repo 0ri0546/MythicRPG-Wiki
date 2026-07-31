@@ -39,7 +39,7 @@ def main() -> int:
     if len(source_files) != snapshot['counts']['source_files']:
         fail('Le nombre de fichiers source ne correspond pas au snapshot.')
 
-    forbidden = ('/mnt/data/', 'wiki_v011_work', 'mythicrpg_site_work')
+    forbidden = ('/mnt/data/', 'mythicrpg_wiki_v02_work', 'wiki_v011_work', 'mythicrpg_site_work')
     for path in (ROOT / 'data/generated').glob('*.json'):
         text = path.read_text(encoding='utf-8')
         if any(token in text for token in forbidden):
@@ -47,7 +47,20 @@ def main() -> int:
 
     lockfile = ROOT / 'website/package-lock.json'
     dist = ROOT / 'website/dist'
-    build_ready = lockfile.is_file() and dist.is_dir() and any(dist.rglob('*.html'))
+
+    html_files = list(dist.rglob('*.html')) if dist.is_dir() else []
+
+    required_outputs = [
+        dist / 'index.html',
+        dist / '404.html',
+    ]
+
+    build_ready = (
+        lockfile.is_file()
+        and dist.is_dir()
+        and bool(html_files)
+        and all(path.is_file() for path in required_outputs)
+    )
     if args.require_build and not build_ready:
         fail('Validation de build exigée, mais lockfile ou sortie Astro manquante.')
 
@@ -58,7 +71,7 @@ def main() -> int:
     print(f"Lockfile présent: {lockfile.is_file()}")
     print(f"Build Astro validé: {build_ready}")
     if not build_ready:
-        print('BLOCAGE CONNU: voir BUILD_VALIDATION.md')
+        print('BUILD À REFAIRE: voir BUILD_VALIDATION.md')
     return 0
 
 

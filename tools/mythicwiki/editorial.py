@@ -35,8 +35,11 @@ def load_skill_editorial(content_root: Path) -> dict[str, dict[str, Any]]:
             entry["locales"][locale] = {
                 "summary": str(frontmatter.get("summary", "")).strip(),
                 "body_markdown": parsed["body"],
+                "key_systems": [str(value) for value in frontmatter.get("key_systems", [])],
+                "xp_sources": [str(value) for value in frontmatter.get("xp_sources", [])],
+                "multiplayer": str(frontmatter.get("multiplayer", "")).strip(),
             }
-            for key in ("status", "introduced_in", "visibility", "spoiler"):
+            for key in ("status", "introduced_in", "visibility", "spoiler", "coverage"):
                 if key in frontmatter:
                     entry[key] = frontmatter[key]
     return result

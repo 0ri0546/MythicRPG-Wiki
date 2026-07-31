@@ -15,6 +15,27 @@ values:
     formula_group: progression.xp_curve
     audiences: [website]
     label: {fr: Exposant de la courbe d'XP, en: XP curve exponent}
+  - id: progression.max_level
+    file: com/mythicrpg/core/SkillProgress.java
+    symbol: MAX_LEVEL
+    unit: level
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Niveau maximum par skill, en: Maximum level per skill}
+  - id: progression.max_skill_points
+    file: com/mythicrpg/core/SkillProgress.java
+    symbol: MAX_SKILL_POINTS
+    unit: points
+    status: stable
+    audiences: [website]
+    label: {fr: Plafond technique des points de skill, en: Skill point technical cap}
+  - id: progression.node_unlock_cost
+    file: com/mythicrpg/core/SkillTreeManager.java
+    symbol: NODE_UNLOCK_COST
+    unit: points
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Coût d'un perk, en: Perk unlock cost}
   - id: eating.vanilla_saturation_multiplier
     file: com/mythicrpg/eating/EatingBalance.java
     symbol: VANILLA_SATURATION_MULTIPLIER
@@ -78,3 +99,80 @@ values:
     status: stable
     audiences: [website, encyclopedia]
     label: {fr: Blocs supplémentaires maximum de Vein Mining, en: Maximum extra Vein Mining blocks}
+  - id: mining.fossil_site_min_size
+    file: com/mythicrpg/mining/archaeology/FossilSiteGenerator.java
+    symbol: MIN_SITE_SIZE
+    unit: blocks
+    status: stable
+    audiences: [website]
+    label: {fr: Taille minimale d'un site fossile, en: Minimum fossil site size}
+  - id: mining.fossil_site_max_size
+    file: com/mythicrpg/mining/archaeology/FossilSiteGenerator.java
+    symbol: MAX_SITE_SIZE
+    unit: blocks
+    status: stable
+    audiences: [website]
+    label: {fr: Taille maximale d'un site fossile, en: Maximum fossil site size}
+  - id: fishing.weather_base_radius
+    file: com/mythicrpg/fishing/FishingWeatherManager.java
+    symbol: BASE_RADIUS
+    unit: blocks
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Rayon normal d'un microclimat, en: Normal microclimate radius}
+  - id: fishing.weather_harmonized_radius
+    file: com/mythicrpg/fishing/FishingWeatherManager.java
+    symbol: HARMONIZED_RADIUS
+    unit: blocks
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Rayon harmonisé d'un microclimat, en: Harmonized microclimate radius}
+  - id: fishing.weather_base_duration_ticks
+    file: com/mythicrpg/fishing/FishingWeatherManager.java
+    symbol: BASE_DURATION_TICKS
+    unit: ticks
+    status: stable
+    audiences: [website]
+    label: {fr: Durée normale d'un microclimat, en: Normal microclimate duration}
+  - id: fishing.weather_sealed_duration_ticks
+    file: com/mythicrpg/fishing/FishingWeatherManager.java
+    symbol: SEALED_DURATION_TICKS
+    unit: ticks
+    status: stable
+    audiences: [website]
+    label: {fr: Durée d'un microclimat scellé, en: Sealed microclimate duration}
+  - id: fishing.sea_monster_max_gauge
+    file: com/mythicrpg/fishing/SeaMonsterProgressData.java
+    symbol: MAX_GAUGE
+    unit: points
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Jauge maximale des monstres marins, en: Sea monster maximum gauge}
+  - id: fishing.sea_monster_normal_gain
+    file: com/mythicrpg/fishing/SeaMonsterManager.java
+    symbol: NORMAL_GAUGE_GAIN
+    unit: points
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Progression de jauge sans sceau, en: Gauge gain without seal}
+  - id: fishing.sea_monster_sealed_gain
+    file: com/mythicrpg/fishing/SeaMonsterManager.java
+    symbol: SEALED_GAUGE_GAIN
+    unit: points
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Progression de jauge avec sceau, en: Gauge gain with seal}
+  - id: fishing.boat_capacity
+    file: com/mythicrpg/fishing/FishingBoatScreenHandler.java
+    symbol: CAPACITY
+    unit: slots
+    status: stable
+    audiences: [website, encyclopedia]
+    label: {fr: Capacité du Fishing Boat, en: Fishing Boat capacity}
+  - id: fishing.net_inventory_size
+    file: com/mythicrpg/fishing/FishNetBlockEntity.java
+    symbol: INVENTORY_SIZE
+    unit: slots
+    status: stable
+    audiences: [website]
+    label: {fr: Taille maximale d'inventaire d'un filet, en: Maximum fish net inventory size}

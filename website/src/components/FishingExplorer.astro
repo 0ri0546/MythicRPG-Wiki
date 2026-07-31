@@ -1,0 +1,195 @@
+---
+import type { FishingSystem } from '../lib/catalog';
+interface Props { fishing: FishingSystem }
+const { fishing } = Astro.props;
+const distributions = fishing.rarity_distributions;
+const gameLabels: Record<string, string> = { none: 'Sans mini-jeu', precision: 'Barre de précision', cards: 'Duel de cartes', grid: 'Puzzle de formes' };
+---
+<section class="system-explorer fishing-explorer">
+  <div class="section-heading">
+    <div><p class="eyebrow">Données Fishing extraites</p><h2>Explorateur Fishing</h2></div>
+    <code>{fishing.extraction.files.length} sources Java</code>
+  </div>
+
+  <div class="interactive-grid">
+    <article class="interactive-panel" data-fishing-distribution data-distributions={JSON.stringify(distributions)} data-rarities={JSON.stringify(fishing.rarities)}>
+      <h3>Probabilités par appât</h3>
+      <p>Comparez la distribution des cinq raretés. Les pourcentages sont recalculés depuis les poids extraits.</p>
+      <label>Appât
+        <select data-fishing-bait>
+          {distributions.map((distribution) => <option value={distribution.id}>{distribution.id.replaceAll('_', ' ')}</option>)}
+        </select>
+      </label>
+      <div class="stacked-distribution" data-fishing-stacked aria-label="Répartition des raretés"></div>
+      <div class="bar-chart" data-fishing-bars></div>
+      <p class="source-note" data-fishing-source></p>
+    </article>
+
+    <article class="interactive-panel">
+      <h3>Règles de dimension</h3>
+      <div class="metric-grid compact">
+        <div class="metric-card"><span>Overworld primaire</span><strong>{fishing.family_distribution.overworld_primary_percent} %</strong></div>
+        <div class="metric-card"><span>Autres familles</span><strong>{fishing.family_distribution.overworld_other_percent} %</strong></div>
+        <div class="metric-card"><span>Nether</span><strong>{fishing.family_distribution.nether}</strong></div>
+        <div class="metric-card"><span>End</span><strong>{fishing.family_distribution.end}</strong></div>
+      </div>
+      <h4>Familles</h4>
+      <div class="chip-list">
+        {fishing.families.map((family) => <span class="status-badge">{family.names.fr} · {family.dimension_rule}</span>)}
+      </div>
+    </article>
+  </div>
+
+  <div class="interactive-grid">
+    <article class="interactive-panel" data-monster-compare data-monsters={JSON.stringify(fishing.sea_monsters.types)}>
+      <h3>Comparateur de monstres marins</h3>
+      <div class="filter-grid two">
+        <label>Monstre A
+          <select data-monster-a>{fishing.sea_monsters.types.map((monster) => <option value={monster.id}>{monster.names.fr}</option>)}</select>
+        </label>
+        <label>Monstre B
+          <select data-monster-b>{fishing.sea_monsters.types.map((monster, index) => <option value={monster.id} selected={index === 1}>{monster.names.fr}</option>)}</select>
+        </label>
+      </div>
+      <div class="comparison-table" data-monster-table></div>
+      <p class="source-note">Statistiques inspectées statiquement ; elles ne constituent pas un test en jeu.</p>
+    </article>
+
+    <article class="interactive-panel">
+      <h3>Météo et jauges</h3>
+      <div class="stat-table compact-stats">
+        <div><span>Rayon normal</span><strong>{fishing.weather.base_radius}</strong><small>blocs</small></div>
+        <div><span>Rayon harmonisé</span><strong>{fishing.weather.harmonized_radius}</strong><small>blocs</small></div>
+        <div><span>Durée normale</span><strong>{Math.round(fishing.weather.base_duration_ticks / 1200)}</strong><small>minutes</small></div>
+        <div><span>Durée scellée</span><strong>{Math.round(fishing.weather.sealed_duration_ticks / 1200)}</strong><small>minutes</small></div>
+        <div><span>Jauge maximale</span><strong>{fishing.sea_monsters.max_gauge}</strong><small>points</small></div>
+        <div><span>Gain normal / sceau</span><strong>{fishing.sea_monsters.normal_gauge_gain} / {fishing.sea_monsters.sealed_gauge_gain}</strong><small>par prise valide</small></div>
+      </div>
+      <div class="gauge-demo" data-gauge-demo data-max={fishing.sea_monsters.max_gauge} data-normal={fishing.sea_monsters.normal_gauge_gain} data-sealed={fishing.sea_monsters.sealed_gauge_gain}>
+        <label>Progression simulée
+          <input type="range" min="0" max={fishing.sea_monsters.max_gauge} value="0" step={fishing.sea_monsters.normal_gauge_gain} data-gauge-range />
+        </label>
+        <div class="gauge-track"><span data-gauge-fill></span></div>
+        <output data-gauge-output>0 / {fishing.sea_monsters.max_gauge}</output>
+        <div class="button-row compact"><button type="button" class="button small" data-gauge-normal>+ prise normale</button><button type="button" class="button small" data-gauge-sealed>+ prise scellée</button></div>
+      </div>
+    </article>
+  </div>
+
+  <div class="data-card-grid">
+    {fishing.mini_games.map((entry) => (
+      <article class="data-card"><span class="status-badge">{entry.rarity}</span><h3>{gameLabels[entry.game] ?? entry.game.replaceAll('_', ' ')}</h3><p>Association de rareté extraite du code Fishing.</p></article>
+    ))}
+  </div>
+
+  <aside class="data-callout">
+    <div><p class="eyebrow">Inventaires</p><h2>Filets et Fishing Boat</h2></div>
+    <p>Capacité maximale des filets : <strong>{fishing.inventories.fish_net_max_slots}</strong>. Capacité du Fishing Boat : <strong>{fishing.inventories.fishing_boat_capacity}</strong>. Le bateau reste volontairement lié à l’XP Traveling.</p>
+  </aside>
+</section>
+
+<script>
+  const makeText = (tag, text, className = '') => {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    element.textContent = text;
+    return element;
+  };
+
+  document.querySelectorAll('[data-fishing-distribution]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const distributions = JSON.parse(root.dataset.distributions ?? '[]');
+    const rarities = JSON.parse(root.dataset.rarities ?? '[]');
+    const select = root.querySelector('[data-fishing-bait]');
+    const bars = root.querySelector('[data-fishing-bars]');
+    const stacked = root.querySelector('[data-fishing-stacked]');
+    const source = root.querySelector('[data-fishing-source]');
+    const update = () => {
+      const id = select instanceof HTMLSelectElement ? select.value : distributions[0]?.id;
+      const distribution = distributions.find((entry) => entry.id === id) ?? distributions[0];
+      if (!distribution) return;
+      if (stacked instanceof HTMLElement) {
+        stacked.replaceChildren(...rarities.map((rarity) => {
+          const segment = document.createElement('span');
+          const percentage = distribution.percentages[rarity.id] ?? 0;
+          segment.style.width = `${percentage}%`;
+          segment.title = `${rarity.names.fr}: ${percentage} %`;
+          segment.dataset.rarity = rarity.id;
+          segment.setAttribute('aria-label', `${rarity.names.fr} ${percentage} %`);
+          return segment;
+        }));
+      }
+      if (bars instanceof HTMLElement) {
+        bars.replaceChildren(...rarities.map((rarity) => {
+          const percentage = distribution.percentages[rarity.id] ?? 0;
+          const row = document.createElement('div');
+          row.className = 'bar-row static';
+          const label = makeText('span', rarity.names.fr);
+          const track = document.createElement('span');
+          track.className = 'bar-track';
+          const fill = document.createElement('span');
+          fill.className = 'bar-fill';
+          fill.style.width = `${percentage}%`;
+          track.append(fill);
+          const value = makeText('strong', `${percentage} %`);
+          row.append(label, track, value);
+          return row;
+        }));
+      }
+      if (source) source.textContent = `Source : ${distribution.source_symbol}`;
+    };
+    select?.addEventListener('change', update);
+    update();
+  });
+
+  document.querySelectorAll('[data-monster-compare]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const monsters = JSON.parse(root.dataset.monsters ?? '[]');
+    const first = root.querySelector('[data-monster-a]');
+    const second = root.querySelector('[data-monster-b]');
+    const table = root.querySelector('[data-monster-table]');
+    const metrics = [
+      ['Vie', 'max_health'], ['Dégâts', 'attack_damage'], ['Rayon', 'attack_radius'],
+      ['Intervalle', 'attack_interval_seconds'], ['Knockback horizontal', 'horizontal_knockback'], ['Knockback vertical', 'vertical_knockback']
+    ];
+    const update = () => {
+      if (!(table instanceof HTMLElement)) return;
+      const a = monsters.find((entry) => entry.id === (first instanceof HTMLSelectElement ? first.value : '')) ?? monsters[0];
+      const b = monsters.find((entry) => entry.id === (second instanceof HTMLSelectElement ? second.value : '')) ?? monsters[1] ?? monsters[0];
+      const header = document.createElement('div');
+      header.className = 'comparison-row heading';
+      header.append(makeText('strong', 'Statistique'), makeText('strong', a?.names.fr ?? ''), makeText('strong', b?.names.fr ?? ''));
+      const rows = metrics.map(([label, key]) => {
+        const row = document.createElement('div');
+        row.className = 'comparison-row';
+        row.append(makeText('span', label), makeText('strong', String(a?.[key] ?? '—')), makeText('strong', String(b?.[key] ?? '—')));
+        return row;
+      });
+      table.replaceChildren(header, ...rows);
+    };
+    first?.addEventListener('change', update);
+    second?.addEventListener('change', update);
+    update();
+  });
+
+  document.querySelectorAll('[data-gauge-demo]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const max = Number(root.dataset.max ?? 1000);
+    const normal = Number(root.dataset.normal ?? 15);
+    const sealed = Number(root.dataset.sealed ?? 20);
+    const input = root.querySelector('[data-gauge-range]');
+    const fill = root.querySelector('[data-gauge-fill]');
+    const output = root.querySelector('[data-gauge-output]');
+    const update = (delta = 0) => {
+      if (!(input instanceof HTMLInputElement)) return;
+      input.value = String(Math.min(max, Math.max(0, Number(input.value) + delta)));
+      const value = Number(input.value);
+      if (fill instanceof HTMLElement) fill.style.width = `${value / max * 100}%`;
+      if (output) output.textContent = `${value} / ${max}`;
+    };
+    input?.addEventListener('input', () => update());
+    root.querySelector('[data-gauge-normal]')?.addEventListener('click', () => update(normal));
+    root.querySelector('[data-gauge-sealed]')?.addEventListener('click', () => update(sealed));
+    update();
+  });
+</script>

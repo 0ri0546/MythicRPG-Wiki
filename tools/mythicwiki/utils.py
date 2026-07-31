@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import hashlib
 import json
 import re
@@ -188,6 +189,46 @@ def parse_java_number(value: str) -> int | float | None:
         return float(cleaned)
     return None
 
+
+
+def parse_java_numeric_expression(value: str) -> int | float | None:
+    direct = parse_java_number(value)
+    if direct is not None:
+        return direct
+    cleaned = value.strip().replace("_", "")
+    cleaned = re.sub(r"(?<=\d)[fFdDlL]\b", "", cleaned)
+    if not re.fullmatch(r"[\d\s+\-*/().]+", cleaned):
+        return None
+    try:
+        tree = ast.parse(cleaned, mode="eval")
+    except SyntaxError:
+        return None
+
+    def evaluate(node: ast.AST) -> float:
+        if isinstance(node, ast.Expression):
+            return evaluate(node.body)
+        if isinstance(node, ast.Constant) and isinstance(node.value, (int, float)):
+            return float(node.value)
+        if isinstance(node, ast.UnaryOp) and isinstance(node.op, (ast.UAdd, ast.USub)):
+            operand = evaluate(node.operand)
+            return operand if isinstance(node.op, ast.UAdd) else -operand
+        if isinstance(node, ast.BinOp) and isinstance(node.op, (ast.Add, ast.Sub, ast.Mult, ast.Div)):
+            left = evaluate(node.left)
+            right = evaluate(node.right)
+            if isinstance(node.op, ast.Add):
+                return left + right
+            if isinstance(node.op, ast.Sub):
+                return left - right
+            if isinstance(node.op, ast.Mult):
+                return left * right
+            return left / right
+        raise ValueError("Unsupported Java numeric expression")
+
+    try:
+        result = evaluate(tree)
+    except (ValueError, ZeroDivisionError):
+        return None
+    return int(result) if result.is_integer() else result
 
 def copy_if_exists(source: Path, destination: Path) -> bool:
     if not source.is_file():

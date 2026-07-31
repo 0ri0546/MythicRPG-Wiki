@@ -9,6 +9,7 @@ import yaml
 from .utils import (
     find_balanced_calls,
     parse_java_number,
+    parse_java_numeric_expression,
     parse_java_string,
     read_text,
     split_top_level,
@@ -140,7 +141,7 @@ def load_documented_values(config_file: Path, java_root: Path) -> tuple[list[dic
             errors.append(f"Constante introuvable: {relative_file}:{symbol}")
             continue
         expression = match.group(1).strip()
-        value: Any = parse_java_number(expression)
+        value: Any = parse_java_numeric_expression(expression)
         if value is None:
             value = parse_java_string(expression)
         if value is None and expression in {"true", "false"}:

@@ -1,41 +1,51 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import StatusBadge from '../../components/StatusBadge.astro';
+import XpExplorer from '../../components/XpExplorer.astro';
 import { catalog, sitePath } from '../../lib/catalog';
 
+const progression = catalog.systems.progression;
 const progressionValues = catalog.values.filter((value) => value.id.startsWith('progression.'));
-const coefficient = progressionValues.find((value) => value.id === 'progression.xp_curve_coefficient');
-const exponent = progressionValues.find((value) => value.id === 'progression.xp_curve_exponent');
 ---
-<BaseLayout title="Progression globale" description="Courbe d’expérience commune aux neuf skills de MythicRPG.">
+<BaseLayout title="Progression globale" description="Courbe d’expérience interactive commune aux neuf skills de MythicRPG.">
   <nav class="breadcrumbs"><a href={sitePath('systems/')}>Systèmes</a><span>/</span><span>Progression globale</span></nav>
   <header class="page-header">
-    <div class="badge-row"><StatusBadge status="beta" /><span class="status-badge">9 skills</span></div>
+    <div class="badge-row"><StatusBadge status={progression.status} /><span class="status-badge">9 skills</span><span class="status-badge">Interactif</span></div>
     <h1>Progression globale</h1>
-    <p>La courbe d’expérience est une mécanique transversale. Elle ne dépend pas de Mining et s’applique aux neuf skills.</p>
+    <p>La même courbe s’applique aux neuf skills. Explorez son coût par niveau, son cumul et calculez une progression sans recopier aucune valeur dans la page.</p>
   </header>
 
   <section class="data-callout">
     <div><p class="eyebrow">Formule active</p><h2>XP requise pour un niveau</h2></div>
-    <p><code>max(1, round({coefficient?.value ?? '?'} × niveau^{exponent?.value ?? '?'}))</code></p>
+    <p><code>max({progression.formula.minimum}, round({progression.formula.coefficient} × niveau^{progression.formula.exponent}))</code></p>
+  </section>
+
+  <XpExplorer progression={progression} />
+
+  <section>
+    <div class="section-heading"><div><p class="eyebrow">Règles communes</p><h2>Niveaux et points</h2></div></div>
+    <div class="stat-table">
+      <div><span>Niveau maximal par skill</span><strong>{progression.max_level}</strong><small>extrait de SkillProgress</small></div>
+      <div><span>Niveau global maximal</span><strong>{progression.max_level * catalog.skills.length}</strong><small>{catalog.skills.length} skills × {progression.max_level}</small></div>
+      <div><span>Coût d’un perk</span><strong>{progression.node_unlock_cost}</strong><small>points de skill</small></div>
+      <div><span>Points par niveau</span><strong>{progression.points_per_level}</strong><small>règle reproduite depuis le Java</small></div>
+      <div><span>Plafond technique de points</span><strong>{progression.max_skill_points}</strong><small>stockage interne</small></div>
+      <div><span>Profil</span><strong>Bêta</strong><small>équilibrage temporaire</small></div>
+    </div>
   </section>
 
   <section>
-    <div class="section-heading"><div><p class="eyebrow">Valeurs Java</p><h2>Constantes suivies</h2></div></div>
+    <div class="section-heading"><div><p class="eyebrow">Provenance</p><h2>Constantes documentées</h2></div></div>
     <div class="stat-table">
       {progressionValues.map((value) => (
-        <div>
-          <span>{value.label.fr}</span>
-          <strong>{value.value} {value.unit}</strong>
-          <small>{value.status} · {value.source.symbol}</small>
-        </div>
+        <div><span>{value.label.fr}</span><strong>{value.value} {value.unit}</strong><small>{value.status} · {value.source.symbol}</small></div>
       ))}
     </div>
   </section>
 
   <aside class="source-panel">
     <h2>Portée et validation</h2>
-    <p>Ces valeurs sont extraites statiquement depuis le Java. Elles sont marquées comme temporaires pour la bêta.</p>
-    <p>Aucun build Gradle, lancement Minecraft ou test en jeu n’est déduit de cette extraction.</p>
+    <p>Le graphique et les calculateurs sont produits à partir du catalogue généré par Python. Ils ne contiennent pas de copie manuelle de la formule.</p>
+    <p>Ces données ont seulement été inspectées statiquement. Aucun build Gradle, lancement Minecraft ou test en jeu n’est déduit de cette page.</p>
   </aside>
 </BaseLayout>

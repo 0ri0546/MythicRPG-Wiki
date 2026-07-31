@@ -9,7 +9,7 @@ const betaValues = catalog.values.filter((value) => value.status === 'beta');
     <div>
       <p class="eyebrow">Minecraft Fabric 1.21.1</p>
       <h1>Le wiki technique de MythicRPG</h1>
-      <p>Cette v0.1 prouve la chaîne complète d’extraction : code Java et JSON, catalogue commun, pages Astro et déploiement GitHub Pages.</p>
+      <p>La v0.2 transforme la fondation technique en wiki interactif : neuf arbres explorables, courbe d’XP, calculateurs, filtres et systèmes spécialisés, toujours générés depuis le code et les ressources.</p>
       <div class="button-row">
         <a class="button primary" href={sitePath('skills/')}>Explorer les 9 skills</a>
         <a class="button" href={sitePath('systems/progression/')}>Progression globale</a>
@@ -19,7 +19,7 @@ const betaValues = catalog.values.filter((value) => value.status === 'beta');
     <aside class="hero-panel">
       <strong>{extractionReport.counts.perks}</strong><span>perks extraits</span>
       <strong>{extractionReport.counts.items}</strong><span>modèles d’objets</span>
-      <strong>{extractionReport.counts.recipes}</strong><span>recettes JSON</span>
+      <strong>{extractionReport.counts.recipes + extractionReport.counts.cooking_recipes}</strong><span>recettes JSON et culinaires</span>
     </aside>
   </section>
 

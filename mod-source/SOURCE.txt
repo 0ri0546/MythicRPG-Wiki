@@ -1,9 +1,9 @@
-Archive reçue : src(92).zip
-Source technique canonique identifiée : src(91).zip
-SHA-256 de l’archive reçue : 4b27706a74060dee996d9c369aa83387e6d68bda2cc69f1be9a5349d3b0c9b96
+Archive source officielle : src(92).zip
+SHA-256 de l’archive : 4b27706a74060dee996d9c369aa83387e6d68bda2cc69f1be9a5349d3b0c9b96
 Empreinte de l’arbre mod-source/src : d39d740f8d5f36d37a0e24539287247e1b98c89f49c47a6a99fd6a83988b8b3f
 
-Conclusion : l’archive reçue sous le nom src(92).zip est techniquement identique à la source documentée src(91).zip. Elle ne constitue pas une nouvelle révision du code.
+mod-source/src est une copie exacte de src(92) et constitue l’entrée en lecture seule de l’extracteur du wiki.
+La règle .gitattributes mod-source/src/** -text doit être conservée afin que Git ne modifie pas ses octets.
 
 La livraison traite cette source uniquement par inspection statique. Aucun fichier de mod-source/src n’est modifié par le générateur.
-Le détail reproductible de ce snapshot se trouve dans config/source_snapshot.json.
+Le snapshot reproductible se trouve dans config/source_snapshot.json.

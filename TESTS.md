@@ -1,26 +1,35 @@
-# Tests MythicRPG Wiki v0.1.1
+# Tests MythicRPG Wiki v0.2
 
-## Tests d’invariants
+## Suite Python
 
-Ils contrôlent la source inchangée, les neuf skills, les vingt perks par skill, l’unicité des identifiants, les relations, la symétrie des traductions, la provenance des valeurs, l’absence de chemins locaux, l’export encyclopédie et la cohérence des statuts d’objets.
+La v0.2 contient 28 tests couvrant :
 
-## Tests du snapshot
+- préservation de la source `src(92)` ;
+- neuf skills et vingt perks par skill ;
+- unicité des identifiants et relations d’arbre ;
+- symétrie des traductions ;
+- provenance des valeurs Java ;
+- classification des objets ;
+- snapshot versionné ;
+- courbe d’XP et cumuls de référence ;
+- fossiles Mining ;
+- 47 recettes culinaires et 50 sources d’ingrédients ;
+- familles, raretés, distributions et monstres Fishing ;
+- couverture éditoriale des neuf skills ;
+- absence de chemins locaux et de `innerHTML` ;
+- configuration GitHub Pages et installation npm reproductible.
 
-`tests/test_source_snapshot.py` compare le catalogue à `config/source_snapshot.json`. Les nombres et valeurs propres à `src(91)` ne sont plus dispersés dans les tests d’invariants.
+## Commandes
 
-## Tests structurels
+```bash
+python tools/build_catalog.py
+python -m unittest discover -s tests -v
+python scripts/verify_delivery.py
+python scripts/build_all.py
+```
 
-Ils contrôlent le `base` GitHub Pages, l’absence de commandes Gradle/Minecraft, l’utilisation de `npm ci`, les routes de recherche, la page de progression et l’absence d’affectations à `innerHTML`.
+`build_all.py` exécute aussi `npm ci`, le build Astro et une vérification exigeant une sortie `dist` plus récente que les sources.
 
-## Résultat local
+## Interdictions contrôlées
 
-Les tests Python passent, à l’exception du contrôle du lockfile qui est explicitement marqué comme bloqué lorsque `website/package-lock.json` est absent.
-
-## Non exécuté
-
-- Gradle, compilation Java et Minecraft ;
-- `npm ci` ;
-- build Astro ;
-- test du site produit dans `website/dist`.
-
-La cause npm exacte est documentée dans `BUILD_VALIDATION.md`.
+Les scripts et workflows ne lancent ni Gradle, ni `runClient`, ni `runServer`, ni Minecraft.

@@ -1,12 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { catalog, readableIdentifier, sitePath } from '../../lib/catalog';
+import RecipeExplorer from '../../components/RecipeExplorer.astro';
+import { catalog } from '../../lib/catalog';
 ---
 <BaseLayout title="Recettes">
-  <header class="page-header"><p class="eyebrow">Données JSON</p><h1>Recettes</h1><p>{catalog.recipes.length} recettes lues dans les datapacks du mod.</p></header>
-  <div class="recipe-list">
-    {catalog.recipes.map((recipe) => (
-      <a href={sitePath(`recipes/${recipe.id}/`)}><div><strong>{recipe.result.names.fr}</strong><code>{recipe.id}</code></div><span>{recipe.result.count} × {readableIdentifier(recipe.result.id)}</span></a>
-    ))}
-  </div>
+  <header class="page-header"><p class="eyebrow">Données JSON interactives</p><h1>Recettes</h1><p>{catalog.recipes.length} recettes lues dans les datapacks du mod, filtrables par résultat, ingrédient et type.</p></header>
+  <RecipeExplorer recipes={catalog.recipes} />
 </BaseLayout>

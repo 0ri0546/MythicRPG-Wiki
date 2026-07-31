@@ -1,0 +1,222 @@
+---
+import type { DocumentedValue, EatingSystem } from '../lib/catalog';
+interface Props { eating: EatingSystem; values: DocumentedValue[] }
+const { eating, values } = Astro.props;
+const byId = new Map(values.map((value) => [value.id, value]));
+const xpSources = [
+  { id: 'vanilla_food', label: 'Aliment vanilla ordinaire', value: Number(byId.get('eating.vanilla_food_xp')?.value ?? 0), status: byId.get('eating.vanilla_food_xp')?.status },
+  { id: 'vanilla_soup', label: 'Soupe vanilla', value: Number(byId.get('eating.vanilla_soup_xp')?.value ?? 0), status: byId.get('eating.vanilla_soup_xp')?.status },
+  { id: 'cake_slice', label: 'Part de gâteau', value: Number(byId.get('eating.cake_slice_xp')?.value ?? 0), status: byId.get('eating.cake_slice_xp')?.status },
+  { id: 'custom_dish', label: 'Plat MythicRPG', value: Number(byId.get('eating.custom_dish_xp')?.value ?? 0), status: byId.get('eating.custom_dish_xp')?.status },
+  { id: 'discovery', label: 'Découverte', value: Number(byId.get('eating.discovery_xp')?.value ?? 0), status: byId.get('eating.discovery_xp')?.status },
+];
+---
+<section id="eating-systems">
+  <div class="section-heading">
+    <div><p class="eyebrow">Eating approfondi</p><h2>XP, ingrédients et recettes culinaires</h2></div>
+    <code>{eating.extraction.method}</code>
+  </div>
+
+  <div class="interactive-grid two-tools">
+    <article class="interactive-panel" data-eating-xp data-xp-sources={JSON.stringify(xpSources)}>
+      <p class="eyebrow">Comparateur</p>
+      <h3>Gains d’XP Eating</h3>
+      <div class="bar-chart" data-eating-xp-chart></div>
+      <div class="calculator-inline">
+        <label>Source
+          <select data-eating-source>
+            {xpSources.map((source) => <option value={source.id}>{source.label}</option>)}
+          </select>
+        </label>
+        <label>Quantité
+          <input type="number" min="1" max="999" value="1" data-eating-quantity />
+        </label>
+      </div>
+      <div class="result-banner" aria-live="polite">
+        <span>Gain total</span><strong data-eating-total>0 XP</strong><small data-eating-status></small>
+      </div>
+      <p class="source-note">Une consommation interrompue ne déclenche pas le gain. Les aliments d’autres mods ne reçoivent pas automatiquement l’XP vanilla.</p>
+    </article>
+
+    <article class="interactive-panel ingredient-explorer" data-ingredient-explorer>
+      <p class="eyebrow">Ingrédients</p>
+      <h3>{eating.ingredients.length} ingrédients littéraux + {eating.dynamic_ingredient_sources.length} source dynamique</h3>
+      <label>Filtrer
+        <input type="search" placeholder="Pomme, viande, magique…" data-ingredient-search />
+      </label>
+      <label>Score minimum
+        <input type="range" min="1" max="5" value="1" data-ingredient-score />
+        <output data-ingredient-score-output>1</output>
+      </label>
+      <div class="scroll-list" data-ingredient-list>
+        {eating.ingredients.map((ingredient) => (
+          <div
+            class="compact-row"
+            data-ingredient
+            data-search={`${ingredient.id} ${ingredient.categories.join(' ')}`}
+            data-score={ingredient.score}
+          >
+            <div><strong>{ingredient.id.replace('minecraft:', '').replaceAll('_', ' ')}</strong><small>{ingredient.categories.join(' · ')}</small></div>
+            <span class="status-badge">score {ingredient.score}</span>
+          </div>
+        ))}
+      </div>
+      <p class="source-note">Les prises Fishing sont évaluées dynamiquement selon leur famille et leur rareté.</p>
+    </article>
+  </div>
+
+  <div id="cooking-recipes" class="system-subsection recipe-explorer" data-cooking-recipes>
+    <div class="section-heading">
+      <div><p class="eyebrow">Registre Java</p><h3>{eating.cooking_recipes.length} recettes culinaires</h3></div>
+      <span data-cooking-count>{eating.cooking_recipes.length} résultats</span>
+    </div>
+    <div class="filter-grid">
+      <label>Rechercher
+        <input type="search" placeholder="Nom ou ingrédient…" data-cooking-search />
+      </label>
+      <label>Catégorie
+        <select data-cooking-category>
+          <option value="all">Toutes</option>
+          {eating.dish_categories.map((category) => <option value={category.id}>{category.names.fr}</option>)}
+        </select>
+      </label>
+      <label>Rareté
+        <select data-cooking-rarity>
+          <option value="all">Toutes</option>
+          {eating.dish_rarities.map((rarity) => <option value={rarity.id}>{rarity.names.fr}</option>)}
+          <option value="dynamic">Dynamique</option>
+        </select>
+      </label>
+      <label>Type
+        <select data-cooking-kind>
+          <option value="all">Fixes et génériques</option>
+          <option value="fixed">Recettes fixes</option>
+          <option value="generic">Recettes génériques</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="data-card-grid" data-cooking-grid>
+      {eating.cooking_recipes.map((recipe) => (
+        <article
+          class="data-card"
+          data-cooking-card
+          data-search={`${recipe.names.fr} ${recipe.names.en} ${recipe.id} ${recipe.ingredients.map((ingredient) => `${ingredient.item} ${ingredient.category}`).join(' ')} ${(recipe.ingredient_hints ?? []).join(' ')}`}
+          data-category={recipe.category}
+          data-rarity={recipe.rarity}
+          data-kind={recipe.kind}
+        >
+          <div class="badge-row"><span class="status-badge">{recipe.category}</span><span class="status-badge">{recipe.rarity}</span></div>
+          <h4>{recipe.names.fr}</h4>
+          <code>{recipe.id}</code>
+          {recipe.kind === 'fixed' ? (
+            <ul class="mini-list">{recipe.ingredients.map((ingredient) => <li>{ingredient.item.replace('minecraft:', '').replaceAll('_', ' ')}</li>)}</ul>
+          ) : (
+            <p>{recipe.ingredient_hints?.join(' + ')}</p>
+          )}
+          <small>Conservation initiale : {recipe.shelf_life_days} jour(s)</small>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-eating-xp]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const sources = JSON.parse(root.dataset.xpSources ?? '[]');
+    const chart = root.querySelector('[data-eating-xp-chart]');
+    const sourceSelect = root.querySelector('[data-eating-source]');
+    const quantityInput = root.querySelector('[data-eating-quantity]');
+    const total = root.querySelector('[data-eating-total]');
+    const status = root.querySelector('[data-eating-status]');
+    const max = Math.max(1, ...sources.map((source) => source.value));
+    if (chart instanceof HTMLElement) {
+      const rows = sources.map((source) => {
+        const row = document.createElement('button');
+        row.type = 'button';
+        row.className = 'bar-row';
+        const label = document.createElement('span');
+        label.textContent = source.label;
+        const track = document.createElement('span');
+        track.className = 'bar-track';
+        const fill = document.createElement('span');
+        fill.className = 'bar-fill';
+        fill.style.width = `${source.value / max * 100}%`;
+        track.append(fill);
+        const value = document.createElement('strong');
+        value.textContent = `${source.value} XP`;
+        row.append(label, track, value);
+        row.addEventListener('click', () => {
+          if (sourceSelect instanceof HTMLSelectElement) {
+            sourceSelect.value = source.id;
+            sourceSelect.dispatchEvent(new Event('change'));
+          }
+          chart.querySelectorAll('button').forEach((item) => item.classList.toggle('is-active', item === row));
+        });
+        return row;
+      });
+      chart.replaceChildren(...rows);
+    }
+    const update = () => {
+      const id = sourceSelect instanceof HTMLSelectElement ? sourceSelect.value : sources[0]?.id;
+      const source = sources.find((entry) => entry.id === id) ?? sources[0];
+      const quantity = quantityInput instanceof HTMLInputElement ? Math.max(1, Number(quantityInput.value) || 1) : 1;
+      if (quantityInput instanceof HTMLInputElement) quantityInput.value = String(quantity);
+      if (total) total.textContent = `${source.value * quantity} XP`;
+      if (status) status.textContent = source.status === 'beta' ? 'Valeur temporaire de bêta' : 'Valeur stable documentée';
+      chart?.querySelectorAll('button').forEach((button, index) => button.classList.toggle('is-active', sources[index]?.id === source.id));
+    };
+    sourceSelect?.addEventListener('change', update);
+    quantityInput?.addEventListener('input', update);
+    update();
+  });
+
+  document.querySelectorAll('[data-ingredient-explorer]').forEach((root) => {
+    const search = root.querySelector('[data-ingredient-search]');
+    const score = root.querySelector('[data-ingredient-score]');
+    const scoreOutput = root.querySelector('[data-ingredient-score-output]');
+    const rows = [...root.querySelectorAll('[data-ingredient]')];
+    const update = () => {
+      const query = search instanceof HTMLInputElement ? search.value.toLowerCase().trim() : '';
+      const minimum = score instanceof HTMLInputElement ? Number(score.value) : 1;
+      if (scoreOutput) scoreOutput.textContent = String(minimum);
+      rows.forEach((row) => {
+        if (!(row instanceof HTMLElement)) return;
+        const show = (row.dataset.search ?? '').toLowerCase().includes(query) && Number(row.dataset.score ?? 0) >= minimum;
+        row.hidden = !show;
+      });
+    };
+    search?.addEventListener('input', update);
+    score?.addEventListener('input', update);
+    update();
+  });
+
+  document.querySelectorAll('[data-cooking-recipes]').forEach((root) => {
+    const search = root.querySelector('[data-cooking-search]');
+    const category = root.querySelector('[data-cooking-category]');
+    const rarity = root.querySelector('[data-cooking-rarity]');
+    const kind = root.querySelector('[data-cooking-kind]');
+    const count = root.querySelector('[data-cooking-count]');
+    const cards = [...root.querySelectorAll('[data-cooking-card]')];
+    const update = () => {
+      const query = search instanceof HTMLInputElement ? search.value.toLowerCase().trim() : '';
+      const categoryValue = category instanceof HTMLSelectElement ? category.value : 'all';
+      const rarityValue = rarity instanceof HTMLSelectElement ? rarity.value : 'all';
+      const kindValue = kind instanceof HTMLSelectElement ? kind.value : 'all';
+      let visible = 0;
+      cards.forEach((card) => {
+        if (!(card instanceof HTMLElement)) return;
+        const show = (card.dataset.search ?? '').toLowerCase().includes(query)
+          && (categoryValue === 'all' || card.dataset.category === categoryValue)
+          && (rarityValue === 'all' || card.dataset.rarity === rarityValue)
+          && (kindValue === 'all' || card.dataset.kind === kindValue);
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (count) count.textContent = `${visible} résultats`;
+    };
+    [search, category, rarity, kind].forEach((control) => control?.addEventListener('input', update));
+    update();
+  });
+</script>

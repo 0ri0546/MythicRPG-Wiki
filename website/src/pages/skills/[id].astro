@@ -2,7 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SkillTree from '../../components/SkillTree.astro';
 import StatusBadge from '../../components/StatusBadge.astro';
-import { catalog, sitePath, type Skill } from '../../lib/catalog';
+import MiningExplorer from '../../components/MiningExplorer.astro';
+import EatingExplorer from '../../components/EatingExplorer.astro';
+import FishingExplorer from '../../components/FishingExplorer.astro';
+import RelatedContentExplorer from '../../components/RelatedContentExplorer.astro';
+import { catalog, sitePath, readableToken, type Skill } from '../../lib/catalog';
 import { markdownToHtml } from '../../lib/markdown';
 
 export function getStaticPaths() {
@@ -10,30 +14,71 @@ export function getStaticPaths() {
 }
 const { skill } = Astro.props as { skill: Skill };
 const relatedValues = catalog.values.filter((value) => value.id.startsWith(`${skill.id}.`));
+const editorial = skill.editorial.fr;
 ---
-<BaseLayout title={skill.names.fr} description={skill.editorial.fr?.summary}>
+<BaseLayout title={skill.names.fr} description={editorial?.summary}>
   <nav class="breadcrumbs"><a href={sitePath('skills/')}>Skills</a><span>/</span><span>{skill.names.fr}</span></nav>
   <header class="page-header">
-    <div class="badge-row"><StatusBadge status={skill.status} /><span class="status-badge">{skill.nodes.length} perks</span></div>
+    <div class="badge-row">
+      <StatusBadge status={skill.status} />
+      <span class="status-badge">{skill.nodes.length} perks</span>
+      <span class="status-badge">{skill.coverage === 'deep' ? 'Documentation approfondie' : 'Documentation structurée'}</span>
+    </div>
     <h1>{skill.names.fr}</h1>
-    <p>{skill.editorial.fr?.summary}</p>
+    <p>{editorial?.summary}</p>
   </header>
 
-  <section class="prose" set:html={markdownToHtml(skill.editorial.fr?.body_markdown ?? '')}></section>
+  <nav class="local-navigation" aria-label={`Sommaire de ${skill.names.fr}`}>
+    <a href="#presentation">Présentation</a><a href="#progression">Progression</a><a href="#perk-tree">Arbre</a><a href="#systems">Mécaniques</a><a href="#related-content">Contenus associés</a>
+  </nav>
 
-  <section>
-    <div class="section-heading"><div><p class="eyebrow">Données Java</p><h2>Arbre des perks</h2></div><code>{skill.extraction.file}</code></div>
-    <SkillTree nodes={skill.nodes} />
+  <section id="presentation" class="prose" set:html={markdownToHtml(editorial?.body_markdown ?? '')}></section>
+
+  <section id="progression">
+    <div class="section-heading"><div><p class="eyebrow">Synthèse extraite et éditoriale</p><h2>Progression et fonctionnement</h2></div></div>
+    <div class="interactive-grid">
+      <article class="interactive-panel">
+        <h3>Sources d’XP</h3>
+        <ul class="check-list">{editorial?.xp_sources?.map((source) => <li>{source}</li>)}</ul>
+      </article>
+      <article class="interactive-panel">
+        <h3>Principaux systèmes</h3>
+        <div class="chip-list">{editorial?.key_systems?.map((system) => <span class="status-badge">{system}</span>)}</div>
+        <p>{editorial?.multiplayer}</p>
+      </article>
+    </div>
+    <div class="stat-table">
+      <div><span>Racines</span><strong>{skill.analysis.roots.length}</strong><small>{skill.analysis.roots.join(', ') || '—'}</small></div>
+      <div><span>Perks finaux</span><strong>{skill.analysis.leaves.length}</strong><small>{skill.analysis.leaves.join(', ') || '—'}</small></div>
+      <div><span>Fourches</span><strong>{skill.analysis.fork_count}</strong><small>choix de branches détectés</small></div>
+      <div><span>Profondeur indicative</span><strong>{skill.analysis.max_depth_hint}</strong><small>calculée sur les prérequis</small></div>
+      <div><span>Types de bonus</span><strong>{skill.analysis.bonus_types.length}</strong><small>{skill.analysis.bonus_types.slice(0, 3).map(readableToken).join(' · ') || 'effets spéciaux'}</small></div>
+      <div><span>Coût maximal théorique</span><strong>{skill.nodes.length * catalog.systems.progression.node_unlock_cost}</strong><small>si les 20 perks étaient compatibles</small></div>
+    </div>
+  </section>
+
+  <section id="perk-tree">
+    <div class="section-heading"><div><p class="eyebrow">Données Java</p><h2>Arbre interactif des perks</h2></div><code>{skill.extraction.file}</code></div>
+    <SkillTree nodes={skill.nodes} unlockCost={catalog.systems.progression.node_unlock_cost} />
+  </section>
+
+  <section id="systems">
+    {skill.id === 'mining' && <MiningExplorer mining={catalog.systems.mining} />}
+    {skill.id === 'eating' && <EatingExplorer eating={catalog.systems.eating} values={catalog.values} />}
+    {skill.id === 'fishing' && <FishingExplorer fishing={catalog.systems.fishing} />}
+    {!['mining', 'eating', 'fishing'].includes(skill.id) && (
+      <div class="data-callout"><div><p class="eyebrow">Couverture v0.2</p><h2>Fondation interactive prête</h2></div><p>Cette compétence dispose déjà de son arbre complet, de ses fiches de perks, de ses relations et de son contenu structuré. Ses extracteurs spécialisés seront enrichis sans refonte de l’architecture.</p></div>
+    )}
   </section>
 
   {relatedValues.length > 0 && (
     <section>
       <div class="section-heading"><div><p class="eyebrow">Valeurs suivies</p><h2>Équilibrage extrait</h2></div></div>
       <div class="stat-table">
-        {relatedValues.map((value) => (
-          <div><span>{value.label.fr}</span><strong>{value.value} {value.unit}</strong><small>{value.status} · {value.source.symbol}</small></div>
-        ))}
+        {relatedValues.map((value) => <div><span>{value.label.fr}</span><strong>{value.value} {value.unit}</strong><small>{value.status} · {value.source.symbol}</small></div>)}
       </div>
     </section>
   )}
+
+  <div id="related-content"><RelatedContentExplorer itemIds={skill.related_content.items} recipeIds={skill.related_content.recipes} skillName={skill.names.fr} /></div>
 </BaseLayout>

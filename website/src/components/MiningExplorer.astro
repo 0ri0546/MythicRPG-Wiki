@@ -1,0 +1,153 @@
+---
+import type { MiningSystem } from '../lib/catalog';
+interface Props { mining: MiningSystem }
+const { mining } = Astro.props;
+---
+<section id="mining-systems">
+  <div class="section-heading">
+    <div><p class="eyebrow">Mining approfondi</p><h2>Effets de zone et archéologie</h2></div>
+    <code>{mining.extraction.method}</code>
+  </div>
+
+  <div class="interactive-grid two-tools">
+    <article class="interactive-panel" data-vein-simulator data-max-extra={mining.area_effects.vein_mining.max_extra_blocks}>
+      <p class="eyebrow">Simulateur de règle</p>
+      <h3>Vein Mining</h3>
+      <p>Ce simulateur reproduit les conditions documentées, sans simuler un monde Minecraft.</p>
+      <div class="switch-list">
+        <label class="form-choice"><input type="checkbox" checked data-vein-perk /> Perk obtenu</label>
+        <label class="form-choice"><input type="checkbox" checked data-vein-toggle /> Option activée</label>
+        <label class="form-choice"><input type="checkbox" checked data-vein-ore /> Bloc reconnu comme minerai</label>
+      </div>
+      <label>Blocs identiques connectés, bloc ciblé inclus
+        <input type="range" min="1" max="30" value="16" data-vein-connected />
+        <output data-vein-connected-output>16</output>
+      </label>
+      <div class="result-banner" aria-live="polite">
+        <span>Blocs cassés</span>
+        <strong data-vein-result>1</strong>
+        <small data-vein-explanation></small>
+      </div>
+      <p class="source-note">Limite extraite : {mining.area_effects.vein_mining.max_extra_blocks} blocs supplémentaires. Mining 3×3 reste indépendant.</p>
+    </article>
+
+    <article class="interactive-panel fossil-rarity-explorer" data-fossil-explorer data-rarities={JSON.stringify(mining.fossils.rarities)}>
+      <p class="eyebrow">Comparateur</p>
+      <h3>Raretés fossiles</h3>
+      <label>Métrique
+        <select data-fossil-metric>
+          <option value="generation_percent">Poids de génération</option>
+          <option value="cleaning_seconds">Temps de nettoyage</option>
+          <option value="incubation_minutes">Temps d’incubation</option>
+        </select>
+      </label>
+      <div class="bar-chart" data-fossil-chart aria-label="Comparaison des raretés fossiles"></div>
+      <div class="result-banner compact" aria-live="polite">
+        <span data-fossil-selected-label>Sélection</span>
+        <strong data-fossil-selected-value>—</strong>
+        <small data-fossil-selected-context>Cliquez sur une barre.</small>
+      </div>
+    </article>
+  </div>
+
+  <div id="fossils" class="system-subsection">
+    <div class="section-heading">
+      <div><p class="eyebrow">Archéologie</p><h3>Familles de fossiles</h3></div>
+      <span>{mining.fossils.families.length} familles</span>
+    </div>
+    <div class="chip-grid">
+      {mining.fossils.families.map((family) => (
+        <div class="data-chip"><strong>{family.names.fr}</strong><code>{family.id}</code></div>
+      ))}
+    </div>
+    <div class="stat-table compact-stats">
+      <div><span>Taille des sites</span><strong>{mining.fossils.site_generation.min_size}–{mining.fossils.site_generation.max_size}</strong><small>valeurs extraites</small></div>
+      <div><span>Altitude minimale</span><strong>Y {mining.fossils.site_generation.min_y}</strong><small>génération</small></div>
+      <div><span>Altitude maximale</span><strong>Y {mining.fossils.site_generation.max_y}</strong><small>génération</small></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-vein-simulator]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const maxExtra = Number(root.dataset.maxExtra ?? 10);
+    const perk = root.querySelector('[data-vein-perk]');
+    const toggle = root.querySelector('[data-vein-toggle]');
+    const ore = root.querySelector('[data-vein-ore]');
+    const connected = root.querySelector('[data-vein-connected]');
+    const connectedOutput = root.querySelector('[data-vein-connected-output]');
+    const result = root.querySelector('[data-vein-result]');
+    const explanation = root.querySelector('[data-vein-explanation]');
+    const update = () => {
+      const hasPerk = perk instanceof HTMLInputElement && perk.checked;
+      const enabled = toggle instanceof HTMLInputElement && toggle.checked;
+      const validOre = ore instanceof HTMLInputElement && ore.checked;
+      const count = connected instanceof HTMLInputElement ? Number(connected.value) : 1;
+      if (connectedOutput) connectedOutput.textContent = String(count);
+      const active = hasPerk && enabled && validOre;
+      const broken = active ? Math.min(count, maxExtra + 1) : 1;
+      if (result) result.textContent = String(broken);
+      if (explanation) {
+        if (!hasPerk) explanation.textContent = 'Le perk manque : seul le bloc ciblé est cassé.';
+        else if (!enabled) explanation.textContent = 'L’option est désactivée : seul le bloc ciblé est cassé.';
+        else if (!validOre) explanation.textContent = 'Le bloc ne correspond pas au tag de minerais.';
+        else explanation.textContent = `${Math.min(Math.max(0, count - 1), maxExtra)} bloc(s) supplémentaire(s), limite comprise.`;
+      }
+    };
+    root.querySelectorAll('input').forEach((input) => input.addEventListener('input', update));
+    update();
+  });
+
+  document.querySelectorAll('[data-fossil-explorer]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const rarities = JSON.parse(root.dataset.rarities ?? '[]');
+    const select = root.querySelector('[data-fossil-metric]');
+    const chart = root.querySelector('[data-fossil-chart]');
+    const selectedLabel = root.querySelector('[data-fossil-selected-label]');
+    const selectedValue = root.querySelector('[data-fossil-selected-value]');
+    const selectedContext = root.querySelector('[data-fossil-selected-context]');
+    const units = {
+      generation_percent: '%',
+      cleaning_seconds: ' s',
+      incubation_minutes: ' min',
+    };
+    const labels = {
+      generation_percent: 'Poids de génération',
+      cleaning_seconds: 'Nettoyage',
+      incubation_minutes: 'Incubation',
+    };
+    const render = () => {
+      if (!(chart instanceof HTMLElement)) return;
+      const metric = select instanceof HTMLSelectElement ? select.value : 'generation_percent';
+      const max = Math.max(1, ...rarities.map((rarity) => Number(rarity[metric] ?? 0)));
+      const bars = rarities.map((rarity) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'bar-row';
+        const name = document.createElement('span');
+        name.textContent = rarity.names.fr;
+        const track = document.createElement('span');
+        track.className = 'bar-track';
+        const fill = document.createElement('span');
+        fill.className = 'bar-fill';
+        fill.style.width = `${Number(rarity[metric] ?? 0) / max * 100}%`;
+        track.append(fill);
+        const value = document.createElement('strong');
+        value.textContent = `${rarity[metric]}${units[metric] ?? ''}`;
+        button.append(name, track, value);
+        button.addEventListener('click', () => {
+          if (selectedLabel) selectedLabel.textContent = rarity.names.fr;
+          if (selectedValue) selectedValue.textContent = `${rarity[metric]}${units[metric] ?? ''}`;
+          if (selectedContext) selectedContext.textContent = `${labels[metric]} · rang ${rarity.rank}`;
+          chart.querySelectorAll('button').forEach((item) => item.classList.toggle('is-active', item === button));
+        });
+        return button;
+      });
+      chart.replaceChildren(...bars);
+      bars[0]?.click();
+    };
+    select?.addEventListener('change', render);
+    render();
+  });
+</script>

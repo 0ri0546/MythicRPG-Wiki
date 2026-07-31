@@ -1,0 +1,60 @@
+---
+import { catalog, sitePath, itemRegistrationLabel } from '../lib/catalog';
+interface Props { itemIds: string[]; recipeIds: string[]; skillName: string }
+const { itemIds, recipeIds, skillName } = Astro.props;
+const itemSet = new Set(itemIds);
+const recipeSet = new Set(recipeIds);
+const items = catalog.items.filter((item) => itemSet.has(item.id));
+const recipes = catalog.recipes.filter((recipe) => recipeSet.has(recipe.id));
+---
+<section class="related-explorer" data-related-explorer>
+  <div class="section-heading"><div><p class="eyebrow">Relations calculées</p><h2>Contenus associés à {skillName}</h2></div><span data-related-count>{items.length + recipes.length} entrées</span></div>
+  <div class="filter-grid three">
+    <label>Rechercher<input type="search" placeholder="Objet, recette ou identifiant…" data-related-search /></label>
+    <label>Type<select data-related-type><option value="all">Tout</option><option value="item">Objets</option><option value="recipe">Recettes</option></select></label>
+    <label>Preuve objet<select data-related-status><option value="all">Toutes</option><option value="confirmed">Confirmé</option><option value="dynamic_probable">Dynamique probable</option><option value="model_only">Modèle seul</option></select></label>
+  </div>
+  <div class="data-card-grid" data-related-grid>
+    {items.map((item) => (
+      <a class="data-card linked" href={sitePath(`items/${item.id}/`)} data-related-card data-kind="item" data-status={item.registration_status} data-search={`${item.names.fr} ${item.names.en} ${item.identifier}`}>
+        <div class="badge-row"><span class="status-badge">Objet</span><span class="status-badge">{itemRegistrationLabel(item.registration_status)}</span></div>
+        <h3>{item.names.fr}</h3><code>{item.identifier}</code>
+      </a>
+    ))}
+    {recipes.map((recipe) => (
+      <a class="data-card linked" href={sitePath(`recipes/${recipe.id}/`)} data-related-card data-kind="recipe" data-status="all" data-search={`${recipe.id} ${recipe.result.names.fr} ${recipe.result.names.en} ${recipe.ingredients.join(' ')}`}>
+        <div class="badge-row"><span class="status-badge">Recette</span><span class="status-badge">{recipe.type.replace('minecraft:', '')}</span></div>
+        <h3>{recipe.result.names.fr}</h3><code>{recipe.id}</code>
+      </a>
+    ))}
+  </div>
+  {items.length + recipes.length === 0 && <p class="muted">Aucune relation automatique fiable n’a encore été détectée pour ce skill.</p>}
+  <p class="source-note">Cette association repose sur les identifiants techniques et reste marquée comme inférée. Les pages éditoriales peuvent préciser ou corriger ces relations sans modifier le code du mod.</p>
+</section>
+
+<script>
+  document.querySelectorAll('[data-related-explorer]').forEach((root) => {
+    const search = root.querySelector('[data-related-search]');
+    const type = root.querySelector('[data-related-type]');
+    const status = root.querySelector('[data-related-status]');
+    const count = root.querySelector('[data-related-count]');
+    const cards = [...root.querySelectorAll('[data-related-card]')];
+    const update = () => {
+      const query = search instanceof HTMLInputElement ? search.value.toLowerCase().trim() : '';
+      const typeValue = type instanceof HTMLSelectElement ? type.value : 'all';
+      const statusValue = status instanceof HTMLSelectElement ? status.value : 'all';
+      let visible = 0;
+      cards.forEach((card) => {
+        if (!(card instanceof HTMLElement)) return;
+        const show = (card.dataset.search ?? '').toLowerCase().includes(query)
+          && (typeValue === 'all' || card.dataset.kind === typeValue)
+          && (statusValue === 'all' || card.dataset.kind !== 'item' || card.dataset.status === statusValue);
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (count) count.textContent = `${visible} entrées`;
+    };
+    [search, type, status].forEach((control) => control?.addEventListener('input', update));
+    update();
+  });
+</script>

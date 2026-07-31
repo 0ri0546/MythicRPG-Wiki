@@ -1,0 +1,5 @@
+Commande : npm ci --no-audit --no-fund
+État : non exécutable dans l’environnement de livraison.
+Cause observée : le miroir npm interne répond 404 pour des archives pourtant verrouillées dans package-lock.json, notamment zwitch 2.0.4 et le binding Linux @astrojs/compiler-binding-linux-x64-gnu 0.3.2.
+Décision : aucun lockfile alternatif, aucun dist ancien et aucune affirmation de build v0.2.
+Validation attendue : python scripts/build_all.py sous l’environnement Windows/GitHub déjà fonctionnel du projet.

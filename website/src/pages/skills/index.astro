@@ -4,11 +4,11 @@ import StatusBadge from '../../components/StatusBadge.astro';
 import { catalog, sitePath } from '../../lib/catalog';
 ---
 <BaseLayout title="Skills">
-  <header class="page-header"><p class="eyebrow">Progression</p><h1>Les neuf skills</h1><p>Chaque arbre est extrait directement de sa classe Java et enrichi avec les traductions du mod.</p></header>
+  <header class="page-header"><p class="eyebrow">Progression</p><h1>Les neuf skills</h1><p>Les neuf skills disposent de leur arbre interactif, de leurs vingt perks et d’un contenu structuré extrait et éditorialisé.</p></header>
   <div class="card-grid">
     {catalog.skills.map((skill) => (
       <a class="skill-card" href={sitePath(`skills/${skill.id}/`)}>
-        <StatusBadge status={skill.status} />
+        <div class="badge-row"><StatusBadge status={skill.status} /><span class="status-badge">{skill.coverage === 'deep' ? 'Approfondi' : 'Structuré'}</span></div>
         <h2>{skill.names.fr}</h2>
         <p>{skill.editorial.fr?.summary}</p>
         <span>{skill.nodes.length} perks · source vérifiée statiquement</span>

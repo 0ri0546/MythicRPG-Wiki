@@ -22,14 +22,39 @@ export interface PerkNode {
   extraction: { method: string; file: string };
 }
 
+export interface SkillAnalysis {
+  roots: number[];
+  leaves: number[];
+  bonus_types: string[];
+  branch_counts: Record<string, number>;
+  fork_count: number;
+  max_depth_hint: number;
+}
+
+export interface SkillEditorialLocale {
+  summary: string;
+  body_markdown: string;
+  key_systems: string[];
+  xp_sources: string[];
+  multiplayer: string;
+}
+
 export interface Skill {
   id: string;
   names: LocalizedText;
   status: string;
+  coverage: 'deep' | 'structured' | string;
   introduced_in: string | null;
   visibility: string[];
-  editorial: Record<string, { summary: string; body_markdown: string }>;
+  editorial: Record<string, SkillEditorialLocale>;
   nodes: PerkNode[];
+  analysis: SkillAnalysis;
+  related_content: {
+    items: string[];
+    recipes: string[];
+    method: string;
+    confidence: string;
+  };
   extraction: { method: string; file: string };
 }
 
@@ -85,6 +110,139 @@ export interface DocumentedValue {
   source: { file: string; symbol: string; expression: string };
 }
 
+export interface ProgressionLevel {
+  level: number;
+  required: number;
+  cumulative: number;
+}
+
+export interface ProgressionSystem {
+  formula: {
+    kind: string;
+    coefficient: number;
+    exponent: number;
+    minimum: number;
+    expression: string;
+  };
+  max_level: number;
+  max_skill_points: number;
+  node_unlock_cost: number;
+  points_per_level: number;
+  levels: ProgressionLevel[];
+  reference_levels: number[];
+  status: string;
+  extraction: { method: string; files: string[] };
+}
+
+export interface FossilRarity {
+  id: string;
+  names: LocalizedText;
+  rank: number;
+  generation_weight: number;
+  generation_percent: number;
+  cleaning_ticks: number;
+  cleaning_seconds: number;
+  incubation_ticks: number;
+  incubation_minutes: number;
+}
+
+export interface MiningSystem {
+  fossils: {
+    families: Array<{ id: string; names: LocalizedText }>;
+    rarities: FossilRarity[];
+    site_generation: { min_size: number; max_size: number; min_y: number; max_y: number };
+  };
+  area_effects: {
+    vein_mining: { max_extra_blocks: number; toggle_default: boolean; server_authoritative: boolean };
+    mining_3x3: { extra_positions: number; independent_toggle: boolean; server_authoritative: boolean };
+  };
+  extraction: { method: string; files: string[] };
+}
+
+export interface CookingRecipeEntry {
+  id: string;
+  kind: 'fixed' | 'generic';
+  names: LocalizedText;
+  category: string;
+  rarity: string;
+  shelf_life_days: number;
+  ingredients: Array<{ item: string; category: string }>;
+  ingredient_hints?: string[];
+}
+
+export interface EatingSystem {
+  dish_categories: Array<{ id: string; names: LocalizedText }>;
+  dish_rarities: Array<{ id: string; names: LocalizedText; rank: number; saturation: number }>;
+  food_categories: Array<{ id: string; names: LocalizedText }>;
+  ingredients: Array<{ id: string; names: LocalizedText; score: number; categories: string[] }>;
+  cooking_recipes: CookingRecipeEntry[];
+  dynamic_ingredient_sources: Array<{ id: string; description: LocalizedText }>;
+  extraction: { method: string; files: string[] };
+}
+
+export interface FishingRarityEntry {
+  id: string;
+  names: LocalizedText;
+  rank: number;
+  base_weight: number;
+  xp: number;
+}
+
+export interface SeaMonsterEntry {
+  id: string;
+  names: LocalizedText;
+  weather: string;
+  max_health: number;
+  attack_damage: number;
+  attack_radius: number;
+  attack_interval_ticks: number;
+  attack_interval_seconds: number;
+  slime_size: number;
+  horizontal_knockback: number;
+  vertical_knockback: number;
+  material_item: string;
+  charm_item: string;
+  title_id: string;
+}
+
+export interface FishingSystem {
+  families: Array<{ id: string; names: LocalizedText; dimension_rule: string }>;
+  rarities: FishingRarityEntry[];
+  rarity_distributions: Array<{
+    id: string;
+    weights: Record<string, number>;
+    percentages: Record<string, number>;
+    source_symbol: string;
+  }>;
+  rarity_rune_shifts: Record<string, number>;
+  family_distribution: {
+    overworld_primary_percent: number;
+    overworld_other_percent: number;
+    nether: string;
+    end: string;
+  };
+  mini_games: Array<{ rarity: string; game: string }>;
+  weather: {
+    modes: string[];
+    base_radius: number;
+    harmonized_radius: number;
+    base_duration_ticks: number;
+    sealed_duration_ticks: number;
+  };
+  sea_monsters: {
+    max_gauge: number;
+    normal_gauge_gain: number;
+    sealed_gauge_gain: number;
+    owner_xp: number;
+    assistant_xp: number;
+    base_hook_damage: number;
+    sharpness_damage_per_level: number;
+    types: SeaMonsterEntry[];
+  };
+  inventories: { fish_net_max_slots: number; fishing_boat_capacity: number };
+  extraction: { method: string; files: string[] };
+}
+
 export interface Catalog {
   schema_version: string;
   source: {
@@ -103,6 +261,12 @@ export interface Catalog {
   blocks: BlockEntry[];
   recipes: RecipeEntry[];
   values: DocumentedValue[];
+  systems: {
+    progression: ProgressionSystem;
+    mining: MiningSystem;
+    eating: EatingSystem;
+    fishing: FishingSystem;
+  };
 }
 
 export const catalog = rawCatalog as unknown as Catalog;
@@ -124,6 +288,7 @@ export function itemRegistrationLabel(status: ItemEntry['registration_status']):
   };
   return labels[status];
 }
+
 export const basePath = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
@@ -144,4 +309,8 @@ export function statusLabel(status: string): string {
 
 export function readableIdentifier(value: string): string {
   return value.replace(/^#?minecraft:/, '').replace(/^mythicrpg:/, '').replaceAll('_', ' ');
+}
+
+export function readableToken(value: string): string {
+  return value.replaceAll('_', ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
 }

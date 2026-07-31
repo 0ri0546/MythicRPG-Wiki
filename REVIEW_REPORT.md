@@ -1,21 +1,23 @@
-# Rapport de seconde relecture — v0.1.1
-
-Date : 30 juillet 2026.
+# Rapport de seconde relecture — v0.2
 
 ## Contrôles refaits
 
-- empreinte de `mod-source/src` identique au snapshot ;
-- nouvelle génération complète du catalogue ;
-- 9 skills et 180 perks ;
-- 196 modèles classés en 93 confirmés, 40 dynamiques probables et 63 modèles seuls ;
-- 34 blockstates, 188 recettes, 11 valeurs Java suivies et 574 entrées de recherche ;
-- 0 erreur et 0 avertissement d’extraction ;
-- vérification des relations internes et de la symétrie des traductions ;
-- contrôle qu’aucune affectation à `innerHTML` ne reste dans le code du site ;
-- contrôle que la progression globale n’est plus rattachée à Mining ;
-- contrôle de l’absence de commandes Gradle ou Minecraft ;
-- contrôle UTF-8, JSON, YAML et syntaxe Python.
+- empreinte de `mod-source/src` inchangée ;
+- génération complète sans erreur ni avertissement ;
+- 9 skills, 180 perks, 196 modèles, 34 blocs et 188 recettes JSON ;
+- 25 valeurs suivies et 634 entrées de recherche ;
+- 5 familles/5 raretés fossiles ;
+- 47 recettes culinaires et 50 sources d’ingrédients ;
+- 5 familles/5 raretés Fishing et 3 monstres marins ;
+- contenu structuré présent en français et anglais pour les neuf skills ;
+- composants interactifs sans `innerHTML` ;
+- source et snapshot alignés sur `src(92)` ;
+- aucune commande Gradle ou Minecraft.
 
-## Limite indépendante confirmée
+## Résultat
 
-Le registre npm disponible répond 404 pour Astro et empêche la génération du lockfile et le build. Cette limite est laissée visible : aucun résultat de build n’est affirmé et aucun lockfile artificiel n’est fourni.
+Les 28 tests Python passent. Le catalogue est propre et les données générées ne contiennent aucun chemin local.
+
+## Limite
+
+Le miroir npm de cet environnement ne permet pas de restaurer les dépendances Linux nécessaires au build Astro. Cette limite est documentée sans réutiliser l’ancien `dist` comme preuve de build v0.2.

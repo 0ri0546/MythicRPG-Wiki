@@ -1,21 +1,22 @@
-# Livraison MythicRPG Wiki v0.1.1 — état de fiabilisation
+# Livraison MythicRPG Wiki v0.2
 
-## Modifications réalisées
+## Périmètre livré
 
-- traçabilité distinguant l’archive reçue `src(92).zip` de la source canonique `src(91).zip` ;
-- snapshot versionné séparé des tests d’invariants ;
-- page `/systems/progression/` et retrait des valeurs globales de Mining ;
-- classification `confirmed`, `dynamic_probable`, `model_only` des modèles d’objets ;
-- filtre public affichant les objets confirmés par défaut ;
-- suppression des affectations à `innerHTML` dans la recherche et les arbres ;
-- workflow et script de build configurés avec `npm ci` ;
-- documentation corrigée : données bilingues préparées, interface encore française ;
-- tests divisés entre invariants et snapshot de version.
+- couverture structurée des neuf skills ;
+- 180 arbres/fiches de perks ;
+- courbe d’XP interactive et calculateurs ;
+- exploration Mining : Vein Mining et fossiles ;
+- exploration Eating : XP, ingrédients et 47 recettes culinaires ;
+- exploration Fishing : appâts, raretés, dimensions, météo, jauges et monstres ;
+- filtres de recettes et contenus associés ;
+- 25 constantes Java documentées ;
+- recherche enrichie à 634 entrées ;
+- 28 tests Python.
 
-## Code du mod
+## Mod
 
 Aucun fichier de `mod-source/src/` n’a été modifié. Gradle et Minecraft n’ont pas été lancés.
 
-## Point non terminé
+## Build dans l’environnement de livraison
 
-Le registre npm de l’environnement retourne 404 pour Astro. Il n’a donc pas été possible de générer honnêtement `website/package-lock.json`, d’exécuter `npm ci` ou de valider le build Astro. La livraison est une base de fiabilisation complète côté code, mais le verrou npm et le build restent à confirmer. Voir `BUILD_VALIDATION.md`.
+Le lockfile fourni est conservé. Le registre npm interne de l’environnement de génération ne contient pas toutes les archives nécessaires à `npm ci`, notamment `zwitch` et le binding Linux du compilateur Astro. Le build v0.2 n’est donc pas affirmé comme exécuté ici. Le même lockfile et Astro 7.1.4 sont déjà validés dans l’environnement Windows/GitHub du projet ; la commande de référence reste `python scripts/build_all.py`.

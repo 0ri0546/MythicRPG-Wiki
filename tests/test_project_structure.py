@@ -20,6 +20,9 @@ class ProjectStructureTests(unittest.TestCase):
             "website/astro.config.mjs",
             "website/src/pages/index.astro",
             "website/src/pages/systems/progression.astro",
+            "website/src/components/XpExplorer.astro",
+            "website/src/components/FishingExplorer.astro",
+            "website/src/components/RelatedContentExplorer.astro",
             ".github/workflows/deploy-pages.yml",
             "README.md",
         ]
@@ -74,8 +77,9 @@ class ProjectStructureTests(unittest.TestCase):
     def test_global_progression_is_not_attached_to_mining(self) -> None:
         skill_page = (ROOT / "website/src/pages/skills/[id].astro").read_text(encoding="utf-8")
         progression_page = (ROOT / "website/src/pages/systems/progression.astro").read_text(encoding="utf-8")
-        self.assertNotIn("skill.id === 'mining'", skill_page)
-        self.assertIn("progression.", progression_page)
+        self.assertNotIn("value.id.startsWith('progression.')", skill_page)
+        self.assertIn('XpExplorer', progression_page)
+        self.assertIn('catalog.systems.progression', progression_page)
 
 
 if __name__ == "__main__":

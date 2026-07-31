@@ -1,103 +1,88 @@
-# MythicRPG Wiki v0.1.1
+# MythicRPG Wiki v0.2
 
-Wiki statique généré depuis le code et les ressources de MythicRPG.
+Wiki statique interactif généré depuis le code et les ressources de MythicRPG `src(92)`.
+
+## Fonctionnalités v0.2
+
+- neuf skills documentés et navigables ;
+- 180 perks extraits, avec arbres zoomables, déplaçables, filtrables et simulateur de build ;
+- explorateur graphique de la courbe d’XP et calculateurs de progression ;
+- extraction spécialisée de Mining, Eating et Fishing ;
+- comparateurs de fossiles, recettes culinaires, probabilités Fishing et monstres marins ;
+- objets et recettes filtrables ;
+- recherche statique enrichie ;
+- catalogue JSON commun au site et à la future encyclopédie ;
+- déploiement GitHub Pages par GitHub Actions.
 
 ## Chaîne de génération
 
 ```text
-mod-source/src
+mod-source/src (lecture seule)
   -> extracteur Python
-  -> catalogue JSON commun
-  -> site Astro statique
+  -> catalogue JSON partagé
+  -> pages Astro + modules TypeScript ciblés
   -> GitHub Pages
 
-  -> export JSON de l’encyclopédie en jeu
+  -> export JSON filtré pour l’encyclopédie
 ```
 
-Les valeurs techniques ne sont pas recopiées dans les pages. Les constantes sélectionnées sont relues dans le Java, les recettes dans les JSON, les noms dans les traductions et les arbres dans les classes `*SkillTree.java`. Les textes éditoriaux et les statuts sont écrits en Markdown avec frontmatter YAML.
-
-Les données françaises et anglaises sont préparées dans le catalogue commun. L’interface et les routes publiques de cette version restent en français ; le routage `/fr/` et `/en/` n’est pas encore implémenté.
+Les valeurs techniques ne sont pas recopiées dans les pages. Les constantes sélectionnées sont relues dans le Java, les recettes dans les JSON ou les registres Java, les noms dans les traductions et les arbres dans les classes `*SkillTree.java`.
 
 ## Prérequis
 
 - Python 3.11 ou supérieur ;
 - Node.js 22.12 ou supérieur ;
 - npm ;
-- aucune installation Java ou Gradle n’est nécessaire pour le wiki.
+- PyYAML.
 
-## Installation locale
+Aucune installation Gradle ou Minecraft n’est nécessaire pour générer le wiki.
 
-Depuis la racine du projet :
+## Validation locale
 
 ```bash
 python -m pip install -r requirements.txt
 python tools/build_catalog.py
 python -m unittest discover -s tests -v
-cd website
-npm ci --no-audit --no-fund
-npm run dev
-```
-
-Construction complète :
-
-```bash
+python scripts/verify_delivery.py
 python scripts/build_all.py
 ```
 
-Le site statique est produit dans `website/dist/`.
+Sous Windows, `py` peut remplacer `python`. Le build complet utilise `npm ci`, puis produit le site dans `website/dist/`.
 
-## Utiliser une nouvelle source du mod
-
-Remplacer uniquement le dossier `mod-source/src/` par le dossier `src/` complet le plus récent, sans en modifier le contenu, puis mettre à jour volontairement `config/source_snapshot.json` et exécuter :
+## Développement du site
 
 ```bash
-python tools/build_catalog.py
+cd website
+npm ci --no-audit --no-fund
+npm run dev
+npm run build
+npm run preview
 ```
 
-Une autre source peut être fournie sans copie :
+## Mise à jour du mod
 
-```bash
-python tools/build_catalog.py --source /chemin/vers/le/mod/src
-```
+1. remplacer `mod-source/src/` par le nouveau dossier `src/` complet ;
+2. conserver `mod-source/src/** -text` dans `.gitattributes` ;
+3. mettre à jour `mod-source/SOURCE.txt` et `config/source_snapshot.json` ;
+4. relancer la chaîne de validation complète.
 
-## Fichiers source et fichiers générés
+## Sources manuelles et générées
 
-Édités manuellement :
+À éditer :
 
-- `documentation/content/{fr,en}/skills/*.md` : texte et métadonnées ;
-- `config/documented_values.yaml` : liste explicite des constantes Java à publier ;
-- `config/source_snapshot.json` : snapshot attendu de la source canonique ;
-- `website/src/` : composants, layouts et pages Astro ;
-- `website/src/styles/global.css` : présentation.
+- `documentation/content/{fr,en}/skills/*.md` ;
+- `config/documented_values.yaml` ;
+- `config/source_snapshot.json` ;
+- `website/src/`.
 
-Générés automatiquement, à ne pas modifier :
+À ne pas éditer :
 
-- `data/generated/catalog.json` ;
-- `data/generated/encyclopedia.json` ;
-- `data/generated/search-index.json` ;
-- `data/generated/extraction-report.json` ;
+- `data/generated/` ;
 - `website/src/data/generated/` ;
 - `website/public/generated/`.
 
-## GitHub Pages
+## Limites honnêtes
 
-1. Créer un dépôt GitHub et y pousser ce projet.
-2. Dans **Settings > Pages**, sélectionner **GitHub Actions** comme source.
-3. Pousser sur la branche `main` ou lancer manuellement le workflow.
+L’analyse du mod reste statique : aucun Gradle, aucune compilation Java du mod et aucun lancement Minecraft. Les comportements réseau ou en jeu ne sont pas présentés comme testés lorsqu’ils sont seulement déduits du code.
 
-Le workflow `.github/workflows/deploy-pages.yml` extrait les données, exécute les tests, installe exactement les dépendances du lockfile avec `npm ci`, construit Astro et publie `website/dist`. **La présente archive de travail ne contient pas encore de lockfile validé**, car le registre npm disponible dans l’environnement de génération retourne 404 pour Astro et ses dépendances. Voir `BUILD_VALIDATION.md`.
-
-Le `base` GitHub Pages est calculé à partir de `GITHUB_REPOSITORY`, ce qui couvre les dépôts de projet publiés sous `https://utilisateur.github.io/depot/` et les dépôts `utilisateur.github.io` publiés à la racine.
-
-## Validation et limites honnêtes
-
-- inspection statique uniquement pour le mod ;
-- aucun lancement Gradle ;
-- aucune compilation du mod ;
-- aucun lancement Minecraft ;
-- le code du mod copié dans `mod-source/src` n’est pas modifié ;
-- les modèles d’objets forment un catalogue large et chaque entrée porte un statut de preuve : `confirmed`, `dynamic_probable` ou `model_only` ;
-- les calculs Java complexes ne sont pas devinés : seules les constantes listées dans `config/documented_values.yaml` sont exportées comme valeurs garanties ;
-- l’export `data/generated/encyclopedia.json` est le premier contrat commun avec la future encyclopédie, pas encore son interface Minecraft.
-
-Consulter également `ARCHITECTURE.md`, `TESTS.md`, `DELIVERY.md`, `BUILD_VALIDATION.md` et `REVIEW_REPORT.md`.
+Les données françaises et anglaises sont prêtes dans le catalogue ; l’interface publique et les routes restent françaises dans cette version.

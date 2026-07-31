@@ -1,0 +1,69 @@
+---
+import type { RecipeEntry } from '../lib/catalog';
+import { readableIdentifier, sitePath } from '../lib/catalog';
+interface Props { recipes: RecipeEntry[] }
+const { recipes } = Astro.props;
+const types = [...new Set(recipes.map((recipe) => recipe.type))].sort();
+---
+<section class="recipe-explorer" data-recipe-explorer>
+  <div class="filter-grid three">
+    <label>Rechercher
+      <input type="search" placeholder="Résultat, ingrédient ou identifiant…" data-recipe-search />
+    </label>
+    <label>Type
+      <select data-recipe-type><option value="all">Tous</option>{types.map((type) => <option value={type}>{type.replace('minecraft:', '')}</option>)}</select>
+    </label>
+    <label>Ordre
+      <select data-recipe-sort><option value="name">Nom</option><option value="ingredients">Nombre d’ingrédients</option><option value="count">Quantité produite</option></select>
+    </label>
+  </div>
+  <p class="muted"><span data-recipe-count>{recipes.length}</span> recettes affichées.</p>
+  <div class="recipe-list" data-recipe-list>
+    {recipes.map((recipe) => (
+      <a
+        href={sitePath(`recipes/${recipe.id}/`)}
+        data-recipe-card
+        data-name={recipe.result.names.fr}
+        data-type={recipe.type}
+        data-ingredient-count={recipe.ingredients.length}
+        data-result-count={recipe.result.count}
+        data-search={`${recipe.result.names.fr} ${recipe.result.names.en} ${recipe.id} ${recipe.result.id} ${recipe.ingredients.join(' ')}`}
+      >
+        <div><strong>{recipe.result.names.fr}</strong><code>{recipe.id}</code><small>{recipe.ingredients.length} ingrédient(s) · {recipe.type.replace('minecraft:', '')}</small></div>
+        <span>{recipe.result.count} × {readableIdentifier(recipe.result.id)}</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-recipe-explorer]').forEach((root) => {
+    const search = root.querySelector('[data-recipe-search]');
+    const type = root.querySelector('[data-recipe-type]');
+    const sort = root.querySelector('[data-recipe-sort]');
+    const list = root.querySelector('[data-recipe-list]');
+    const count = root.querySelector('[data-recipe-count]');
+    const cards = [...root.querySelectorAll('[data-recipe-card]')].filter((card) => card instanceof HTMLAnchorElement);
+    const update = () => {
+      const query = search instanceof HTMLInputElement ? search.value.toLowerCase().trim() : '';
+      const selectedType = type instanceof HTMLSelectElement ? type.value : 'all';
+      const selectedSort = sort instanceof HTMLSelectElement ? sort.value : 'name';
+      let visible = 0;
+      cards.forEach((card) => {
+        const show = (card.dataset.search ?? '').toLowerCase().includes(query)
+          && (selectedType === 'all' || card.dataset.type === selectedType);
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      cards.sort((a, b) => {
+        if (selectedSort === 'ingredients') return Number(b.dataset.ingredientCount ?? 0) - Number(a.dataset.ingredientCount ?? 0);
+        if (selectedSort === 'count') return Number(b.dataset.resultCount ?? 0) - Number(a.dataset.resultCount ?? 0);
+        return (a.dataset.name ?? '').localeCompare(b.dataset.name ?? '', 'fr');
+      });
+      if (list) list.replaceChildren(...cards);
+      if (count) count.textContent = String(visible);
+    };
+    [search, type, sort].forEach((control) => control?.addEventListener('input', update));
+    update();
+  });
+</script>

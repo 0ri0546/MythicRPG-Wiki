@@ -13,7 +13,7 @@ REPORT = json.loads((ROOT / "data/generated/extraction-report.json").read_text(e
 class SourceSnapshotTests(unittest.TestCase):
     def test_source_identity_matches_declared_snapshot(self) -> None:
         self.assertEqual(SNAPSHOT["tree_sha256"], CATALOG["source"]["tree_sha256"])
-        self.assertEqual("src(91).zip", SNAPSHOT["canonical_source"])
+        self.assertEqual("src(92).zip", SNAPSHOT["canonical_source"])
         self.assertEqual("src(92).zip", SNAPSHOT["received_archive"])
 
     def test_counts_match_version_snapshot(self) -> None:

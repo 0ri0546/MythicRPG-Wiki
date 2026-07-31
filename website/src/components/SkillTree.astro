@@ -1,35 +1,84 @@
 ---
 import type { PerkNode } from '../lib/catalog';
-interface Props { nodes: PerkNode[] }
-const { nodes } = Astro.props;
+interface Props { nodes: PerkNode[]; unlockCost?: number }
+const { nodes, unlockCost = 10 } = Astro.props;
 const byId = new Map(nodes.map((node) => [node.id, node]));
+const branchOptions = [...new Set(nodes
+  .filter((node) => node.fork_id !== -1)
+  .map((node) => `${node.fork_id}:${node.branch_id}`))].sort();
 ---
-<section class="skill-tree-shell" data-skill-tree>
-  <div class="skill-tree" role="group" aria-label="Arbre des perks">
-    <svg class="skill-tree-lines" viewBox="0 0 280 340" aria-hidden="true">
-      {nodes.flatMap((node) => node.parent_ids.map((parentId) => {
-        const parent = byId.get(parentId);
-        return parent ? <line x1={parent.position.x + 12} y1={parent.position.y + 12} x2={node.position.x + 12} y2={node.position.y + 12} /> : null;
-      }))}
-    </svg>
-    {nodes.map((node) => (
-      <button
-        id={node.slug}
-        class="skill-node"
-        type="button"
-        style={`--node-x:${node.position.x};--node-y:${node.position.y}`}
-        data-node={JSON.stringify(node)}
-        title={node.names.fr}
-        aria-label={`${node.id}. ${node.names.fr}`}
-      >{node.id}</button>
-    ))}
+<section class="skill-tree-explorer" data-skill-tree data-unlock-cost={unlockCost}>
+  <div class="tree-toolbar" aria-label="Contrôles de l’arbre">
+    <label>Rechercher un perk
+      <input type="search" placeholder="Nom, description ou bonus…" data-tree-search />
+    </label>
+    <label>Branche
+      <select data-tree-branch>
+        <option value="all">Toutes les branches</option>
+        <option value="trunk">Tronc commun</option>
+        {branchOptions.map((branch) => <option value={branch}>Branche {branch.replace(':', ' / ')}</option>)}
+      </select>
+    </label>
+    <div class="tree-zoom-controls" role="group" aria-label="Zoom de l’arbre">
+      <button type="button" data-tree-zoom-out aria-label="Dézoomer">−</button>
+      <output data-tree-zoom-output>100 %</output>
+      <button type="button" data-tree-zoom-in aria-label="Zoomer">+</button>
+      <button type="button" data-tree-reset>Recentrer</button>
+    </div>
   </div>
-  <article class="perk-detail" data-perk-detail>
-    <p class="eyebrow">Sélectionnez un perk</p>
-    <h3>Arbre interactif</h3>
-    <p>Cliquez sur un nœud pour consulter sa description et ses valeurs extraites.</p>
-  </article>
+
+  <div class="tree-build-summary" aria-live="polite">
+    <div><span>Perks simulés</span><strong data-tree-selected-count>0</strong></div>
+    <div><span>Points nécessaires</span><strong data-tree-point-cost>0</strong></div>
+    <p data-tree-message>Sélectionnez un perk, puis ajoutez-le à votre simulation.</p>
+    <button type="button" class="button small" data-tree-clear>Réinitialiser le build</button>
+  </div>
+
+  <div class="skill-tree-shell">
+    <div class="skill-tree-viewport" data-tree-viewport>
+      <div class="skill-tree-stage" data-tree-stage>
+        <svg class="skill-tree-lines" viewBox="0 0 280 340" aria-hidden="true">
+          {nodes.flatMap((node) => node.parent_ids.map((parentId) => {
+            const parent = byId.get(parentId);
+            return parent ? (
+              <line
+                data-tree-edge
+                data-parent-id={parentId}
+                data-child-id={node.id}
+                x1={parent.position.x + 12}
+                y1={parent.position.y + 12}
+                x2={node.position.x + 12}
+                y2={node.position.y + 12}
+              />
+            ) : null;
+          }))}
+        </svg>
+        {nodes.map((node) => (
+          <button
+            id={node.slug}
+            class="skill-node"
+            type="button"
+            style={`--node-x:${node.position.x};--node-y:${node.position.y}`}
+            data-node={JSON.stringify(node)}
+            data-node-id={node.id}
+            data-node-search={`${node.names.fr} ${node.names.en} ${node.descriptions.fr} ${node.bonuses.map((bonus) => bonus.type).join(' ')}`}
+            data-node-branch={node.fork_id === -1 ? 'trunk' : `${node.fork_id}:${node.branch_id}`}
+            title={node.names.fr}
+            aria-label={`${node.id}. ${node.names.fr}`}
+          ><span>{node.id}</span></button>
+        ))}
+      </div>
+    </div>
+
+    <article class="perk-detail" data-perk-detail>
+      <p class="eyebrow">Sélectionnez un perk</p>
+      <h3>Arbre interactif</h3>
+      <p>Cliquez sur un nœud pour consulter ses prérequis, ses valeurs et l’ajouter à une simulation de build.</p>
+      <p class="source-note">Le simulateur applique le coût, les parents et les conflits de branches décrits par le code.</p>
+    </article>
+  </div>
 </section>
+
 <script>
   const paragraph = (text, className = '') => {
     const element = document.createElement('p');
@@ -39,40 +88,230 @@ const byId = new Map(nodes.map((node) => [node.id, node]));
   };
 
   document.querySelectorAll('[data-skill-tree]').forEach((root) => {
+    if (!(root instanceof HTMLElement)) return;
     const detail = root.querySelector('[data-perk-detail]');
-    root.querySelectorAll('[data-node]').forEach((button) => {
-      button.addEventListener('click', () => {
-        if (!(button instanceof HTMLElement) || !(detail instanceof HTMLElement)) return;
-        const rawNode = button.dataset.node;
-        if (!rawNode) return;
-        const node = JSON.parse(rawNode);
+    const viewport = root.querySelector('[data-tree-viewport]');
+    const stage = root.querySelector('[data-tree-stage]');
+    const nodeButtons = [...root.querySelectorAll('[data-node]')].filter((element) => element instanceof HTMLButtonElement);
+    const nodes = new Map();
+    const buttons = new Map();
+    nodeButtons.forEach((button) => {
+      const raw = button.dataset.node;
+      if (!raw) return;
+      const node = JSON.parse(raw);
+      nodes.set(node.id, node);
+      buttons.set(node.id, button);
+    });
 
-        const eyebrow = paragraph(`Perk ${node.id}`, 'eyebrow');
-        const title = document.createElement('h3');
-        title.textContent = node.names.fr;
-        const description = paragraph(node.descriptions.fr);
+    const selected = new Set();
+    const unlockCost = Number(root.dataset.unlockCost ?? 10);
+    let activeNodeId = null;
+    let scale = 1;
+    let translateX = 0;
+    let translateY = 0;
+    let dragging = false;
+    let pointerStart = { x: 0, y: 0 };
+    let translateStart = { x: 0, y: 0 };
 
-        const values = document.createElement('div');
-        if (node.bonuses?.length) {
-          const list = document.createElement('dl');
-          node.bonuses.forEach((bonus) => {
-            const row = document.createElement('div');
-            const term = document.createElement('dt');
-            term.textContent = bonus.type.replaceAll('_', ' ');
-            const definition = document.createElement('dd');
-            definition.textContent = String(bonus.value ?? 'actif');
-            row.append(term, definition);
-            list.append(row);
-          });
-          values.append(list);
-        } else {
-          values.append(paragraph('Aucune valeur de bonus simple extraite.', 'muted'));
+    const selectedCount = root.querySelector('[data-tree-selected-count]');
+    const pointCost = root.querySelector('[data-tree-point-cost]');
+    const message = root.querySelector('[data-tree-message]');
+    const zoomOutput = root.querySelector('[data-tree-zoom-output]');
+
+    const setMessage = (text) => {
+      if (message) message.textContent = text;
+    };
+
+    const updateTransform = () => {
+      if (!(stage instanceof HTMLElement)) return;
+      stage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+      if (zoomOutput) zoomOutput.textContent = `${Math.round(scale * 100)} %`;
+    };
+
+    const updateBuild = () => {
+      if (selectedCount) selectedCount.textContent = String(selected.size);
+      if (pointCost) pointCost.textContent = String(selected.size * unlockCost);
+      buttons.forEach((button, id) => button.classList.toggle('is-unlocked-simulation', selected.has(id)));
+      root.querySelectorAll('[data-tree-edge]').forEach((edge) => {
+        if (!(edge instanceof SVGLineElement)) return;
+        const parent = Number(edge.dataset.parentId);
+        const child = Number(edge.dataset.childId);
+        edge.classList.toggle('is-selected-edge', selected.has(parent) && selected.has(child));
+      });
+    };
+
+    const conflictFor = (node) => {
+      if (node.fork_id === -1) return null;
+      for (const selectedId of selected) {
+        const selectedNode = nodes.get(selectedId);
+        if (selectedNode && selectedNode.fork_id === node.fork_id && selectedNode.branch_id !== node.branch_id) {
+          return selectedNode;
         }
+      }
+      return null;
+    };
 
-        const source = paragraph(`Source : ${node.extraction.file}`, 'source-note');
-        detail.replaceChildren(eyebrow, title, description, values, source);
-        root.querySelectorAll('[data-node]').forEach((item) => item.classList.toggle('is-selected', item === button));
+    const prerequisitesMet = (node) => node.parent_ids.length === 0 || node.parent_ids.some((parentId) => selected.has(parentId));
+
+    const pruneInvalidDescendants = () => {
+      let changed = true;
+      while (changed) {
+        changed = false;
+        for (const id of [...selected]) {
+          const node = nodes.get(id);
+          if (!node || node.parent_ids.length === 0) continue;
+          if (!node.parent_ids.some((parentId) => selected.has(parentId))) {
+            selected.delete(id);
+            changed = true;
+          }
+        }
+      }
+    };
+
+    const toggleBuildNode = (node) => {
+      if (selected.has(node.id)) {
+        selected.delete(node.id);
+        pruneInvalidDescendants();
+        setMessage(`${node.names.fr} retiré. Les descendants devenus inaccessibles ont aussi été retirés.`);
+        updateBuild();
+        renderDetail(node);
+        return;
+      }
+      const conflict = conflictFor(node);
+      if (conflict) {
+        setMessage(`Conflit de branche avec ${conflict.names.fr}. Retirez d’abord cette branche.`);
+        return;
+      }
+      if (!prerequisitesMet(node)) {
+        const names = node.parent_ids.map((id) => nodes.get(id)?.names?.fr ?? `perk ${id}`).join(' ou ');
+        setMessage(`Prérequis manquant : ${names}.`);
+        return;
+      }
+      selected.add(node.id);
+      setMessage(`${node.names.fr} ajouté au build simulé.`);
+      updateBuild();
+      renderDetail(node);
+    };
+
+    const renderDetail = (node) => {
+      if (!(detail instanceof HTMLElement)) return;
+      activeNodeId = node.id;
+      const eyebrow = paragraph(`Perk ${node.id}`, 'eyebrow');
+      const title = document.createElement('h3');
+      title.textContent = node.names.fr;
+      const description = paragraph(node.descriptions.fr);
+
+      const metadata = document.createElement('dl');
+      const addRow = (label, value) => {
+        const row = document.createElement('div');
+        const term = document.createElement('dt');
+        const definition = document.createElement('dd');
+        term.textContent = label;
+        definition.textContent = value;
+        row.append(term, definition);
+        metadata.append(row);
+      };
+      addRow('Coût', `${unlockCost} points`);
+      addRow('Prérequis', node.parent_ids.length ? node.parent_ids.map((id) => nodes.get(id)?.names?.fr ?? id).join(' ou ') : 'Aucun');
+      addRow('Branche', node.fork_id === -1 ? 'Tronc commun' : `${node.fork_id} / ${node.branch_id}`);
+      node.bonuses?.forEach((bonus) => addRow(bonus.type.replaceAll('_', ' '), String(bonus.value ?? 'actif')));
+      node.effects?.forEach((effect) => addRow(effect.effect.replaceAll('_', ' '), `amplificateur ${effect.amplifier}`));
+      if (node.poison_on_hit) addRow('Poison à l’impact', `${node.poison_on_hit.duration_ticks} ticks · amplificateur ${node.poison_on_hit.amplifier}`);
+
+      const action = document.createElement('button');
+      action.type = 'button';
+      action.className = 'button primary tree-build-action';
+      action.textContent = selected.has(node.id) ? 'Retirer du build' : 'Ajouter au build';
+      action.addEventListener('click', () => toggleBuildNode(node));
+
+      const source = paragraph(`Source : ${node.extraction.file}`, 'source-note');
+      detail.replaceChildren(eyebrow, title, description, metadata, action, source);
+      buttons.forEach((button, id) => button.classList.toggle('is-selected', id === node.id));
+      if (location.hash !== `#${node.slug}`) history.replaceState(null, '', `#${node.slug}`);
+    };
+
+    nodeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const raw = button.dataset.node;
+        if (!raw) return;
+        renderDetail(JSON.parse(raw));
       });
     });
+
+    const searchInput = root.querySelector('[data-tree-search]');
+    const branchSelect = root.querySelector('[data-tree-branch]');
+    const applyFilters = () => {
+      const query = searchInput instanceof HTMLInputElement ? searchInput.value.trim().toLowerCase() : '';
+      const branch = branchSelect instanceof HTMLSelectElement ? branchSelect.value : 'all';
+      buttons.forEach((button) => {
+        const matchesText = (button.dataset.nodeSearch ?? '').toLowerCase().includes(query);
+        const nodeBranch = button.dataset.nodeBranch ?? 'trunk';
+        const matchesBranch = branch === 'all' || nodeBranch === branch || (branch !== 'trunk' && nodeBranch === 'trunk');
+        button.hidden = !(matchesText && matchesBranch);
+      });
+      root.querySelectorAll('[data-tree-edge]').forEach((edge) => {
+        if (!(edge instanceof SVGLineElement)) return;
+        const parent = buttons.get(Number(edge.dataset.parentId));
+        const child = buttons.get(Number(edge.dataset.childId));
+        edge.style.display = parent?.hidden || child?.hidden ? 'none' : '';
+      });
+    };
+    searchInput?.addEventListener('input', applyFilters);
+    branchSelect?.addEventListener('change', applyFilters);
+
+    root.querySelector('[data-tree-zoom-in]')?.addEventListener('click', () => {
+      scale = Math.min(1.8, scale + .15);
+      updateTransform();
+    });
+    root.querySelector('[data-tree-zoom-out]')?.addEventListener('click', () => {
+      scale = Math.max(.7, scale - .15);
+      updateTransform();
+    });
+    root.querySelector('[data-tree-reset]')?.addEventListener('click', () => {
+      scale = 1;
+      translateX = 0;
+      translateY = 0;
+      updateTransform();
+    });
+    root.querySelector('[data-tree-clear]')?.addEventListener('click', () => {
+      selected.clear();
+      setMessage('Build simulé réinitialisé.');
+      updateBuild();
+      if (activeNodeId !== null) {
+        const node = nodes.get(activeNodeId);
+        if (node) renderDetail(node);
+      }
+    });
+
+    if (viewport instanceof HTMLElement) {
+      viewport.addEventListener('pointerdown', (event) => {
+        if (event.target instanceof HTMLButtonElement || event.button !== 0) return;
+        dragging = true;
+        pointerStart = { x: event.clientX, y: event.clientY };
+        translateStart = { x: translateX, y: translateY };
+        viewport.setPointerCapture(event.pointerId);
+        viewport.classList.add('is-dragging');
+      });
+      viewport.addEventListener('pointermove', (event) => {
+        if (!dragging) return;
+        translateX = translateStart.x + event.clientX - pointerStart.x;
+        translateY = translateStart.y + event.clientY - pointerStart.y;
+        updateTransform();
+      });
+      const endDrag = (event) => {
+        dragging = false;
+        viewport.classList.remove('is-dragging');
+        if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+      };
+      viewport.addEventListener('pointerup', endDrag);
+      viewport.addEventListener('pointercancel', endDrag);
+    }
+
+    updateTransform();
+    updateBuild();
+    applyFilters();
+    const hashId = location.hash.replace('#', '');
+    const initial = nodeButtons.find((button) => button.id === hashId) ?? nodeButtons[0];
+    initial?.click();
   });
 </script>

@@ -1,0 +1,32 @@
+{
+  "python_files_compiled": 14,
+  "json_files_validated": 10,
+  "yaml_frontmatters_validated": 19,
+  "astro_files_structurally_reviewed": 23,
+  "source_tree_sha256": "d39d740f8d5f36d37a0e24539287247e1b98c89f49c47a6a99fd6a83988b8b3f",
+  "source_files": 1206,
+  "forbidden_mod_commands_found": 0,
+  "generated_path_leaks": 0,
+  "package_version": "0.2.0",
+  "extraction_counts": {
+    "skills": 9,
+    "perks": 180,
+    "items": 196,
+    "blocks": 34,
+    "recipes": 188,
+    "documented_values": 25,
+    "search_entries": 634,
+    "items_confirmed": 93,
+    "items_dynamic_probable": 40,
+    "items_model_only": 63,
+    "fossil_families": 5,
+    "fossil_rarities": 5,
+    "cooking_recipes": 47,
+    "culinary_ingredients": 50,
+    "fishing_families": 5,
+    "fishing_rarities": 5,
+    "sea_monsters": 3
+  },
+  "python_tests": 28,
+  "astro_build_in_this_environment": "blocked_by_internal_npm_registry_missing_locked_archives"
+}

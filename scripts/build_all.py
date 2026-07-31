@@ -42,6 +42,7 @@ def main() -> int:
         ROOT / "website"
     )
 
+    run([sys.executable, "scripts/verify_delivery.py", "--require-build"])
     return 0
 
 

@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.3.0",
+  "schema_version": "0.4.0",
   "source": {
     "canonical_source": "src(92).zip",
     "received_archive": "src(92).zip",
@@ -484,8 +484,8 @@
         "en": "Woodcutting"
       },
       "summary": {
-        "en": "Expand wood gathering, tree felling, growth, and modular storage.",
-        "fr": "Développez la récolte du bois, l’abattage, les pousses et les modules de stockage."
+        "en": "Cut logs, fell trees, obtain rare rewards and expand vanilla chests with persistent modules.",
+        "fr": "Coupez les bûches, abattez des arbres, obtenez des récompenses rares et agrandissez les coffres vanilla avec des modules persistants."
       },
       "nodes": [
         {
@@ -717,8 +717,8 @@
         "en": "Farming"
       },
       "summary": {
-        "en": "Automate harvesting and unlock advanced agricultural rewards.",
-        "fr": "Cultivez, replantez automatiquement et exploitez les récompenses agricoles avancées."
+        "en": "Progress through mature harvests and breeding, then develop replanting, growth and agricultural storage.",
+        "fr": "Progressez par les récoltes mûres et l’élevage, puis développez la replantation, la croissance et le stockage agricole."
       },
       "nodes": [
         {
@@ -1183,8 +1183,8 @@
         "en": "Traveling"
       },
       "summary": {
-        "en": "Explore with movement perks, vehicles, mounts, and structure tools.",
-        "fr": "Explorez le monde avec le double saut, les véhicules, les montures et la Boussole monumentale."
+        "en": "Explore, discover structures, adopt mounts and unlock specialized travel tools.",
+        "fr": "Explorez, découvrez des structures, adoptez des montures et débloquez des outils de déplacement spécialisés."
       },
       "nodes": [
         {
@@ -1416,8 +1416,8 @@
         "en": "Building"
       },
       "summary": {
-        "en": "Plan and execute builds with optional construction tools.",
-        "fr": "Construisez avec des plans, des réserves, des blocs configurables et des outils de placement."
+        "en": "Build more efficiently with plans, reserves, placement tools and server-controlled decorative systems.",
+        "fr": "Construisez plus efficacement avec des plans, réserves, outils de placement et systèmes décoratifs contrôlés côté serveur."
       },
       "nodes": [
         {
@@ -3312,6 +3312,357 @@
               "en": "Golden Boots"
             }
           ]
+        }
+      ]
+    },
+    "traveling": {
+      "mounts": [
+        {
+          "id": "cow",
+          "names": {
+            "fr": "Vache",
+            "en": "Cow"
+          },
+          "flying": false
+        },
+        {
+          "id": "goat",
+          "names": {
+            "fr": "Chèvre",
+            "en": "Goat"
+          },
+          "flying": false
+        },
+        {
+          "id": "spider",
+          "names": {
+            "fr": "Araignée",
+            "en": "Spider"
+          },
+          "flying": false
+        },
+        {
+          "id": "chicken",
+          "names": {
+            "fr": "Poule",
+            "en": "Chicken"
+          },
+          "flying": false
+        },
+        {
+          "id": "mooshroom",
+          "names": {
+            "fr": "Champimeuh",
+            "en": "Mooshroom"
+          },
+          "flying": false
+        },
+        {
+          "id": "sheep",
+          "names": {
+            "fr": "Mouton",
+            "en": "Sheep"
+          },
+          "flying": false
+        },
+        {
+          "id": "pig",
+          "names": {
+            "fr": "Cochon",
+            "en": "Pig"
+          },
+          "flying": false
+        },
+        {
+          "id": "llama",
+          "names": {
+            "fr": "Lama",
+            "en": "Llama"
+          },
+          "flying": false
+        },
+        {
+          "id": "panda",
+          "names": {
+            "fr": "Panda",
+            "en": "Panda"
+          },
+          "flying": false
+        },
+        {
+          "id": "snow_golem",
+          "names": {
+            "fr": "Golem de neige",
+            "en": "Snow Golem"
+          },
+          "flying": false
+        },
+        {
+          "id": "turtle",
+          "names": {
+            "fr": "Tortue",
+            "en": "Turtle"
+          },
+          "flying": false
+        },
+        {
+          "id": "polar_bear",
+          "names": {
+            "fr": "Ours blanc",
+            "en": "Polar Bear"
+          },
+          "flying": false
+        },
+        {
+          "id": "hoglin",
+          "names": {
+            "fr": "Hoglin",
+            "en": "Hoglin"
+          },
+          "flying": false
+        },
+        {
+          "id": "ravager",
+          "names": {
+            "fr": "Ravageur",
+            "en": "Ravager"
+          },
+          "flying": false
+        },
+        {
+          "id": "zoglin",
+          "names": {
+            "fr": "Zoglin",
+            "en": "Zoglin"
+          },
+          "flying": false
+        },
+        {
+          "id": "villager",
+          "names": {
+            "fr": "Villageois",
+            "en": "Villager"
+          },
+          "flying": false
+        },
+        {
+          "id": "enderman",
+          "names": {
+            "fr": "Enderman",
+            "en": "Enderman"
+          },
+          "flying": false
+        },
+        {
+          "id": "phantom",
+          "names": {
+            "fr": "Phantom",
+            "en": "Phantom"
+          },
+          "flying": true
+        },
+        {
+          "id": "blaze",
+          "names": {
+            "fr": "Blaze",
+            "en": "Blaze"
+          },
+          "flying": true
+        },
+        {
+          "id": "breeze",
+          "names": {
+            "fr": "Breeze",
+            "en": "Breeze"
+          },
+          "flying": true
+        },
+        {
+          "id": "ghast",
+          "names": {
+            "fr": "Ghast",
+            "en": "Ghast"
+          },
+          "flying": true
+        },
+        {
+          "id": "bee",
+          "names": {
+            "fr": "Abeille",
+            "en": "Bee"
+          },
+          "flying": true
+        }
+      ],
+      "vehicles": {
+        "traveler_boat": {
+          "identifier": "mythicrpg:traveler_boat",
+          "speed_multiplier": 1.5,
+          "perk": 16
+        },
+        "traveler_minecart": {
+          "identifier": "mythicrpg:traveler_minecart",
+          "speed_multiplier": 1.5,
+          "perk": 15
+        },
+        "fishing_boat": {
+          "identifier": "mythicrpg:fishing_boat",
+          "traveling_xp_via_movement_tracker": true,
+          "confidence": "static_inference_from_no_vehicle_exclusion"
+        }
+      }
+    },
+    "building": {
+      "plans": {
+        "plan_2d": {
+          "base_max_size": 8,
+          "upgraded_max_size": 12,
+          "blocks_per_job_tick": 6,
+          "global_blocks_per_tick": 24,
+          "preview_lifetime_ticks": 600,
+          "preview_lifetime_seconds": 30.0,
+          "perk_base": 2,
+          "perk_upgrade": 3
+        },
+        "plan_3d": {
+          "maximum_size": 8,
+          "preview_lifetime_ticks": 600,
+          "preview_lifetime_seconds": 30.0,
+          "perk": 4
+        },
+        "server_jobs": true,
+        "resource_consumption_server_side": true,
+        "preview_payloads_client_side": true
+      },
+      "decorative_content": {
+        "vertical_slab_count": 20,
+        "static_effect_count": 32
+      }
+    },
+    "farming": {
+      "harvest_categories": [
+        {
+          "id": "standard_mature_crop",
+          "xp": 2,
+          "examples": [
+            "minecraft:wheat",
+            "minecraft:carrots",
+            "minecraft:potatoes",
+            "minecraft:beetroots"
+          ]
+        },
+        {
+          "id": "nether_wart_or_cocoa",
+          "xp": 3,
+          "examples": [
+            "minecraft:nether_wart",
+            "minecraft:cocoa"
+          ]
+        },
+        {
+          "id": "mushroom_block",
+          "xp": 3,
+          "examples": [
+            "minecraft:brown_mushroom_block",
+            "minecraft:red_mushroom_block",
+            "minecraft:mushroom_stem"
+          ]
+        },
+        {
+          "id": "melon_or_pumpkin",
+          "xp": 4,
+          "examples": [
+            "minecraft:melon",
+            "minecraft:pumpkin"
+          ]
+        }
+      ],
+      "objects": {
+        "enchanted_seed": {
+          "identifier": "mythicrpg:enchanted_seed",
+          "drop_chances": [
+            0.001,
+            0.002,
+            0.003
+          ],
+          "stored_automatically_in_food_backpack": true
+        },
+        "enchanted_flower": {
+          "identifier": "mythicrpg:enchanted_flower",
+          "perk": 18,
+          "offhand_smelt_manager": true,
+          "food_backpack_supported": true,
+          "feedback_cooldown_ticks": 10
+        },
+        "food_backpack": {
+          "identifier": "mythicrpg:food_backpack",
+          "perk": 8,
+          "slots": 54,
+          "store_feedback_cooldown_ticks": 12,
+          "full_feedback_cooldown_ticks": 40,
+          "accepts_food_plants_and_farming_resources": true,
+          "rejects_nested_backpacks": true,
+          "eating_preservation_integration": true,
+          "session_inventory_server_side": true
+        },
+        "growth_totem": {
+          "identifier": "mythicrpg:growth_totem",
+          "origin_skill": "mining_archaeology",
+          "farming_interaction": "crop_growth",
+          "confidence": "registered_item_and_block"
+        }
+      }
+    },
+    "woodcutting": {
+      "xp": {
+        "log_xp": 2,
+        "accepted_block_tag": "#minecraft:logs",
+        "leaves_award_skill_xp": false,
+        "timber": {
+          "maximum_additional_blocks": 32,
+          "same_block_type_only": true,
+          "requires_axe": true,
+          "xp_per_additional_log": 2,
+          "server_authoritative": true
+        },
+        "vanilla_xp_per_log_with_perk": 1
+      },
+      "chest_module_tiers": [
+        {
+          "symbol": "CHEST_MODULE_I",
+          "id": "chest_module_1",
+          "identifier": "mythicrpg:chest_module_1",
+          "names": {
+            "fr": "Module de coffre I",
+            "en": "Chest Module I"
+          },
+          "extra_slots": 9,
+          "single_chest_capacity": 36,
+          "double_chest_capacity_with_two_equal_modules": 72
+        },
+        {
+          "symbol": "CHEST_MODULE_II",
+          "id": "chest_module_2",
+          "identifier": "mythicrpg:chest_module_2",
+          "names": {
+            "fr": "Module de coffre II",
+            "en": "Chest Module II"
+          },
+          "extra_slots": 18,
+          "single_chest_capacity": 45,
+          "double_chest_capacity_with_two_equal_modules": 90
+        },
+        {
+          "symbol": "CHEST_MODULE_III",
+          "id": "chest_module_3",
+          "identifier": "mythicrpg:chest_module_3",
+          "names": {
+            "fr": "Module de coffre III",
+            "en": "Chest Module III"
+          },
+          "extra_slots": 27,
+          "single_chest_capacity": 54,
+          "double_chest_capacity_with_two_equal_modules": 108
         }
       ]
     }

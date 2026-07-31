@@ -1,0 +1,53 @@
+---
+import { readableIdentifier, type FarmingSystem } from '../lib/catalog';
+interface Props { farming: FarmingSystem }
+const { farming } = Astro.props;
+const percent = (value: number) => `${new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 3 }).format(value * 100)} %`;
+---
+<div class="skill-system-explorer farming-explorer">
+  <section id="farming-xp">
+    <div class="section-heading"><div><p class="eyebrow">Actions terminées</p><h2>Récolte et élevage</h2></div></div>
+    <div class="data-card-grid">
+      {farming.xp.harvest_categories.map((category: any) => <article class="data-card"><h3>{category.xp} XP</h3><p>{category.examples.map(readableIdentifier).join(', ')}</p><span class="status-badge">culture mûre requise</span></article>)}
+    </div>
+    <div class="stat-table">
+      <div><span>Élevage</span><strong>{farming.xp.breeding.xp} XP</strong><small>mémoire {farming.xp.breeding.memory_duration_seconds} s, rayon {farming.xp.breeding.baby_match_radius} blocs</small></div>
+      <div><span>Récolte de zone</span><strong>{farming.xp.area_harvest.maximum_blocks}</strong><small>blocs maximum, houe requise</small></div>
+      <div><span>Protection de replantation</span><strong>{farming.xp.anti_automation.recent_replant_protection_ticks} ticks</strong><small>évite une attribution immédiate</small></div>
+      <div><span>Croissance automatique</span><strong>0 XP direct</strong><small>la récolte reste nécessaire</small></div>
+    </div>
+  </section>
+
+  <section id="farming-perks">
+    <div class="section-heading"><div><p class="eyebrow">Valeurs de l’arbre</p><h2>Bonus agricoles</h2></div></div>
+    <div class="stat-table">
+      <div><span>Graine enchantée</span><strong>{farming.perk_values.enchanted_seed_chances.map(percent).join(' · ')}</strong><small>trois paliers</small></div>
+      <div><span>Double récolte</span><strong>{farming.perk_values.double_drop_chances.map(percent).join(' · ')}</strong><small>deux paliers</small></div>
+      <div><span>Compost rare</span><strong>{farming.perk_values.compost_rare_drop_chances.map(percent).join(' · ')}</strong><small>trois paliers</small></div>
+      <div><span>Portée de fermier</span><strong>{farming.perk_values.farmer_reach_radii.join(' · ')}</strong><small>rayons en blocs</small></div>
+      <div><span>XP vanilla</span><strong>{farming.perk_values.vanilla_xp_per_harvest}</strong><small>par récolte avec le perk</small></div>
+      <div><span>Bouclier cultivé</span><strong>{farming.perk_values.cultivated_shield_base_ticks} ticks</strong><small>amplificateur max {farming.perk_values.cultivated_shield_max_amplifier}</small></div>
+    </div>
+  </section>
+
+  <section id="farming-growth">
+    <div class="section-heading"><div><p class="eyebrow">Champ vivant</p><h2>Croissance et compost</h2></div></div>
+    <div class="interactive-grid">
+      <article class="interactive-panel"><h3>Champ vivant</h3><p>Perk {farming.growth.living_field.perk}, rayon {farming.growth.living_field.radius} blocs, {farming.growth.living_field.extra_attempts_per_second} tentatives supplémentaires par seconde ({farming.growth.living_field.extra_attempts_per_tick} par tick).</p><div class="chip-list">{farming.growth.living_field.affected_blocks.map((block: string) => <span class="status-badge">{readableIdentifier(block)}</span>)}</div></article>
+      <article class="interactive-panel"><h3>Récompenses de compost</h3><p>{farming.growth.compost_rewards.roll_count} issues possibles par tirage.</p><ul class="compact-list"><li>{farming.growth.compost_rewards.fixed_rewards.map(readableIdentifier).join(', ')}</li><li>Plante issue d’un pool de {farming.growth.compost_rewards.plantable_pool.length} objets</li><li>XP vanilla : {farming.growth.compost_rewards.vanilla_xp_range.join(' à ')}</li></ul></article>
+    </div>
+  </section>
+
+  <section id="farming-objects">
+    <div class="section-heading"><div><p class="eyebrow">Objets liés</p><h2>Stockage, cuisson et conservation</h2></div></div>
+    <div class="data-card-grid">
+      <article class="data-card"><h3>Graine enchantée</h3><p>Chances : {farming.objects.enchanted_seed.drop_chances.map(percent).join(' · ')}. Stockage automatique dans le Food Backpack.</p></article>
+      <article class="data-card"><h3>Fleur enchantée</h3><p>Perk {farming.objects.enchanted_flower.perk}. Gestion de cuisson en main secondaire et support du Food Backpack ; feedback {farming.objects.enchanted_flower.feedback_cooldown_ticks} ticks.</p></article>
+      <article class="data-card"><h3>Food Backpack</h3><p>{farming.objects.food_backpack.slots} emplacements, objets agricoles et alimentaires, sacs imbriqués refusés, inventaire serveur.</p></article>
+      <article class="data-card"><h3>Growth Totem</h3><p>Origine : archéologie Mining. Interaction confirmée avec la croissance Farming.</p></article>
+      <article class="data-card"><h3>Fermier préservé</h3><p>Perk {farming.death_and_persistence.preserved_farmer_perk}. Conserve XP vanilla et Food Backpacks lors de la copie du joueur après la mort.</p></article>
+    </div>
+  </section>
+
+  <aside class="source-panel"><h2>Multijoueur et limites</h2><p>Récoltes, élevage, croissance et inventaires sont autoritaires côté serveur. Les actions d’élevage en attente ne sont pas persistées : elles servent uniquement à associer une naissance proche dans la session active. Données issues de {farming.extraction.files.length} fichiers Java.</p></aside>
+</div>

@@ -439,6 +439,11 @@ export interface CraftingSystem {
   extraction: { method: string; files: string[] };
 }
 
+export type TravelingSystem = Record<string, any>;
+export type BuildingSystem = Record<string, any>;
+export type FarmingSystem = Record<string, any>;
+export type WoodcuttingSystem = Record<string, any>;
+
 export interface Catalog {
   schema_version: string;
   source: {
@@ -464,6 +469,10 @@ export interface Catalog {
     fishing: FishingSystem;
     fighting: FightingSystem;
     crafting: CraftingSystem;
+    traveling: TravelingSystem;
+    building: BuildingSystem;
+    farming: FarmingSystem;
+    woodcutting: WoodcuttingSystem;
   };
 }
 

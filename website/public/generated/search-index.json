@@ -6163,5 +6163,608 @@
       "en": "Shuffled inventory"
     },
     "url": "/skills/crafting/#lucky-blocks"
+  },
+  {
+    "type": "mount",
+    "id": "cow",
+    "title": {
+      "fr": "Vache",
+      "en": "Cow"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "goat",
+    "title": {
+      "fr": "Chèvre",
+      "en": "Goat"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "spider",
+    "title": {
+      "fr": "Araignée",
+      "en": "Spider"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "chicken",
+    "title": {
+      "fr": "Poule",
+      "en": "Chicken"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "mooshroom",
+    "title": {
+      "fr": "Champimeuh",
+      "en": "Mooshroom"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "sheep",
+    "title": {
+      "fr": "Mouton",
+      "en": "Sheep"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "pig",
+    "title": {
+      "fr": "Cochon",
+      "en": "Pig"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "llama",
+    "title": {
+      "fr": "Lama",
+      "en": "Llama"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "panda",
+    "title": {
+      "fr": "Panda",
+      "en": "Panda"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "snow_golem",
+    "title": {
+      "fr": "Golem de neige",
+      "en": "Snow Golem"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "turtle",
+    "title": {
+      "fr": "Tortue",
+      "en": "Turtle"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "polar_bear",
+    "title": {
+      "fr": "Ours blanc",
+      "en": "Polar Bear"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "hoglin",
+    "title": {
+      "fr": "Hoglin",
+      "en": "Hoglin"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "ravager",
+    "title": {
+      "fr": "Ravageur",
+      "en": "Ravager"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "zoglin",
+    "title": {
+      "fr": "Zoglin",
+      "en": "Zoglin"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "villager",
+    "title": {
+      "fr": "Villageois",
+      "en": "Villager"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "enderman",
+    "title": {
+      "fr": "Enderman",
+      "en": "Enderman"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "phantom",
+    "title": {
+      "fr": "Phantom",
+      "en": "Phantom"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "blaze",
+    "title": {
+      "fr": "Blaze",
+      "en": "Blaze"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "breeze",
+    "title": {
+      "fr": "Breeze",
+      "en": "Breeze"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "ghast",
+    "title": {
+      "fr": "Ghast",
+      "en": "Ghast"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "mount",
+    "id": "bee",
+    "title": {
+      "fr": "Abeille",
+      "en": "Bee"
+    },
+    "url": "/skills/traveling/#mounts"
+  },
+  {
+    "type": "structure_module",
+    "id": "village",
+    "title": {
+      "fr": "Module : Village",
+      "en": "Village Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "mineshaft",
+    "title": {
+      "fr": "Module : Puits de mine",
+      "en": "Mineshaft Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "stronghold",
+    "title": {
+      "fr": "Module : Forteresse",
+      "en": "Stronghold Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "pillager_outpost",
+    "title": {
+      "fr": "Module : Avant-poste de pillards",
+      "en": "Pillager Outpost Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "woodland_mansion",
+    "title": {
+      "fr": "Module : Manoir des bois",
+      "en": "Woodland Mansion Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "ocean_monument",
+    "title": {
+      "fr": "Module : Monument sous-marin",
+      "en": "Ocean Monument Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "ancient_city",
+    "title": {
+      "fr": "Module : Cité antique",
+      "en": "Ancient City Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "trial_chambers",
+    "title": {
+      "fr": "Module : Chambres des épreuves",
+      "en": "Trial Chambers Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "desert_pyramid",
+    "title": {
+      "fr": "Module : Pyramide du désert",
+      "en": "Desert Pyramid Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "jungle_temple",
+    "title": {
+      "fr": "Module : Temple de la jungle",
+      "en": "Jungle Temple Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "swamp_hut",
+    "title": {
+      "fr": "Module : Hutte des marais",
+      "en": "Swamp Hut Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "igloo",
+    "title": {
+      "fr": "Module : Igloo",
+      "en": "Igloo Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "shipwreck",
+    "title": {
+      "fr": "Module : Épave",
+      "en": "Shipwreck Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "ocean_ruin",
+    "title": {
+      "fr": "Module : Ruines sous-marines",
+      "en": "Ocean Ruin Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "buried_treasure",
+    "title": {
+      "fr": "Module : Trésor enfoui",
+      "en": "Buried Treasure Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "trail_ruins",
+    "title": {
+      "fr": "Module : Ruines de sentier",
+      "en": "Trail Ruins Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "ruined_portal",
+    "title": {
+      "fr": "Module : Portail en ruine",
+      "en": "Ruined Portal Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "nether_fortress",
+    "title": {
+      "fr": "Module : Forteresse du Nether",
+      "en": "Nether Fortress Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "bastion_remnant",
+    "title": {
+      "fr": "Module : Vestiges de bastion",
+      "en": "Bastion Remnant Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "nether_fossil",
+    "title": {
+      "fr": "Module : Fossile du Nether",
+      "en": "Nether Fossil Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "nether_ruined_portal",
+    "title": {
+      "fr": "Module : Portail en ruine du Nether",
+      "en": "Nether Ruined Portal Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "structure_module",
+    "id": "end_city",
+    "title": {
+      "fr": "Module : Cité de l’End",
+      "en": "End City Module"
+    },
+    "url": "/skills/traveling/#structure-modules"
+  },
+  {
+    "type": "block",
+    "id": "stone_vertical_slab",
+    "title": {
+      "fr": "Stone Vertical Slab",
+      "en": "Stone Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "cobblestone_vertical_slab",
+    "title": {
+      "fr": "Cobblestone Vertical Slab",
+      "en": "Cobblestone Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "stone_brick_vertical_slab",
+    "title": {
+      "fr": "Stone Brick Vertical Slab",
+      "en": "Stone Brick Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "brick_vertical_slab",
+    "title": {
+      "fr": "Brick Vertical Slab",
+      "en": "Brick Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "polished_deepslate_vertical_slab",
+    "title": {
+      "fr": "Polished Deepslate Vertical Slab",
+      "en": "Polished Deepslate Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "quartz_vertical_slab",
+    "title": {
+      "fr": "Quartz Vertical Slab",
+      "en": "Quartz Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "sandstone_vertical_slab",
+    "title": {
+      "fr": "Sandstone Vertical Slab",
+      "en": "Sandstone Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "red_sandstone_vertical_slab",
+    "title": {
+      "fr": "Red Sandstone Vertical Slab",
+      "en": "Red Sandstone Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "nether_brick_vertical_slab",
+    "title": {
+      "fr": "Nether Brick Vertical Slab",
+      "en": "Nether Brick Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "oak_vertical_slab",
+    "title": {
+      "fr": "Oak Vertical Slab",
+      "en": "Oak Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "spruce_vertical_slab",
+    "title": {
+      "fr": "Spruce Vertical Slab",
+      "en": "Spruce Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "birch_vertical_slab",
+    "title": {
+      "fr": "Birch Vertical Slab",
+      "en": "Birch Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "jungle_vertical_slab",
+    "title": {
+      "fr": "Jungle Vertical Slab",
+      "en": "Jungle Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "acacia_vertical_slab",
+    "title": {
+      "fr": "Acacia Vertical Slab",
+      "en": "Acacia Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "dark_oak_vertical_slab",
+    "title": {
+      "fr": "Dark Oak Vertical Slab",
+      "en": "Dark Oak Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "mangrove_vertical_slab",
+    "title": {
+      "fr": "Mangrove Vertical Slab",
+      "en": "Mangrove Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "cherry_vertical_slab",
+    "title": {
+      "fr": "Cherry Vertical Slab",
+      "en": "Cherry Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "bamboo_vertical_slab",
+    "title": {
+      "fr": "Bamboo Vertical Slab",
+      "en": "Bamboo Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "crimson_vertical_slab",
+    "title": {
+      "fr": "Crimson Vertical Slab",
+      "en": "Crimson Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "block",
+    "id": "warped_vertical_slab",
+    "title": {
+      "fr": "Warped Vertical Slab",
+      "en": "Warped Vertical Slab"
+    },
+    "url": "/skills/building/#vertical-slabs"
+  },
+  {
+    "type": "item",
+    "id": "chest_module_1",
+    "title": {
+      "fr": "Module de coffre I",
+      "en": "Chest Module I"
+    },
+    "url": "/skills/woodcutting/#chest-modules"
+  },
+  {
+    "type": "item",
+    "id": "chest_module_2",
+    "title": {
+      "fr": "Module de coffre II",
+      "en": "Chest Module II"
+    },
+    "url": "/skills/woodcutting/#chest-modules"
+  },
+  {
+    "type": "item",
+    "id": "chest_module_3",
+    "title": {
+      "fr": "Module de coffre III",
+      "en": "Chest Module III"
+    },
+    "url": "/skills/woodcutting/#chest-modules"
   }
 ]

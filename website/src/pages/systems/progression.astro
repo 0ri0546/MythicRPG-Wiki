@@ -7,12 +7,12 @@ import { catalog, sitePath } from '../../lib/catalog';
 const progression = catalog.systems.progression;
 const progressionValues = catalog.values.filter((value) => value.id.startsWith('progression.'));
 ---
-<BaseLayout title="Progression globale" description="Courbe d’expérience interactive commune aux neuf skills de MythicRPG.">
+<BaseLayout title="Progression globale" description="Courbe d’expérience statique commune aux neuf skills de MythicRPG.">
   <nav class="breadcrumbs"><a href={sitePath('systems/')}>Systèmes</a><span>/</span><span>Progression globale</span></nav>
   <header class="page-header">
-    <div class="badge-row"><StatusBadge status={progression.status} /><span class="status-badge">9 skills</span><span class="status-badge">Interactif</span></div>
+    <div class="badge-row"><StatusBadge status={progression.status} /><span class="status-badge">9 skills</span><span class="status-badge">SVG statique</span></div>
     <h1>Progression globale</h1>
-    <p>La même courbe s’applique aux neuf skills. Explorez son coût par niveau, son cumul et calculez une progression sans recopier aucune valeur dans la page.</p>
+    <p>La même courbe s’applique aux neuf skills. Cette page présente une courbe SVG statique de l’XP cumulée et conserve le calculateur textuel pour estimer une progression sans recopier aucune valeur dans la page.</p>
   </header>
 
   <section class="data-callout">
@@ -45,7 +45,7 @@ const progressionValues = catalog.values.filter((value) => value.id.startsWith('
 
   <aside class="source-panel">
     <h2>Portée et validation</h2>
-    <p>Le graphique et les calculateurs sont produits à partir du catalogue généré par Python. Ils ne contiennent pas de copie manuelle de la formule.</p>
+    <p>La courbe SVG statique et le calculateur textuel sont produits à partir du catalogue généré par Python. Ils ne contiennent pas de copie manuelle de la formule.</p>
     <p>Ces données ont seulement été inspectées statiquement. Aucun build Gradle, lancement Minecraft ou test en jeu n’est déduit de cette page.</p>
   </aside>
 </BaseLayout>

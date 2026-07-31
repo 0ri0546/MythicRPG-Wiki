@@ -312,3 +312,32 @@ th { color: var(--muted); }
   .bar-row { grid-template-columns: minmax(80px, .8fr) 1fr 3.8rem; font-size: .8rem; }
   .comparison-row { grid-template-columns: 1fr .8fr .8fr; font-size: .8rem; }
 }
+
+
+
+.xp-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(250px, .45fr); gap: 1rem; }
+.chart-column { min-width: 0; }
+.chart-frame { position: relative; min-width: 0; }
+.calculator-panel { padding: 1rem; border: 1px solid var(--line); border-radius: 10px; background: var(--panel-2); }
+.calculator-panel label { display: flex; flex-direction: column; margin-bottom: .7rem; }
+@media (max-width: 900px) {
+  .xp-layout { grid-template-columns: 1fr; }
+}
+
+/* XP curve v0.2.1 */
+.static-chart-layout { align-items: start; }
+.static-xp-chart { display: block; width: 100%; height: auto; min-height: 340px; border: 1px solid var(--line); border-radius: 10px; background: linear-gradient(180deg, #121812 0%, #0f140f 100%); }
+.static-chart-frame { min-width: 0; }
+.static-xp-chart .chart-grid line { stroke: #2d382b; stroke-width: 1; }
+.static-xp-chart .chart-grid text,
+.static-xp-chart .chart-axis text,
+.static-xp-chart .axis-label,
+.static-xp-chart .chart-reference-points text { fill: var(--muted); font-size: 13px; }
+.static-xp-chart .chart-axis line { stroke: #5a6c54; stroke-width: 1.2; }
+.static-xp-chart .chart-reference-lines line { stroke: rgba(158, 211, 106, .18); stroke-dasharray: 6 6; }
+.static-xp-chart .chart-line { fill: none; stroke: var(--accent); stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+.static-xp-chart .chart-reference-points circle { fill: var(--accent-strong); stroke: #0f140f; stroke-width: 2; }
+.static-xp-chart .axis-label { font-weight: 700; }
+@media (max-width: 650px) {
+  .static-xp-chart { min-height: 280px; }
+}

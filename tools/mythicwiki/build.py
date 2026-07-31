@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import json
 import shutil
+import unicodedata
 from pathlib import Path
 from typing import Any
+
+import yaml
 
 from .editorial import load_skill_editorial
 from .java_extract import extract_literal_registrations, extract_skill_ids, extract_skill_tree, load_documented_values
@@ -25,6 +28,57 @@ from .v040_extract import (
 )
 from .utils import tree_sha256, write_json
 
+
+
+def _normalized_search(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value.casefold())
+    return "".join(character for character in normalized if not unicodedata.combining(character))
+
+
+def _apply_perk_icons(project_root: Path, skills: list[dict[str, Any]], items: list[dict[str, Any]]) -> dict[str, int]:
+    config_path = project_root / "config/perk_icons.yaml"
+    config = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
+    defaults = config.get("defaults") or {}
+    rules = config.get("rules") or []
+    item_lookup = {item["id"]: item for item in items}
+    counts = {"specific": 0, "fallback": 0, "missing_texture": 0}
+    for skill in skills:
+        default_id = str(defaults.get(skill["id"], ""))
+        for node in skill["nodes"]:
+            haystack = _normalized_search(" ".join([
+                node["names"].get("fr", ""),
+                node["names"].get("en", ""),
+                node["descriptions"].get("fr", ""),
+                node["descriptions"].get("en", ""),
+                " ".join(bonus.get("type", "") for bonus in node.get("bonuses", [])),
+            ]))
+            chosen_id = default_id
+            mapping_kind = "fallback"
+            matched_terms: list[str] = []
+            for rule in rules:
+                if rule.get("skill") != skill["id"]:
+                    continue
+                terms = [str(term) for term in rule.get("terms", [])]
+                if any(_normalized_search(term) in haystack for term in terms):
+                    chosen_id = str(rule.get("icon", default_id))
+                    mapping_kind = "specific"
+                    matched_terms = terms
+                    break
+            item = item_lookup.get(chosen_id)
+            fallback_name = chosen_id.replace("_", " ").title() if chosen_id else skill["names"]["fr"]
+            node["icon"] = {
+                "item_id": chosen_id or None,
+                "identifier": item["identifier"] if item else None,
+                "texture": item["texture"] if item else None,
+                "names": item["names"] if item else {"fr": fallback_name, "en": fallback_name},
+                "mapping": mapping_kind,
+                "matched_terms": matched_terms,
+                "source": "config/perk_icons.yaml",
+            }
+            counts[mapping_kind] += 1
+            if not node["icon"]["texture"]:
+                counts["missing_texture"] += 1
+    return counts
 
 def _skill_tree_path(java_root: Path, skill_id: str) -> Path:
     return java_root / f"com/mythicrpg/{skill_id}/{skill_id.title().replace('_', '')}SkillTree.java"
@@ -78,7 +132,7 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
     locales = load_translations(resources_root)
     literal_regs = extract_literal_registrations(java_root)
     items, blocks = extract_content(resources_root, public_generated, locales, literal_regs)
-    recipes = extract_recipes(resources_root, locales)
+    recipes = extract_recipes(resources_root, locales, items, project_root / "config/recipe_tag_variants.yaml")
     editorial = load_skill_editorial(project_root / "documentation/content")
     skill_ids = extract_skill_ids(java_root / "com/mythicrpg/core/SkillType.java")
 
@@ -125,6 +179,8 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
         skill["analysis"] = extract_skill_analysis(skill)
         skills.append(skill)
 
+    perk_icon_counts = _apply_perk_icons(project_root, skills, items)
+
     values, value_errors = load_documented_values(project_root / "config/documented_values.yaml", java_root)
     errors.extend(value_errors)
 
@@ -166,7 +222,7 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
     }
 
     catalog = {
-        "schema_version": "0.4.0",
+        "schema_version": "0.4.1",
         "source": {
             "canonical_source": "src(92).zip",
             "received_archive": "src(92).zip",
@@ -302,6 +358,12 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
             "recipes": len(recipes),
             "documented_values": len(values),
             "search_entries": len(search_entries),
+            "recipes_shaped": sum(recipe["visual"]["kind"] == "shaped" for recipe in recipes),
+            "recipes_shapeless": sum(recipe["visual"]["kind"] == "shapeless" for recipe in recipes),
+            "recipes_with_visuals": sum(bool(recipe.get("visual")) for recipe in recipes),
+            "perk_icons_specific": perk_icon_counts["specific"],
+            "perk_icons_fallback": perk_icon_counts["fallback"],
+            "perk_icons_missing_texture": perk_icon_counts["missing_texture"],
             "items_confirmed": sum(item["registration_status"] == "confirmed" for item in items),
             "items_dynamic_probable": sum(item["registration_status"] == "dynamic_probable" for item in items),
             "items_model_only": sum(item["registration_status"] == "model_only" for item in items),

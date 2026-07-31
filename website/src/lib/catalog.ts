@@ -19,6 +19,15 @@ export interface PerkNode {
   poison_on_hit: { amplifier: number; duration_ticks: number } | null;
   names: LocalizedText;
   descriptions: LocalizedText;
+  icon: {
+    item_id: string | null;
+    identifier: string | null;
+    texture: string | null;
+    names: LocalizedText;
+    mapping: 'specific' | 'fallback';
+    matched_terms: string[];
+    source: string;
+  };
   extraction: { method: string; file: string };
 }
 
@@ -89,13 +98,39 @@ export interface BlockEntry {
   extraction: { method: string; file: string };
 }
 
+export interface RecipeVisualItem {
+  id: string;
+  names: LocalizedText;
+  texture: string | null;
+}
+
+export interface RecipeIngredient {
+  kind: 'item' | 'tag' | 'unknown';
+  id: string;
+  names: LocalizedText;
+  representative: RecipeVisualItem;
+  variants: RecipeVisualItem[];
+  variant_count: number;
+  variants_complete: boolean;
+}
+
 export interface RecipeEntry {
   id: string;
   type: string;
-  result: { id: string; count: number; names: LocalizedText };
+  result: { id: string; count: number; names: LocalizedText; texture: string | null };
   ingredients: string[];
   pattern: string[] | null;
   group: string | null;
+  category: string | null;
+  visual: {
+    kind: 'shaped' | 'shapeless' | 'station';
+    station: string;
+    slots: Array<RecipeIngredient | null>;
+    ingredients: RecipeIngredient[];
+    pattern_width: number | null;
+    pattern_height: number | null;
+    shiftable: boolean;
+  };
   extraction: { method: string; file: string };
 }
 

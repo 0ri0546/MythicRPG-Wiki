@@ -1,40 +1,45 @@
-# Rapport de seconde relecture — MythicRPG Wiki v0.4.0
+# Rapport de seconde relecture — MythicRPG Wiki v0.4.1
 
-## Résultat
+## Périmètre relu
 
-La seconde relecture indépendante est **validée pour le périmètre statique**.
+- extraction Python et catalogue ;
+- rendu des recettes ;
+- mapping des icônes de perks ;
+- arbres et zones cliquables ;
+- calculateurs numériques ;
+- filtres Eating ;
+- styles partagés de formulaires ;
+- versions, lockfile, workflow et scripts ;
+- intégrité de `mod-source/src` ;
+- exclusions de l’archive finale.
 
-## Contrôles exécutés
+## Origine des corrections
 
-- génération complète du catalogue : réussie ;
-- 50 tests Python : réussis ;
-- `scripts/verify_delivery.py` : réussi pour le périmètre statique ;
-- 603 fichiers texte relus en UTF-8 ;
-- 516 fichiers JSON chargés ;
-- 2 fichiers YAML chargés ;
-- 18 frontmatters Markdown validés ;
-- 17 fichiers Python compilés syntaxiquement ;
-- 29 fichiers Astro contrôlés ;
-- 752 entrées de recherche vérifiées ;
-- aucune affectation navigateur avec `.innerHTML` ;
-- versions actives alignées sur `0.4.0` ;
-- absence de chemins absolus locaux dans les données générées ;
-- `package-lock.json` et workflow GitHub Pages conservés ;
-- règle `mod-source/src/** -text` conservée.
+### Zones cliquables des perks
 
-## Source du mod
+Le gestionnaire de déplacement testait uniquement si `event.target` était directement un `HTMLButtonElement`. Un clic sur le numéro ou l’image produisait un élément enfant comme cible et déclenchait le déplacement au lieu du node. Le test utilise maintenant `closest('[data-node]')`, et les descendants décoratifs ne capturent plus les événements.
 
-- fichiers : 1 206 ;
-- empreinte d’arbre : `d39d740f8d5f36d37a0e24539287247e1b98c89f49c47a6a99fd6a83988b8b3f` ;
-- modification de `mod-source/src` : aucune.
+### Filtre Eating
 
-## Build Astro
+Le filtre comparait une chaîne en minuscules contenant principalement identifiants et catégories. Les noms traduits des ingrédients n’étaient pas inclus dans les recettes, et les accents n’étaient pas normalisés. Les données de recherche comprennent désormais identifiant, noms français/anglais et catégories ; la comparaison utilise une normalisation Unicode NFD commune.
 
-Le build n’a pas pu être lancé après l’échec de `npm ci` sur le miroir npm interne (`zwitch@2.0.4`, réponse 404). La topologie correspond à 401 pages attendues, mais ce nombre n’est pas présenté comme un build validé ici.
+### Calculateurs
 
-## Interdictions respectées
+Les composants bornaient puis réécrivaient la valeur pendant chaque événement `input`. La chaîne vide était immédiatement convertie en minimum. La lecture et l’écriture sont maintenant séparées : lecture non destructive pendant la frappe, commit au `blur`.
 
-- Gradle non exécuté ;
-- Minecraft non lancé ;
-- code du mod non modifié ;
-- aucun ancien `dist` réutilisé.
+### Recettes
+
+L’ancien extracteur conservait les ingrédients mais perdait l’affectation clé → symbole du motif shaped. Le nouvel extracteur normalise le motif, la clé et les slots avant le rendu Astro.
+
+## Résultats attendus de la validation
+
+- 188 recettes visuelles ;
+- 180 perks avec mapping ;
+- 59 tests Python ;
+- `src(92)` inchangée ;
+- aucun `innerHTML` ;
+- aucun ancien build dans l’archive.
+
+## Limite
+
+Le build Astro n’a pas pu être validé dans cet environnement en raison de l’indisponibilité d’une archive npm verrouillée. Cette limite est explicitement documentée et n’est pas présentée comme un succès.

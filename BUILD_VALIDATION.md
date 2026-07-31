@@ -1,39 +1,36 @@
-# Validation du build Astro v0.4.0
+# Validation du build Astro v0.4.1
 
-## Environnement disponible
+## État des prérequis
 
-- Node.js : `v22.16.0`
-- npm : `10.9.2`
-- lockfile : présent, version de projet `0.4.0`
+- `website/package-lock.json` : présent, version de projet `0.4.1` ;
+- workflow GitHub Pages : conservé ;
+- script multiplateforme `scripts/build_all.py` : conservé ;
+- ancien `website/dist` : supprimé avant livraison.
 
-## Commande réellement exécutée
+## Commandes réellement tentées
+
+### Miroir npm de l’environnement
 
 ```bash
 cd website
 npm ci --no-audit --no-fund
 ```
 
-## Résultat réel
+Résultat : échec `E404` sur l’archive verrouillée `zwitch@2.0.4` du miroir npm interne.
 
-La commande s’est arrêtée avec le code `1` avant le build Astro. Le miroir npm interne disponible dans l’environnement ne fournit pas l’archive verrouillée suivante :
-
-```text
-404 Not Found
-zwitch-2.0.4.tgz
-```
-
-Le journal brut est conservé dans `validation/build-attempt-v0.4.0.log`.
-
-`npm run build` n’a donc pas été exécuté et aucun dossier `website/dist` n’est livré. Aucun ancien build n’est utilisé comme preuve.
-
-## État de la source
-
-La topologie des routes produit **401 pages attendues** : 8 pages statiques, 9 pages de skills, 196 pages d’objets et 188 pages de recettes. Ce nombre est vérifié statiquement, mais n’est pas présenté comme un build Astro réussi dans cet environnement.
-
-L’archive reste compatible avec la chaîne validée du projet :
+### Registre npm public
 
 ```bash
-py scripts/build_all.py
+npm ci --registry=https://registry.npmjs.org --no-audit --no-fund
 ```
 
-Cette commande relancera l’extraction, les tests, `npm ci`, le build Astro et la vérification exigeant un `dist` à jour dans un environnement disposant du registre npm complet.
+Résultat : la commande n’a produit aucune réponse exploitable avant l’expiration du délai de l’environnement et a été interrompue. Le répertoire partiel `node_modules` a été supprimé.
+
+## Statut honnête
+
+- `npm ci` : non terminé ;
+- `npm run build` : non exécuté après installation propre ;
+- build Astro v0.4.1 : non validé dans cet environnement ;
+- archive : compatible avec la chaîne validée `python scripts/build_all.py` sur Windows ou GitHub Actions disposant du registre npm.
+
+Les journaux sont conservés dans `validation/npm-ci-v0.4.1.log` et `validation/build-attempt-v0.4.1.log`.

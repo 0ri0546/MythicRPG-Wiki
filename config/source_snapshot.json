@@ -1,6 +1,6 @@
 {
-  "schema_version": "4.0",
-  "project_version": "0.4.0",
+  "schema_version": "4.1",
+  "project_version": "0.4.1",
   "canonical_source": "src(92).zip",
   "received_archive": "src(92).zip",
   "archive_sha256": "4b27706a74060dee996d9c369aa83387e6d68bda2cc69f1be9a5349d3b0c9b96",
@@ -39,7 +39,13 @@
     "building_static_effects": 32,
     "farming_harvest_categories": 4,
     "farming_living_field_blocks": 16,
-    "woodcutting_chest_modules": 3
+    "woodcutting_chest_modules": 3,
+    "recipes_shaped": 129,
+    "recipes_shapeless": 59,
+    "recipes_with_visuals": 188,
+    "perk_icons_specific": 95,
+    "perk_icons_fallback": 85,
+    "perk_icons_missing_texture": 46
   },
   "tracked_values": {
     "progression.xp_curve_coefficient": 19.5,

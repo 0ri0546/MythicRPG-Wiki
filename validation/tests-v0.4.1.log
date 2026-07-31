@@ -48,8 +48,17 @@ test_traveling_server_and_persistence_rules (test_v040_features.V040FeatureTests
 test_v040_versions_and_delivery_constraints (test_v040_features.V040FeatureTests.test_v040_versions_and_delivery_constraints) ... ok
 test_woodcutting_chest_modules_are_safe_and_complete (test_v040_features.V040FeatureTests.test_woodcutting_chest_modules_are_safe_and_complete) ... ok
 test_woodcutting_xp_drops_and_tools (test_v040_features.V040FeatureTests.test_woodcutting_xp_drops_and_tools) ... ok
+test_all_calculators_use_deferred_number_commit (test_v041_features.V041FeatureTests.test_all_calculators_use_deferred_number_commit) ... ok
+test_all_perks_have_centralized_icons (test_v041_features.V041FeatureTests.test_all_perks_have_centralized_icons) ... ok
+test_checkboxes_use_shared_vertical_alignment (test_v041_features.V041FeatureTests.test_checkboxes_use_shared_vertical_alignment) ... ok
+test_eating_filters_search_translated_ingredients (test_v041_features.V041FeatureTests.test_eating_filters_search_translated_ingredients) ... ok
+test_every_recipe_has_visual_data (test_v041_features.V041FeatureTests.test_every_recipe_has_visual_data) ... ok
+test_perk_click_target_covers_children (test_v041_features.V041FeatureTests.test_perk_click_target_covers_children) ... ok
+test_recipe_component_is_visual_and_accessible (test_v041_features.V041FeatureTests.test_recipe_component_is_visual_and_accessible) ... ok
+test_tag_ingredients_explain_variants (test_v041_features.V041FeatureTests.test_tag_ingredients_explain_variants) ... ok
+test_v041_versions_and_snapshot (test_v041_features.V041FeatureTests.test_v041_versions_and_snapshot) ... ok
 
 ----------------------------------------------------------------------
-Ran 50 tests in 1.631s
+Ran 59 tests in 1.811s
 
 OK

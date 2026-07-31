@@ -1,0 +1,12 @@
+BUILD ATTEMPT v0.4.1
+
+1. npm ci --no-audit --no-fund
+   Result: FAILED, E404 for zwitch@2.0.4 on the internal npm mirror.
+
+2. npm ci --registry=https://registry.npmjs.org --no-audit --no-fund
+   Result: no usable response before the environment timeout; process stopped.
+
+3. npm run build
+   Not executed because a clean reproducible npm installation did not complete.
+
+No previous website/dist is included in the delivery.

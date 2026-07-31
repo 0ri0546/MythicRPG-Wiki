@@ -1,0 +1,294 @@
+defaults:
+  mining: fossil_drill
+  fighting: barons_doll
+  woodcutting: enchanted_axe
+  farming: enchanted_seed
+  crafting: lucky_block
+  traveling: grappling_hook
+  building: builder_wand
+  fishing: mythic_fishing_rod
+  eating: chef_notebook
+rules:
+- skill: mining
+  terms:
+  - filon
+  - vein
+  - minerai
+  - ore
+  icon: fossil_drill
+- skill: mining
+  terms:
+  - fossile
+  - fossil
+  - archéolog
+  - archaeolog
+  icon: fossil_palette
+- skill: mining
+  terms:
+  - incub
+  - squelette
+  - skeleton
+  icon: fossil_incubator
+- skill: fighting
+  terms:
+  - baron
+  icon: barons_doll
+- skill: fighting
+  terms:
+  - feu
+  - fire
+  - flamme
+  - flame
+  icon: fire_wand
+- skill: fighting
+  terms:
+  - araignée
+  - spider
+  - poison
+  icon: spider_wand
+- skill: fighting
+  terms:
+  - wither
+  - bouclier
+  - shield
+  icon: wither_shield
+- skill: fighting
+  terms:
+  - rayon
+  - beam
+  - coeur
+  - heart
+  icon: heart_of_the_beam
+- skill: woodcutting
+  terms:
+  - hache
+  - axe
+  - coupe
+  - cut
+  icon: enchanted_axe
+- skill: woodcutting
+  terms:
+  - bois enchanté
+  - enchanted wood
+  icon: enchanted_wood
+- skill: woodcutting
+  terms:
+  - coffre
+  - chest
+  - stockage
+  - storage
+  icon: chest_module_1
+- skill: farming
+  terms:
+  - graine
+  - seed
+  - semence
+  icon: enchanted_seed
+- skill: farming
+  terms:
+  - fleur
+  - flower
+  icon: enchanted_flower
+- skill: farming
+  terms:
+  - croissance
+  - growth
+  - totem
+  icon: growth_totem
+- skill: farming
+  terms:
+  - sac
+  - backpack
+  - nourriture
+  - food
+  icon: food_backpack
+- skill: crafting
+  terms:
+  - chance
+  - lucky
+  - bloc chanceux
+  icon: lucky_block
+- skill: crafting
+  terms:
+  - réparation
+  - repair
+  icon: repair_kit
+- skill: crafting
+  terms:
+  - expérience
+  - experience
+  - charme
+  - charm
+  icon: exp_charm
+- skill: crafting
+  terms:
+  - transformation
+  - temporel
+  - temporal
+  icon: temporal_machine
+- skill: crafting
+  terms:
+  - pile
+  - face
+  - coin
+  icon: coin_toss_blessed
+- skill: traveling
+  terms:
+  - grappin
+  - grappling
+  icon: grappling_hook
+- skill: traveling
+  terms:
+  - rappel
+  - recall
+  - mort
+  - death
+  icon: death_recall_token
+- skill: traveling
+  terms:
+  - bateau
+  - boat
+  icon: traveler_boat
+- skill: traveling
+  terms:
+  - wagon
+  - minecart
+  icon: traveler_minecart
+- skill: traveling
+  terms:
+  - miniatur
+  - petit
+  - small
+  icon: miniaturization_charm
+- skill: traveling
+  terms:
+  - phantom
+  - vol
+  - flying
+  icon: phantom_saddle
+- skill: traveling
+  terms:
+  - selle
+  - saddle
+  - monture
+  - mount
+  icon: pig_saddle
+- skill: building
+  terms:
+  - plan 2d
+  - 2d
+  icon: building_plan_2d
+- skill: building
+  terms:
+  - plan 3d
+  - 3d
+  icon: building_plan_3d
+- skill: building
+  terms:
+  - compas
+  - compass
+  - architecte
+  - architect
+  icon: architect_compass
+- skill: building
+  terms:
+  - réserve
+  - reserve
+  - coffre
+  - chest
+  icon: building_reserve_chest
+- skill: building
+  terms:
+  - miniature
+  icon: building_miniature_project
+- skill: building
+  terms:
+  - décoration
+  - decoration
+  - statique
+  - static
+  icon: static_decoration_generator
+- skill: building
+  terms:
+  - module
+  - structure
+  icon: structure_module
+- skill: building
+  terms:
+  - bloc vierge
+  - blank
+  icon: blank_block
+- skill: fishing
+  terms:
+  - appât
+  - bait
+  icon: fishing_bait_i
+- skill: fishing
+  terms:
+  - rune
+  icon: fishing_rune_rarity
+- skill: fishing
+  terms:
+  - bateau
+  - boat
+  icon: fishing_boat
+- skill: fishing
+  terms:
+  - météo
+  - weather
+  - tempête
+  - storm
+  icon: fishing_weather_wand
+- skill: fishing
+  terms:
+  - nessie
+  icon: nessie_charm
+- skill: fishing
+  terms:
+  - megalodon
+  icon: megalodon_charm
+- skill: fishing
+  terms:
+  - baleine
+  - whale
+  icon: whale_charm
+- skill: fishing
+  terms:
+  - armure
+  - armor
+  - écaille
+  - scale
+  icon: fishing_armor_common_chestplate
+- skill: fishing
+  terms:
+  - canne
+  - rod
+  icon: mythic_fishing_rod
+- skill: eating
+  terms:
+  - chef
+  - cuisine
+  - cooking
+  icon: chef_notebook
+- skill: eating
+  terms:
+  - livraison
+  - delivery
+  icon: delivery_phone
+- skill: eating
+  terms:
+  - plat signature
+  - signature
+  icon: signature_dish
+- skill: eating
+  terms:
+  - sac
+  - backpack
+  icon: food_backpack
+- skill: eating
+  terms:
+  - plat
+  - dish
+  - repas
+  - meal
+  icon: prepared_dish

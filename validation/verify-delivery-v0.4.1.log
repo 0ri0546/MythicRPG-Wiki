@@ -48,15 +48,24 @@ test_traveling_server_and_persistence_rules (test_v040_features.V040FeatureTests
 test_v040_versions_and_delivery_constraints (test_v040_features.V040FeatureTests.test_v040_versions_and_delivery_constraints) ... ok
 test_woodcutting_chest_modules_are_safe_and_complete (test_v040_features.V040FeatureTests.test_woodcutting_chest_modules_are_safe_and_complete) ... ok
 test_woodcutting_xp_drops_and_tools (test_v040_features.V040FeatureTests.test_woodcutting_xp_drops_and_tools) ... ok
+test_all_calculators_use_deferred_number_commit (test_v041_features.V041FeatureTests.test_all_calculators_use_deferred_number_commit) ... ok
+test_all_perks_have_centralized_icons (test_v041_features.V041FeatureTests.test_all_perks_have_centralized_icons) ... ok
+test_checkboxes_use_shared_vertical_alignment (test_v041_features.V041FeatureTests.test_checkboxes_use_shared_vertical_alignment) ... ok
+test_eating_filters_search_translated_ingredients (test_v041_features.V041FeatureTests.test_eating_filters_search_translated_ingredients) ... ok
+test_every_recipe_has_visual_data (test_v041_features.V041FeatureTests.test_every_recipe_has_visual_data) ... ok
+test_perk_click_target_covers_children (test_v041_features.V041FeatureTests.test_perk_click_target_covers_children) ... ok
+test_recipe_component_is_visual_and_accessible (test_v041_features.V041FeatureTests.test_recipe_component_is_visual_and_accessible) ... ok
+test_tag_ingredients_explain_variants (test_v041_features.V041FeatureTests.test_tag_ingredients_explain_variants) ... ok
+test_v041_versions_and_snapshot (test_v041_features.V041FeatureTests.test_v041_versions_and_snapshot) ... ok
 
 ----------------------------------------------------------------------
-Ran 50 tests in 1.613s
+Ran 59 tests in 1.829s
 
 OK
 Seconde vérification indépendante: OK pour le périmètre statique
 Pages Astro: 11
 Fichiers source du mod préservés: 1206
-Rapport: {'skills': 9, 'perks': 180, 'items': 196, 'blocks': 34, 'recipes': 188, 'documented_values': 50, 'search_entries': 752, 'items_confirmed': 93, 'items_dynamic_probable': 40, 'items_model_only': 63, 'fossil_families': 5, 'fossil_rarities': 5, 'cooking_recipes': 47, 'culinary_ingredients': 50, 'fishing_families': 5, 'fishing_rarities': 5, 'sea_monsters': 3, 'baron_types': 25, 'baron_legendary_items': 5, 'craft_score_items': 55, 'craft_transformations': 48, 'craft_recycle_groups': 4, 'lucky_block_events': 21, 'traveling_mounts': 22, 'traveling_structure_modules': 22, 'building_xp_blocks': 156, 'building_vertical_slabs': 20, 'building_static_effects': 32, 'farming_harvest_categories': 4, 'farming_living_field_blocks': 16, 'woodcutting_chest_modules': 3}
+Rapport: {'skills': 9, 'perks': 180, 'items': 196, 'blocks': 34, 'recipes': 188, 'documented_values': 50, 'search_entries': 752, 'recipes_shaped': 129, 'recipes_shapeless': 59, 'recipes_with_visuals': 188, 'perk_icons_specific': 95, 'perk_icons_fallback': 85, 'perk_icons_missing_texture': 46, 'items_confirmed': 93, 'items_dynamic_probable': 40, 'items_model_only': 63, 'fossil_families': 5, 'fossil_rarities': 5, 'cooking_recipes': 47, 'culinary_ingredients': 50, 'fishing_families': 5, 'fishing_rarities': 5, 'sea_monsters': 3, 'baron_types': 25, 'baron_legendary_items': 5, 'craft_score_items': 55, 'craft_transformations': 48, 'craft_recycle_groups': 4, 'lucky_block_events': 21, 'traveling_mounts': 22, 'traveling_structure_modules': 22, 'building_xp_blocks': 156, 'building_vertical_slabs': 20, 'building_static_effects': 32, 'farming_harvest_categories': 4, 'farming_living_field_blocks': 16, 'woodcutting_chest_modules': 3}
 Lockfile présent: True
 Build Astro validé: False
 BUILD À REFAIRE: voir BUILD_VALIDATION.md

@@ -19,4 +19,4 @@ multiplayer: "L’attribution d’XP, la cuisson et la livraison sont côté ser
 ---
 # Eating
 
-The v0.4.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.
+The v0.4.1 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import RecipeVisual from '../../components/RecipeVisual.astro';
 import { catalog, readableIdentifier, sitePath, type RecipeEntry } from '../../lib/catalog';
 export function getStaticPaths() {
   return catalog.recipes.map((recipe) => ({ params: { id: recipe.id }, props: { recipe } }));
@@ -9,8 +10,9 @@ const { recipe } = Astro.props as { recipe: RecipeEntry };
 <BaseLayout title={`Recette · ${recipe.result.names.fr}`}>
   <nav class="breadcrumbs"><a href={sitePath('recipes/')}>Recettes</a><span>/</span><span>{recipe.id}</span></nav>
   <header class="page-header"><p class="eyebrow">{recipe.type}</p><h1>{recipe.result.names.fr}</h1><p>{recipe.result.count} × <code>{recipe.result.id}</code></p></header>
+  <RecipeVisual recipe={recipe} />
   <div class="two-column">
-    <section><h2>Ingrédients</h2><ul class="ingredient-list">{recipe.ingredients.map((ingredient) => <li><code>{ingredient}</code><span>{readableIdentifier(ingredient)}</span></li>)}</ul></section>
-    <aside class="source-panel"><h2>Provenance</h2><code>{recipe.extraction.file}</code>{recipe.pattern && <><h3>Motif</h3><pre>{recipe.pattern.join('\n')}</pre></>}</aside>
+    <section><h2>Données textuelles</h2><ul class="ingredient-list">{recipe.ingredients.map((ingredient) => <li><code>{ingredient}</code><span>{readableIdentifier(ingredient)}</span></li>)}</ul></section>
+    <aside class="source-panel"><h2>Provenance</h2><code>{recipe.extraction.file}</code>{recipe.pattern && <><h3>Motif source</h3><pre>{recipe.pattern.join('\n')}</pre></>}</aside>
   </div>
 </BaseLayout>

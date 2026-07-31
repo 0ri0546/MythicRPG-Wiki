@@ -1,5 +1,5 @@
 {
-  "schema_version": "0.3.0",
+  "schema_version": "0.4.0",
   "source": {
     "canonical_source": "src(92).zip",
     "received_archive": "src(92).zip",
@@ -31,7 +31,7 @@
       "editorial": {
         "en": {
           "summary": "Mine, automate connected ore veins, and explore the fossil archaeology loop.",
-          "body_markdown": "# Mining\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Mining\n\nThe v0.4.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "Vein Mining et Minage 3×3",
             "Cinq familles et cinq raretés de fossiles",
@@ -1694,37 +1694,39 @@
         "website",
         "encyclopedia"
       ],
-      "coverage": "structured",
+      "coverage": "deep",
       "editorial": {
         "en": {
-          "summary": "Expand wood gathering, tree felling, growth, and modular storage.",
-          "body_markdown": "# Woodcutting\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "summary": "Cut logs, fell trees, obtain rare rewards and expand vanilla chests with persistent modules.",
+          "body_markdown": "# Woodcutting\n\nWoodcutting progresses on vanilla log-tag blocks. Leaves do not directly grant skill XP. The tree develops yield, rare resources, growth, felling and storage.\n\n## XP and Timber\n\nEvery valid log grants the extracted value. Timber requires an axe and searches same-type blocks, up to 32 additional logs, each with its own XP.\n\n## Extra drops\n\nDouble-drop tiers, Enchanted Wood chances, random saplings and Golden Apple chance come from the perk tree. Silk Touch disables extra leaf rewards.\n\n## Tree growth\n\nThe growth perk detects a sneak transition, applies a cooldown, searches a radius and limits triggered saplings. Growth itself grants no cutting XP.\n\n## Enchanted Axe and Wood Eater\n\nEnchanted Axe affects arrows, snowballs and eggs from the offhand, charges durability and marks duplicates Creative-only pickup. Wood Eater consumes log-tag items for hunger and saturation.\n\n## Chest Modules\n\nModules I–III expand vanilla chest capacity, including double chests. Hoppers only access active capacity and module slots are not automatable. Shrinking succeeds only when every item fits, followed by an atomic repack. Module and extra storage data are persistent per physical chest and server-managed.",
           "key_systems": [
-            "Bois enchanté et bonus de butin",
-            "Croissance et pousses",
-            "Abattage complet des arbres",
-            "Modules de coffre et Hache enchantée"
+            "2 XP per minecraft:logs block",
+            "Timber limited to 32 additional logs",
+            "Enchanted Wood, saplings, apples and double drops",
+            "Enchanted Axe and wood consumption",
+            "Chest Modules I–III up to 108 slots"
           ],
           "xp_sources": [
-            "Casser les bûches reconnues par Woodcutting",
-            "Conversion optionnelle vers l’expérience vanilla via un perk"
+            "Server break events for blocks in minecraft:logs",
+            "Each additional Timber log uses the same XP value"
           ],
-          "multiplayer": "Les événements de coupe et les inventaires modulaires sont gérés côté serveur. Les capacités de coffre doivent être vérifiées en jeu lors des régressions."
+          "multiplayer": "Breaks, Timber, projectiles and modular inventories are server-authoritative. Module changes are transactional to prevent loss or duplication."
         },
         "fr": {
-          "summary": "Développez la récolte du bois, l’abattage, les pousses et les modules de stockage.",
-          "body_markdown": "# Bûcheronnage\n\nWoodcutting transforme la coupe du bois en progression spécialisée. Les branches couvrent le double butin, le Bois enchanté, la croissance des arbres, l’abattage complet et le stockage modulaire.\n\n## Stockage modulaire\n\nLes perks 15 à 17 débloquent trois niveaux de modules destinés aux coffres vanilla. Le wiki relie les perks aux objets détectés et signale le niveau de preuve de leur enregistrement.\n\n## Confort de récolte\n\nLes perks finaux proposent une Hache enchantée, la possibilité de manger du bois et la suppression de la perte de durabilité des haches.",
+          "summary": "Coupez les bûches, abattez des arbres, obtenez des récompenses rares et agrandissez les coffres vanilla avec des modules persistants.",
+          "body_markdown": "# Bûcheronnage\n\nWoodcutting progresse sur les bûches reconnues par le tag vanilla. Les feuilles ne donnent pas directement d’XP de skill. L’arbre développe les quantités récoltées, les ressources rares, la croissance des arbres, l’abattage et le stockage.\n\n## XP et Timber\n\nChaque bûche validée donne la valeur extraite du code. Timber exige une hache et recherche des blocs du même type, jusqu’à 32 bûches supplémentaires. Chaque bloc secondaire attribue sa propre XP. La recherche et les cassures sont effectuées côté serveur.\n\n## Butins supplémentaires\n\nLes trois paliers de double drop, les quatre chances de Bois enchanté, la pousse aléatoire et la Pomme dorée sont lus dans l’arbre des perks. Le pool de pousses comprend les essences vanilla reconnues par le gestionnaire. Silk Touch désactive les récompenses supplémentaires issues des feuilles afin de conserver un comportement cohérent avec la collecte du bloc lui-même.\n\n## Croissance des arbres\n\nLe perk dédié détecte une transition en position accroupie, applique un cooldown, recherche dans un rayon et limite le nombre de pousses déclenchées. Il accélère la croissance sans attribuer directement l’XP de coupe.\n\n## Hache enchantée et Wood Eater\n\nLa Hache enchantée agit depuis la main secondaire sur les flèches, boules de neige et œufs. Les projectiles dupliqués ne peuvent être ramassés qu’en créatif, et la hache paie un coût de durabilité. Wood Eater consomme des objets du tag des bûches pour restaurer faim et saturation lorsque le joueur peut manger.\n\n## Modules de coffre\n\nLes modules I, II et III ajoutent respectivement des emplacements à un coffre vanilla. Les capacités sont calculées pour les coffres simples et doubles. Les hoppers ne voient que la capacité active ; les emplacements de modules ne sont pas automatisables. Retirer ou réduire un module ne réussit que si tous les objets tiennent dans la nouvelle capacité, puis le contenu est réorganisé atomiquement.\n\nLes données de module et le stockage supplémentaire sont persistants par coffre physique. Les doubles coffres, viewers et états de couvercle sont gérés côté serveur. Ces garanties sont destinées à éviter les pertes, duplications et divergences multijoueur.",
           "key_systems": [
-            "Bois enchanté et bonus de butin",
-            "Croissance et pousses",
-            "Abattage complet des arbres",
-            "Modules de coffre et Hache enchantée"
+            "2 XP par bûche du tag minecraft:logs",
+            "Timber limité à 32 bûches supplémentaires",
+            "Bois enchanté, pousses, pommes et doubles drops",
+            "Hache enchantée et consommation de bois",
+            "Modules de coffre I, II et III jusqu’à 108 emplacements"
           ],
           "xp_sources": [
-            "Casser les bûches reconnues par Woodcutting",
-            "Conversion optionnelle vers l’expérience vanilla via un perk"
+            "Cassure serveur de blocs appartenant au tag minecraft:logs",
+            "Chaque bûche supplémentaire cassée par Timber utilise la même valeur"
           ],
-          "multiplayer": "Les événements de coupe et les inventaires modulaires sont gérés côté serveur. Les capacités de coffre doivent être vérifiées en jeu lors des régressions."
+          "multiplayer": "Les cassures, Timber, projectiles et inventaires modulaires sont autoritaires côté serveur. Les changements de modules utilisent une opération transactionnelle pour éviter perte et duplication."
         }
       },
       "nodes": [
@@ -2534,37 +2536,41 @@
         "website",
         "encyclopedia"
       ],
-      "coverage": "structured",
+      "coverage": "deep",
       "editorial": {
         "en": {
-          "summary": "Automate harvesting and unlock advanced agricultural rewards.",
-          "body_markdown": "# Farming\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "summary": "Progress through mature harvests and breeding, then develop replanting, growth and agricultural storage.",
+          "body_markdown": "# Farming\n\nFarming rewards completed agricultural actions. Harvest XP requires maturity, while breeding XP is granted only after a matching newborn is detected.\n\n## Harvest and XP\n\nStandard crops, Nether Wart and cocoa, mushroom blocks, melons and pumpkins use distinct extracted values. Recently replanted crops are briefly protected, and automatic perk growth does not directly grant XP.\n\n## Area harvest\n\nReach perks extend hoe radius. Area harvesting requires a hoe and mature supported blocks, stops at the extracted maximum and uses a reentrancy guard.\n\n## Breeding\n\nValid parents are remembered temporarily. The server matches a newborn by type, world, radius and timing before granting XP.\n\n## Growth and rewards\n\nLiving Field performs controlled growth attempts around the player across several vanilla plant families. Compost rolls among fixed resources, plantables and vanilla XP.\n\n## Items and persistence\n\nEnchanted Seed chances scale with perks. Enchanted Flower supports offhand smelting and Food Backpack integration. The 54-slot backpack rejects nesting and integrates with Eating preservation. Preserved Farmer restores vanilla XP and backpacks after player copy on death.\n\n## Interactions\n\nGrowth Totem originates in Mining archaeology but affects crops. Stored ingredients can feed Eating systems; these are optional cross-skill links.",
           "key_systems": [
-            "Replantation et récoltes abondantes",
-            "Graines et fleurs enchantées",
-            "Food Backpack de 54 emplacements",
-            "Portée des houes et croissance accélérée"
+            "Four harvest categories worth 2–4 XP",
+            "Breeding confirmed by a matching newborn",
+            "Area harvest limited to 96 blocks",
+            "Living Field, compost and growth bonuses",
+            "Enchanted Seed, Enchanted Flower and Food Backpack"
           ],
           "xp_sources": [
-            "Récoltes agricoles matures",
-            "Élevage et autres événements Farming confirmés par les gestionnaires dédiés"
+            "Manual harvesting of mature crops",
+            "Supported mushroom blocks, melons and pumpkins",
+            "Animal breeding confirmed by the newborn"
           ],
-          "multiplayer": "Les récoltes de zone et la croissance sont appliquées côté serveur. Le Food Backpack possède des données de session et de mort spécifiques."
+          "multiplayer": "Break events, breeding matching, growth and Food Backpack inventories are server controlled. Pending breeding actions are runtime-only session data."
         },
         "fr": {
-          "summary": "Cultivez, replantez automatiquement et exploitez les récompenses agricoles avancées.",
-          "body_markdown": "# Agriculture\n\nFarming récompense la culture, la récolte et l’élevage. L’arbre combine automatisation, gains supplémentaires, objets de stockage et effets contextuels.\n\n## Récolte et croissance\n\nLa replantation automatique et les perks de portée transforment les houes en outils de récolte de zone. **Champ vivant** accélère la croissance naturelle autour du joueur.\n\n## Conservation\n\nLe Food Backpack est un inventaire spécialisé de 54 emplacements. Le perk Fermier préservé protège cet inventaire et les niveaux vanilla selon les règles du gestionnaire de mort.",
+          "summary": "Progressez par les récoltes mûres et l’élevage, puis développez la replantation, la croissance et le stockage agricole.",
+          "body_markdown": "# Agriculture\n\nFarming récompense des actions agricoles terminées plutôt que la simple présence d’une plantation. L’XP de récolte exige un état mûr et l’XP d’élevage n’est accordée qu’après la détection d’un nouveau bébé correspondant à une action valide.\n\n## Récoltes et XP\n\nLes cultures standard, le Nether Wart et le cacao, les blocs de champignons, puis les melons et citrouilles utilisent des valeurs distinctes extraites du gestionnaire. La replantation récente est protégée pendant quelques ticks pour éviter une double attribution immédiate. Les croissances automatiques provoquées par les perks ne donnent pas directement d’XP : la récolte reste nécessaire.\n\n## Récolte de zone\n\nLes perks de portée augmentent le rayon des houes. Une récolte de zone exige une houe, un bloc agricole mûr et s’arrête à la limite maximale extraite. Un garde de réentrance empêche que les cassures secondaires relancent récursivement le système.\n\n## Élevage\n\nUne action d’élevage mémorise temporairement les parents lorsque l’objet utilisé et leur état sont valides. À l’apparition d’un bébé, le serveur recherche une action compatible dans le même monde, avec le bon type d’entité et dans le rayon prévu. Cette méthode limite les gains attribués sans naissance réelle.\n\n## Croissance et récompenses\n\nChamp vivant effectue un nombre contrôlé de tentatives de croissance autour du joueur et prend en charge plusieurs familles de plantes vanilla. Les récompenses de compost utilisent cinq résultats possibles, dont des ressources fixes, une plante issue d’un pool ou de l’expérience vanilla.\n\n## Objets et conservation\n\nLa Graine enchantée utilise des chances progressives issues des perks. La Fleur enchantée peut participer à la cuisson depuis la main secondaire et interagit avec le Food Backpack. Celui-ci possède 54 emplacements, accepte les ressources agricoles prévues, refuse les sacs imbriqués et s’intègre aux règles de conservation Eating. Fermier préservé conserve l’expérience vanilla et les sacs lors de la copie du joueur après une mort.\n\n## Interactions\n\nLe Growth Totem provient de l’archéologie Mining mais agit sur la croissance agricole. Les ingrédients et aliments stockés peuvent ensuite servir au skill Eating. Ces relations sont affichées comme interactions entre systèmes, pas comme obligation de progression.",
           "key_systems": [
-            "Replantation et récoltes abondantes",
-            "Graines et fleurs enchantées",
-            "Food Backpack de 54 emplacements",
-            "Portée des houes et croissance accélérée"
+            "Quatre catégories de récoltes donnant 2 à 4 XP",
+            "Élevage validé par la naissance d’un bébé compatible",
+            "Récolte de zone limitée à 96 blocs",
+            "Champ vivant, compost et bonus de croissance",
+            "Graine enchantée, Fleur enchantée et Food Backpack"
           ],
           "xp_sources": [
-            "Récoltes agricoles matures",
-            "Élevage et autres événements Farming confirmés par les gestionnaires dédiés"
+            "Récolte manuelle de cultures arrivées à maturité",
+            "Récolte de blocs de champignons, melons et citrouilles pris en charge",
+            "Reproduction animale confirmée par l’apparition du bébé"
           ],
-          "multiplayer": "Les récoltes de zone et la croissance sont appliquées côté serveur. Le Food Backpack possède des données de session et de mort spécifiques."
+          "multiplayer": "Les cassures, correspondances d’élevage, croissances et inventaires du Food Backpack sont contrôlés côté serveur. Les actions d’élevage en attente sont temporaires et propres à la session."
         }
       },
       "nodes": [
@@ -4244,37 +4250,45 @@
         "website",
         "encyclopedia"
       ],
-      "coverage": "structured",
+      "coverage": "deep",
       "editorial": {
         "en": {
-          "summary": "Explore with movement perks, vehicles, mounts, and structure tools.",
-          "body_markdown": "# Traveling\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "summary": "Explore, discover structures, adopt mounts and unlock specialized travel tools.",
+          "body_markdown": "# Traveling\n\nTraveling rewards exploration without prescribing a route. Progress comes from real movement, first dimension visits, structure discoveries and treasure. Distance thresholds, rewards and teleport protection are read directly from `src(92)`.\n\n## Movement and discoveries\n\nThe manager accumulates travelled distance and also checks direct displacement before granting XP. A very large one-tick movement is treated as a teleport. Dimension and structure discoveries are persistent per player.\n\n## Personal mobility\n\nDouble jump is client input validated by the server. Miniaturization applies a periodically checked scale modifier. Soul, dolphin, powder snow and biome-speed perks improve movement while retaining vanilla rules.\n\n## Mounts and vehicles\n\nThe catalog lists land and flying mounts, saddles, required perks and healing items. Compatible creatures must be weakened before adoption. Ownership and anchor data are server-persistent.\n\nTraveler Boat and Traveler Minecart use multipliers extracted from their entities. Fishing Boat remains an intentional Traveling XP source because movement tracking follows player position and contains no general vehicle exclusion in the inspected source.\n\n## Exploration tools\n\nThe Monumental Compass searches structures with a normal or module-extended radius. Its 22 modules are grouped by realm. Death Recall is owner-bound and searches a safe position around the stored death location. Grappling range, pull speed, arrival and fall protection are server controlled.\n\n## End-tree choice\n\nFlying mounts and Grappling Hook are exclusive final branches. The common tree preserves real positions, parents and fork identifiers.\n\n## Validation\n\nValues and relations are statically inspected. Actual feel, network stability and balance remain in-game validation topics.",
           "key_systems": [
-            "Double saut et bonus de déplacement",
-            "Découverte de biomes, structures et trésors",
-            "Boussole et modules de structures",
-            "Véhicules, montures, rappel mortel et grappin"
+            "Movement, dimensions, structures and treasures",
+            "22 land or flying mounts and their saddles",
+            "Traveler Boat, Traveler Minecart and Fishing Boat",
+            "Monumental Compass and 22 structure modules",
+            "Grappling Hook, death recall, miniaturization and double jump"
           ],
           "xp_sources": [
-            "Déplacements et découvertes enregistrés par TravelingXpManager",
-            "Sources distinctes définies dans TravelingXpSource"
+            "Distance travelled with teleport protection",
+            "First visits to dimensions",
+            "Discovery of configured structures",
+            "Opening treasure chests",
+            "Vehicle movement tracked from the player position"
           ],
-          "multiplayer": "Les découvertes et la progression sont persistantes par joueur. Le Fishing Boat peut volontairement attribuer de l’XP Traveling."
+          "multiplayer": "XP, discoveries, mounts, compass searches, grappling and death recall are server validated. Client payloads mainly carry input or visual information."
         },
         "fr": {
-          "summary": "Explorez le monde avec le double saut, les véhicules, les montures et la Boussole monumentale.",
-          "body_markdown": "# Voyage\n\nTraveling récompense l’exploration plutôt qu’un trajet imposé. Les perks couvrent la mobilité personnelle, la découverte, les véhicules et les outils de recherche de structures.\n\n## Choix de fin d’arbre\n\nLes montures volantes et le grappin représentent un choix de branche. Le simulateur affiche le conflit à partir des identifiants de fork extraits du code.\n\n## Interactions entre skills\n\nCertains objets produits par d’autres systèmes contribuent à Traveling. Le Fishing Boat donnant de l’XP Traveling est une décision fonctionnelle conservée, pas un bug.",
+          "summary": "Explorez, découvrez des structures, adoptez des montures et débloquez des outils de déplacement spécialisés.",
+          "body_markdown": "# Voyage\n\nTraveling récompense l’exploration sans imposer un itinéraire. Le skill progresse par le déplacement réel, les premières visites de dimensions, la découverte de structures et les trésors. Les seuils de distance, les récompenses et les protections contre les téléportations sont lus directement dans `src(92)`.\n\n## Déplacement et découvertes\n\nLe gestionnaire accumule la distance parcourue et vérifie aussi une distance directe avant d’accorder le gain. Un déplacement trop important sur un seul tick est traité comme une téléportation et ne nourrit pas normalement le compteur. Les découvertes de dimensions et de structures sont persistantes par joueur afin d’éviter de récompenser plusieurs fois la même découverte.\n\n## Mobilité personnelle\n\nLe double saut est une action cliente validée par le serveur. La miniaturisation applique un changement d’échelle contrôlé périodiquement. Les perks de marche sur les âmes, de grâce du dauphin, de neige poudreuse et de vitesse de biome modifient le déplacement sans remplacer les règles vanilla.\n\n## Montures et véhicules\n\nLe catalogue contient les montures terrestres et volantes, leur selle, le perk requis et leurs aliments de soin. Une créature compatible doit être suffisamment affaiblie avant l’adoption. Les données de propriétaire et de point d’ancrage sont conservées côté serveur.\n\nLe Traveler Boat et le Traveler Minecart utilisent un multiplicateur de vitesse extrait de leurs entités. Le Fishing Boat reste une source volontaire d’XP Traveling : le suivi repose sur la position du joueur et ne contient pas d’exclusion générale des véhicules dans l’état inspecté.\n\n## Outils d’exploration\n\nLa Boussole monumentale recherche des structures dans un rayon normal ou étendu par un module. Les 22 modules sont classés par royaume et reliés aux structures qu’ils ciblent. Le Death Recall Token est lié à son propriétaire, possède une durée de vie et un délai d’utilisation, puis recherche une position sûre autour du lieu de mort. Le grappin valide sa portée, sa vitesse de traction, son arrivée et la protection temporaire contre la chute côté serveur.\n\n## Choix de fin d’arbre\n\nLes montures volantes et le grappin appartiennent à des branches exclusives de fin d’arbre. L’arbre commun conserve les positions, parents et identifiants de conflit réels ; le simulateur signale donc les parcours incompatibles sans proposer de construction obligatoire.\n\n## Validation\n\nLes constantes, registres, enums et relations présentées sont issus d’une inspection statique. La sensation de vitesse, la stabilité réseau et l’équilibrage des montures doivent rester distingués d’un test en jeu.",
           "key_systems": [
-            "Double saut et bonus de déplacement",
-            "Découverte de biomes, structures et trésors",
-            "Boussole et modules de structures",
-            "Véhicules, montures, rappel mortel et grappin"
+            "Déplacement, dimensions, structures et trésors",
+            "22 montures terrestres ou volantes et leurs selles",
+            "Traveler Boat, Traveler Minecart et Fishing Boat",
+            "Boussole monumentale et 22 modules de structures",
+            "Grappin, rappel mortel, miniaturisation et double saut"
           ],
           "xp_sources": [
-            "Déplacements et découvertes enregistrés par TravelingXpManager",
-            "Sources distinctes définies dans TravelingXpSource"
+            "Distance parcourue, avec contrôle anti-téléportation",
+            "Première visite de dimensions",
+            "Découverte de structures configurées",
+            "Ouverture de coffres au trésor",
+            "Déplacements en véhicule suivis par la position du joueur"
           ],
-          "multiplayer": "Les découvertes et la progression sont persistantes par joueur. Le Fishing Boat peut volontairement attribuer de l’XP Traveling."
+          "multiplayer": "L’XP, les découvertes, les montures, la boussole, le grappin et le rappel mortel sont validés côté serveur. Les payloads clients transmettent surtout des intentions ou des informations visuelles."
         }
       },
       "nodes": [
@@ -5120,37 +5134,41 @@
         "website",
         "encyclopedia"
       ],
-      "coverage": "structured",
+      "coverage": "deep",
       "editorial": {
         "en": {
-          "summary": "Plan and execute builds with optional construction tools.",
-          "body_markdown": "# Building\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "summary": "Build more efficiently with plans, reserves, placement tools and server-controlled decorative systems.",
+          "body_markdown": "# Building\n\nBuilding improves project preparation and execution while preserving free vanilla construction. Automated operations consume player resources and remain server checked.\n\n## XP and anti-exploit protection\n\nThe catalog groups 156 vanilla blocks into three XP tiers. Unknown blocks grant no automatic XP unless explicitly registered. Bounded position and material histories reduce repeated placement rewards and recover through varied building activity.\n\n## Placement comfort\n\nQuick Replace checks both blocks, refuses block entities and recovers the old block outside Creative. Auto Restock matches item components. Decorative Magnet processes a limited number of nearby items at intervals and is applied server-side.\n\n## 2D and 3D Plans\n\n2D Plans have base and upgraded sizes, per-job and global tick limits. 3D Plans have a separate maximum volume. Previews expire; real resources and placements are server validated.\n\n## Tools and reserves\n\nReach perks extend placement distance. Architect Compass stores its radius on the item. Builder Wand has finite durability and copies only safe state properties. Construction Reserves are persistent, player-limited and use increasing ranges for perks 15–17.\n\n## Decoration and miniaturization\n\nVertical slabs, Blank Block, miniatures and Static Decoration Generator are registry-driven. Decorations are owner protected with a Creative override; miniatures can be rotated and retrieved by their owner.\n\n## Multiplayer\n\nAll block-changing and resource-consuming operations are server decisions. Clients receive previews and UI state only.",
           "key_systems": [
-            "Plans 2D et 3D",
-            "Réapprovisionnement, aimant et portée",
-            "Blocs vierges et décorations statiques",
-            "Réserves de chantier, miniatures et Baguette du bâtisseur"
+            "156 XP blocks worth 3, 4 or 5 XP",
+            "Position and material anti-exploit tracking",
+            "2D Plans 8×8/12×12 and 3D Plans 8×8×8",
+            "Construction Reserve, reach and Architect Compass",
+            "20 vertical slabs, 113 blank materials and 32 static effects"
           ],
           "xp_sources": [
-            "Placement et opérations Building suivis par BuildingXpManager",
-            "Données de chantier enregistrées par les gestionnaires de plans"
+            "Placing blocks recognized by BuildingBlockCatalog",
+            "Vertical slabs with their dedicated value",
+            "Custom blocks explicitly registered in the Building catalog"
           ],
-          "multiplayer": "Les travaux de plans et de réserves sont contrôlés côté serveur. Les aperçus et décorations statiques utilisent des payloads ou rendus clients dédiés."
+          "multiplayer": "XP, replacements, plans, reserves, miniatures and decorations are server-authoritative. Previews and interfaces are client-facing but do not decide final placement."
         },
         "fr": {
-          "summary": "Construisez avec des plans, des réserves, des blocs configurables et des outils de placement.",
-          "body_markdown": "# Construction\n\nBuilding est centré sur la préparation et l’exécution de projets sans remplacer la construction libre de Minecraft. Les plans, réserves et outils restent optionnels.\n\n## Plans et chantiers\n\nLes perks augmentent progressivement les volumes de sélection et débloquent les plans 2D puis 3D. Les gestionnaires conservent les tâches, réserves et sessions d’interface nécessaires.\n\n## Décoration\n\nLes dalles verticales, Blocs vierges, miniatures et générateurs de particules statiques forment la branche décorative. Les options d’accessibilité correspondantes restent indépendantes des perks.",
+          "summary": "Construisez plus efficacement avec des plans, réserves, outils de placement et systèmes décoratifs contrôlés côté serveur.",
+          "body_markdown": "# Construction\n\nBuilding améliore la préparation et l’exécution d’un projet tout en laissant la construction vanilla entièrement possible. Les systèmes automatisent des opérations répétitives, mais consomment les ressources du joueur et restent soumis aux contrôles serveur.\n\n## XP et protection anti-exploitation\n\nLe catalogue Building regroupe 156 blocs vanilla en trois niveaux de récompense. Les blocs inconnus ne donnent pas automatiquement d’XP, sauf s’ils sont enregistrés explicitement par un système custom. Le gestionnaire conserve un historique borné des positions et matériaux utilisés. Replacer rapidement au même endroit réduit fortement le gain, tandis qu’utiliser excessivement le même matériau applique un multiplicateur qui récupère progressivement avec la diversité des placements.\n\n## Confort de placement\n\nLe remplacement rapide exige un ancien et un nouveau bloc admissibles, refuse les block entities et restitue l’ancien bloc hors mode créatif. Le restock automatique cherche une pile compatible avec l’objet et ses composants. L’aimant décoratif attire périodiquement un nombre limité d’objets proches et peut être désactivé dans les préférences client, mais son application reste serveur.\n\n## Plans 2D et 3D\n\nLes Plans 2D utilisent une taille de base puis une taille améliorée. Les travaux sont découpés en tâches et soumis à une limite globale de blocs par tick. Le Plan 3D possède son propre volume maximal. Les aperçus ont une durée limitée et sont visuels ; les ressources, positions et placements réels sont vérifiés côté serveur.\n\n## Outils et réserves\n\nLes perks de portée augmentent la distance de construction. Le Compas d’architecte conserve son rayon dans les données de l’objet. La Builder Wand possède une durabilité finie et copie uniquement des propriétés de bloc considérées comme sûres. Les Réserves de chantier sont persistantes, limitées par joueur et utilisent des rayons croissants selon les perks 15 à 17.\n\n## Décoration et miniaturisation\n\nLa branche décorative regroupe les dalles verticales, le Blank Block, les projets miniatures et le Static Decoration Generator. Les matériaux et effets disponibles sont extraits de leurs registres. Les décorations statiques sont protégées par propriétaire avec une exception créative. Les miniatures sont contrôlées par leur propriétaire, peuvent être tournées et récupérées.\n\n## Solo et multijoueur\n\nLes opérations capables de poser, remplacer ou consommer des blocs sont décidées par le serveur. Les tâches persistantes et réserves sont propres aux joueurs ou au monde. Les clients reçoivent les aperçus et états d’interface nécessaires, sans autorité sur le résultat final.",
           "key_systems": [
-            "Plans 2D et 3D",
-            "Réapprovisionnement, aimant et portée",
-            "Blocs vierges et décorations statiques",
-            "Réserves de chantier, miniatures et Baguette du bâtisseur"
+            "Catalogue de 156 blocs donnant 3, 4 ou 5 XP",
+            "Anti-exploitation par position et matériau",
+            "Plans 2D 8×8/12×12 et Plans 3D 8×8×8",
+            "Réserve de chantier, portée et Compas d’architecte",
+            "20 dalles verticales, 113 matériaux vierges et 32 effets statiques"
           ],
           "xp_sources": [
-            "Placement et opérations Building suivis par BuildingXpManager",
-            "Données de chantier enregistrées par les gestionnaires de plans"
+            "Placement de blocs reconnus par BuildingBlockCatalog",
+            "Dalles verticales enregistrées avec leur propre valeur",
+            "Blocs custom ajoutés explicitement au catalogue Building"
           ],
-          "multiplayer": "Les travaux de plans et de réserves sont contrôlés côté serveur. Les aperçus et décorations statiques utilisent des payloads ou rendus clients dédiés."
+          "multiplayer": "L’XP, les remplacements, plans, réserves, miniatures et décorations sont autoritaires côté serveur. Les aperçus et interfaces utilisent des données clientes sans décider du placement final."
         }
       },
       "nodes": [
@@ -5960,7 +5978,7 @@
       "editorial": {
         "en": {
           "summary": "Explore five families, five rarities, equipment, minigames, and legendary hunts.",
-          "body_markdown": "# Fishing\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Fishing\n\nThe v0.4.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "Probabilités par appât et rune de rareté",
             "Mini-jeux Epic, Legendary et Mythic",
@@ -6874,7 +6892,7 @@
       "editorial": {
         "en": {
           "summary": "Progress by eating, cook structured dishes, and manage preservation.",
-          "body_markdown": "# Eating\n\nThe v0.3.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
+          "body_markdown": "# Eating\n\nThe v0.4.0 page exposes the complete 20-perk tree, extracted values, related content, and interactive explorers. French editorial content is currently the reference version; English data and in-game translations are already available for future localized routes.",
           "key_systems": [
             "XP Eating des aliments vanilla et MythicRPG",
             "47 recettes culinaires et 50 sources d’ingrédients",
@@ -25328,6 +25346,3743 @@
           "com/mythicrpg/crafting/LuckyInfusionManager.java",
           "com/mythicrpg/crafting/CraftingSkillTree.java",
           "com/mythicrpg/crafting/ReinforcedCraftManager.java"
+        ]
+      }
+    },
+    "traveling": {
+      "xp": {
+        "sources": [
+          {
+            "id": "movement",
+            "discovery": false
+          },
+          {
+            "id": "structure",
+            "discovery": true
+          },
+          {
+            "id": "dimension",
+            "discovery": true
+          },
+          {
+            "id": "treasure",
+            "discovery": true
+          }
+        ],
+        "movement": {
+          "xp": 5,
+          "traveled_distance_required": 100.0,
+          "direct_distance_required": 70.0,
+          "cell_size": 128,
+          "teleport_distance_per_tick": 16.0,
+          "minimum_tracked_movement": 0.001,
+          "vehicle_exclusion_present": false,
+          "vehicle_note_confidence": "static_inference_from_player_position_tracking"
+        },
+        "dimensions": [
+          {
+            "id": "nether",
+            "xp": 75
+          },
+          {
+            "id": "end",
+            "xp": 150
+          },
+          {
+            "id": "other",
+            "xp": 75
+          },
+          {
+            "id": "overworld_start",
+            "xp": 0
+          }
+        ],
+        "structures": [
+          {
+            "id": "pillager_outpost",
+            "xp": 35
+          },
+          {
+            "id": "mineshaft",
+            "xp": 25
+          },
+          {
+            "id": "mineshaft_mesa",
+            "xp": 25
+          },
+          {
+            "id": "mansion",
+            "xp": 100
+          },
+          {
+            "id": "jungle_pyramid",
+            "xp": 40
+          },
+          {
+            "id": "desert_pyramid",
+            "xp": 40
+          },
+          {
+            "id": "igloo",
+            "xp": 20
+          },
+          {
+            "id": "swamp_hut",
+            "xp": 20
+          },
+          {
+            "id": "shipwreck",
+            "xp": 25
+          },
+          {
+            "id": "shipwreck_beached",
+            "xp": 25
+          },
+          {
+            "id": "stronghold",
+            "xp": 100
+          },
+          {
+            "id": "monument",
+            "xp": 75
+          },
+          {
+            "id": "ocean_ruin_cold",
+            "xp": 20
+          },
+          {
+            "id": "ocean_ruin_warm",
+            "xp": 20
+          },
+          {
+            "id": "fortress",
+            "xp": 60
+          },
+          {
+            "id": "nether_fossil",
+            "xp": 25
+          },
+          {
+            "id": "end_city",
+            "xp": 90
+          },
+          {
+            "id": "buried_treasure",
+            "xp": 15
+          },
+          {
+            "id": "bastion_remnant",
+            "xp": 75
+          },
+          {
+            "id": "village_plains",
+            "xp": 15
+          },
+          {
+            "id": "village_desert",
+            "xp": 15
+          },
+          {
+            "id": "village_savanna",
+            "xp": 15
+          },
+          {
+            "id": "village_snowy",
+            "xp": 15
+          },
+          {
+            "id": "village_taiga",
+            "xp": 15
+          },
+          {
+            "id": "ruined_portal",
+            "xp": 15
+          },
+          {
+            "id": "ruined_portal_desert",
+            "xp": 15
+          },
+          {
+            "id": "ruined_portal_jungle",
+            "xp": 15
+          },
+          {
+            "id": "ruined_portal_swamp",
+            "xp": 15
+          },
+          {
+            "id": "ruined_portal_mountain",
+            "xp": 15
+          },
+          {
+            "id": "ruined_portal_ocean",
+            "xp": 15
+          },
+          {
+            "id": "ruined_portal_nether",
+            "xp": 15
+          },
+          {
+            "id": "ancient_city",
+            "xp": 100
+          },
+          {
+            "id": "trail_ruins",
+            "xp": 30
+          },
+          {
+            "id": "trial_chambers",
+            "xp": 60
+          }
+        ],
+        "treasure": {
+          "skill_xp": 50,
+          "vanilla_xp_with_perk": 250
+        },
+        "multipliers": {
+          "travel_xp_perks": [
+            0.1,
+            0.15
+          ],
+          "discovery_xp_perk": 0.25,
+          "source": "com/mythicrpg/traveling/TravelingSkillTree.java"
+        }
+      },
+      "movement_perks": {
+        "double_jump": {
+          "perk": 1,
+          "vertical_velocity": 0.42,
+          "minimum_air_ticks": 4,
+          "server_validated": true,
+          "client_input_payload": true
+        },
+        "miniaturization": {
+          "perk": 8,
+          "scale_modifier": -0.5,
+          "validation_interval_ticks": 10
+        },
+        "biome_speed": {
+          "perk": 14,
+          "duration_ticks": 200,
+          "duration_seconds": 10.0
+        },
+        "soul_walker": {
+          "perk": 2,
+          "movement_bonus": 0.0405,
+          "efficiency_bonus": 1.0
+        }
+      },
+      "mounts": {
+        "types": [
+          {
+            "id": "cow",
+            "names": {
+              "fr": "Vache",
+              "en": "Cow"
+            },
+            "saddle_identifier": "mythicrpg:cow_saddle",
+            "saddle_names": {
+              "fr": "Selle de vache",
+              "en": "Cow Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:wheat"
+            ]
+          },
+          {
+            "id": "goat",
+            "names": {
+              "fr": "Chèvre",
+              "en": "Goat"
+            },
+            "saddle_identifier": "mythicrpg:goat_saddle",
+            "saddle_names": {
+              "fr": "Selle de chèvre",
+              "en": "Goat Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:wheat"
+            ]
+          },
+          {
+            "id": "spider",
+            "names": {
+              "fr": "Araignée",
+              "en": "Spider"
+            },
+            "saddle_identifier": "mythicrpg:spider_saddle",
+            "saddle_names": {
+              "fr": "Selle d’araignée",
+              "en": "Spider Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:spider_eye"
+            ]
+          },
+          {
+            "id": "chicken",
+            "names": {
+              "fr": "Poule",
+              "en": "Chicken"
+            },
+            "saddle_identifier": "mythicrpg:chicken_saddle",
+            "saddle_names": {
+              "fr": "Selle de poule",
+              "en": "Chicken Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:wheat_seeds",
+              "minecraft:pumpkin_seeds",
+              "minecraft:melon_seeds",
+              "minecraft:beetroot_seeds"
+            ]
+          },
+          {
+            "id": "mooshroom",
+            "names": {
+              "fr": "Champimeuh",
+              "en": "Mooshroom"
+            },
+            "saddle_identifier": "mythicrpg:mooshroom_saddle",
+            "saddle_names": {
+              "fr": "Selle de Champimeuh",
+              "en": "Mooshroom Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:wheat"
+            ]
+          },
+          {
+            "id": "sheep",
+            "names": {
+              "fr": "Mouton",
+              "en": "Sheep"
+            },
+            "saddle_identifier": "mythicrpg:sheep_saddle",
+            "saddle_names": {
+              "fr": "Selle de mouton",
+              "en": "Sheep Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:wheat"
+            ]
+          },
+          {
+            "id": "pig",
+            "names": {
+              "fr": "Cochon",
+              "en": "Pig"
+            },
+            "saddle_identifier": "mythicrpg:pig_saddle",
+            "saddle_names": {
+              "fr": "Selle de cochon",
+              "en": "Pig Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:carrot",
+              "minecraft:potato",
+              "minecraft:beetroot"
+            ]
+          },
+          {
+            "id": "llama",
+            "names": {
+              "fr": "Lama",
+              "en": "Llama"
+            },
+            "saddle_identifier": "mythicrpg:llama_saddle",
+            "saddle_names": {
+              "fr": "Selle de lama",
+              "en": "Llama Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:wheat",
+              "minecraft:hay_block"
+            ]
+          },
+          {
+            "id": "panda",
+            "names": {
+              "fr": "Panda",
+              "en": "Panda"
+            },
+            "saddle_identifier": "mythicrpg:panda_saddle",
+            "saddle_names": {
+              "fr": "Selle de Panda",
+              "en": "Panda Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:bamboo"
+            ]
+          },
+          {
+            "id": "snow_golem",
+            "names": {
+              "fr": "Golem de neige",
+              "en": "Snow Golem"
+            },
+            "saddle_identifier": "mythicrpg:snow_golem_saddle",
+            "saddle_names": {
+              "fr": "Selle de golem de neige",
+              "en": "Snow Golem Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:snowball"
+            ]
+          },
+          {
+            "id": "turtle",
+            "names": {
+              "fr": "Tortue",
+              "en": "Turtle"
+            },
+            "saddle_identifier": "mythicrpg:turtle_saddle",
+            "saddle_names": {
+              "fr": "Selle de Tortue",
+              "en": "Turtle Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:seagrass"
+            ]
+          },
+          {
+            "id": "polar_bear",
+            "names": {
+              "fr": "Ours blanc",
+              "en": "Polar Bear"
+            },
+            "saddle_identifier": "mythicrpg:polar_bear_saddle",
+            "saddle_names": {
+              "fr": "Selle d’ours blanc",
+              "en": "Polar Bear Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:cod",
+              "minecraft:salmon"
+            ]
+          },
+          {
+            "id": "hoglin",
+            "names": {
+              "fr": "Hoglin",
+              "en": "Hoglin"
+            },
+            "saddle_identifier": "mythicrpg:hoglin_saddle",
+            "saddle_names": {
+              "fr": "Selle de Hoglin",
+              "en": "Hoglin Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:crimson_fungus"
+            ]
+          },
+          {
+            "id": "ravager",
+            "names": {
+              "fr": "Ravageur",
+              "en": "Ravager"
+            },
+            "saddle_identifier": "mythicrpg:ravager_saddle",
+            "saddle_names": {
+              "fr": "Selle de Ravageur",
+              "en": "Ravager Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:emerald"
+            ]
+          },
+          {
+            "id": "zoglin",
+            "names": {
+              "fr": "Zoglin",
+              "en": "Zoglin"
+            },
+            "saddle_identifier": "mythicrpg:zoglin_saddle",
+            "saddle_names": {
+              "fr": "Selle de Zoglin",
+              "en": "Zoglin Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:rotten_flesh"
+            ]
+          },
+          {
+            "id": "villager",
+            "names": {
+              "fr": "Villageois",
+              "en": "Villager"
+            },
+            "saddle_identifier": "mythicrpg:villager_saddle",
+            "saddle_names": {
+              "fr": "Selle de villageois",
+              "en": "Villager Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:bread"
+            ]
+          },
+          {
+            "id": "enderman",
+            "names": {
+              "fr": "Enderman",
+              "en": "Enderman"
+            },
+            "saddle_identifier": "mythicrpg:enderman_saddle",
+            "saddle_names": {
+              "fr": "Selle d’Enderman",
+              "en": "Enderman Saddle"
+            },
+            "required_bonus": "land_mounts",
+            "required_perk_names": {
+              "fr": "Montures terrestres",
+              "en": "Land Mounts"
+            },
+            "flying": false,
+            "healing_items": [
+              "minecraft:ender_pearl"
+            ]
+          },
+          {
+            "id": "phantom",
+            "names": {
+              "fr": "Phantom",
+              "en": "Phantom"
+            },
+            "saddle_identifier": "mythicrpg:phantom_saddle",
+            "saddle_names": {
+              "fr": "Selle de Phantom",
+              "en": "Phantom Saddle"
+            },
+            "required_bonus": "flying_mounts",
+            "required_perk_names": {
+              "fr": "Montures volantes",
+              "en": "Flying Mounts"
+            },
+            "flying": true,
+            "healing_items": [
+              "minecraft:phantom_membrane"
+            ]
+          },
+          {
+            "id": "blaze",
+            "names": {
+              "fr": "Blaze",
+              "en": "Blaze"
+            },
+            "saddle_identifier": "mythicrpg:blaze_saddle",
+            "saddle_names": {
+              "fr": "Selle de Blaze",
+              "en": "Blaze Saddle"
+            },
+            "required_bonus": "flying_mounts",
+            "required_perk_names": {
+              "fr": "Montures volantes",
+              "en": "Flying Mounts"
+            },
+            "flying": true,
+            "healing_items": [
+              "minecraft:blaze_powder"
+            ]
+          },
+          {
+            "id": "breeze",
+            "names": {
+              "fr": "Breeze",
+              "en": "Breeze"
+            },
+            "saddle_identifier": "mythicrpg:breeze_saddle",
+            "saddle_names": {
+              "fr": "Selle de Breeze",
+              "en": "Breeze Saddle"
+            },
+            "required_bonus": "flying_mounts",
+            "required_perk_names": {
+              "fr": "Montures volantes",
+              "en": "Flying Mounts"
+            },
+            "flying": true,
+            "healing_items": [
+              "minecraft:wind_charge"
+            ]
+          },
+          {
+            "id": "ghast",
+            "names": {
+              "fr": "Ghast",
+              "en": "Ghast"
+            },
+            "saddle_identifier": "mythicrpg:ghast_saddle",
+            "saddle_names": {
+              "fr": "Selle de Ghast",
+              "en": "Ghast Saddle"
+            },
+            "required_bonus": "flying_mounts",
+            "required_perk_names": {
+              "fr": "Montures volantes",
+              "en": "Flying Mounts"
+            },
+            "flying": true,
+            "healing_items": [
+              "minecraft:ghast_tear"
+            ]
+          },
+          {
+            "id": "bee",
+            "names": {
+              "fr": "Abeille",
+              "en": "Bee"
+            },
+            "saddle_identifier": "mythicrpg:bee_saddle",
+            "saddle_names": {
+              "fr": "Selle d’abeille",
+              "en": "Bee Saddle"
+            },
+            "required_bonus": "flying_mounts",
+            "required_perk_names": {
+              "fr": "Montures volantes",
+              "en": "Flying Mounts"
+            },
+            "flying": true,
+            "healing_items": [
+              "#minecraft:flowers"
+            ]
+          }
+        ],
+        "land_count": 17,
+        "flying_count": 5,
+        "adoption": {
+          "maximum_health_ratio": 0.25,
+          "adoption_heal_ratio": 0.5,
+          "heal_amount": 1.0,
+          "unmounted_wander_radius": 10,
+          "return_to_anchor_speed": 1.0
+        },
+        "flying_config": {
+          "phantom_cruise_speed": 0.38,
+          "phantom_ground_speed": 0.18,
+          "phantom_ascend_speed": 0.24,
+          "phantom_descend_speed": 0.2,
+          "minimum_cruise_speed": 0.23,
+          "maximum_cruise_speed": 0.6,
+          "turn_degrees_per_tick": 3.5,
+          "anchor_return_speed": 0.24
+        }
+      },
+      "vehicles": {
+        "traveler_boat": {
+          "identifier": "mythicrpg:traveler_boat",
+          "speed_multiplier": 1.5,
+          "perk": 16
+        },
+        "traveler_minecart": {
+          "identifier": "mythicrpg:traveler_minecart",
+          "speed_multiplier": 1.5,
+          "perk": 15
+        },
+        "fishing_boat": {
+          "identifier": "mythicrpg:fishing_boat",
+          "traveling_xp_via_movement_tracker": true,
+          "confidence": "static_inference_from_no_vehicle_exclusion"
+        }
+      },
+      "tools": {
+        "grappling_hook": {
+          "identifier": "mythicrpg:grappling_hook",
+          "perk": 20,
+          "max_range_blocks": 32.0,
+          "travel_speed_blocks_per_second": 10.0,
+          "arrival_distance": 0.3,
+          "maximum_stalled_ticks": 8,
+          "post_arrival_fall_protection_ticks": 20,
+          "safe_position_search_distance": 2.0
+        },
+        "monumental_compass": {
+          "perk": 9,
+          "generic_search_radius_chunks": 100,
+          "module_search_radius_chunks": 512,
+          "navigation_update_interval_ticks": 5,
+          "search_cooldown_millis": 2000,
+          "search_cooldown_seconds": 2.0,
+          "arrival_radius_blocks": 32,
+          "modules": [
+            {
+              "id": "village",
+              "names": {
+                "fr": "Module : Village",
+                "en": "Village Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "village_plains",
+                "village_desert",
+                "village_savanna",
+                "village_snowy",
+                "village_taiga"
+              ]
+            },
+            {
+              "id": "mineshaft",
+              "names": {
+                "fr": "Module : Puits de mine",
+                "en": "Mineshaft Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "mineshaft",
+                "mineshaft_mesa"
+              ]
+            },
+            {
+              "id": "stronghold",
+              "names": {
+                "fr": "Module : Forteresse",
+                "en": "Stronghold Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "stronghold"
+              ]
+            },
+            {
+              "id": "pillager_outpost",
+              "names": {
+                "fr": "Module : Avant-poste de pillards",
+                "en": "Pillager Outpost Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "pillager_outpost"
+              ]
+            },
+            {
+              "id": "woodland_mansion",
+              "names": {
+                "fr": "Module : Manoir des bois",
+                "en": "Woodland Mansion Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "mansion"
+              ]
+            },
+            {
+              "id": "ocean_monument",
+              "names": {
+                "fr": "Module : Monument sous-marin",
+                "en": "Ocean Monument Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "monument"
+              ]
+            },
+            {
+              "id": "ancient_city",
+              "names": {
+                "fr": "Module : Cité antique",
+                "en": "Ancient City Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "ancient_city"
+              ]
+            },
+            {
+              "id": "trial_chambers",
+              "names": {
+                "fr": "Module : Chambres des épreuves",
+                "en": "Trial Chambers Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "trial_chambers"
+              ]
+            },
+            {
+              "id": "desert_pyramid",
+              "names": {
+                "fr": "Module : Pyramide du désert",
+                "en": "Desert Pyramid Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "desert_pyramid"
+              ]
+            },
+            {
+              "id": "jungle_temple",
+              "names": {
+                "fr": "Module : Temple de la jungle",
+                "en": "Jungle Temple Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "jungle_pyramid"
+              ]
+            },
+            {
+              "id": "swamp_hut",
+              "names": {
+                "fr": "Module : Hutte des marais",
+                "en": "Swamp Hut Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "swamp_hut"
+              ]
+            },
+            {
+              "id": "igloo",
+              "names": {
+                "fr": "Module : Igloo",
+                "en": "Igloo Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "igloo"
+              ]
+            },
+            {
+              "id": "shipwreck",
+              "names": {
+                "fr": "Module : Épave",
+                "en": "Shipwreck Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "shipwreck",
+                "shipwreck_beached"
+              ]
+            },
+            {
+              "id": "ocean_ruin",
+              "names": {
+                "fr": "Module : Ruines sous-marines",
+                "en": "Ocean Ruin Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "ocean_ruin_cold",
+                "ocean_ruin_warm"
+              ]
+            },
+            {
+              "id": "buried_treasure",
+              "names": {
+                "fr": "Module : Trésor enfoui",
+                "en": "Buried Treasure Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "buried_treasure"
+              ]
+            },
+            {
+              "id": "trail_ruins",
+              "names": {
+                "fr": "Module : Ruines de sentier",
+                "en": "Trail Ruins Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "trail_ruins"
+              ]
+            },
+            {
+              "id": "ruined_portal",
+              "names": {
+                "fr": "Module : Portail en ruine",
+                "en": "Ruined Portal Module"
+              },
+              "realm": "overworld",
+              "structures": [
+                "ruined_portal",
+                "ruined_portal_desert",
+                "ruined_portal_jungle",
+                "ruined_portal_swamp",
+                "ruined_portal_mountain",
+                "ruined_portal_ocean"
+              ]
+            },
+            {
+              "id": "nether_fortress",
+              "names": {
+                "fr": "Module : Forteresse du Nether",
+                "en": "Nether Fortress Module"
+              },
+              "realm": "nether",
+              "structures": [
+                "fortress"
+              ]
+            },
+            {
+              "id": "bastion_remnant",
+              "names": {
+                "fr": "Module : Vestiges de bastion",
+                "en": "Bastion Remnant Module"
+              },
+              "realm": "nether",
+              "structures": [
+                "bastion_remnant"
+              ]
+            },
+            {
+              "id": "nether_fossil",
+              "names": {
+                "fr": "Module : Fossile du Nether",
+                "en": "Nether Fossil Module"
+              },
+              "realm": "nether",
+              "structures": [
+                "nether_fossil"
+              ]
+            },
+            {
+              "id": "nether_ruined_portal",
+              "names": {
+                "fr": "Module : Portail en ruine du Nether",
+                "en": "Nether Ruined Portal Module"
+              },
+              "realm": "nether",
+              "structures": [
+                "ruined_portal_nether"
+              ]
+            },
+            {
+              "id": "end_city",
+              "names": {
+                "fr": "Module : Cité de l’End",
+                "en": "End City Module"
+              },
+              "realm": "end",
+              "structures": [
+                "end_city"
+              ]
+            }
+          ]
+        },
+        "death_recall": {
+          "identifier": "mythicrpg:death_recall_token",
+          "perk": 12,
+          "token_lifetime_millis": 300000,
+          "token_lifetime_seconds": 300.0,
+          "use_cooldown_millis": 300000,
+          "use_cooldown_seconds": 300.0,
+          "safe_horizontal_radius": 4,
+          "safe_vertical_radius": 6,
+          "owner_bound": true,
+          "dimension_persisted": true
+        }
+      },
+      "multiplayer": {
+        "xp_authority": "server",
+        "movement_state_persistent_per_player": true,
+        "mount_owner_data_persistent": true,
+        "compass_search_state_server_side": true,
+        "grappling_motion_server_side": true,
+        "client_payloads_are_inputs_or_visuals": true
+      },
+      "extraction": {
+        "method": "specialized_java_traveling_extraction",
+        "files": [
+          "com/mythicrpg/traveling/TravelingXpConfig.java",
+          "com/mythicrpg/traveling/TravelingXpManager.java",
+          "com/mythicrpg/traveling/TravelingXpSource.java",
+          "com/mythicrpg/traveling/LandMountType.java",
+          "com/mythicrpg/traveling/StructureModuleRegistry.java",
+          "com/mythicrpg/traveling/GrapplingHookConfig.java",
+          "com/mythicrpg/traveling/TravelingCompassManager.java",
+          "com/mythicrpg/traveling/TravelingDeathRecallManager.java",
+          "com/mythicrpg/traveling/FlyingMountConfig.java",
+          "com/mythicrpg/traveling/TravelingSkillTree.java"
+        ]
+      }
+    },
+    "building": {
+      "xp": {
+        "block_groups": [
+          {
+            "xp": 3,
+            "blocks": [
+              "minecraft:stone",
+              "minecraft:cobblestone",
+              "minecraft:andesite",
+              "minecraft:diorite",
+              "minecraft:granite",
+              "minecraft:deepslate",
+              "minecraft:cobbled_deepslate",
+              "minecraft:tuff",
+              "minecraft:oak_planks",
+              "minecraft:spruce_planks",
+              "minecraft:birch_planks",
+              "minecraft:jungle_planks",
+              "minecraft:acacia_planks",
+              "minecraft:dark_oak_planks",
+              "minecraft:mangrove_planks",
+              "minecraft:cherry_planks",
+              "minecraft:bamboo_planks",
+              "minecraft:crimson_planks",
+              "minecraft:warped_planks",
+              "minecraft:white_wool",
+              "minecraft:orange_wool",
+              "minecraft:magenta_wool",
+              "minecraft:light_blue_wool",
+              "minecraft:yellow_wool",
+              "minecraft:lime_wool",
+              "minecraft:pink_wool",
+              "minecraft:gray_wool",
+              "minecraft:light_gray_wool",
+              "minecraft:cyan_wool",
+              "minecraft:purple_wool",
+              "minecraft:blue_wool",
+              "minecraft:brown_wool",
+              "minecraft:green_wool",
+              "minecraft:red_wool",
+              "minecraft:black_wool"
+            ],
+            "block_names": [
+              {
+                "fr": "Stone",
+                "en": "Stone"
+              },
+              {
+                "fr": "Cobblestone",
+                "en": "Cobblestone"
+              },
+              {
+                "fr": "Andesite",
+                "en": "Andesite"
+              },
+              {
+                "fr": "Diorite",
+                "en": "Diorite"
+              },
+              {
+                "fr": "Granite",
+                "en": "Granite"
+              },
+              {
+                "fr": "Deepslate",
+                "en": "Deepslate"
+              },
+              {
+                "fr": "Cobbled Deepslate",
+                "en": "Cobbled Deepslate"
+              },
+              {
+                "fr": "Tuff",
+                "en": "Tuff"
+              },
+              {
+                "fr": "Oak Planks",
+                "en": "Oak Planks"
+              },
+              {
+                "fr": "Spruce Planks",
+                "en": "Spruce Planks"
+              },
+              {
+                "fr": "Birch Planks",
+                "en": "Birch Planks"
+              },
+              {
+                "fr": "Jungle Planks",
+                "en": "Jungle Planks"
+              },
+              {
+                "fr": "Acacia Planks",
+                "en": "Acacia Planks"
+              },
+              {
+                "fr": "Dark Oak Planks",
+                "en": "Dark Oak Planks"
+              },
+              {
+                "fr": "Mangrove Planks",
+                "en": "Mangrove Planks"
+              },
+              {
+                "fr": "Cherry Planks",
+                "en": "Cherry Planks"
+              },
+              {
+                "fr": "Bamboo Planks",
+                "en": "Bamboo Planks"
+              },
+              {
+                "fr": "Crimson Planks",
+                "en": "Crimson Planks"
+              },
+              {
+                "fr": "Warped Planks",
+                "en": "Warped Planks"
+              },
+              {
+                "fr": "White Wool",
+                "en": "White Wool"
+              },
+              {
+                "fr": "Orange Wool",
+                "en": "Orange Wool"
+              },
+              {
+                "fr": "Magenta Wool",
+                "en": "Magenta Wool"
+              },
+              {
+                "fr": "Light Blue Wool",
+                "en": "Light Blue Wool"
+              },
+              {
+                "fr": "Yellow Wool",
+                "en": "Yellow Wool"
+              },
+              {
+                "fr": "Lime Wool",
+                "en": "Lime Wool"
+              },
+              {
+                "fr": "Pink Wool",
+                "en": "Pink Wool"
+              },
+              {
+                "fr": "Gray Wool",
+                "en": "Gray Wool"
+              },
+              {
+                "fr": "Light Gray Wool",
+                "en": "Light Gray Wool"
+              },
+              {
+                "fr": "Cyan Wool",
+                "en": "Cyan Wool"
+              },
+              {
+                "fr": "Purple Wool",
+                "en": "Purple Wool"
+              },
+              {
+                "fr": "Blue Wool",
+                "en": "Blue Wool"
+              },
+              {
+                "fr": "Brown Wool",
+                "en": "Brown Wool"
+              },
+              {
+                "fr": "Green Wool",
+                "en": "Green Wool"
+              },
+              {
+                "fr": "Red Wool",
+                "en": "Red Wool"
+              },
+              {
+                "fr": "Black Wool",
+                "en": "Black Wool"
+              }
+            ]
+          },
+          {
+            "xp": 4,
+            "blocks": [
+              "minecraft:smooth_stone",
+              "minecraft:stone_bricks",
+              "minecraft:mossy_stone_bricks",
+              "minecraft:cracked_stone_bricks",
+              "minecraft:chiseled_stone_bricks",
+              "minecraft:mossy_cobblestone",
+              "minecraft:bricks",
+              "minecraft:mud_bricks",
+              "minecraft:polished_andesite",
+              "minecraft:polished_diorite",
+              "minecraft:polished_granite",
+              "minecraft:polished_deepslate",
+              "minecraft:deepslate_bricks",
+              "minecraft:cracked_deepslate_bricks",
+              "minecraft:deepslate_tiles",
+              "minecraft:cracked_deepslate_tiles",
+              "minecraft:chiseled_deepslate",
+              "minecraft:polished_tuff",
+              "minecraft:tuff_bricks",
+              "minecraft:chiseled_tuff",
+              "minecraft:chiseled_tuff_bricks",
+              "minecraft:sandstone",
+              "minecraft:smooth_sandstone",
+              "minecraft:cut_sandstone",
+              "minecraft:chiseled_sandstone",
+              "minecraft:red_sandstone",
+              "minecraft:smooth_red_sandstone",
+              "minecraft:cut_red_sandstone",
+              "minecraft:chiseled_red_sandstone",
+              "minecraft:prismarine",
+              "minecraft:prismarine_bricks",
+              "minecraft:dark_prismarine",
+              "minecraft:nether_bricks",
+              "minecraft:red_nether_bricks",
+              "minecraft:chiseled_nether_bricks",
+              "minecraft:cracked_nether_bricks",
+              "minecraft:blackstone",
+              "minecraft:polished_blackstone",
+              "minecraft:polished_blackstone_bricks",
+              "minecraft:chiseled_polished_blackstone",
+              "minecraft:end_stone_bricks",
+              "minecraft:purpur_block",
+              "minecraft:purpur_pillar",
+              "minecraft:quartz_block",
+              "minecraft:quartz_bricks",
+              "minecraft:quartz_pillar",
+              "minecraft:smooth_quartz",
+              "minecraft:chiseled_quartz_block",
+              "minecraft:calcite",
+              "minecraft:dripstone_block",
+              "minecraft:packed_mud",
+              "minecraft:terracotta",
+              "minecraft:bamboo_mosaic",
+              "minecraft:basalt",
+              "minecraft:polished_basalt",
+              "minecraft:smooth_basalt"
+            ],
+            "block_names": [
+              {
+                "fr": "Smooth Stone",
+                "en": "Smooth Stone"
+              },
+              {
+                "fr": "Stone Bricks",
+                "en": "Stone Bricks"
+              },
+              {
+                "fr": "Mossy Stone Bricks",
+                "en": "Mossy Stone Bricks"
+              },
+              {
+                "fr": "Cracked Stone Bricks",
+                "en": "Cracked Stone Bricks"
+              },
+              {
+                "fr": "Chiseled Stone Bricks",
+                "en": "Chiseled Stone Bricks"
+              },
+              {
+                "fr": "Mossy Cobblestone",
+                "en": "Mossy Cobblestone"
+              },
+              {
+                "fr": "Bricks",
+                "en": "Bricks"
+              },
+              {
+                "fr": "Mud Bricks",
+                "en": "Mud Bricks"
+              },
+              {
+                "fr": "Polished Andesite",
+                "en": "Polished Andesite"
+              },
+              {
+                "fr": "Polished Diorite",
+                "en": "Polished Diorite"
+              },
+              {
+                "fr": "Polished Granite",
+                "en": "Polished Granite"
+              },
+              {
+                "fr": "Polished Deepslate",
+                "en": "Polished Deepslate"
+              },
+              {
+                "fr": "Deepslate Bricks",
+                "en": "Deepslate Bricks"
+              },
+              {
+                "fr": "Cracked Deepslate Bricks",
+                "en": "Cracked Deepslate Bricks"
+              },
+              {
+                "fr": "Deepslate Tiles",
+                "en": "Deepslate Tiles"
+              },
+              {
+                "fr": "Cracked Deepslate Tiles",
+                "en": "Cracked Deepslate Tiles"
+              },
+              {
+                "fr": "Chiseled Deepslate",
+                "en": "Chiseled Deepslate"
+              },
+              {
+                "fr": "Polished Tuff",
+                "en": "Polished Tuff"
+              },
+              {
+                "fr": "Tuff Bricks",
+                "en": "Tuff Bricks"
+              },
+              {
+                "fr": "Chiseled Tuff",
+                "en": "Chiseled Tuff"
+              },
+              {
+                "fr": "Chiseled Tuff Bricks",
+                "en": "Chiseled Tuff Bricks"
+              },
+              {
+                "fr": "Sandstone",
+                "en": "Sandstone"
+              },
+              {
+                "fr": "Smooth Sandstone",
+                "en": "Smooth Sandstone"
+              },
+              {
+                "fr": "Cut Sandstone",
+                "en": "Cut Sandstone"
+              },
+              {
+                "fr": "Chiseled Sandstone",
+                "en": "Chiseled Sandstone"
+              },
+              {
+                "fr": "Red Sandstone",
+                "en": "Red Sandstone"
+              },
+              {
+                "fr": "Smooth Red Sandstone",
+                "en": "Smooth Red Sandstone"
+              },
+              {
+                "fr": "Cut Red Sandstone",
+                "en": "Cut Red Sandstone"
+              },
+              {
+                "fr": "Chiseled Red Sandstone",
+                "en": "Chiseled Red Sandstone"
+              },
+              {
+                "fr": "Prismarine",
+                "en": "Prismarine"
+              },
+              {
+                "fr": "Prismarine Bricks",
+                "en": "Prismarine Bricks"
+              },
+              {
+                "fr": "Dark Prismarine",
+                "en": "Dark Prismarine"
+              },
+              {
+                "fr": "Nether Bricks",
+                "en": "Nether Bricks"
+              },
+              {
+                "fr": "Red Nether Bricks",
+                "en": "Red Nether Bricks"
+              },
+              {
+                "fr": "Chiseled Nether Bricks",
+                "en": "Chiseled Nether Bricks"
+              },
+              {
+                "fr": "Cracked Nether Bricks",
+                "en": "Cracked Nether Bricks"
+              },
+              {
+                "fr": "Blackstone",
+                "en": "Blackstone"
+              },
+              {
+                "fr": "Polished Blackstone",
+                "en": "Polished Blackstone"
+              },
+              {
+                "fr": "Polished Blackstone Bricks",
+                "en": "Polished Blackstone Bricks"
+              },
+              {
+                "fr": "Chiseled Polished Blackstone",
+                "en": "Chiseled Polished Blackstone"
+              },
+              {
+                "fr": "End Stone Bricks",
+                "en": "End Stone Bricks"
+              },
+              {
+                "fr": "Purpur Block",
+                "en": "Purpur Block"
+              },
+              {
+                "fr": "Purpur Pillar",
+                "en": "Purpur Pillar"
+              },
+              {
+                "fr": "Quartz Block",
+                "en": "Quartz Block"
+              },
+              {
+                "fr": "Quartz Bricks",
+                "en": "Quartz Bricks"
+              },
+              {
+                "fr": "Quartz Pillar",
+                "en": "Quartz Pillar"
+              },
+              {
+                "fr": "Smooth Quartz",
+                "en": "Smooth Quartz"
+              },
+              {
+                "fr": "Chiseled Quartz Block",
+                "en": "Chiseled Quartz Block"
+              },
+              {
+                "fr": "Calcite",
+                "en": "Calcite"
+              },
+              {
+                "fr": "Dripstone Block",
+                "en": "Dripstone Block"
+              },
+              {
+                "fr": "Packed Mud",
+                "en": "Packed Mud"
+              },
+              {
+                "fr": "Terracotta",
+                "en": "Terracotta"
+              },
+              {
+                "fr": "Bamboo Mosaic",
+                "en": "Bamboo Mosaic"
+              },
+              {
+                "fr": "Basalt",
+                "en": "Basalt"
+              },
+              {
+                "fr": "Polished Basalt",
+                "en": "Polished Basalt"
+              },
+              {
+                "fr": "Smooth Basalt",
+                "en": "Smooth Basalt"
+              }
+            ]
+          },
+          {
+            "xp": 5,
+            "blocks": [
+              "minecraft:white_concrete",
+              "minecraft:orange_concrete",
+              "minecraft:magenta_concrete",
+              "minecraft:light_blue_concrete",
+              "minecraft:yellow_concrete",
+              "minecraft:lime_concrete",
+              "minecraft:pink_concrete",
+              "minecraft:gray_concrete",
+              "minecraft:light_gray_concrete",
+              "minecraft:cyan_concrete",
+              "minecraft:purple_concrete",
+              "minecraft:blue_concrete",
+              "minecraft:brown_concrete",
+              "minecraft:green_concrete",
+              "minecraft:red_concrete",
+              "minecraft:black_concrete",
+              "minecraft:white_terracotta",
+              "minecraft:orange_terracotta",
+              "minecraft:magenta_terracotta",
+              "minecraft:light_blue_terracotta",
+              "minecraft:yellow_terracotta",
+              "minecraft:lime_terracotta",
+              "minecraft:pink_terracotta",
+              "minecraft:gray_terracotta",
+              "minecraft:light_gray_terracotta",
+              "minecraft:cyan_terracotta",
+              "minecraft:purple_terracotta",
+              "minecraft:blue_terracotta",
+              "minecraft:brown_terracotta",
+              "minecraft:green_terracotta",
+              "minecraft:red_terracotta",
+              "minecraft:black_terracotta",
+              "minecraft:white_glazed_terracotta",
+              "minecraft:orange_glazed_terracotta",
+              "minecraft:magenta_glazed_terracotta",
+              "minecraft:light_blue_glazed_terracotta",
+              "minecraft:yellow_glazed_terracotta",
+              "minecraft:lime_glazed_terracotta",
+              "minecraft:pink_glazed_terracotta",
+              "minecraft:gray_glazed_terracotta",
+              "minecraft:light_gray_glazed_terracotta",
+              "minecraft:cyan_glazed_terracotta",
+              "minecraft:purple_glazed_terracotta",
+              "minecraft:blue_glazed_terracotta",
+              "minecraft:brown_glazed_terracotta",
+              "minecraft:green_glazed_terracotta",
+              "minecraft:red_glazed_terracotta",
+              "minecraft:black_glazed_terracotta",
+              "minecraft:glass",
+              "minecraft:tinted_glass",
+              "minecraft:sea_lantern",
+              "minecraft:glowstone",
+              "minecraft:shroomlight",
+              "minecraft:ochre_froglight",
+              "minecraft:verdant_froglight",
+              "minecraft:pearlescent_froglight",
+              "minecraft:amethyst_block",
+              "minecraft:copper_block",
+              "minecraft:exposed_copper",
+              "minecraft:weathered_copper",
+              "minecraft:oxidized_copper",
+              "minecraft:cut_copper",
+              "minecraft:exposed_cut_copper",
+              "minecraft:weathered_cut_copper",
+              "minecraft:oxidized_cut_copper"
+            ],
+            "block_names": [
+              {
+                "fr": "White Concrete",
+                "en": "White Concrete"
+              },
+              {
+                "fr": "Orange Concrete",
+                "en": "Orange Concrete"
+              },
+              {
+                "fr": "Magenta Concrete",
+                "en": "Magenta Concrete"
+              },
+              {
+                "fr": "Light Blue Concrete",
+                "en": "Light Blue Concrete"
+              },
+              {
+                "fr": "Yellow Concrete",
+                "en": "Yellow Concrete"
+              },
+              {
+                "fr": "Lime Concrete",
+                "en": "Lime Concrete"
+              },
+              {
+                "fr": "Pink Concrete",
+                "en": "Pink Concrete"
+              },
+              {
+                "fr": "Gray Concrete",
+                "en": "Gray Concrete"
+              },
+              {
+                "fr": "Light Gray Concrete",
+                "en": "Light Gray Concrete"
+              },
+              {
+                "fr": "Cyan Concrete",
+                "en": "Cyan Concrete"
+              },
+              {
+                "fr": "Purple Concrete",
+                "en": "Purple Concrete"
+              },
+              {
+                "fr": "Blue Concrete",
+                "en": "Blue Concrete"
+              },
+              {
+                "fr": "Brown Concrete",
+                "en": "Brown Concrete"
+              },
+              {
+                "fr": "Green Concrete",
+                "en": "Green Concrete"
+              },
+              {
+                "fr": "Red Concrete",
+                "en": "Red Concrete"
+              },
+              {
+                "fr": "Black Concrete",
+                "en": "Black Concrete"
+              },
+              {
+                "fr": "White Terracotta",
+                "en": "White Terracotta"
+              },
+              {
+                "fr": "Orange Terracotta",
+                "en": "Orange Terracotta"
+              },
+              {
+                "fr": "Magenta Terracotta",
+                "en": "Magenta Terracotta"
+              },
+              {
+                "fr": "Light Blue Terracotta",
+                "en": "Light Blue Terracotta"
+              },
+              {
+                "fr": "Yellow Terracotta",
+                "en": "Yellow Terracotta"
+              },
+              {
+                "fr": "Lime Terracotta",
+                "en": "Lime Terracotta"
+              },
+              {
+                "fr": "Pink Terracotta",
+                "en": "Pink Terracotta"
+              },
+              {
+                "fr": "Gray Terracotta",
+                "en": "Gray Terracotta"
+              },
+              {
+                "fr": "Light Gray Terracotta",
+                "en": "Light Gray Terracotta"
+              },
+              {
+                "fr": "Cyan Terracotta",
+                "en": "Cyan Terracotta"
+              },
+              {
+                "fr": "Purple Terracotta",
+                "en": "Purple Terracotta"
+              },
+              {
+                "fr": "Blue Terracotta",
+                "en": "Blue Terracotta"
+              },
+              {
+                "fr": "Brown Terracotta",
+                "en": "Brown Terracotta"
+              },
+              {
+                "fr": "Green Terracotta",
+                "en": "Green Terracotta"
+              },
+              {
+                "fr": "Red Terracotta",
+                "en": "Red Terracotta"
+              },
+              {
+                "fr": "Black Terracotta",
+                "en": "Black Terracotta"
+              },
+              {
+                "fr": "White Glazed Terracotta",
+                "en": "White Glazed Terracotta"
+              },
+              {
+                "fr": "Orange Glazed Terracotta",
+                "en": "Orange Glazed Terracotta"
+              },
+              {
+                "fr": "Magenta Glazed Terracotta",
+                "en": "Magenta Glazed Terracotta"
+              },
+              {
+                "fr": "Light Blue Glazed Terracotta",
+                "en": "Light Blue Glazed Terracotta"
+              },
+              {
+                "fr": "Yellow Glazed Terracotta",
+                "en": "Yellow Glazed Terracotta"
+              },
+              {
+                "fr": "Lime Glazed Terracotta",
+                "en": "Lime Glazed Terracotta"
+              },
+              {
+                "fr": "Pink Glazed Terracotta",
+                "en": "Pink Glazed Terracotta"
+              },
+              {
+                "fr": "Gray Glazed Terracotta",
+                "en": "Gray Glazed Terracotta"
+              },
+              {
+                "fr": "Light Gray Glazed Terracotta",
+                "en": "Light Gray Glazed Terracotta"
+              },
+              {
+                "fr": "Cyan Glazed Terracotta",
+                "en": "Cyan Glazed Terracotta"
+              },
+              {
+                "fr": "Purple Glazed Terracotta",
+                "en": "Purple Glazed Terracotta"
+              },
+              {
+                "fr": "Blue Glazed Terracotta",
+                "en": "Blue Glazed Terracotta"
+              },
+              {
+                "fr": "Brown Glazed Terracotta",
+                "en": "Brown Glazed Terracotta"
+              },
+              {
+                "fr": "Green Glazed Terracotta",
+                "en": "Green Glazed Terracotta"
+              },
+              {
+                "fr": "Red Glazed Terracotta",
+                "en": "Red Glazed Terracotta"
+              },
+              {
+                "fr": "Black Glazed Terracotta",
+                "en": "Black Glazed Terracotta"
+              },
+              {
+                "fr": "Glass",
+                "en": "Glass"
+              },
+              {
+                "fr": "Tinted Glass",
+                "en": "Tinted Glass"
+              },
+              {
+                "fr": "Sea Lantern",
+                "en": "Sea Lantern"
+              },
+              {
+                "fr": "Glowstone",
+                "en": "Glowstone"
+              },
+              {
+                "fr": "Shroomlight",
+                "en": "Shroomlight"
+              },
+              {
+                "fr": "Ochre Froglight",
+                "en": "Ochre Froglight"
+              },
+              {
+                "fr": "Verdant Froglight",
+                "en": "Verdant Froglight"
+              },
+              {
+                "fr": "Pearlescent Froglight",
+                "en": "Pearlescent Froglight"
+              },
+              {
+                "fr": "Amethyst Block",
+                "en": "Amethyst Block"
+              },
+              {
+                "fr": "Copper Block",
+                "en": "Copper Block"
+              },
+              {
+                "fr": "Exposed Copper",
+                "en": "Exposed Copper"
+              },
+              {
+                "fr": "Weathered Copper",
+                "en": "Weathered Copper"
+              },
+              {
+                "fr": "Oxidized Copper",
+                "en": "Oxidized Copper"
+              },
+              {
+                "fr": "Cut Copper",
+                "en": "Cut Copper"
+              },
+              {
+                "fr": "Exposed Cut Copper",
+                "en": "Exposed Cut Copper"
+              },
+              {
+                "fr": "Weathered Cut Copper",
+                "en": "Weathered Cut Copper"
+              },
+              {
+                "fr": "Oxidized Cut Copper",
+                "en": "Oxidized Cut Copper"
+              }
+            ]
+          }
+        ],
+        "eligible_block_count": 156,
+        "custom_blocks_can_register": true,
+        "anti_exploitation": {
+          "maximum_position_history": 512,
+          "maximum_material_history": 256,
+          "position_expiry_millis": 1800000,
+          "position_expiry_minutes": 30.0,
+          "position_reuse_multipliers": [
+            0.2,
+            0.04,
+            0.008
+          ],
+          "material_decay": 0.9,
+          "material_recovery_per_intervening_event": 0.1,
+          "minimum_material_multiplier": 0.3,
+          "persistent_per_player": true,
+          "bounded_history": true
+        }
+      },
+      "comfort": {
+        "quick_replace": {
+          "perk": 1,
+          "requires_eligible_old_and_new_blocks": true,
+          "refuses_block_entities": true,
+          "recovers_old_block_outside_creative": true,
+          "server_authoritative": true
+        },
+        "auto_restock": {
+          "perk": 5,
+          "matches_item_and_component_changes": true,
+          "server_authoritative": true
+        },
+        "decorative_magnet": {
+          "perk": 6,
+          "interval_ticks": 5,
+          "radius_blocks": 5.0,
+          "maximum_items_per_pass": 16,
+          "pull_strength": 0.18,
+          "client_toggle": true,
+          "server_application": true
+        }
+      },
+      "plans": {
+        "plan_2d": {
+          "base_max_size": 8,
+          "upgraded_max_size": 12,
+          "blocks_per_job_tick": 6,
+          "global_blocks_per_tick": 24,
+          "preview_lifetime_ticks": 600,
+          "preview_lifetime_seconds": 30.0,
+          "perk_base": 2,
+          "perk_upgrade": 3
+        },
+        "plan_3d": {
+          "maximum_size": 8,
+          "preview_lifetime_ticks": 600,
+          "preview_lifetime_seconds": 30.0,
+          "perk": 4
+        },
+        "server_jobs": true,
+        "resource_consumption_server_side": true,
+        "preview_payloads_client_side": true
+      },
+      "builder_tools": {
+        "reach_perks": [
+          {
+            "perk": 9,
+            "extra_reach": 1
+          },
+          {
+            "perk": 10,
+            "extra_reach": 2
+          },
+          {
+            "perk": 11,
+            "extra_reach": 3
+          }
+        ],
+        "scaffolding_range": {
+          "perk": 12,
+          "blocks": 32
+        },
+        "architect_compass": {
+          "perk": 14,
+          "minimum_radius": 1,
+          "maximum_radius": 32,
+          "default_radius": 5,
+          "persistent_item_data": true
+        },
+        "builder_wand": {
+          "perk": 20,
+          "maximum_durability": 256,
+          "copies_safe_block_state_properties": true,
+          "dangerous_properties_excluded": true,
+          "server_authoritative": true
+        }
+      },
+      "reserve": {
+        "perk_ranges": [
+          {
+            "perk": 15,
+            "range": 5
+          },
+          {
+            "perk": 16,
+            "range": 10
+          },
+          {
+            "perk": 17,
+            "range": 15
+          }
+        ],
+        "maximum_chests_per_player": 8,
+        "request_cooldown_ticks": 5,
+        "persistent_state": true,
+        "server_authoritative": true
+      },
+      "decorative_content": {
+        "vertical_slabs": {
+          "perk": 8,
+          "xp_each": 2,
+          "types": [
+            {
+              "id": "stone_vertical_slab",
+              "identifier": "mythicrpg:stone_vertical_slab",
+              "names": {
+                "fr": "Stone Vertical Slab",
+                "en": "Stone Vertical Slab"
+              },
+              "base_block": "minecraft:stone",
+              "base_names": {
+                "fr": "Stone",
+                "en": "Stone"
+              }
+            },
+            {
+              "id": "cobblestone_vertical_slab",
+              "identifier": "mythicrpg:cobblestone_vertical_slab",
+              "names": {
+                "fr": "Cobblestone Vertical Slab",
+                "en": "Cobblestone Vertical Slab"
+              },
+              "base_block": "minecraft:cobblestone",
+              "base_names": {
+                "fr": "Cobblestone",
+                "en": "Cobblestone"
+              }
+            },
+            {
+              "id": "stone_brick_vertical_slab",
+              "identifier": "mythicrpg:stone_brick_vertical_slab",
+              "names": {
+                "fr": "Stone Brick Vertical Slab",
+                "en": "Stone Brick Vertical Slab"
+              },
+              "base_block": "minecraft:stone_bricks",
+              "base_names": {
+                "fr": "Stone Bricks",
+                "en": "Stone Bricks"
+              }
+            },
+            {
+              "id": "brick_vertical_slab",
+              "identifier": "mythicrpg:brick_vertical_slab",
+              "names": {
+                "fr": "Brick Vertical Slab",
+                "en": "Brick Vertical Slab"
+              },
+              "base_block": "minecraft:bricks",
+              "base_names": {
+                "fr": "Bricks",
+                "en": "Bricks"
+              }
+            },
+            {
+              "id": "polished_deepslate_vertical_slab",
+              "identifier": "mythicrpg:polished_deepslate_vertical_slab",
+              "names": {
+                "fr": "Polished Deepslate Vertical Slab",
+                "en": "Polished Deepslate Vertical Slab"
+              },
+              "base_block": "minecraft:polished_deepslate",
+              "base_names": {
+                "fr": "Polished Deepslate",
+                "en": "Polished Deepslate"
+              }
+            },
+            {
+              "id": "quartz_vertical_slab",
+              "identifier": "mythicrpg:quartz_vertical_slab",
+              "names": {
+                "fr": "Quartz Vertical Slab",
+                "en": "Quartz Vertical Slab"
+              },
+              "base_block": "minecraft:quartz_block",
+              "base_names": {
+                "fr": "Quartz Block",
+                "en": "Quartz Block"
+              }
+            },
+            {
+              "id": "sandstone_vertical_slab",
+              "identifier": "mythicrpg:sandstone_vertical_slab",
+              "names": {
+                "fr": "Sandstone Vertical Slab",
+                "en": "Sandstone Vertical Slab"
+              },
+              "base_block": "minecraft:sandstone",
+              "base_names": {
+                "fr": "Sandstone",
+                "en": "Sandstone"
+              }
+            },
+            {
+              "id": "red_sandstone_vertical_slab",
+              "identifier": "mythicrpg:red_sandstone_vertical_slab",
+              "names": {
+                "fr": "Red Sandstone Vertical Slab",
+                "en": "Red Sandstone Vertical Slab"
+              },
+              "base_block": "minecraft:red_sandstone",
+              "base_names": {
+                "fr": "Red Sandstone",
+                "en": "Red Sandstone"
+              }
+            },
+            {
+              "id": "nether_brick_vertical_slab",
+              "identifier": "mythicrpg:nether_brick_vertical_slab",
+              "names": {
+                "fr": "Nether Brick Vertical Slab",
+                "en": "Nether Brick Vertical Slab"
+              },
+              "base_block": "minecraft:nether_bricks",
+              "base_names": {
+                "fr": "Nether Bricks",
+                "en": "Nether Bricks"
+              }
+            },
+            {
+              "id": "oak_vertical_slab",
+              "identifier": "mythicrpg:oak_vertical_slab",
+              "names": {
+                "fr": "Oak Vertical Slab",
+                "en": "Oak Vertical Slab"
+              },
+              "base_block": "minecraft:oak_planks",
+              "base_names": {
+                "fr": "Oak Planks",
+                "en": "Oak Planks"
+              }
+            },
+            {
+              "id": "spruce_vertical_slab",
+              "identifier": "mythicrpg:spruce_vertical_slab",
+              "names": {
+                "fr": "Spruce Vertical Slab",
+                "en": "Spruce Vertical Slab"
+              },
+              "base_block": "minecraft:spruce_planks",
+              "base_names": {
+                "fr": "Spruce Planks",
+                "en": "Spruce Planks"
+              }
+            },
+            {
+              "id": "birch_vertical_slab",
+              "identifier": "mythicrpg:birch_vertical_slab",
+              "names": {
+                "fr": "Birch Vertical Slab",
+                "en": "Birch Vertical Slab"
+              },
+              "base_block": "minecraft:birch_planks",
+              "base_names": {
+                "fr": "Birch Planks",
+                "en": "Birch Planks"
+              }
+            },
+            {
+              "id": "jungle_vertical_slab",
+              "identifier": "mythicrpg:jungle_vertical_slab",
+              "names": {
+                "fr": "Jungle Vertical Slab",
+                "en": "Jungle Vertical Slab"
+              },
+              "base_block": "minecraft:jungle_planks",
+              "base_names": {
+                "fr": "Jungle Planks",
+                "en": "Jungle Planks"
+              }
+            },
+            {
+              "id": "acacia_vertical_slab",
+              "identifier": "mythicrpg:acacia_vertical_slab",
+              "names": {
+                "fr": "Acacia Vertical Slab",
+                "en": "Acacia Vertical Slab"
+              },
+              "base_block": "minecraft:acacia_planks",
+              "base_names": {
+                "fr": "Acacia Planks",
+                "en": "Acacia Planks"
+              }
+            },
+            {
+              "id": "dark_oak_vertical_slab",
+              "identifier": "mythicrpg:dark_oak_vertical_slab",
+              "names": {
+                "fr": "Dark Oak Vertical Slab",
+                "en": "Dark Oak Vertical Slab"
+              },
+              "base_block": "minecraft:dark_oak_planks",
+              "base_names": {
+                "fr": "Dark Oak Planks",
+                "en": "Dark Oak Planks"
+              }
+            },
+            {
+              "id": "mangrove_vertical_slab",
+              "identifier": "mythicrpg:mangrove_vertical_slab",
+              "names": {
+                "fr": "Mangrove Vertical Slab",
+                "en": "Mangrove Vertical Slab"
+              },
+              "base_block": "minecraft:mangrove_planks",
+              "base_names": {
+                "fr": "Mangrove Planks",
+                "en": "Mangrove Planks"
+              }
+            },
+            {
+              "id": "cherry_vertical_slab",
+              "identifier": "mythicrpg:cherry_vertical_slab",
+              "names": {
+                "fr": "Cherry Vertical Slab",
+                "en": "Cherry Vertical Slab"
+              },
+              "base_block": "minecraft:cherry_planks",
+              "base_names": {
+                "fr": "Cherry Planks",
+                "en": "Cherry Planks"
+              }
+            },
+            {
+              "id": "bamboo_vertical_slab",
+              "identifier": "mythicrpg:bamboo_vertical_slab",
+              "names": {
+                "fr": "Bamboo Vertical Slab",
+                "en": "Bamboo Vertical Slab"
+              },
+              "base_block": "minecraft:bamboo_planks",
+              "base_names": {
+                "fr": "Bamboo Planks",
+                "en": "Bamboo Planks"
+              }
+            },
+            {
+              "id": "crimson_vertical_slab",
+              "identifier": "mythicrpg:crimson_vertical_slab",
+              "names": {
+                "fr": "Crimson Vertical Slab",
+                "en": "Crimson Vertical Slab"
+              },
+              "base_block": "minecraft:crimson_planks",
+              "base_names": {
+                "fr": "Crimson Planks",
+                "en": "Crimson Planks"
+              }
+            },
+            {
+              "id": "warped_vertical_slab",
+              "identifier": "mythicrpg:warped_vertical_slab",
+              "names": {
+                "fr": "Warped Vertical Slab",
+                "en": "Warped Vertical Slab"
+              },
+              "base_block": "minecraft:warped_planks",
+              "base_names": {
+                "fr": "Warped Planks",
+                "en": "Warped Planks"
+              }
+            }
+          ]
+        },
+        "blank_block": {
+          "perk": 13,
+          "allowed_materials": [
+            {
+              "identifier": "minecraft:stone",
+              "names": {
+                "fr": "Stone",
+                "en": "Stone"
+              }
+            },
+            {
+              "identifier": "minecraft:cobblestone",
+              "names": {
+                "fr": "Cobblestone",
+                "en": "Cobblestone"
+              }
+            },
+            {
+              "identifier": "minecraft:mossy_cobblestone",
+              "names": {
+                "fr": "Mossy Cobblestone",
+                "en": "Mossy Cobblestone"
+              }
+            },
+            {
+              "identifier": "minecraft:smooth_stone",
+              "names": {
+                "fr": "Smooth Stone",
+                "en": "Smooth Stone"
+              }
+            },
+            {
+              "identifier": "minecraft:stone_bricks",
+              "names": {
+                "fr": "Stone Bricks",
+                "en": "Stone Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:bricks",
+              "names": {
+                "fr": "Bricks",
+                "en": "Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:mud_bricks",
+              "names": {
+                "fr": "Mud Bricks",
+                "en": "Mud Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:granite",
+              "names": {
+                "fr": "Granite",
+                "en": "Granite"
+              }
+            },
+            {
+              "identifier": "minecraft:polished_granite",
+              "names": {
+                "fr": "Polished Granite",
+                "en": "Polished Granite"
+              }
+            },
+            {
+              "identifier": "minecraft:diorite",
+              "names": {
+                "fr": "Diorite",
+                "en": "Diorite"
+              }
+            },
+            {
+              "identifier": "minecraft:polished_diorite",
+              "names": {
+                "fr": "Polished Diorite",
+                "en": "Polished Diorite"
+              }
+            },
+            {
+              "identifier": "minecraft:andesite",
+              "names": {
+                "fr": "Andesite",
+                "en": "Andesite"
+              }
+            },
+            {
+              "identifier": "minecraft:polished_andesite",
+              "names": {
+                "fr": "Polished Andesite",
+                "en": "Polished Andesite"
+              }
+            },
+            {
+              "identifier": "minecraft:deepslate",
+              "names": {
+                "fr": "Deepslate",
+                "en": "Deepslate"
+              }
+            },
+            {
+              "identifier": "minecraft:cobbled_deepslate",
+              "names": {
+                "fr": "Cobbled Deepslate",
+                "en": "Cobbled Deepslate"
+              }
+            },
+            {
+              "identifier": "minecraft:polished_deepslate",
+              "names": {
+                "fr": "Polished Deepslate",
+                "en": "Polished Deepslate"
+              }
+            },
+            {
+              "identifier": "minecraft:deepslate_bricks",
+              "names": {
+                "fr": "Deepslate Bricks",
+                "en": "Deepslate Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:cracked_deepslate_bricks",
+              "names": {
+                "fr": "Cracked Deepslate Bricks",
+                "en": "Cracked Deepslate Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:deepslate_tiles",
+              "names": {
+                "fr": "Deepslate Tiles",
+                "en": "Deepslate Tiles"
+              }
+            },
+            {
+              "identifier": "minecraft:cracked_deepslate_tiles",
+              "names": {
+                "fr": "Cracked Deepslate Tiles",
+                "en": "Cracked Deepslate Tiles"
+              }
+            },
+            {
+              "identifier": "minecraft:chiseled_deepslate",
+              "names": {
+                "fr": "Chiseled Deepslate",
+                "en": "Chiseled Deepslate"
+              }
+            },
+            {
+              "identifier": "minecraft:tuff",
+              "names": {
+                "fr": "Tuff",
+                "en": "Tuff"
+              }
+            },
+            {
+              "identifier": "minecraft:polished_tuff",
+              "names": {
+                "fr": "Polished Tuff",
+                "en": "Polished Tuff"
+              }
+            },
+            {
+              "identifier": "minecraft:tuff_bricks",
+              "names": {
+                "fr": "Tuff Bricks",
+                "en": "Tuff Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:chiseled_tuff_bricks",
+              "names": {
+                "fr": "Chiseled Tuff Bricks",
+                "en": "Chiseled Tuff Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:sandstone",
+              "names": {
+                "fr": "Sandstone",
+                "en": "Sandstone"
+              }
+            },
+            {
+              "identifier": "minecraft:chiseled_sandstone",
+              "names": {
+                "fr": "Chiseled Sandstone",
+                "en": "Chiseled Sandstone"
+              }
+            },
+            {
+              "identifier": "minecraft:red_sandstone",
+              "names": {
+                "fr": "Red Sandstone",
+                "en": "Red Sandstone"
+              }
+            },
+            {
+              "identifier": "minecraft:chiseled_red_sandstone",
+              "names": {
+                "fr": "Chiseled Red Sandstone",
+                "en": "Chiseled Red Sandstone"
+              }
+            },
+            {
+              "identifier": "minecraft:nether_bricks",
+              "names": {
+                "fr": "Nether Bricks",
+                "en": "Nether Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:chiseled_nether_bricks",
+              "names": {
+                "fr": "Chiseled Nether Bricks",
+                "en": "Chiseled Nether Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:cracked_nether_bricks",
+              "names": {
+                "fr": "Cracked Nether Bricks",
+                "en": "Cracked Nether Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:blackstone",
+              "names": {
+                "fr": "Blackstone",
+                "en": "Blackstone"
+              }
+            },
+            {
+              "identifier": "minecraft:chiseled_polished_blackstone",
+              "names": {
+                "fr": "Chiseled Polished Blackstone",
+                "en": "Chiseled Polished Blackstone"
+              }
+            },
+            {
+              "identifier": "minecraft:quartz_block",
+              "names": {
+                "fr": "Quartz Block",
+                "en": "Quartz Block"
+              }
+            },
+            {
+              "identifier": "minecraft:chiseled_quartz_block",
+              "names": {
+                "fr": "Chiseled Quartz Block",
+                "en": "Chiseled Quartz Block"
+              }
+            },
+            {
+              "identifier": "minecraft:basalt",
+              "names": {
+                "fr": "Basalt",
+                "en": "Basalt"
+              }
+            },
+            {
+              "identifier": "minecraft:polished_basalt",
+              "names": {
+                "fr": "Polished Basalt",
+                "en": "Polished Basalt"
+              }
+            },
+            {
+              "identifier": "minecraft:smooth_basalt",
+              "names": {
+                "fr": "Smooth Basalt",
+                "en": "Smooth Basalt"
+              }
+            },
+            {
+              "identifier": "minecraft:oak_planks",
+              "names": {
+                "fr": "Oak Planks",
+                "en": "Oak Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:spruce_planks",
+              "names": {
+                "fr": "Spruce Planks",
+                "en": "Spruce Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:birch_planks",
+              "names": {
+                "fr": "Birch Planks",
+                "en": "Birch Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:jungle_planks",
+              "names": {
+                "fr": "Jungle Planks",
+                "en": "Jungle Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:acacia_planks",
+              "names": {
+                "fr": "Acacia Planks",
+                "en": "Acacia Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:dark_oak_planks",
+              "names": {
+                "fr": "Dark Oak Planks",
+                "en": "Dark Oak Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:mangrove_planks",
+              "names": {
+                "fr": "Mangrove Planks",
+                "en": "Mangrove Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:cherry_planks",
+              "names": {
+                "fr": "Cherry Planks",
+                "en": "Cherry Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:bamboo_planks",
+              "names": {
+                "fr": "Bamboo Planks",
+                "en": "Bamboo Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:bamboo_mosaic",
+              "names": {
+                "fr": "Bamboo Mosaic",
+                "en": "Bamboo Mosaic"
+              }
+            },
+            {
+              "identifier": "minecraft:crimson_planks",
+              "names": {
+                "fr": "Crimson Planks",
+                "en": "Crimson Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:warped_planks",
+              "names": {
+                "fr": "Warped Planks",
+                "en": "Warped Planks"
+              }
+            },
+            {
+              "identifier": "minecraft:white_wool",
+              "names": {
+                "fr": "White Wool",
+                "en": "White Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:orange_wool",
+              "names": {
+                "fr": "Orange Wool",
+                "en": "Orange Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:magenta_wool",
+              "names": {
+                "fr": "Magenta Wool",
+                "en": "Magenta Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:light_blue_wool",
+              "names": {
+                "fr": "Light Blue Wool",
+                "en": "Light Blue Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:yellow_wool",
+              "names": {
+                "fr": "Yellow Wool",
+                "en": "Yellow Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:lime_wool",
+              "names": {
+                "fr": "Lime Wool",
+                "en": "Lime Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:pink_wool",
+              "names": {
+                "fr": "Pink Wool",
+                "en": "Pink Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:gray_wool",
+              "names": {
+                "fr": "Gray Wool",
+                "en": "Gray Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:light_gray_wool",
+              "names": {
+                "fr": "Light Gray Wool",
+                "en": "Light Gray Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:cyan_wool",
+              "names": {
+                "fr": "Cyan Wool",
+                "en": "Cyan Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:purple_wool",
+              "names": {
+                "fr": "Purple Wool",
+                "en": "Purple Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:blue_wool",
+              "names": {
+                "fr": "Blue Wool",
+                "en": "Blue Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:brown_wool",
+              "names": {
+                "fr": "Brown Wool",
+                "en": "Brown Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:green_wool",
+              "names": {
+                "fr": "Green Wool",
+                "en": "Green Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:red_wool",
+              "names": {
+                "fr": "Red Wool",
+                "en": "Red Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:black_wool",
+              "names": {
+                "fr": "Black Wool",
+                "en": "Black Wool"
+              }
+            },
+            {
+              "identifier": "minecraft:white_concrete",
+              "names": {
+                "fr": "White Concrete",
+                "en": "White Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:orange_concrete",
+              "names": {
+                "fr": "Orange Concrete",
+                "en": "Orange Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:magenta_concrete",
+              "names": {
+                "fr": "Magenta Concrete",
+                "en": "Magenta Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:light_blue_concrete",
+              "names": {
+                "fr": "Light Blue Concrete",
+                "en": "Light Blue Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:yellow_concrete",
+              "names": {
+                "fr": "Yellow Concrete",
+                "en": "Yellow Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:lime_concrete",
+              "names": {
+                "fr": "Lime Concrete",
+                "en": "Lime Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:pink_concrete",
+              "names": {
+                "fr": "Pink Concrete",
+                "en": "Pink Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:gray_concrete",
+              "names": {
+                "fr": "Gray Concrete",
+                "en": "Gray Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:light_gray_concrete",
+              "names": {
+                "fr": "Light Gray Concrete",
+                "en": "Light Gray Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:cyan_concrete",
+              "names": {
+                "fr": "Cyan Concrete",
+                "en": "Cyan Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:purple_concrete",
+              "names": {
+                "fr": "Purple Concrete",
+                "en": "Purple Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:blue_concrete",
+              "names": {
+                "fr": "Blue Concrete",
+                "en": "Blue Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:brown_concrete",
+              "names": {
+                "fr": "Brown Concrete",
+                "en": "Brown Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:green_concrete",
+              "names": {
+                "fr": "Green Concrete",
+                "en": "Green Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:red_concrete",
+              "names": {
+                "fr": "Red Concrete",
+                "en": "Red Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:black_concrete",
+              "names": {
+                "fr": "Black Concrete",
+                "en": "Black Concrete"
+              }
+            },
+            {
+              "identifier": "minecraft:terracotta",
+              "names": {
+                "fr": "Terracotta",
+                "en": "Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:white_terracotta",
+              "names": {
+                "fr": "White Terracotta",
+                "en": "White Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:orange_terracotta",
+              "names": {
+                "fr": "Orange Terracotta",
+                "en": "Orange Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:magenta_terracotta",
+              "names": {
+                "fr": "Magenta Terracotta",
+                "en": "Magenta Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:light_blue_terracotta",
+              "names": {
+                "fr": "Light Blue Terracotta",
+                "en": "Light Blue Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:yellow_terracotta",
+              "names": {
+                "fr": "Yellow Terracotta",
+                "en": "Yellow Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:lime_terracotta",
+              "names": {
+                "fr": "Lime Terracotta",
+                "en": "Lime Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:pink_terracotta",
+              "names": {
+                "fr": "Pink Terracotta",
+                "en": "Pink Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:gray_terracotta",
+              "names": {
+                "fr": "Gray Terracotta",
+                "en": "Gray Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:light_gray_terracotta",
+              "names": {
+                "fr": "Light Gray Terracotta",
+                "en": "Light Gray Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:cyan_terracotta",
+              "names": {
+                "fr": "Cyan Terracotta",
+                "en": "Cyan Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:purple_terracotta",
+              "names": {
+                "fr": "Purple Terracotta",
+                "en": "Purple Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:blue_terracotta",
+              "names": {
+                "fr": "Blue Terracotta",
+                "en": "Blue Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:brown_terracotta",
+              "names": {
+                "fr": "Brown Terracotta",
+                "en": "Brown Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:green_terracotta",
+              "names": {
+                "fr": "Green Terracotta",
+                "en": "Green Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:red_terracotta",
+              "names": {
+                "fr": "Red Terracotta",
+                "en": "Red Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:black_terracotta",
+              "names": {
+                "fr": "Black Terracotta",
+                "en": "Black Terracotta"
+              }
+            },
+            {
+              "identifier": "minecraft:prismarine",
+              "names": {
+                "fr": "Prismarine",
+                "en": "Prismarine"
+              }
+            },
+            {
+              "identifier": "minecraft:prismarine_bricks",
+              "names": {
+                "fr": "Prismarine Bricks",
+                "en": "Prismarine Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:dark_prismarine",
+              "names": {
+                "fr": "Dark Prismarine",
+                "en": "Dark Prismarine"
+              }
+            },
+            {
+              "identifier": "minecraft:end_stone_bricks",
+              "names": {
+                "fr": "End Stone Bricks",
+                "en": "End Stone Bricks"
+              }
+            },
+            {
+              "identifier": "minecraft:purpur_block",
+              "names": {
+                "fr": "Purpur Block",
+                "en": "Purpur Block"
+              }
+            },
+            {
+              "identifier": "minecraft:smooth_quartz",
+              "names": {
+                "fr": "Smooth Quartz",
+                "en": "Smooth Quartz"
+              }
+            },
+            {
+              "identifier": "minecraft:calcite",
+              "names": {
+                "fr": "Calcite",
+                "en": "Calcite"
+              }
+            },
+            {
+              "identifier": "minecraft:packed_mud",
+              "names": {
+                "fr": "Packed Mud",
+                "en": "Packed Mud"
+              }
+            },
+            {
+              "identifier": "minecraft:copper_block",
+              "names": {
+                "fr": "Copper Block",
+                "en": "Copper Block"
+              }
+            },
+            {
+              "identifier": "minecraft:exposed_copper",
+              "names": {
+                "fr": "Exposed Copper",
+                "en": "Exposed Copper"
+              }
+            },
+            {
+              "identifier": "minecraft:weathered_copper",
+              "names": {
+                "fr": "Weathered Copper",
+                "en": "Weathered Copper"
+              }
+            },
+            {
+              "identifier": "minecraft:oxidized_copper",
+              "names": {
+                "fr": "Oxidized Copper",
+                "en": "Oxidized Copper"
+              }
+            },
+            {
+              "identifier": "minecraft:amethyst_block",
+              "names": {
+                "fr": "Amethyst Block",
+                "en": "Amethyst Block"
+              }
+            }
+          ],
+          "material_count": 113,
+          "validated_on_server": true
+        },
+        "static_decoration": {
+          "perk": 19,
+          "effects": [
+            {
+              "id": "flame",
+              "names": {
+                "fr": "Flamme",
+                "en": "Flame"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "small_flame",
+              "names": {
+                "fr": "Petite flamme",
+                "en": "Small Flame"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "soul_fire_flame",
+              "names": {
+                "fr": "Flamme des âmes",
+                "en": "Soul Fire Flame"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "smoke",
+              "names": {
+                "fr": "Fumée",
+                "en": "Smoke"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "white_smoke",
+              "names": {
+                "fr": "Fumée blanche",
+                "en": "White Smoke"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "campfire_cosy_smoke",
+              "names": {
+                "fr": "Fumée de feu de camp",
+                "en": "Campfire Smoke"
+              },
+              "interval_ticks": 12,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "ash",
+              "names": {
+                "fr": "Cendres",
+                "en": "Ash"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "white_ash",
+              "names": {
+                "fr": "Cendres blanches",
+                "en": "White Ash"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "enchant",
+              "names": {
+                "fr": "Enchantement",
+                "en": "Enchanting"
+              },
+              "interval_ticks": 4,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "enchanted_hit",
+              "names": {
+                "fr": "Impact enchanté",
+                "en": "Enchanted Hit"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "end_rod",
+              "names": {
+                "fr": "Tige de l'End",
+                "en": "End Rod"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "portal",
+              "names": {
+                "fr": "Portail",
+                "en": "Portal"
+              },
+              "interval_ticks": 4,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "reverse_portal",
+              "names": {
+                "fr": "Portail inversé",
+                "en": "Reverse Portal"
+              },
+              "interval_ticks": 4,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "witch",
+              "names": {
+                "fr": "Sorcière",
+                "en": "Witch"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "effect",
+              "names": {
+                "fr": "Effet magique",
+                "en": "Magic Effect"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "instant_effect",
+              "names": {
+                "fr": "Effet instantané",
+                "en": "Instant Effect"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "electric_spark",
+              "names": {
+                "fr": "Étincelle électrique",
+                "en": "Electric Spark"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "firework",
+              "names": {
+                "fr": "Feu d'artifice",
+                "en": "Firework"
+              },
+              "interval_ticks": 8,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "glow",
+              "names": {
+                "fr": "Lueur",
+                "en": "Glow"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "totem_of_undying",
+              "names": {
+                "fr": "Totem d'immortalité",
+                "en": "Totem of Undying"
+              },
+              "interval_ticks": 8,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "soul",
+              "names": {
+                "fr": "Âme",
+                "en": "Soul"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "sculk_soul",
+              "names": {
+                "fr": "Âme de sculk",
+                "en": "Sculk Soul"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "crit",
+              "names": {
+                "fr": "Coup critique",
+                "en": "Critical Hit"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "cherry_leaves",
+              "names": {
+                "fr": "Feuilles de cerisier",
+                "en": "Cherry Leaves"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "spore_blossom_air",
+              "names": {
+                "fr": "Spores de fleur sporifère",
+                "en": "Spore Blossom"
+              },
+              "interval_ticks": 4,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "crimson_spore",
+              "names": {
+                "fr": "Spores carmin",
+                "en": "Crimson Spores"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "warped_spore",
+              "names": {
+                "fr": "Spores biscornues",
+                "en": "Warped Spores"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "snowflake",
+              "names": {
+                "fr": "Flocon de neige",
+                "en": "Snowflake"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "mycelium",
+              "names": {
+                "fr": "Mycélium",
+                "en": "Mycelium"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "heart",
+              "names": {
+                "fr": "Cœur",
+                "en": "Heart"
+              },
+              "interval_ticks": 8,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "happy_villager",
+              "names": {
+                "fr": "Villageois heureux",
+                "en": "Happy Villager"
+              },
+              "interval_ticks": 6,
+              "particles_per_emission": 1
+            },
+            {
+              "id": "note",
+              "names": {
+                "fr": "Note",
+                "en": "Note"
+              },
+              "interval_ticks": 8,
+              "particles_per_emission": 1
+            }
+          ],
+          "effect_count": 32,
+          "owner_protected": true,
+          "creative_override": true
+        },
+        "miniature": {
+          "perk": 18,
+          "owner_controlled": true,
+          "wand_rotation_supported": true,
+          "retrievable": true,
+          "server_authoritative": true
+        }
+      },
+      "multiplayer": {
+        "xp_authority": "server",
+        "plans_authority": "server",
+        "reserve_authority": "server",
+        "decoration_owner_protection": true,
+        "preview_and_ui_payloads_client_facing": true,
+        "persistent_player_and_world_states": true
+      },
+      "extraction": {
+        "method": "specialized_java_building_extraction",
+        "files": [
+          "com/mythicrpg/building/BuildingXpManager.java",
+          "com/mythicrpg/building/BuildingBlockCatalog.java",
+          "com/mythicrpg/building/BuildingPlan2DManager.java",
+          "com/mythicrpg/building/BuildingPlan3DManager.java",
+          "com/mythicrpg/building/BuildingMagnetManager.java",
+          "com/mythicrpg/building/BuildingReserveChestManager.java",
+          "com/mythicrpg/building/ArchitectCompassData.java",
+          "com/mythicrpg/building/VerticalSlabRegistry.java",
+          "com/mythicrpg/building/BlankBlockMaterialRegistry.java",
+          "com/mythicrpg/building/StaticDecorationEffect.java",
+          "com/mythicrpg/building/BuildingSkillTree.java"
+        ]
+      }
+    },
+    "farming": {
+      "xp": {
+        "harvest_categories": [
+          {
+            "id": "standard_mature_crop",
+            "xp": 2,
+            "examples": [
+              "minecraft:wheat",
+              "minecraft:carrots",
+              "minecraft:potatoes",
+              "minecraft:beetroots"
+            ]
+          },
+          {
+            "id": "nether_wart_or_cocoa",
+            "xp": 3,
+            "examples": [
+              "minecraft:nether_wart",
+              "minecraft:cocoa"
+            ]
+          },
+          {
+            "id": "mushroom_block",
+            "xp": 3,
+            "examples": [
+              "minecraft:brown_mushroom_block",
+              "minecraft:red_mushroom_block",
+              "minecraft:mushroom_stem"
+            ]
+          },
+          {
+            "id": "melon_or_pumpkin",
+            "xp": 4,
+            "examples": [
+              "minecraft:melon",
+              "minecraft:pumpkin"
+            ]
+          }
+        ],
+        "mature_only": true,
+        "supported_mature_categories": [
+          "minecraft:wheat",
+          "minecraft:carrots",
+          "minecraft:potatoes",
+          "minecraft:beetroots",
+          "minecraft:nether_wart",
+          "minecraft:cocoa",
+          "minecraft:sweet_berry_bush",
+          "minecraft:melon",
+          "minecraft:pumpkin",
+          "minecraft:brown_mushroom_block",
+          "minecraft:red_mushroom_block",
+          "minecraft:mushroom_stem"
+        ],
+        "breeding": {
+          "xp": 8,
+          "memory_duration_ticks": 400,
+          "memory_duration_seconds": 20.0,
+          "baby_match_radius": 8.0,
+          "requires_valid_breeding_item": true,
+          "matches_new_baby_type_and_world": true
+        },
+        "area_harvest": {
+          "maximum_blocks": 96,
+          "requires_hoe": true,
+          "requires_mature_farming_block": true,
+          "reentrant_guard": true
+        },
+        "anti_automation": {
+          "recent_replant_protection_ticks": 6,
+          "automatic_growth_does_not_directly_award_xp": true,
+          "server_break_events_only": true
+        }
+      },
+      "perk_values": {
+        "enchanted_seed_chances": [
+          0.001,
+          0.002,
+          0.003
+        ],
+        "double_drop_chances": [
+          0.15,
+          0.25
+        ],
+        "compost_rare_drop_chances": [
+          0.01,
+          0.02,
+          0.03
+        ],
+        "farmer_reach_radii": [
+          3,
+          5,
+          7
+        ],
+        "vanilla_xp_per_harvest": 1,
+        "bone_meal_regeneration_ticks": 60,
+        "irrigated_step_speed_ticks": 60,
+        "cultivated_shield_base_ticks": 200,
+        "cultivated_shield_max_amplifier": 4,
+        "source": "com/mythicrpg/farming/FarmingSkillTree.java"
+      },
+      "growth": {
+        "living_field": {
+          "perk": 20,
+          "radius": 5,
+          "extra_attempts_per_second": 200,
+          "extra_attempts_per_tick": 10.0,
+          "affected_blocks": [
+            "minecraft:nether_wart",
+            "minecraft:cocoa",
+            "minecraft:sweet_berry_bush",
+            "minecraft:cave_vines",
+            "minecraft:cave_vines_plant",
+            "minecraft:melon_stem",
+            "minecraft:pumpkin_stem",
+            "minecraft:cactus",
+            "minecraft:sugar_cane",
+            "minecraft:bamboo",
+            "minecraft:kelp",
+            "minecraft:kelp_plant",
+            "minecraft:twisting_vines",
+            "minecraft:twisting_vines_plant",
+            "minecraft:weeping_vines",
+            "minecraft:weeping_vines_plant"
+          ],
+          "server_tick_authority": true
+        },
+        "compost_rewards": {
+          "roll_count": 5,
+          "fixed_rewards": [
+            "minecraft:golden_carrot",
+            "minecraft:bone_block",
+            "minecraft:vine"
+          ],
+          "plantable_pool": [
+            "minecraft:wheat_seeds",
+            "minecraft:pumpkin_seeds",
+            "minecraft:melon_seeds",
+            "minecraft:beetroot_seeds",
+            "minecraft:carrot",
+            "minecraft:potato",
+            "minecraft:nether_wart",
+            "minecraft:cocoa_beans",
+            "minecraft:sweet_berries",
+            "minecraft:glow_berries",
+            "minecraft:bamboo",
+            "minecraft:cactus",
+            "minecraft:sugar_cane",
+            "minecraft:brown_mushroom",
+            "minecraft:red_mushroom"
+          ],
+          "vanilla_xp_range": [
+            3,
+            7
+          ]
+        }
+      },
+      "objects": {
+        "enchanted_seed": {
+          "identifier": "mythicrpg:enchanted_seed",
+          "drop_chances": [
+            0.001,
+            0.002,
+            0.003
+          ],
+          "stored_automatically_in_food_backpack": true
+        },
+        "enchanted_flower": {
+          "identifier": "mythicrpg:enchanted_flower",
+          "perk": 18,
+          "offhand_smelt_manager": true,
+          "food_backpack_supported": true,
+          "feedback_cooldown_ticks": 10
+        },
+        "food_backpack": {
+          "identifier": "mythicrpg:food_backpack",
+          "perk": 8,
+          "slots": 54,
+          "store_feedback_cooldown_ticks": 12,
+          "full_feedback_cooldown_ticks": 40,
+          "accepts_food_plants_and_farming_resources": true,
+          "rejects_nested_backpacks": true,
+          "eating_preservation_integration": true,
+          "session_inventory_server_side": true
+        },
+        "growth_totem": {
+          "identifier": "mythicrpg:growth_totem",
+          "origin_skill": "mining_archaeology",
+          "farming_interaction": "crop_growth",
+          "confidence": "registered_item_and_block"
+        }
+      },
+      "death_and_persistence": {
+        "preserved_farmer_perk": 19,
+        "preserves_vanilla_experience": true,
+        "preserves_food_backpacks": true,
+        "food_backpack_death_counter": true,
+        "restored_on_player_copy": true
+      },
+      "multiplayer": {
+        "harvest_authority": "server",
+        "breeding_match_authority": "server",
+        "growth_authority": "server",
+        "backpack_inventory_authority": "server",
+        "player_specific_perks": true,
+        "pending_breeding_actions_are_runtime_only": true
+      },
+      "extraction": {
+        "method": "specialized_java_farming_extraction",
+        "files": [
+          "com/mythicrpg/farming/FarmingEvents.java",
+          "com/mythicrpg/farming/FarmingBreedingXpManager.java",
+          "com/mythicrpg/farming/FarmingGrowthManager.java",
+          "com/mythicrpg/farming/FoodBackpackItem.java",
+          "com/mythicrpg/farming/EnchantedFlowerSmeltManager.java",
+          "com/mythicrpg/farming/FarmingDeathManager.java",
+          "com/mythicrpg/farming/FarmingSkillTree.java"
+        ]
+      }
+    },
+    "woodcutting": {
+      "xp": {
+        "log_xp": 2,
+        "accepted_block_tag": "#minecraft:logs",
+        "leaves_award_skill_xp": false,
+        "timber": {
+          "maximum_additional_blocks": 32,
+          "same_block_type_only": true,
+          "requires_axe": true,
+          "xp_per_additional_log": 2,
+          "server_authoritative": true
+        },
+        "vanilla_xp_per_log_with_perk": 1
+      },
+      "drops": {
+        "double_drop_chances": [
+          0.05,
+          0.15,
+          0.2
+        ],
+        "enchanted_wood_chances": [
+          0.001,
+          0.0015,
+          0.002,
+          0.003
+        ],
+        "random_sapling_chance": 0.1,
+        "random_saplings": [
+          "minecraft:oak_sapling",
+          "minecraft:spruce_sapling",
+          "minecraft:birch_sapling",
+          "minecraft:jungle_sapling",
+          "minecraft:acacia_sapling",
+          "minecraft:dark_oak_sapling",
+          "minecraft:cherry_sapling",
+          "minecraft:mangrove_propagule"
+        ],
+        "leaf_apple_guaranteed_with_perk": true,
+        "golden_apple_chance": 0.01,
+        "silk_touch_disables_extra_leaf_drops": true,
+        "source": "com/mythicrpg/woodcutting/WoodcuttingSkillTree.java"
+      },
+      "tree_growth": {
+        "perk": 9,
+        "check_interval_ticks": 1,
+        "cooldown_ticks": 100,
+        "cooldown_seconds": 5.0,
+        "radius": 6,
+        "maximum_saplings_per_trigger": 6,
+        "trigger": "sneak_transition",
+        "server_authoritative": true
+      },
+      "enchanted_axe": {
+        "identifier": "mythicrpg:enchanted_axe",
+        "perk": 18,
+        "supported_projectiles": [
+          "minecraft:arrow",
+          "minecraft:snowball",
+          "minecraft:egg"
+        ],
+        "split_delay_ticks": 8,
+        "split_delay_seconds": 0.4,
+        "split_arrow_cleanup_min_age_ticks": 40,
+        "offhand_durability_cost": 30,
+        "duplicate_pickup": "creative_only",
+        "server_authoritative": true
+      },
+      "wood_eater": {
+        "perk": 19,
+        "accepted_item_tag": "#minecraft:logs",
+        "hunger": 6,
+        "saturation_modifier": 1.2,
+        "requires_player_can_consume": true,
+        "server_authoritative": true
+      },
+      "chest_modules": {
+        "tiers": [
+          {
+            "symbol": "CHEST_MODULE_I",
+            "id": "chest_module_1",
+            "identifier": "mythicrpg:chest_module_1",
+            "names": {
+              "fr": "Module de coffre I",
+              "en": "Chest Module I"
+            },
+            "extra_slots": 9,
+            "single_chest_capacity": 36,
+            "double_chest_capacity_with_two_equal_modules": 72
+          },
+          {
+            "symbol": "CHEST_MODULE_II",
+            "id": "chest_module_2",
+            "identifier": "mythicrpg:chest_module_2",
+            "names": {
+              "fr": "Module de coffre II",
+              "en": "Chest Module II"
+            },
+            "extra_slots": 18,
+            "single_chest_capacity": 45,
+            "double_chest_capacity_with_two_equal_modules": 90
+          },
+          {
+            "symbol": "CHEST_MODULE_III",
+            "id": "chest_module_3",
+            "identifier": "mythicrpg:chest_module_3",
+            "names": {
+              "fr": "Module de coffre III",
+              "en": "Chest Module III"
+            },
+            "extra_slots": 27,
+            "single_chest_capacity": 54,
+            "double_chest_capacity_with_two_equal_modules": 108
+          }
+        ],
+        "base_slots_per_chest": 27,
+        "maximum_slots_per_chest": 54,
+        "maximum_chests": 2,
+        "maximum_total_storage": 108,
+        "persistent_extra_storage_per_physical_chest": 27,
+        "supports_chest_and_trapped_chest": true,
+        "supports_double_chests": true,
+        "hoppers_use_active_capacity": true,
+        "module_slots_are_not_automatable": true,
+        "safe_shrink_requires_all_items_to_fit": true,
+        "atomic_repack_on_shrink": true,
+        "viewer_tracking_keeps_lid_state": true,
+        "server_authoritative": true
+      },
+      "durability": {
+        "axe_no_durability_perk": 20,
+        "undoes_one_durability_after_log_or_leaf_break": true
+      },
+      "multiplayer": {
+        "break_events_authority": "server",
+        "timber_authority": "server",
+        "chest_inventory_authority": "server",
+        "viewer_registry_server_only": true,
+        "persistent_module_and_extra_items_per_chest": true,
+        "anti_duplication_transactional_module_changes": true
+      },
+      "extraction": {
+        "method": "specialized_java_woodcutting_extraction",
+        "files": [
+          "com/mythicrpg/woodcutting/WoodcuttingEvents.java",
+          "com/mythicrpg/woodcutting/TreeGrowthSneakManager.java",
+          "com/mythicrpg/woodcutting/EnchantedAxeProjectileManager.java",
+          "com/mythicrpg/woodcutting/WoodEatingEvents.java",
+          "com/mythicrpg/woodcutting/chest/ModularChestInventory.java",
+          "com/mythicrpg/woodcutting/chest/ChestModuleStorage.java",
+          "com/mythicrpg/woodcutting/chest/ChestModuleManager.java",
+          "com/mythicrpg/woodcutting/chest/ModularChestScreenHandler.java",
+          "com/mythicrpg/woodcutting/WoodcuttingSkillTree.java",
+          "com/mythicrpg/core/ModItems.java"
         ]
       }
     }

@@ -342,7 +342,7 @@ th { color: var(--muted); }
   .static-xp-chart { min-height: 280px; }
 }
 
-/* Fighting and Crafting deep documentation v0.3.0 */
+/* Fighting and Crafting deep documentation v0.4.0 */
 .specialized-explorer { display: grid; gap: 2rem; }
 .specialized-explorer > section { scroll-margin-top: 9rem; }
 .option-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; margin: 1rem 0; }

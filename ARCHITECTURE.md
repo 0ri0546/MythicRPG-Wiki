@@ -1,80 +1,28 @@
-# Architecture MythicRPG Wiki v0.3.0
+# Architecture MythicRPG Wiki v0.4.0
+
+La v0.4.0 conserve l’architecture validée : extracteur Python, catalogue JSON commun, site Astro statique et export filtré pour la future encyclopédie.
 
 ## Source de vérité
 
-`mod-source/src/` est une copie exacte et en lecture seule de `src(92)`. Son empreinte est contrôlée avant et après chaque extraction. `.gitattributes` protège ses octets de la normalisation des fins de ligne avec `mod-source/src/** -text`.
+`mod-source/src` est une copie exacte de `src(92)` et ne doit jamais être modifiée par la génération. La règle `.gitattributes` `mod-source/src/** -text` protège ses octets.
 
-## Extracteur Python
+## Flux
 
-- `java_extract.py` : arbres, constantes explicitement documentées et preuves d’enregistrement ;
-- `resource_extract.py` : traductions, modèles, textures, blockstates et recettes JSON ;
+1. les arbres, constantes, enums, registres, recettes et traductions sont lus dans la source ;
+2. les contenus éditoriaux Markdown/YAML sont fusionnés ;
+3. `data/generated/catalog.json` devient la source du site ;
+4. Astro génère les pages statiques ;
+5. `encyclopedia.json` réutilise les champs adaptés au manuel en jeu.
+
+Le schéma du catalogue est `0.4.0`.
+
+## Extracteurs spécialisés
+
 - `systems_extract.py` : progression, Mining, Eating, Fishing, Fighting et Crafting ;
-- `editorial.py` : Markdown et frontmatter YAML ;
-- `build.py` : fusion, relations, recherche, rapports et export encyclopédie ;
-- `utils.py` : parsing numérique sûr, sérialisation et empreinte multiplateforme.
+- `v040_extract.py` : Traveling, Building, Farming et Woodcutting.
 
-Le Java est lu mais jamais exécuté.
+Les pages utilisent des composants spécialisés, mais conservent `SkillTree`, les relations de contenu et les layouts communs.
 
-## Catalogue partagé
+## JavaScript navigateur
 
-`catalog.json` contient les données techniques, les textes éditoriaux, leur provenance et les structures utilisées par le site. `encyclopedia.json` applique les règles d’audience et retire les champs réservés au site.
-
-La version de schéma du catalogue est `0.3.0`.
-
-## Site Astro
-
-Astro génère le HTML statique. TypeScript ou JavaScript n’est utilisé que pour les interactions utiles :
-
-- recherche et filtres ;
-- arbres de perks et simulation de builds ;
-- calculateurs ;
-- catalogues de Barons ;
-- explorateurs Craft Score, transformations et Lucky Blocks ;
-- relations entre contenus.
-
-Aucune API, base de données ou serveur applicatif n’est nécessaire.
-
-## Couverture des skills
-
-Les neuf skills disposent de leur page, de leurs 20 perks, de leur arbre interactif et d’une liste statique complète des perks et prérequis.
-
-Couverture approfondie actuelle :
-
-- Mining ;
-- Eating ;
-- Fishing ;
-- Fighting ;
-- Crafting.
-
-Fighting et Crafting utilisent des extracteurs spécialisés ajoutés en v0.3.0. Les quatre autres skills conservent leur couverture structurée en attendant leur lot documentaire dédié.
-
-## Fighting
-
-Les données spécialisées couvrent :
-
-- formules d’XP normale et Baron ;
-- conditions et paliers de promotion ;
-- scaling de vie, dégâts et récompense ;
-- 25 types, compatibilités de créatures et comportements ;
-- récompenses et cinq objets légendaires ;
-- autorité serveur en solo et multijoueur.
-
-## Crafting
-
-Les données spécialisées couvrent :
-
-- Craft Score et formules d’XP ;
-- stations, durabilités et propriétés d’interface ;
-- bonus de fabrication et états persistants ;
-- recyclage ;
-- transformations ;
-- Lucky Blocks, événements pondérés et infusions ;
-- autorité serveur.
-
-## Sécurité d’affichage
-
-Les interactions utilisent `createElement`, `textContent`, `replaceChildren` ou des nœuds Astro générés statiquement. Aucune affectation à `innerHTML` n’est utilisée pour injecter les données extraites.
-
-## GitHub Pages
-
-Le `base` est calculé depuis `GITHUB_REPOSITORY`. Le workflow exécute l’extraction, les tests, `npm ci`, le build Astro et publie `website/dist/`.
+Le JavaScript reste ciblé sur la recherche, les filtres, les arbres et les calculateurs déjà justifiés. Les informations essentielles restent disponibles sans hover et les nouvelles pages n’ajoutent pas d’interactivité décorative.

@@ -1,12 +1,3 @@
-Relecture statique v0.3.0
-Textes UTF-8 contrôlés: 597
-JSON validés: 516
-YAML validés: 2
-Frontmatters validés: 18
-Scripts navigateur contrôlés: 11
-Fichiers src(92): 1206
-Empreinte src(92): d39d740f8d5f36d37a0e24539287247e1b98c89f49c47a6a99fd6a83988b8b3f
-Erreurs: 0
 test_documented_values_are_sourced_not_hardcoded_in_pages (test_extractor.ExtractorInvariantTests.test_documented_values_are_sourced_not_hardcoded_in_pages) ... ok
 test_encyclopedia_uses_shared_editorial_and_filtered_values (test_extractor.ExtractorInvariantTests.test_encyclopedia_uses_shared_editorial_and_filtered_values) ... ok
 test_every_skill_has_twenty_unique_nodes (test_extractor.ExtractorInvariantTests.test_every_skill_has_twenty_unique_nodes) ... ok
@@ -45,15 +36,20 @@ test_fighting_xp_formulas_and_sources (test_v030_features.V030FeatureTests.test_
 test_lucky_block_events_and_probabilities (test_v030_features.V030FeatureTests.test_lucky_block_events_and_probabilities) ... ok
 test_recycling_and_transformations_are_complete (test_v030_features.V030FeatureTests.test_recycling_and_transformations_are_complete) ... ok
 test_v030_components_versions_and_release_constraints (test_v030_features.V030FeatureTests.test_v030_components_versions_and_release_constraints) ... ok
+test_all_nine_skills_are_deep_and_complete (test_v040_features.V040FeatureTests.test_all_nine_skills_are_deep_and_complete) ... ok
+test_building_catalog_plans_and_antiexploit (test_v040_features.V040FeatureTests.test_building_catalog_plans_and_antiexploit) ... ok
+test_building_tools_and_decorative_content (test_v040_features.V040FeatureTests.test_building_tools_and_decorative_content) ... ok
+test_components_navigation_and_safe_dom (test_v040_features.V040FeatureTests.test_components_navigation_and_safe_dom) ... ok
+test_farming_xp_growth_and_objects (test_v040_features.V040FeatureTests.test_farming_xp_growth_and_objects) ... ok
+test_report_contains_new_counts (test_v040_features.V040FeatureTests.test_report_contains_new_counts) ... ok
+test_search_entries_for_new_systems (test_v040_features.V040FeatureTests.test_search_entries_for_new_systems) ... ok
+test_traveling_extraction_is_complete (test_v040_features.V040FeatureTests.test_traveling_extraction_is_complete) ... ok
+test_traveling_server_and_persistence_rules (test_v040_features.V040FeatureTests.test_traveling_server_and_persistence_rules) ... ok
+test_v040_versions_and_delivery_constraints (test_v040_features.V040FeatureTests.test_v040_versions_and_delivery_constraints) ... ok
+test_woodcutting_chest_modules_are_safe_and_complete (test_v040_features.V040FeatureTests.test_woodcutting_chest_modules_are_safe_and_complete) ... ok
+test_woodcutting_xp_drops_and_tools (test_v040_features.V040FeatureTests.test_woodcutting_xp_drops_and_tools) ... ok
 
 ----------------------------------------------------------------------
-Ran 38 tests in 1.100s
+Ran 50 tests in 1.631s
 
 OK
-Seconde vérification indépendante: OK pour le périmètre statique
-Pages Astro: 11
-Fichiers source du mod préservés: 1206
-Rapport: {'skills': 9, 'perks': 180, 'items': 196, 'blocks': 34, 'recipes': 188, 'documented_values': 50, 'search_entries': 685, 'items_confirmed': 93, 'items_dynamic_probable': 40, 'items_model_only': 63, 'fossil_families': 5, 'fossil_rarities': 5, 'cooking_recipes': 47, 'culinary_ingredients': 50, 'fishing_families': 5, 'fishing_rarities': 5, 'sea_monsters': 3, 'baron_types': 25, 'baron_legendary_items': 5, 'craft_score_items': 55, 'craft_transformations': 48, 'craft_recycle_groups': 4, 'lucky_block_events': 21}
-Lockfile présent: True
-Build Astro validé: False
-BUILD À REFAIRE: voir BUILD_VALIDATION.md

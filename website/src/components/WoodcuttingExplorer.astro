@@ -1,0 +1,55 @@
+---
+import { readableIdentifier, sitePath, type WoodcuttingSystem } from '../lib/catalog';
+interface Props { woodcutting: WoodcuttingSystem }
+const { woodcutting } = Astro.props;
+const percent = (value: number) => `${new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 3 }).format(value * 100)} %`;
+---
+<div class="skill-system-explorer woodcutting-explorer">
+  <section id="woodcutting-xp">
+    <div class="section-heading"><div><p class="eyebrow">Tag vanilla</p><h2>XP et abattage Timber</h2></div></div>
+    <div class="stat-table">
+      <div><span>Bûche</span><strong>{woodcutting.xp.log_xp} XP</strong><small>{woodcutting.xp.accepted_block_tag}</small></div>
+      <div><span>Timber</span><strong>{woodcutting.xp.timber.maximum_additional_blocks}</strong><small>bûches supplémentaires maximum</small></div>
+      <div><span>XP Timber</span><strong>{woodcutting.xp.timber.xp_per_additional_log} XP</strong><small>par bûche secondaire</small></div>
+      <div><span>Feuilles</span><strong>0 XP</strong><small>pas d’XP de skill directe</small></div>
+      <div><span>XP vanilla avec perk</span><strong>{woodcutting.xp.vanilla_xp_per_log_with_perk}</strong><small>orbe par bûche</small></div>
+    </div>
+    <p>Timber exige une hache, ne propage que sur le même type de bloc et reste serveur.</p>
+  </section>
+
+  <section id="woodcutting-drops">
+    <div class="section-heading"><div><p class="eyebrow">Récompenses</p><h2>Butins supplémentaires</h2></div></div>
+    <div class="stat-table">
+      <div><span>Double drop</span><strong>{woodcutting.drops.double_drop_chances.map(percent).join(' · ')}</strong><small>trois paliers</small></div>
+      <div><span>Bois enchanté</span><strong>{woodcutting.drops.enchanted_wood_chances.map(percent).join(' · ')}</strong><small>quatre paliers</small></div>
+      <div><span>Pousse aléatoire</span><strong>{percent(woodcutting.drops.random_sapling_chance)}</strong><small>{woodcutting.drops.random_saplings.length} essences</small></div>
+      <div><span>Pomme dorée</span><strong>{percent(woodcutting.drops.golden_apple_chance)}</strong><small>perk dédié</small></div>
+    </div>
+    <div class="chip-list">{woodcutting.drops.random_saplings.map((item: string) => <span class="status-badge">{readableIdentifier(item)}</span>)}</div>
+    <p>Silk Touch désactive les drops supplémentaires des feuilles. Le perk Pomme garantit sa récompense dédiée selon les règles de l’arbre.</p>
+  </section>
+
+  <section id="woodcutting-tools">
+    <div class="section-heading"><div><p class="eyebrow">Perks avancés</p><h2>Croissance, Hache enchantée et Wood Eater</h2></div></div>
+    <div class="data-card-grid">
+      <article class="data-card"><h3>Croissance des arbres</h3><p>Perk {woodcutting.tree_growth.perk}. Déclenchement à l’accroupissement, rayon {woodcutting.tree_growth.radius}, {woodcutting.tree_growth.maximum_saplings_per_trigger} pousses maximum, cooldown {woodcutting.tree_growth.cooldown_seconds} s.</p></article>
+      <article class="data-card"><h3>Hache enchantée</h3><p>Perk {woodcutting.enchanted_axe.perk}. Projectiles : {woodcutting.enchanted_axe.supported_projectiles.map(readableIdentifier).join(', ')}. Division après {woodcutting.enchanted_axe.split_delay_seconds} s, coût {woodcutting.enchanted_axe.offhand_durability_cost} durabilité.</p><a href={sitePath('items/enchanted_axe/')}>Fiche objet</a></article>
+      <article class="data-card"><h3>Wood Eater</h3><p>Perk {woodcutting.wood_eater.perk}. Consomme {woodcutting.wood_eater.accepted_item_tag} pour {woodcutting.wood_eater.hunger} faim, saturation ×{woodcutting.wood_eater.saturation_modifier}.</p></article>
+      <article class="data-card"><h3>Haches incassables</h3><p>Perk {woodcutting.durability.axe_no_durability_perk}. Le système annule un point de durabilité après la cassure d’une bûche ou feuille.</p></article>
+    </div>
+  </section>
+
+  <section id="chest-modules">
+    <div class="section-heading"><div><p class="eyebrow">Stockage persistant</p><h2>Modules de coffre</h2></div></div>
+    <div class="responsive-table"><table><thead><tr><th>Module</th><th>Ajout</th><th>Coffre simple</th><th>Coffre double</th></tr></thead><tbody>{woodcutting.chest_modules.tiers.map((module: any) => <tr><td><a href={sitePath(`items/${module.id}/`)}>{module.names.fr}</a></td><td>+{module.extra_slots}</td><td>{module.single_chest_capacity}</td><td>{module.double_chest_capacity_with_two_equal_modules}</td></tr>)}</tbody></table></div>
+    <div class="stat-table">
+      <div><span>Base par coffre</span><strong>{woodcutting.chest_modules.base_slots_per_chest}</strong><small>emplacements</small></div>
+      <div><span>Maximum par coffre</span><strong>{woodcutting.chest_modules.maximum_slots_per_chest}</strong><small>emplacements</small></div>
+      <div><span>Double coffre maximal</span><strong>{woodcutting.chest_modules.maximum_total_storage}</strong><small>emplacements</small></div>
+      <div><span>Stockage persistant supplémentaire</span><strong>{woodcutting.chest_modules.persistent_extra_storage_per_physical_chest}</strong><small>par coffre physique</small></div>
+    </div>
+    <ul class="check-list"><li>Les coffres et coffres piégés simples ou doubles sont pris en charge.</li><li>Les hoppers n’accèdent qu’à la capacité active ; les slots de modules ne sont pas automatisables.</li><li>Une réduction de capacité échoue si les objets ne tiennent pas, puis le contenu est réorganisé atomiquement.</li><li>Viewers, couvercle, modules et stockage supplémentaire sont gérés côté serveur.</li></ul>
+  </section>
+
+  <aside class="source-panel"><h2>Sécurité multijoueur</h2><p>Les cassures, Timber, projectiles et inventaires modulaires sont serveur. Les changements de capacité sont transactionnels afin d’éviter pertes et duplications. Les données présentées proviennent de {woodcutting.extraction.files.length} fichiers Java inspectés statiquement.</p></aside>
+</div>

@@ -1,0 +1,90 @@
+---
+import { readableIdentifier, readableToken, type BuildingSystem } from '../lib/catalog';
+interface Props { building: BuildingSystem }
+const { building } = Astro.props;
+const format = (value: number) => new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 3 }).format(value);
+---
+<div class="skill-system-explorer building-explorer">
+  <section id="building-xp" data-building-blocks>
+    <div class="section-heading"><div><p class="eyebrow">{building.xp.eligible_block_count} blocs admissibles</p><h2>XP de placement et anti-exploitation</h2></div></div>
+    <div class="stat-table">
+      {building.xp.block_groups.map((group: any) => <div><span>Blocs à {group.xp} XP</span><strong>{group.blocks.length}</strong><small>entrées du catalogue</small></div>)}
+      <div><span>Historique de positions</span><strong>{building.xp.anti_exploitation.maximum_position_history}</strong><small>{building.xp.anti_exploitation.position_expiry_minutes} minutes</small></div>
+      <div><span>Historique de matériaux</span><strong>{building.xp.anti_exploitation.maximum_material_history}</strong><small>multiplicateur minimal {format(building.xp.anti_exploitation.minimum_material_multiplier)}</small></div>
+      <div><span>Réutilisation d’une position</span><strong>{building.xp.anti_exploitation.position_reuse_multipliers.map((value: number) => `×${format(value)}`).join(' · ')}</strong><small>pénalités successives</small></div>
+    </div>
+    <label>Rechercher un bloc donnant de l’XP<input type="search" placeholder="stone, wool, quartz…" data-building-search /></label>
+    <p class="filter-summary" aria-live="polite" data-building-summary></p>
+    <div class="detail-list">
+      {building.xp.block_groups.map((group: any) => (
+        <details class="detail-panel" open>
+          <summary><span><strong>{group.xp} XP</strong><small>{group.blocks.length} blocs</small></span></summary>
+          <div class="chip-list" data-building-group>{group.blocks.map((block: string, index: number) => <span class="status-badge" data-building-block data-search={`${block} ${group.block_names[index]?.fr ?? ''}`.toLowerCase()}>{group.block_names[index]?.fr ?? readableIdentifier(block)}</span>)}</div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section id="building-comfort">
+    <div class="section-heading"><div><p class="eyebrow">Placement</p><h2>Remplacement, restock et aimant</h2></div></div>
+    <div class="data-card-grid">
+      <article class="data-card"><h3>Remplacement rapide</h3><p>Perk {building.comfort.quick_replace.perk}. Ancien et nouveau blocs doivent être admissibles ; les block entities sont refusées et l’ancien bloc est récupéré hors créatif.</p></article>
+      <article class="data-card"><h3>Restock automatique</h3><p>Perk {building.comfort.auto_restock.perk}. La pile de remplacement doit correspondre à l’objet et à ses composants.</p></article>
+      <article class="data-card"><h3>Aimant décoratif</h3><p>Perk {building.comfort.decorative_magnet.perk}. Rayon {building.comfort.decorative_magnet.radius_blocks} blocs, {building.comfort.decorative_magnet.maximum_items_per_pass} objets maximum tous les {building.comfort.decorative_magnet.interval_ticks} ticks.</p></article>
+    </div>
+  </section>
+
+  <section id="building-plans">
+    <div class="section-heading"><div><p class="eyebrow">Chantiers</p><h2>Plans 2D et 3D</h2></div></div>
+    <div class="comparison-table">
+      <div class="comparison-row heading"><strong>Système</strong><strong>Dimensions</strong><strong>Exécution</strong></div>
+      <div class="comparison-row"><span>Plan 2D</span><strong>{building.plans.plan_2d.base_max_size}×{building.plans.plan_2d.base_max_size}, puis {building.plans.plan_2d.upgraded_max_size}×{building.plans.plan_2d.upgraded_max_size}</strong><span>{building.plans.plan_2d.blocks_per_job_tick} blocs/tâche/tick, {building.plans.plan_2d.global_blocks_per_tick} globaux</span></div>
+      <div class="comparison-row"><span>Plan 3D</span><strong>{building.plans.plan_3d.maximum_size}×{building.plans.plan_3d.maximum_size}×{building.plans.plan_3d.maximum_size}</strong><span>aperçu {building.plans.plan_3d.preview_lifetime_seconds} s</span></div>
+    </div>
+    <p>Les aperçus sont clients, tandis que les tâches, la consommation des ressources et les placements sont serveur.</p>
+  </section>
+
+  <section id="building-tools">
+    <div class="section-heading"><div><p class="eyebrow">Outils</p><h2>Portée, compas, baguette et réserves</h2></div></div>
+    <div class="stat-table">
+      {building.builder_tools.reach_perks.map((entry: any) => <div><span>Perk {entry.perk}</span><strong>+{entry.extra_reach} bloc(s)</strong><small>portée de construction</small></div>)}
+      <div><span>Échafaudage</span><strong>{building.builder_tools.scaffolding_range.blocks} blocs</strong><small>perk {building.builder_tools.scaffolding_range.perk}</small></div>
+      <div><span>Compas d’architecte</span><strong>{building.builder_tools.architect_compass.minimum_radius}–{building.builder_tools.architect_compass.maximum_radius}</strong><small>rayon par défaut {building.builder_tools.architect_compass.default_radius}</small></div>
+      <div><span>Builder Wand</span><strong>{building.builder_tools.builder_wand.maximum_durability}</strong><small>durabilité maximale</small></div>
+    </div>
+    <div class="responsive-table"><table><thead><tr><th>Perk Réserve</th><th>Rayon</th><th>Limites communes</th></tr></thead><tbody>{building.reserve.perk_ranges.map((entry: any) => <tr><td>{entry.perk}</td><td>{entry.range} blocs</td><td>{building.reserve.maximum_chests_per_player} coffres/joueur · cooldown {building.reserve.request_cooldown_ticks} ticks</td></tr>)}</tbody></table></div>
+  </section>
+
+  <section id="building-decoration">
+    <div class="section-heading"><div><p class="eyebrow">Contenu décoratif</p><h2>Blocs configurables et effets</h2></div></div>
+    <div class="stat-table">
+      <div><span>Dalles verticales</span><strong>{building.decorative_content.vertical_slabs.types.length}</strong><small>{building.decorative_content.vertical_slabs.xp_each} XP chacune</small></div>
+      <div><span>Matériaux Blank Block</span><strong>{building.decorative_content.blank_block.material_count}</strong><small>registre autorisé</small></div>
+      <div><span>Effets statiques</span><strong>{building.decorative_content.static_decoration.effect_count}</strong><small>protection propriétaire</small></div>
+      <div><span>Miniatures</span><strong>Perk {building.decorative_content.miniature.perk}</strong><small>rotation et récupération</small></div>
+    </div>
+    <details class="reference-table"><summary>Types de dalles verticales</summary><div class="chip-list">{building.decorative_content.vertical_slabs.types.map((slab: any) => <span class="status-badge">{slab.names.fr}</span>)}</div></details>
+    <details class="reference-table"><summary>Effets du Static Decoration Generator</summary><div class="responsive-table"><table><thead><tr><th>Effet</th><th>Intervalle</th><th>Particules</th></tr></thead><tbody>{building.decorative_content.static_decoration.effects.map((effect: any) => <tr><td>{effect.names.fr}</td><td>{effect.interval_ticks} ticks</td><td>{effect.particles_per_emission}</td></tr>)}</tbody></table></div></details>
+  </section>
+
+  <aside class="source-panel"><h2>Sécurité serveur</h2><p>Les opérations de placement, les plans, les réserves et les décorations sont validés côté serveur. Les états persistants et protections de propriétaire sont extraits de {building.extraction.files.length} fichiers Java. Aucun comportement en jeu n’est affirmé au-delà de cette inspection statique.</p></aside>
+</div>
+<script>
+  document.querySelectorAll('[data-building-blocks]').forEach((root) => {
+    const search = root.querySelector('[data-building-search]');
+    const blocks = [...root.querySelectorAll('[data-building-block]')];
+    const summary = root.querySelector('[data-building-summary]');
+    const update = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      let count = 0;
+      blocks.forEach((block) => {
+        if (!(block instanceof HTMLElement)) return;
+        block.hidden = Boolean(query) && !(block.dataset.search ?? '').includes(query);
+        if (!block.hidden) count += 1;
+      });
+      if (summary) summary.textContent = `${count} bloc(s) affiché(s).`;
+    };
+    search?.addEventListener('input', update);
+    update();
+  });
+</script>

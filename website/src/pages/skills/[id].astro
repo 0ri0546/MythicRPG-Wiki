@@ -7,6 +7,10 @@ import EatingExplorer from '../../components/EatingExplorer.astro';
 import FishingExplorer from '../../components/FishingExplorer.astro';
 import FightingExplorer from '../../components/FightingExplorer.astro';
 import CraftingExplorer from '../../components/CraftingExplorer.astro';
+import TravelingExplorer from '../../components/TravelingExplorer.astro';
+import BuildingExplorer from '../../components/BuildingExplorer.astro';
+import FarmingExplorer from '../../components/FarmingExplorer.astro';
+import WoodcuttingExplorer from '../../components/WoodcuttingExplorer.astro';
 import RelatedContentExplorer from '../../components/RelatedContentExplorer.astro';
 import { catalog, sitePath, readableToken, type Skill } from '../../lib/catalog';
 import { markdownToHtml } from '../../lib/markdown';
@@ -35,6 +39,12 @@ const editorial = skill.editorial.fr;
     {skill.id === 'fighting' && <a href="#barons">Barons</a>}
     {skill.id === 'crafting' && <a href="#craft-score">Craft Score</a>}
     {skill.id === 'crafting' && <a href="#lucky-blocks">Lucky Blocks</a>}
+    {skill.id === 'traveling' && <a href="#mounts">Montures</a>}
+    {skill.id === 'traveling' && <a href="#structure-modules">Modules</a>}
+    {skill.id === 'building' && <a href="#building-plans">Plans</a>}
+    {skill.id === 'building' && <a href="#building-decoration">Décoration</a>}
+    {skill.id === 'farming' && <a href="#farming-growth">Croissance</a>}
+    {skill.id === 'woodcutting' && <a href="#chest-modules">Modules de coffre</a>}
     <a href="#related-content">Contenus associés</a>
   </nav>
 
@@ -74,7 +84,11 @@ const editorial = skill.editorial.fr;
     {skill.id === 'fishing' && <FishingExplorer fishing={catalog.systems.fishing} />}
     {skill.id === 'fighting' && <FightingExplorer fighting={catalog.systems.fighting} />}
     {skill.id === 'crafting' && <CraftingExplorer crafting={catalog.systems.crafting} />}
-    {!['mining', 'eating', 'fishing', 'fighting', 'crafting'].includes(skill.id) && (
+    {skill.id === 'traveling' && <TravelingExplorer traveling={catalog.systems.traveling} />}
+    {skill.id === 'building' && <BuildingExplorer building={catalog.systems.building} />}
+    {skill.id === 'farming' && <FarmingExplorer farming={catalog.systems.farming} />}
+    {skill.id === 'woodcutting' && <WoodcuttingExplorer woodcutting={catalog.systems.woodcutting} />}
+    {!['mining', 'eating', 'fishing', 'fighting', 'crafting', 'traveling', 'building', 'farming', 'woodcutting'].includes(skill.id) && (
       <div class="data-callout"><div><p class="eyebrow">Couverture structurée</p><h2>Fondation interactive prête</h2></div><p>Cette compétence dispose déjà de son arbre complet, de ses fiches de perks, de ses relations et de son contenu structuré. Ses extracteurs spécialisés seront enrichis sans refonte de l’architecture.</p></div>
     )}
   </section>

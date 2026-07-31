@@ -1,26 +1,39 @@
-# Validation du build Astro v0.3.0
+# Validation du build Astro v0.4.0
 
-## Validations exécutées dans cet environnement
+## Environnement disponible
 
-- génération du catalogue : réussie ;
-- 38 tests Python : réussis ;
-- compilation syntaxique des fichiers Python : réussie ;
-- vérification syntaxique des scripts navigateur avec `node --check` : réussie ;
-- validation statique indépendante : réussie ;
-- source `src(92)` : inchangée.
+- Node.js : `v22.16.0`
+- npm : `10.9.2`
+- lockfile : présent, version de projet `0.4.0`
 
-## Limite du build Astro local
-
-Le dossier `node_modules` fourni a été installé sous Windows et ne contient pas le binding natif Linux optionnel `@astrojs/compiler-binding-linux-x64-gnu`. Le registre npm n’est pas accessible depuis cet environnement, donc ce binding ne peut pas être restauré ici.
-
-L’échec local se produit avant l’analyse des pages Astro. Aucun ancien `dist` ne doit être utilisé comme preuve d’un build v0.3.0.
-
-## Commande de validation officielle
-
-Dans l’environnement Windows ou GitHub Actions déjà validé pour le projet :
+## Commande réellement exécutée
 
 ```bash
-python scripts/build_all.py
+cd website
+npm ci --no-audit --no-fund
 ```
 
-Le script exécute l’extraction, les tests, `npm ci`, `npm run build`, puis `verify_delivery.py --require-build`.
+## Résultat réel
+
+La commande s’est arrêtée avec le code `1` avant le build Astro. Le miroir npm interne disponible dans l’environnement ne fournit pas l’archive verrouillée suivante :
+
+```text
+404 Not Found
+zwitch-2.0.4.tgz
+```
+
+Le journal brut est conservé dans `validation/build-attempt-v0.4.0.log`.
+
+`npm run build` n’a donc pas été exécuté et aucun dossier `website/dist` n’est livré. Aucun ancien build n’est utilisé comme preuve.
+
+## État de la source
+
+La topologie des routes produit **401 pages attendues** : 8 pages statiques, 9 pages de skills, 196 pages d’objets et 188 pages de recettes. Ce nombre est vérifié statiquement, mais n’est pas présenté comme un build Astro réussi dans cet environnement.
+
+L’archive reste compatible avec la chaîne validée du projet :
+
+```bash
+py scripts/build_all.py
+```
+
+Cette commande relancera l’extraction, les tests, `npm ci`, le build Astro et la vérification exigeant un `dist` à jour dans un environnement disposant du registre npm complet.

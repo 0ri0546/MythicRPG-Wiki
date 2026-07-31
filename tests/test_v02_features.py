@@ -23,7 +23,7 @@ class V02FeatureTests(unittest.TestCase):
             self.assertIn(skill["coverage"], {"deep", "structured"})
             if skill["coverage"] == "deep":
                 deep.add(skill["id"])
-        self.assertEqual({"mining", "eating", "fishing", "fighting", "crafting"}, deep)
+        self.assertEqual({"mining", "eating", "fishing", "fighting", "crafting", "traveling", "building", "farming", "woodcutting"}, deep)
 
     def test_progression_curve_and_reference_levels(self) -> None:
         progression = CATALOG["systems"]["progression"]

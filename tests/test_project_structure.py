@@ -24,11 +24,15 @@ class ProjectStructureTests(unittest.TestCase):
             "website/src/components/FishingExplorer.astro",
             "website/src/components/FightingExplorer.astro",
             "website/src/components/CraftingExplorer.astro",
+            "website/src/components/TravelingExplorer.astro",
+            "website/src/components/BuildingExplorer.astro",
+            "website/src/components/FarmingExplorer.astro",
+            "website/src/components/WoodcuttingExplorer.astro",
             "website/src/components/RelatedContentExplorer.astro",
             ".github/workflows/deploy-pages.yml",
             "README.md",
-            "CHANGES_V0.3.0.md",
-            "FILES_CREATED_MODIFIED_V0.3.0.md",
+            "CHANGES_V0.4.0.md",
+            "FILES_CREATED_MODIFIED_V0.4.0.md",
             "FILE_MANIFEST.txt",
         ]
         missing = [path for path in required if not (ROOT / path).is_file()]

@@ -1,32 +1,38 @@
-# Livraison MythicRPG Wiki v0.3.0
+# Livraison MythicRPG Wiki v0.4.0
 
-## Périmètre
+La livraison contient la source complète du wiki, prête pour le déployeur automatique. Elle conserve l’architecture, le workflow GitHub Pages, `package-lock.json`, les scripts multiplateformes et la règle `mod-source/src/** -text`.
 
-Cette version rend Fighting et Crafting entièrement documentés selon la structure déjà utilisée par Mining, Eating et Fishing. L’architecture générale, GitHub Pages, le lockfile, le lanceur automatique et la source `src(92)` sont conservés.
+## Contenu fonctionnel
 
-## Résultats d’extraction
+Les neuf skills disposent d’une couverture approfondie. Traveling, Building, Farming et Woodcutting utilisent désormais des extracteurs Java spécialisés et des composants Astro dédiés, au même titre que les cinq skills approfondis auparavant.
+
+## Résultats du catalogue
 
 - 9 skills et 180 perks ;
-- 25 types de Barons ;
-- 5 objets légendaires Fighting ;
-- 55 valeurs explicites de Craft Score ;
-- 48 transformations ;
-- 4 groupes de recyclage ;
-- 21 événements Lucky Block ;
-- 50 valeurs Java explicitement documentées ;
-- 685 entrées de recherche ;
-- 0 erreur et 0 avertissement.
+- 196 objets ou modèles, 34 blocs et 188 recettes JSON ;
+- 50 valeurs documentées et 752 entrées de recherche ;
+- 22 montures et 22 modules Traveling ;
+- 156 blocs d’XP, 20 dalles verticales et 32 effets Building ;
+- 4 catégories de récolte et 16 familles de blocs Champ vivant Farming ;
+- 3 modules de coffre Woodcutting ;
+- 0 erreur et 0 avertissement d’extraction.
 
 ## Validation
 
-- 38 tests Python réussis ;
-- génération statique des données réussie ;
-- scripts navigateur vérifiés syntaxiquement ;
-- source du mod inchangée ;
-- aucun Gradle, aucune compilation Java du mod et aucun lancement Minecraft.
+- 50 tests Python réussis ;
+- vérification de livraison statique réussie ;
+- 401 pages attendues d’après la topologie des routes ;
+- build Astro non exécuté ici à cause d’un paquet absent du miroir npm interne.
 
-Le build Astro doit être relancé par le déployeur automatique ou dans l’environnement Windows validé, car le binding Linux optionnel n’est pas présent dans le `node_modules` fourni et le registre npm est inaccessible ici.
+## Source
 
-## Rapport de fichiers
+- source canonique : `src(92)` ;
+- dossier : `mod-source/src` ;
+- inspection : statique uniquement ;
+- Gradle : non exécuté ;
+- Minecraft : non exécuté ;
+- modification du mod : aucune.
 
-La comparaison exacte avec la v0.2.1 est fournie dans `FILES_CREATED_MODIFIED_V0.3.0.md`. Le manifeste `FILE_MANIFEST.txt` référence chaque fichier livré avec sa taille et son SHA-256, hors exclusions explicitement documentées.
+## Exclusions de l’archive
+
+`.git`, `node_modules`, `website/dist`, `.astro`, caches Python, fichiers temporaires et secrets sont exclus.

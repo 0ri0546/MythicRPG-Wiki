@@ -1,0 +1,104 @@
+---
+import { readableIdentifier, readableToken, sitePath, type TravelingSystem } from '../lib/catalog';
+interface Props { traveling: TravelingSystem }
+const { traveling } = Astro.props;
+const percent = (value: number) => `${new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(value * 100)} %`;
+---
+<div class="skill-system-explorer traveling-explorer">
+  <section id="traveling-xp">
+    <div class="section-heading"><div><p class="eyebrow">Progression serveur</p><h2>Obtenir de l’XP Traveling</h2></div></div>
+    <div class="stat-table">
+      <div><span>Déplacement</span><strong>{traveling.xp.movement.xp} XP</strong><small>{traveling.xp.movement.traveled_distance_required} blocs parcourus et {traveling.xp.movement.direct_distance_required} blocs directs</small></div>
+      <div><span>Trésor</span><strong>{traveling.xp.treasure.skill_xp} XP</strong><small>+ {traveling.xp.treasure.vanilla_xp_with_perk} XP vanilla avec le perk</small></div>
+      <div><span>Seuil anti-téléportation</span><strong>{traveling.xp.movement.teleport_distance_per_tick}</strong><small>blocs par tick</small></div>
+      <div><span>Bonus de déplacement</span><strong>{traveling.xp.multipliers.travel_xp_perks.map(percent).join(' · ')}</strong><small>valeurs des perks</small></div>
+      <div><span>Bonus de découverte</span><strong>{percent(traveling.xp.multipliers.discovery_xp_perk)}</strong><small>structures et dimensions</small></div>
+      <div><span>Cellule de suivi</span><strong>{traveling.xp.movement.cell_size}</strong><small>blocs</small></div>
+    </div>
+    <div class="interactive-grid">
+      <article class="interactive-panel">
+        <h3>Premières visites</h3>
+        <ul class="compact-list">{traveling.xp.dimensions.map((dimension: any) => <li><strong>{readableToken(dimension.id)} :</strong> {dimension.xp} XP</li>)}</ul>
+      </article>
+      <article class="interactive-panel">
+        <h3>Mobilité personnelle</h3>
+        <ul class="compact-list">
+          <li><strong>Double saut :</strong> vélocité {traveling.movement_perks.double_jump.vertical_velocity}, après {traveling.movement_perks.double_jump.minimum_air_ticks} ticks en l’air.</li>
+          <li><strong>Miniaturisation :</strong> modificateur {traveling.movement_perks.miniaturization.scale_modifier}, contrôle tous les {traveling.movement_perks.miniaturization.validation_interval_ticks} ticks.</li>
+          <li><strong>Vitesse de biome :</strong> {traveling.movement_perks.biome_speed.duration_seconds} secondes.</li>
+          <li><strong>Soul Walker :</strong> déplacement +{traveling.movement_perks.soul_walker.movement_bonus}.</li>
+        </ul>
+      </article>
+    </div>
+    <details class="reference-table">
+      <summary>{traveling.xp.structures.length} structures récompensées</summary>
+      <div class="responsive-table"><table><thead><tr><th>Structure</th><th>XP</th></tr></thead><tbody>{traveling.xp.structures.map((entry: any) => <tr><td>{readableToken(entry.id)}</td><td>{entry.xp}</td></tr>)}</tbody></table></div>
+    </details>
+  </section>
+
+  <section id="mounts" data-mount-catalog>
+    <div class="section-heading"><div><p class="eyebrow">{traveling.mounts.types.length} types</p><h2>Montures et selles</h2></div></div>
+    <div class="filter-grid two">
+      <label>Rechercher<input type="search" placeholder="Monture ou selle…" data-mount-search /></label>
+      <label>Catégorie<select data-mount-kind><option value="">Toutes</option><option value="land">Terrestres</option><option value="flying">Volantes</option></select></label>
+    </div>
+    <p class="filter-summary" aria-live="polite" data-mount-summary></p>
+    <div class="data-card-grid">
+      {traveling.mounts.types.map((mount: any) => (
+        <article class="data-card" data-mount-card data-kind={mount.flying ? 'flying' : 'land'} data-search={`${mount.names.fr} ${mount.names.en} ${mount.id} ${mount.saddle_names.fr}`.toLowerCase()}>
+          <div class="badge-row"><span class="status-badge">{mount.flying ? 'Volante' : 'Terrestre'}</span><span class="status-badge">Perk {mount.required_perk_names.fr}</span></div>
+          <h3>{mount.names.fr}</h3>
+          <p><a href={sitePath(`items/${mount.saddle_identifier.split(':')[1]}/`)}>{mount.saddle_names.fr}</a></p>
+          <p><strong>Soin :</strong> {mount.healing_items.length ? mount.healing_items.map(readableIdentifier).join(', ') : 'aucun item explicite extrait'}</p>
+        </article>
+      ))}
+    </div>
+    <div class="stat-table">
+      <div><span>Montures terrestres</span><strong>{traveling.mounts.land_count}</strong><small>registres Java</small></div>
+      <div><span>Montures volantes</span><strong>{traveling.mounts.flying_count}</strong><small>branche finale</small></div>
+      <div><span>Seuil d’adoption</span><strong>{percent(traveling.mounts.adoption.maximum_health_ratio)}</strong><small>vie maximale restante</small></div>
+      <div><span>Soin d’adoption</span><strong>{percent(traveling.mounts.adoption.adoption_heal_ratio)}</strong><small>ratio de vie</small></div>
+    </div>
+  </section>
+
+  <section id="travel-tools">
+    <div class="section-heading"><div><p class="eyebrow">Véhicules et outils</p><h2>Déplacements spécialisés</h2></div></div>
+    <div class="data-card-grid">
+      <article class="data-card"><h3>Traveler Boat</h3><p>Vitesse ×{traveling.vehicles.traveler_boat.speed_multiplier}, perk {traveling.vehicles.traveler_boat.perk}.</p><a href={sitePath('items/traveler_boat/')}>Fiche objet</a></article>
+      <article class="data-card"><h3>Traveler Minecart</h3><p>Vitesse ×{traveling.vehicles.traveler_minecart.speed_multiplier}, perk {traveling.vehicles.traveler_minecart.perk}.</p><a href={sitePath('items/traveler_minecart/')}>Fiche objet</a></article>
+      <article class="data-card"><h3>Fishing Boat</h3><p>Son déplacement est suivi par Traveling ; cette relation est une inférence statique confirmée par l’absence d’exclusion générale des véhicules.</p><a href={sitePath('items/fishing_boat/')}>Fiche objet</a></article>
+      <article class="data-card"><h3>Grappin</h3><p>Portée {traveling.tools.grappling_hook.max_range_blocks} blocs, traction {traveling.tools.grappling_hook.travel_speed_blocks_per_second} blocs/s, protection de chute {traveling.tools.grappling_hook.post_arrival_fall_protection_ticks} ticks.</p><a href={sitePath('items/grappling_hook/')}>Fiche objet</a></article>
+      <article class="data-card"><h3>Death Recall Token</h3><p>Durée {traveling.tools.death_recall.token_lifetime_seconds} s, cooldown {traveling.tools.death_recall.use_cooldown_seconds} s, recherche sûre {traveling.tools.death_recall.safe_horizontal_radius}×{traveling.tools.death_recall.safe_vertical_radius} blocs.</p><a href={sitePath('items/death_recall_token/')}>Fiche objet</a></article>
+      <article class="data-card"><h3>Boussole monumentale</h3><p>Rayon {traveling.tools.monumental_compass.generic_search_radius_chunks} chunks, ou {traveling.tools.monumental_compass.module_search_radius_chunks} avec module ; cooldown {traveling.tools.monumental_compass.search_cooldown_seconds} s.</p></article>
+    </div>
+  </section>
+
+  <section id="structure-modules">
+    <div class="section-heading"><div><p class="eyebrow">{traveling.tools.monumental_compass.modules.length} modules</p><h2>Modules de structures</h2></div></div>
+    <div class="responsive-table"><table><thead><tr><th>Module</th><th>Royaume</th><th>Structures</th></tr></thead><tbody>{traveling.tools.monumental_compass.modules.map((module: any) => <tr><td>{module.names.fr}</td><td>{readableToken(module.realm)}</td><td>{module.structures.map(readableToken).join(', ')}</td></tr>)}</tbody></table></div>
+  </section>
+
+  <aside class="source-panel"><h2>Solo, multijoueur et provenance</h2><p>L’XP et les états de découverte sont persistants par joueur. Les montures, recherches de boussole et mouvements du grappin restent serveur. Les données viennent de {traveling.extraction.files.length} fichiers Java inspectés statiquement.</p></aside>
+</div>
+<script>
+  document.querySelectorAll('[data-mount-catalog]').forEach((root) => {
+    const search = root.querySelector('[data-mount-search]');
+    const kind = root.querySelector('[data-mount-kind]');
+    const cards = [...root.querySelectorAll('[data-mount-card]')];
+    const summary = root.querySelector('[data-mount-summary]');
+    const update = () => {
+      const query = search instanceof HTMLInputElement ? search.value.trim().toLowerCase() : '';
+      const selected = kind instanceof HTMLSelectElement ? kind.value : '';
+      let count = 0;
+      cards.forEach((card) => {
+        if (!(card instanceof HTMLElement)) return;
+        card.hidden = !((!query || (card.dataset.search ?? '').includes(query)) && (!selected || card.dataset.kind === selected));
+        if (!card.hidden) count += 1;
+      });
+      if (summary) summary.textContent = `${count} monture(s) affichée(s).`;
+    };
+    search?.addEventListener('input', update);
+    kind?.addEventListener('change', update);
+    update();
+  });
+</script>

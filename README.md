@@ -1,20 +1,20 @@
-# MythicRPG Wiki v0.3.0
+# MythicRPG Wiki v0.4.0
 
-Wiki statique généré depuis le code et les ressources de MythicRPG `src(92)`, avec une documentation approfondie de Fighting et Crafting.
+Wiki statique généré depuis le code et les ressources de MythicRPG `src(92)`. Les neuf skills disposent désormais d’une documentation approfondie : Mining, Fighting, Woodcutting, Farming, Crafting, Traveling, Building, Fishing et Eating.
 
-## Fonctionnalités v0.3.0
+## Fonctionnalités v0.4.0
 
-- neuf skills documentés et navigables ;
-- 180 perks extraits, avec arbres zoomables, filtrables, simulateur de build et tableau statique complet ;
-- documentation approfondie de Mining, Eating, Fishing, Fighting et Crafting ;
-- 25 types de Barons, comportements, conditions, scaling et récompenses extraits ;
-- cinq objets légendaires Fighting reliés à leurs fiches ;
-- Craft Score, stations, interfaces et bonus Crafting extraits ;
-- 48 transformations, quatre groupes de recyclage et 21 événements Lucky Block ;
-- objets conservant les statuts `confirmed`, `dynamic_probable` et `model_only` ;
-- recherche statique enrichie ;
-- catalogue JSON commun au site et à la future encyclopédie ;
-- déploiement GitHub Pages par GitHub Actions et lanceur automatique conservés.
+- neuf skills en couverture `deep` avec leurs 180 perks ;
+- arbres conservant positions, parents, branches et choix exclusifs ;
+- documentation spécialisée de Traveling, Building, Farming et Woodcutting ;
+- 22 montures et 22 modules de structures Traveling ;
+- 156 blocs d’XP Building, plans, réserves et contenus décoratifs ;
+- récoltes, élevage, croissance et objets Farming ;
+- Timber, drops, Hache enchantée et modules de coffre Woodcutting ;
+- documentation spécialisée précédente de Mining, Eating, Fishing, Fighting et Crafting ;
+- statuts d’objets `confirmed`, `dynamic_probable` et `model_only` conservés ;
+- recherche statique, liens objets/recettes et export commun pour l’encyclopédie ;
+- GitHub Pages, lockfile, workflow et déployeur automatique conservés.
 
 ## Chaîne de génération
 
@@ -22,13 +22,12 @@ Wiki statique généré depuis le code et les ressources de MythicRPG `src(92)`,
 mod-source/src (lecture seule)
   -> extracteur Python
   -> catalogue JSON partagé
-  -> pages Astro + modules TypeScript ciblés
+  -> pages Astro + JavaScript ciblé
   -> GitHub Pages
-
   -> export JSON filtré pour l’encyclopédie
 ```
 
-Les valeurs techniques ne sont pas recopiées dans les pages. Les constantes et formules sélectionnées sont relues dans le Java, les recettes dans les JSON ou registres Java, les noms dans les traductions et les arbres dans les classes `*SkillTree.java`.
+Les valeurs techniques viennent du Java, des JSON, des registres et des traductions. Les pages Astro ne recopient pas les constantes d’équilibrage.
 
 ## Prérequis
 
@@ -37,7 +36,7 @@ Les valeurs techniques ne sont pas recopiées dans les pages. Les constantes et 
 - npm ;
 - PyYAML.
 
-Aucune installation Gradle ou Minecraft n’est nécessaire pour générer le wiki.
+Aucune installation Gradle ou Minecraft n’est nécessaire.
 
 ## Validation locale
 
@@ -49,7 +48,7 @@ python scripts/verify_delivery.py
 python scripts/build_all.py
 ```
 
-Sous Windows, `py` peut remplacer `python`. Le build complet utilise `npm ci`, puis produit le site dans `website/dist/`.
+Sous Windows, `py` peut remplacer `python`. Le build complet utilise `npm ci` et produit `website/dist/`.
 
 ## Développement du site
 
@@ -63,10 +62,10 @@ npm run preview
 
 ## Mise à jour du mod
 
-1. remplacer `mod-source/src/` par le nouveau dossier `src/` complet ;
+1. remplacer `mod-source/src/` par la nouvelle source complète ;
 2. conserver `mod-source/src/** -text` dans `.gitattributes` ;
 3. mettre à jour `mod-source/SOURCE.txt` et `config/source_snapshot.json` ;
-4. relancer la chaîne de validation complète.
+4. relancer la chaîne de validation.
 
 ## Sources manuelles et générées
 
@@ -74,9 +73,8 @@ npm run preview
 
 - `documentation/content/{fr,en}/skills/*.md` ;
 - `config/documented_values.yaml` ;
-- `config/source_snapshot.json` ;
 - `website/src/` ;
-- les extracteurs spécialisés dans `tools/mythicwiki/`.
+- `tools/mythicwiki/`.
 
 À ne pas éditer :
 

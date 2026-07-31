@@ -17,6 +17,12 @@ from .systems_extract import (
     extract_progression_system,
     extract_skill_analysis,
 )
+from .v040_extract import (
+    extract_traveling_system,
+    extract_building_system,
+    extract_farming_system,
+    extract_woodcutting_system,
+)
 from .utils import tree_sha256, write_json
 
 
@@ -153,10 +159,14 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
         "fishing": extract_fishing_system(java_root, locales),
         "fighting": extract_fighting_system(java_root, locales),
         "crafting": extract_crafting_system(java_root, locales),
+        "traveling": extract_traveling_system(java_root, locales),
+        "building": extract_building_system(java_root, locales),
+        "farming": extract_farming_system(java_root, locales),
+        "woodcutting": extract_woodcutting_system(java_root, locales),
     }
 
     catalog = {
-        "schema_version": "0.3.0",
+        "schema_version": "0.4.0",
         "source": {
             "canonical_source": "src(92).zip",
             "received_archive": "src(92).zip",
@@ -206,6 +216,14 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
     for event_category in systems["crafting"]["lucky_blocks"]["categories"]:
         for event in event_category["events"]:
             search_entries.append({"type": "lucky_event", "id": event["id"], "title": event["names"], "url": "/skills/crafting/#lucky-blocks"})
+    for mount in systems["traveling"]["mounts"]["types"]:
+        search_entries.append({"type": "mount", "id": mount["id"], "title": mount["names"], "url": "/skills/traveling/#mounts"})
+    for module in systems["traveling"]["tools"]["monumental_compass"]["modules"]:
+        search_entries.append({"type": "structure_module", "id": module["id"], "title": module["names"], "url": "/skills/traveling/#structure-modules"})
+    for slab in systems["building"]["decorative_content"]["vertical_slabs"]["types"]:
+        search_entries.append({"type": "block", "id": slab["id"], "title": slab["names"], "url": "/skills/building/#vertical-slabs"})
+    for module in systems["woodcutting"]["chest_modules"]["tiers"]:
+        search_entries.append({"type": "item", "id": module["id"], "title": module["names"], "url": "/skills/woodcutting/#chest-modules"})
 
     encyclopedia = {
         "schema_version": catalog["schema_version"],
@@ -252,6 +270,25 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
                 "stations": systems["crafting"]["stations"],
                 "recycling_groups": systems["crafting"]["recycling"]["groups"],
             },
+            "traveling": {
+                "mounts": [{"id": mount["id"], "names": mount["names"], "flying": mount["flying"]} for mount in systems["traveling"]["mounts"]["types"]],
+                "vehicles": systems["traveling"]["vehicles"],
+            },
+            "building": {
+                "plans": systems["building"]["plans"],
+                "decorative_content": {
+                    "vertical_slab_count": len(systems["building"]["decorative_content"]["vertical_slabs"]["types"]),
+                    "static_effect_count": systems["building"]["decorative_content"]["static_decoration"]["effect_count"],
+                },
+            },
+            "farming": {
+                "harvest_categories": systems["farming"]["xp"]["harvest_categories"],
+                "objects": systems["farming"]["objects"],
+            },
+            "woodcutting": {
+                "xp": systems["woodcutting"]["xp"],
+                "chest_module_tiers": systems["woodcutting"]["chest_modules"]["tiers"],
+            },
         },
     }
 
@@ -281,6 +318,14 @@ def build_catalog(project_root: Path, source_root: Path) -> dict[str, Any]:
             "craft_transformations": len(systems["crafting"]["transformations"]["pairs"]),
             "craft_recycle_groups": len(systems["crafting"]["recycling"]["groups"]),
             "lucky_block_events": sum(len(category["events"]) for category in systems["crafting"]["lucky_blocks"]["categories"]),
+            "traveling_mounts": len(systems["traveling"]["mounts"]["types"]),
+            "traveling_structure_modules": len(systems["traveling"]["tools"]["monumental_compass"]["modules"]),
+            "building_xp_blocks": sum(len(group["blocks"]) for group in systems["building"]["xp"]["block_groups"]),
+            "building_vertical_slabs": len(systems["building"]["decorative_content"]["vertical_slabs"]["types"]),
+            "building_static_effects": systems["building"]["decorative_content"]["static_decoration"]["effect_count"],
+            "farming_harvest_categories": len(systems["farming"]["xp"]["harvest_categories"]),
+            "farming_living_field_blocks": len(systems["farming"]["growth"]["living_field"]["affected_blocks"]),
+            "woodcutting_chest_modules": len(systems["woodcutting"]["chest_modules"]["tiers"]),
         },
         "errors": errors,
         "warnings": warnings,

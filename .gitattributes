@@ -1,0 +1,11 @@
+* text=auto eol=lf
+
+# La copie de src(92) doit conserver ses octets exacts.
+mod-source/src/** -text
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
